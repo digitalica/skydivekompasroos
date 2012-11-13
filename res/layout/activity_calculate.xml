@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wolkenlucht" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/wolkenlucht"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textViewIntrotext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calculationIntrotext" />
+
+        <TextView
+            android:id="@+id/textViewWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calculationWarningText"
+            android:textColor="@color/Cat1Red" />
+
+        <TextView
+            android:id="@+id/textViewJumpsLast12MonthsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jumpsLast12MonthsLabel"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/buttonJumpLast12MonthsMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMin" />
+
+            <SeekBar
+                android:id="@+id/seekBarJumpsLast12Months"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonJumpLast12MonthsPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPlus" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewTotalJumpsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/totalJumpsLabel"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/buttonTotalJumpsMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMin" />
+
+            <SeekBar
+                android:id="@+id/seekBarTotalJumps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonTotalJumpsPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPlus" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewJumperCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/to_be_replaced" />
+
+        <TextView
+            android:id="@+id/textViewJumperCategoryDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/to_be_replaced" />
+
+        <TextView
+            android:id="@+id/textViewCanopyCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/to_be_replaced" />
+
+        <TextView
+            android:id="@+id/textViewWeightLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/weightLabel"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/buttonWeightMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMin" />
+
+            <SeekBar
+                android:id="@+id/seekBarWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonWeightPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnPlus" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewWingLoadTable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wingloadtableheader"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewArea1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewArea2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewArea3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewArea4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewArea5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewArea6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewWingLoad1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewWingLoad2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewWingLoad3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewWingLoad4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewWingLoad5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+
+                <TextView
+                    android:id="@+id/textViewWingLoad6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/to_be_replaced" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textViewCanopyAdvise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/to_be_replaced"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/buttonShowCanopyList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnShowCanopyList" />
+    </LinearLayout>
+
+</ScrollView>

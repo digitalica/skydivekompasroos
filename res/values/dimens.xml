@@ -1,0 +1,6 @@
+<resources>
+
+    <dimen name="header1">10pt</dimen>
+    <dimen name="bodyText">8pt</dimen>
+
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ReleasecableYellow">#FCFC00</color>
+    <color name="ReleasehandleRed">#FF4040</color>
+    <color name="Cat1Red">#da0b11</color>
+    <color name="Cat2Red">#f66568</color>
+    <color name="Cat3Red">#f9a4a5</color>
+    <color name="Cat4Red">#fdcbcc</color>
+    <color name="Cat5Red">#fedee1</color>
+
+</resources>

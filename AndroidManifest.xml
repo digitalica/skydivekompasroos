@@ -1,0 +1,35 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="nl.digitalica.skydivekompasroos"
+    android:versionCode="2"
+    android:versionName="0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".CalculateActivity"
+            android:label="@string/title_activity_calculate" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="AboutActivity"
+            android:label="@string/title_activity_about" >
+            >
+        </activity>
+        <activity
+            android:name="CanopyListActivity"
+            android:label="@string/title_activity_canopylist" >
+            >
+        </activity>
+        </application>
+
+</manifest>

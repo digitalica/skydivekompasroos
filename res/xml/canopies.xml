@@ -1,0 +1,309 @@
+<?xml version ="1.0" encoding = "utf-8"?>
+<canopies>
+
+    <canopy
+        name="Navigator"
+        category="1"
+        maker="Performance Designs" />
+    <canopy
+        name="PD F111 serie"
+        category="1"
+        maker="Performance Designs" />
+    <canopy
+        name="Sabre"
+        category="1"
+        maker="Performance Designs" />
+    <canopy
+        name="Solo"
+        category="1"
+        maker="Aerodyne-int" />
+    <canopy
+        name="Prima"
+        category="1"
+        maker="Parachutes de France" />
+    <canopy
+        name="Drakkar"
+        category="1"
+        maker="Parachutes de France" />
+    <canopy
+        name="Turob Voyager student"
+        category="1"
+        maker="Parachutes de France" />
+    <canopy
+        name="Raven"
+        category="1"
+        maker="Parachutes de France" />
+    <canopy
+        name="Super Raven"
+        category="1"
+        maker="Parachutes de France" />
+    <canopy
+        name="Falkon"
+        category="1"
+        maker="Parachutes de France" />
+    <canopy
+        name="Skymaster"
+        category="1"
+        maker="PISA" />
+    <canopy
+        name="Balance"
+        category="1"
+        maker="Paratec" />
+    <canopy
+        name="Maverick"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Fury"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Firelite"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Cricket"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Startrac"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Sharpshuter"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Raider"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Maverone"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Clipper"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Manta"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Manta ZP"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Cruislite"
+        category="1"
+        maker="Flight Concepts" />
+    <canopy
+        name="Eagle 7"
+        category="1"
+        maker="NAA" />
+    <canopy
+        name="Student ZP7"
+        category="1"
+        maker="Icarus" />
+    <canopy
+        name="Zepo Student"
+        category="1"
+        maker="Chute Shop" />
+    <canopy
+        name="Spark Student Hybride"
+        category="1"
+        maker="Fire Bird" />
+    <canopy
+        name="Sabre 2"
+        category="2"
+        maker="Performance Designs" />
+    <canopy
+        name="Lightning"
+        category="2"
+        maker="Performance Designs" />
+    <canopy
+        name="Storm"
+        category="2"
+        maker="Performance Designs" />
+    <canopy
+        name="Fustion"
+        category="2"
+        maker="Precision" />
+    <canopy
+        name="Sentry"
+        category="2"
+        maker="Flight Concepts" />
+    <canopy
+        name="Lotus"
+        category="2"
+        maker="Big-air sports" />
+    <canopy
+        name="Safire 1"
+        category="2"
+        maker="Icarus" />
+    <canopy
+        name="Safire 2"
+        category="2"
+        maker="Icarus" />
+    <canopy
+        name="Faqtor"
+        category="2"
+        maker="Paratec" />
+    <canopy
+        name="Hornet"
+        category="2"
+        maker="PISA" />
+    <canopy
+        name="Zepo exe"
+        category="2"
+        maker="Chute shop" />
+    <canopy
+        name="Spark"
+        category="2"
+        maker="Fire Bird" />
+    <canopy
+        name="Sabre 2"
+        category="3"
+        maker="Performance Designs" />
+    <canopy
+        name="Lightning"
+        category="3"
+        maker="Performance Designs" />
+    <canopy
+        name="Storm"
+        category="3"
+        maker="Performance Designs" />
+    <canopy
+        name="Fusion"
+        category="3"
+        maker="Precision" />
+    <canopy
+        name="Sentry"
+        category="3"
+        maker="Flight Concepts" />
+    <canopy
+        name="Lotus"
+        category="3"
+        maker="Big-air sports" />
+    <canopy
+        name="Safire 1"
+        category="3"
+        maker="Icarus" />
+    <canopy
+        name="Safire 2"
+        category="3"
+        maker="Icarus" />
+    <canopy
+        name="Z-po"
+        category="3"
+        maker="Strong" />
+    <canopy
+        name="Faqtor"
+        category="3"
+        maker="Paratec" />
+    <canopy
+        name="Hornet"
+        category="3"
+        maker="PISA" />
+    <canopy
+        name="Zepo exe"
+        category="3"
+        maker="Chute Shop" />
+    <canopy
+        name="Spark"
+        category="3"
+        maker="Fire Bird" />
+    <canopy
+        name="Stiletto"
+        category="4"
+        maker="Performance Designs" />
+    <canopy
+        name="BT"
+        category="4"
+        maker="parachutes de France" />
+    <canopy
+        name="Springo"
+        category="4"
+        maker="parachutes de France" />
+    <canopy
+        name="Electra XS"
+        category="4"
+        maker="parachutes de France" />
+    <canopy
+        name="Batwing"
+        category="4"
+        maker="Precision" />
+    <canopy
+        name="Jonathan"
+        category="4"
+        maker="Airtime" />
+    <canopy
+        name="Ace"
+        category="4"
+        maker="Atair Aerodynamics" />
+    <canopy
+        name="Cobalt"
+        category="4"
+        maker="Atair Aerodynamics" />
+    <canopy
+        name="Impulse"
+        category="4"
+        maker="Atair Aerodynamics" />
+    <canopy
+        name="Vision"
+        category="4"
+        maker="Aerodyne-int" />
+    <canopy
+        name="Diablo"
+        category="4"
+        maker="Aerodyne-int" />
+    <canopy
+        name="Rage"
+        category="4"
+        maker="Flight concepts" />
+    <canopy
+        name="Pro serie"
+        category="4"
+        maker="Flight concepts" />
+    <canopy
+        name="Fandango"
+        category="4"
+        maker="Paratec" />
+    <canopy
+        name="Contrail"
+        category="4"
+        maker="Fire Bird" />
+    <canopy
+        name="Heatwave"
+        category="4"
+        maker="PISA" />
+    <canopy
+        name="Hurricane"
+        category="4"
+        maker="Chute Shop" />
+    <canopy
+        name="Firebolt"
+        category="4"
+        maker="Jump Shack" />
+    <canopy
+        name="Katana"
+        category="5"
+        maker="Performance Designs" />
+    <canopy
+        name="Crossfire"
+        category="5"
+        maker="Icarus" />
+    <canopy
+        name="Mamba"
+        category="5"
+        maker="Aerodyne-int" />
+    <canopy
+        name="Radical"
+        category="5"
+        maker="Altair Aerodynamics" />
+    <canopy
+        name="Elk ander type"
+        category="6"
+        maker="Elke andere fabrikant" />
+
+</canopies>

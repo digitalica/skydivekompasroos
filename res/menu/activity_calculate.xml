@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_resetbeginner"
+        android:title="@string/menu_resetbeginner"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:orderInCategory="100" />
+    <item android:id="@+id/menu_resetnormal"
+        android:title="@string/menu_resetnormal"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:orderInCategory="100" />
+    <item android:id="@+id/menu_resetexpert"
+        android:title="@string/menu_resetexpert"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:orderInCategory="100" />
+    <item android:id="@+id/menu_about"
+        android:title="@string/menu_about"
+        android:icon="@android:drawable/ic_menu_help"
+        android:orderInCategory="100" />
+</menu>
