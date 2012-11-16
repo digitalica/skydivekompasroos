@@ -40,6 +40,7 @@
                 android:id="@+id/buttonJumpLast12MonthsMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_sb_updown"
                 android:text="@string/btnMin" />
 
             <SeekBar
@@ -47,12 +48,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/sb_progress"
+                android:thumb="@drawable/sb_thumb" />
 
             <Button
                 android:id="@+id/buttonJumpLast12MonthsPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_sb_updown"
                 android:text="@string/btnPlus" />
         </LinearLayout>
 
@@ -72,6 +76,7 @@
                 android:id="@+id/buttonTotalJumpsMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_sb_updown"
                 android:text="@string/btnMin" />
 
             <SeekBar
@@ -79,12 +84,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/sb_progress"
+                android:thumb="@drawable/sb_thumb" />
 
             <Button
                 android:id="@+id/buttonTotalJumpsPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_sb_updown"
                 android:text="@string/btnPlus" />
         </LinearLayout>
 
@@ -122,6 +130,7 @@
                 android:id="@+id/buttonWeightMin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_sb_updown"
                 android:text="@string/btnMin" />
 
             <SeekBar
@@ -129,12 +138,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/sb_progress"
+                android:thumb="@drawable/sb_thumb" />
 
             <Button
                 android:id="@+id/buttonWeightPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_sb_updown"
                 android:text="@string/btnPlus" />
         </LinearLayout>
 
@@ -258,7 +270,9 @@
             android:id="@+id/buttonShowCanopyList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_normal"
             android:text="@string/btnShowCanopyList" />
+
     </LinearLayout>
 
 </ScrollView>

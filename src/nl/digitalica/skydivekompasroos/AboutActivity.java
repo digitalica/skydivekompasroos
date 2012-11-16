@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class AboutActivity extends Activity {
+public class AboutActivity extends KompasroosBaseActivity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -2,5 +2,10 @@
 
     <dimen name="header1">10pt</dimen>
     <dimen name="bodyText">8pt</dimen>
+    <dimen name="sb_thumb_width">15dip</dimen>
+    <dimen name="sb_thumb_height">30dip</dimen>
+    <dimen name="btn_seekbar_updown_width">30dip</dimen>
+    <dimen name="btn_seekbar_updown_height">30dip</dimen>
+    <dimen name="btn_seekbar_updown_stroke">1px</dimen>
 
 </resources>

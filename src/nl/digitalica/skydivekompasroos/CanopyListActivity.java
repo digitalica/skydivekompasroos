@@ -8,21 +8,18 @@ import java.util.List;
 
 import org.xmlpull.v1.XmlPullParserException;
 
-import android.R.string;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager.LayoutParams;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class CanopyListActivity extends Activity {
+public class CanopyListActivity extends KompasroosBaseActivity {
 
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResult = new StringBuilder();
@@ -101,7 +98,6 @@ public class CanopyListActivity extends Activity {
 		Button shareResultButton = (Button) findViewById(R.id.buttonShareResult);
 		shareResultButton.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 
 				Intent sendIntent = new Intent();

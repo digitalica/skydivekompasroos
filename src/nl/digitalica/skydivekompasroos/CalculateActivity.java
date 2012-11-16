@@ -1,18 +1,16 @@
 package nl.digitalica.skydivekompasroos;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -22,11 +20,7 @@ import android.widget.TextView;
  * @author robbert
  * 
  */
-public class CalculateActivity extends Activity {
-
-	final static String KOMPASROOSPREFS = "Skydive_Kompasroos_Preferences";
-
-	final static String LOG_TAG = "SkydiveKompasRoos";
+public class CalculateActivity extends KompasroosBaseActivity {
 
 	// namen voor de verschillende settings
 	final static String SETTING_WEIGHT = "Weight"; // string
@@ -52,12 +46,6 @@ public class CalculateActivity extends Activity {
 	final static int WINGLOAD_FIRST_COL = 130;
 	final static int WINGLOAD_STEP = 20;
 
-	// class variables
-	SharedPreferences prefs;
-
-	int category = 0;
-	int minArea = 999;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -71,7 +59,6 @@ public class CalculateActivity extends Activity {
 		Button canopyListButton = (Button) findViewById(R.id.buttonShowCanopyList);
 		canopyListButton.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(getBaseContext(),
 						CanopyListActivity.class);
@@ -174,7 +161,6 @@ public class CalculateActivity extends Activity {
 		Button plusButton = (Button) findViewById(plusButtonId);
 		minButton.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// find matching seekbar
@@ -190,7 +176,6 @@ public class CalculateActivity extends Activity {
 		});
 		plusButton.setOnClickListener(new View.OnClickListener() {
 
-			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// find matching seekbar
@@ -217,13 +202,11 @@ public class CalculateActivity extends Activity {
 			calculate();
 		}
 
-		@Override
 		public void onStartTrackingTouch(SeekBar seekBar) {
 			// TODO Auto-generated method stub
 
 		}
 
-		@Override
 		public void onStopTrackingTouch(SeekBar seekBar) {
 			// TODO Auto-generated method stub
 
@@ -244,13 +227,11 @@ public class CalculateActivity extends Activity {
 			calculate();
 		}
 
-		@Override
 		public void onStartTrackingTouch(SeekBar seekBar) {
 			// TODO Auto-generated method stub
 
 		}
 
-		@Override
 		public void onStopTrackingTouch(SeekBar seekBar) {
 			// TODO Auto-generated method stub
 
@@ -271,13 +252,11 @@ public class CalculateActivity extends Activity {
 			calculate();
 		}
 
-		@Override
 		public void onStartTrackingTouch(SeekBar seekBar) {
 			// TODO Auto-generated method stub
 
 		}
 
-		@Override
 		public void onStopTrackingTouch(SeekBar seekBar) {
 			// TODO Auto-generated method stub
 
@@ -381,7 +360,8 @@ public class CalculateActivity extends Activity {
 		// now decide on minArea and maxWingload
 		int minArea = Calculation.minArea(jumperCategory, weightInKg);
 
-		// only update screen if there actually is a change, so speedbars respond quickly
+		// only update screen if there actually is a change, so speedbars
+		// respond quickly
 		if (this.category != jumperCategory || this.minArea != minArea) {
 			TextView tvJumperCategory = (TextView) findViewById(R.id.textViewJumperCategory);
 			String jumperCatFormat = getString(R.string.categorySetting);

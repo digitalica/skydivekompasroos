@@ -62,7 +62,7 @@ public class Calculation {
 	 * @param jumperCategory
 	 * @return
 	 */
-	static public int minAreaBasedOnCagetory(int jumperCategory) {
+	static public int minAreaBasedOnCategory(int jumperCategory) {
 		int minAreaBasedOnCategory = 999;
 
 		switch (jumperCategory) {
@@ -76,7 +76,7 @@ public class Calculation {
 			minAreaBasedOnCategory = 150;
 			break;
 		case 4:
-			minAreaBasedOnCategory = 145;
+			minAreaBasedOnCategory = 135;
 			break;
 		case 5:
 			minAreaBasedOnCategory = 120;
@@ -94,7 +94,7 @@ public class Calculation {
 	 * @param jumperCategory
 	 * @return
 	 */
-	static public double maxWingLoadBasedOnCagetory(int jumperCategory) {
+	static public double maxWingLoadBasedOnCategory(int jumperCategory) {
 		double maxWingload = 9;
 
 		switch (jumperCategory) {
@@ -129,8 +129,8 @@ public class Calculation {
 	 * @return
 	 */
 	static public int minArea(int jumperCategory, int exitWeightInKg) {
-		double maxWingload = maxWingLoadBasedOnCagetory(jumperCategory);
-		int minAreaBasedOnCategory = minAreaBasedOnCagetory(jumperCategory);
+		double maxWingload = maxWingLoadBasedOnCategory(jumperCategory);
+		int minAreaBasedOnCategory = minAreaBasedOnCategory(jumperCategory);
 		int minAreaBasedOnExitWeight = (int) Math.round(kgToLbs(exitWeightInKg)
 				/ maxWingload);
 

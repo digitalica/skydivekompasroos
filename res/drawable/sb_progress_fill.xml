@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <gradient
+        android:angle="90"
+        android:centerColor="@color/ReleasecableYellow"
+        android:endColor="@color/ReleasecableYellowSaturation50"
+        android:startColor="@color/ReleasecableYellowSaturation50" />
+
+    <corners android:radius="5px" />
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/ReleasecableYellow" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/ReleasecableYellow" />
+
+</shape>
