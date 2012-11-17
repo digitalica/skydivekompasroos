@@ -23,6 +23,7 @@
     <canopy
         name="Prima"
         category="1"
+        cells="9"
         manufacturer="Parachutes de France" />
     <canopy
         name="Drakkar"
@@ -47,7 +48,8 @@
     <canopy
         name="Skymaster"
         category="1"
-        manufacturer="PISA" />
+        manufacturer="PISA"
+        url="http://www.pisa.co.za/default.aspx?id=31" />
     <canopy
         name="Balance"
         category="1"
@@ -391,16 +393,19 @@
         name="Express"
         category="6"
         manufacturer="Flight Concepts"
+        remark="CATEGORY UNKNOWN"
         url="http://flightconceptsint.com/zp-main/express" />
     <canopy
         name="Prodigy"
-        category="?"
+        category="6"
         manufacturer="Flight Concepts"
+        remark="CATEGORY UNKNOWN"
         url="http://flightconceptsint.com/zp-main/prodigy" />
     <canopy
         name="Sensei"
         category="6"
         cells="21"
-        manufacturer="Aerodyne-int" />
+        manufacturer="Aerodyne-int"
+        remark="CATEGORY UNKNOWN" />
 
 </canopies>

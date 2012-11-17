@@ -13,8 +13,11 @@ import android.content.Intent;
 import android.content.res.XmlResourceParser;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -97,27 +100,46 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// add onclick handler to button
 		Button shareResultButton = (Button) findViewById(R.id.buttonShareResult);
 		shareResultButton.setOnClickListener(new View.OnClickListener() {
-
 			public void onClick(View v) {
-
-				Intent sendIntent = new Intent();
-				sendIntent.setAction(Intent.ACTION_SEND);
-				sendIntent.putExtra(Intent.EXTRA_TEXT,
-						CanopyListActivity.skydiveKompasroosResult());
-				sendIntent.putExtra(Intent.EXTRA_SUBJECT,
-						getString(R.string.shareresultsubject));
-				sendIntent.putExtra(Intent.EXTRA_TITLE,
-						getString(R.string.shareresultsubject));
-				sendIntent.setType("text/plain");
-				startActivity(sendIntent);
-
+				shareResult();
 			}
+
 		});
 
 	}
 
 	static String skydiveKompasroosResult() {
 		return skydiveKompasroosResult.toString();
+	}
+
+	private void shareResult() {
+		Intent sendIntent = new Intent();
+		sendIntent.setAction(Intent.ACTION_SEND);
+		sendIntent.putExtra(Intent.EXTRA_TEXT,
+				CanopyListActivity.skydiveKompasroosResult());
+		sendIntent.putExtra(Intent.EXTRA_SUBJECT,
+				getString(R.string.shareresultsubject));
+		sendIntent.putExtra(Intent.EXTRA_TITLE,
+				getString(R.string.shareresultsubject));
+		sendIntent.setType("text/plain");
+		startActivity(sendIntent);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_canopylist, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_shareResult:
+			shareResult();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 	/***
