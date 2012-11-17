@@ -1,309 +1,368 @@
 <?xml version ="1.0" encoding = "utf-8"?>
 <canopies>
 
+    <!-- CATEGORY 1 -->
+
     <canopy
         name="Navigator"
         category="1"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=na" />
     <canopy
         name="PD F111 serie"
         category="1"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs" />
     <canopy
         name="Sabre"
         category="1"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs" />
     <canopy
         name="Solo"
         category="1"
-        maker="Aerodyne-int" />
+        manufacturer="Aerodyne-int" />
     <canopy
         name="Prima"
         category="1"
-        maker="Parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Drakkar"
         category="1"
-        maker="Parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
-        name="Turob Voyager student"
+        name="Turbo Voyager student"
         category="1"
-        maker="Parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Raven"
         category="1"
-        maker="Parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Super Raven"
         category="1"
-        maker="Parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Falkon"
         category="1"
-        maker="Parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Skymaster"
         category="1"
-        maker="PISA" />
+        manufacturer="PISA" />
     <canopy
         name="Balance"
         category="1"
-        maker="Paratec" />
+        manufacturer="Paratec"
+        url="http://www.paratec.de/produkte-fallschirme/hauptschirme/balance/" />
     <canopy
         name="Maverick"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Fury"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Firelite"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Cricket"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Startrac"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Sharpshuter"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Raider"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Maverone"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Clipper"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Manta"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Manta ZP"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/zp-main/zp-manta" />
     <canopy
         name="Cruislite"
         category="1"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts" />
     <canopy
         name="Eagle 7"
         category="1"
-        maker="NAA" />
+        manufacturer="NAA" />
     <canopy
         name="Student ZP7"
         category="1"
-        maker="Icarus" />
+        manufacturer="Icarus" />
     <canopy
         name="Zepo Student"
         category="1"
-        maker="Chute Shop" />
+        manufacturer="Chute Shop" />
     <canopy
         name="Spark Student Hybride"
         category="1"
-        maker="Fire Bird" />
+        manufacturer="Firebird" />
+
+    <!-- CATEGORY 2 -->
+
+    <canopy
+        name="Electra"
+        category="2"
+        manufacturer="parachutes de France" />
+    <canopy
+        name="Merit"
+        category="2"
+        manufacturer="parachutes de France" />
+    <canopy
+        name="Pilot"
+        category="2"
+        manufacturer="Aerodyne-int" />
+    <canopy
+        name="Triathlon"
+        category="2"
+        manufacturer="Aerodyne-int"
+        url="http://www.flyaerodyne.com/triathlon.html" />
+    <canopy
+        name="Eagle 9-cell ParaFoil"
+        category="2"
+        manufacturer="NAA" />
+    <canopy
+        name="Super 7"
+        category="2"
+        manufacturer="Paratec" />
+    <canopy
+        name="Quadra V"
+        category="2"
+        manufacturer="Paratec" />
+    <canopy
+        name="V-Tec"
+        category="2"
+        manufacturer="Paratec" />
+    <canopy
+        name="Spectre"
+        category="2"
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=sp" />
+    <canopy
+        name="Silhouette"
+        category="2"
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=si" />
+    <canopy
+        name="Zero"
+        category="2"
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/zero.asp" />
+    <canopy
+        name="Pulse"
+        category="2"
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=pl" />
+    <canopy
+        name="Synergy"
+        category="2"
+        manufacturer="Precision"
+        url="http://www.precision.aero/synergy.htm" />
+    <canopy
+        name="Omni"
+        category="2"
+        manufacturer="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=1&amp;Itemid=11" />
+    <canopy
+        name="Omega"
+        category="2"
+        manufacturer="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=13&amp;Itemid=10" />
+    <canopy
+        name="Cayenne"
+        category="2"
+        manufacturer="Firebird" />
+    <canopy
+        name="Dragon"
+        category="2"
+        manufacturer="Atair Aerodynamics"
+        url="http://www.basetroll.com/products_4.html" />
+    <!-- CATEGORY 3 -->
     <canopy
         name="Sabre 2"
-        category="2"
-        maker="Performance Designs" />
-    <canopy
-        name="Lightning"
-        category="2"
-        maker="Performance Designs" />
-    <canopy
-        name="Storm"
-        category="2"
-        maker="Performance Designs" />
-    <canopy
-        name="Fustion"
-        category="2"
-        maker="Precision" />
-    <canopy
-        name="Sentry"
-        category="2"
-        maker="Flight Concepts" />
-    <canopy
-        name="Lotus"
-        category="2"
-        maker="Big-air sports" />
-    <canopy
-        name="Safire 1"
-        category="2"
-        maker="Icarus" />
-    <canopy
-        name="Safire 2"
-        category="2"
-        maker="Icarus" />
-    <canopy
-        name="Faqtor"
-        category="2"
-        maker="Paratec" />
-    <canopy
-        name="Hornet"
-        category="2"
-        maker="PISA" />
-    <canopy
-        name="Zepo exe"
-        category="2"
-        maker="Chute shop" />
-    <canopy
-        name="Spark"
-        category="2"
-        maker="Fire Bird" />
-    <canopy
-        name="Sabre 2"
         category="3"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=sa" />
     <canopy
         name="Lightning"
         category="3"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=ps" />
     <canopy
         name="Storm"
         category="3"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=tf" />
     <canopy
         name="Fusion"
         category="3"
-        maker="Precision" />
+        manufacturer="Precision"
+        url="http://www.precision.aero/fusion.htm" />
     <canopy
         name="Sentry"
         category="3"
-        maker="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/zp-main/sentry" />
     <canopy
         name="Lotus"
         category="3"
-        maker="Big-air sports" />
+        manufacturer="Big-air sports"
+        url="http://www.bigairsportz.com/lotus.php" />
     <canopy
         name="Safire 1"
         category="3"
-        maker="Icarus" />
+        manufacturer="Icarus" />
     <canopy
         name="Safire 2"
         category="3"
-        maker="Icarus" />
+        manufacturer="Icarus"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=3&amp;Itemid=9" />
     <canopy
         name="Z-po"
         category="3"
-        maker="Strong" />
+        manufacturer="Strong"
+        url="http://www.strongparachutes.com/pages/Sport/spmain.html" />
     <canopy
         name="Faqtor"
         category="3"
-        maker="Paratec" />
+        manufacturer="Paratec"
+        url="http://www.paratec.de/en/products-parachutes/main-canopies/50/" />
     <canopy
         name="Hornet"
         category="3"
-        maker="PISA" />
+        manufacturer="PISA" />
     <canopy
         name="Zepo exe"
         category="3"
-        maker="Chute Shop" />
+        manufacturer="Chute Shop" />
     <canopy
         name="Spark"
         category="3"
-        maker="Fire Bird" />
+        manufacturer="Firebird" />
+
+    <!-- CATEGORY 4 -->
+
     <canopy
         name="Stiletto"
         category="4"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=st" />
     <canopy
         name="BT"
         category="4"
-        maker="parachutes de France" />
+        manufacturer="parachutes de France" />
     <canopy
         name="Springo"
         category="4"
-        maker="parachutes de France" />
+        manufacturer="parachutes de France" />
     <canopy
         name="Electra XS"
         category="4"
-        maker="parachutes de France" />
+        manufacturer="parachutes de France" />
     <canopy
         name="Batwing"
         category="4"
-        maker="Precision" />
+        manufacturer="Precision" />
     <canopy
         name="Jonathan"
         category="4"
-        maker="Airtime" />
+        manufacturer="Airtime" />
     <canopy
         name="Ace"
         category="4"
-        maker="Atair Aerodynamics" />
+        manufacturer="Atair Aerodynamics" />
     <canopy
         name="Cobalt"
         category="4"
-        maker="Atair Aerodynamics" />
+        manufacturer="Atair Aerodynamics" />
     <canopy
         name="Impulse"
         category="4"
-        maker="Atair Aerodynamics" />
+        manufacturer="Atair Aerodynamics" />
     <canopy
         name="Vision"
         category="4"
-        maker="Aerodyne-int" />
+        manufacturer="Aerodyne-int" />
     <canopy
         name="Diablo"
         category="4"
-        maker="Aerodyne-int" />
+        manufacturer="Aerodyne-int" />
     <canopy
         name="Rage"
         category="4"
-        maker="Flight concepts" />
+        manufacturer="Flight concepts"
+        url="http://flightconceptsint.com/zp-main/rage" />
     <canopy
         name="Pro serie"
         category="4"
-        maker="Flight concepts" />
+        manufacturer="Flight concepts" />
     <canopy
         name="Fandango"
         category="4"
-        maker="Paratec" />
+        manufacturer="Paratec" />
     <canopy
         name="Contrail"
         category="4"
-        maker="Fire Bird" />
+        manufacturer="Firebird" />
     <canopy
         name="Heatwave"
         category="4"
-        maker="PISA" />
+        manufacturer="PISA" />
     <canopy
         name="Hurricane"
         category="4"
-        maker="Chute Shop" />
+        manufacturer="Chute Shop"
+        url="http://www.parachutesystems.co.za/hurricane_elliptical" />
     <canopy
         name="Firebolt"
         category="4"
-        maker="Jump Shack" />
+        manufacturer="Jump Shack"
+        url="http://www.jumpshack.com/firebolt.htm" />
+
+    <!-- CATEGORY 5 -->
+
     <canopy
         name="Katana"
         category="5"
-        maker="Performance Designs" />
+        manufacturer="Performance Designs"
+        url="http://www.performancedesigns.com/products.asp?product=ka" />
     <canopy
         name="Crossfire"
         category="5"
-        maker="Icarus" />
+        manufacturer="Icarus" />
     <canopy
         name="Mamba"
         category="5"
-        maker="Aerodyne-int" />
+        manufacturer="Aerodyne-int" />
     <canopy
         name="Radical"
         category="5"
-        maker="Altair Aerodynamics" />
+        manufacturer="Atair Aerodynamics" />
+
+    <!-- CATEGORY 6 -->
+
     <canopy
         name="Elk ander type"
         category="6"
-        maker="Elke andere fabrikant" />
+        manufacturer="Elke andere fabrikant" />
 
 </canopies>

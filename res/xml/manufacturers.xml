@@ -1,0 +1,53 @@
+<?xml version ="1.0" encoding = "utf-8"?>
+<manufacturers>
+
+    <manufacturer
+        name="Aerodyne-int"
+        url="http://www.flyaerodyne.com" />
+    <manufacturer
+        name="Airtime"
+        url="" />
+    <manufacturer
+        name="Atair Aerodynamics"
+        url="http://www.atairaerodynamics.com/" />
+    <manufacturer
+        name="Big-air sports"
+        url="http://www.bigairsportz.com/" />
+    <manufacturer
+        name="Chute Shop"
+        url="" />
+    <manufacturer
+        name="Firebird"
+        url="http://cms.flyfirebird.com/" />
+    <manufacturer
+        name="Flight Concepts"
+        url="http://flightconceptsint.com/" />
+    <manufacturer
+        name="Icarus"
+        url="http://www.icaruscanopies.aero/" />
+    <manufacturer
+        name="Jump Shack"
+        url="http://www.jumpshack.com/" />
+    <manufacturer
+        name="NAA"
+        url="http://www.naaero.com/" />
+    <manufacturer
+        name="Parachutes de France"
+        url="http://www.parachutes-de-france.net/en" />
+    <manufacturer
+        name="Paratec"
+        url="http://www.paratec.de/" />
+    <manufacturer
+        name="Performance Designs"
+        url="http://www.performancedesigns.com/" />
+    <manufacturer
+        name="PISA"
+        url="" />
+    <manufacturer
+        name="Precision"
+        url="http://www.precision.aero/" />
+    <manufacturer
+        name="Strong"
+        url="http://www.strongparachutes.com/" />
+
+</manufacturers>

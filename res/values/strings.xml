@@ -32,7 +32,7 @@
     <string name="calculationWarningText">Let op: deze app is nog in testfase! Er kunnen geen rechten aan worden ontleend.\n\n</string>
     <string name="calculationOvertimeWarning">Let op: deze applicatie is meer dan 1 jaar oud en mogelijk niet meer up to date!</string>
     <string name="canopyType">type</string>
-    <string name="canopyMaker">fabrikant</string>
+    <string name="canopyManufacturer">fabrikant</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
     <string name="shareresultsubject">Skydive kompasroos resultaat</string>
     <string name="shareresultheaderformat">Uw ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat u mag springen met parachutes uit categorie %4$d met een minimale oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
