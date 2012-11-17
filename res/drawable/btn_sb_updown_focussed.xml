@@ -19,7 +19,7 @@
         android:startColor="@color/ReleasehandleRedSaturation50" />
 
     <stroke
-        android:width="@dimen/btn_seekbar_updown_width"
+        android:width="@dimen/btn_seekbar_updown_stroke"
         android:color="@color/ReleasehandleRedSaturation25" />
 
     <corners android:radius="5dip" />

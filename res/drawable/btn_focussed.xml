@@ -14,13 +14,13 @@
 
     <gradient
         android:angle="270"
-        android:centerColor="@color/Cat5Blue"
-        android:endColor="@color/Cat3Blue"
-        android:startColor="@color/Cat5Blue" />
+        android:centerColor="@color/Cat1Blue"
+        android:endColor="@color/Cat4Blue"
+        android:startColor="@color/Cat4Blue" />
 
     <stroke
-        android:width="@dimen/btn_seekbar_updown_width"
-        android:color="@color/ReleasehandleRedSaturation25" />
+        android:width="@dimen/btn_seekbar_updown_stroke"
+        android:color="@color/Cat1Blue" />
 
     <corners android:radius="5dip" />
 
