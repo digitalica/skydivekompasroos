@@ -60,35 +60,43 @@
     <canopy
         name="Fury"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Firelite"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Cricket"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Startrac"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Sharpshuter"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Raider"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/9-cell-classic" />
     <canopy
         name="Maverone"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/9-cell-classic" />
     <canopy
         name="Clipper"
         category="1"
-        manufacturer="Flight Concepts" />
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/classic/9-cell-classic" />
     <canopy
         name="Manta"
         category="1"
@@ -124,7 +132,9 @@
     <canopy
         name="Electra"
         category="2"
-        manufacturer="parachutes de France" />
+        cells="9"
+        manufacturer="parachutes de France"
+        url="http://www.parachutes-de-france.net/en/products/main-canopies/21/electra.html" />
     <canopy
         name="Merit"
         category="2"
@@ -136,18 +146,20 @@
     <canopy
         name="Triathlon"
         category="2"
+        cells="7"
         manufacturer="Aerodyne-int"
         url="http://www.flyaerodyne.com/triathlon.html" />
     <canopy
         name="Eagle 9-cell ParaFoil"
         category="2"
+        cells="9"
         manufacturer="NAA" />
     <canopy
         name="Super 7"
         category="2"
         manufacturer="Paratec" />
     <canopy
-        name="Quadra V"
+        name="Quadra"
         category="2"
         manufacturer="Paratec" />
     <canopy
@@ -157,6 +169,7 @@
     <canopy
         name="Spectre"
         category="2"
+        cells="7"
         manufacturer="Performance Designs"
         url="http://www.performancedesigns.com/products.asp?product=sp" />
     <canopy
@@ -172,6 +185,7 @@
     <canopy
         name="Pulse"
         category="2"
+        cells="9"
         manufacturer="Performance Designs"
         url="http://www.performancedesigns.com/products.asp?product=pl" />
     <canopy
@@ -196,10 +210,13 @@
         category="2"
         manufacturer="Atair Aerodynamics"
         url="http://www.basetroll.com/products_4.html" />
+
     <!-- CATEGORY 3 -->
+
     <canopy
         name="Sabre 2"
         category="3"
+        cells="9"
         manufacturer="Performance Designs"
         url="http://www.performancedesigns.com/products.asp?product=sa" />
     <canopy
@@ -210,6 +227,7 @@
     <canopy
         name="Storm"
         category="3"
+        cells="7"
         manufacturer="Performance Designs"
         url="http://www.performancedesigns.com/products.asp?product=tf" />
     <canopy
@@ -343,6 +361,7 @@
     <canopy
         name="Katana"
         category="5"
+        cells="9"
         manufacturer="Performance Designs"
         url="http://www.performancedesigns.com/products.asp?product=ka" />
     <canopy
@@ -352,6 +371,7 @@
     <canopy
         name="Mamba"
         category="5"
+        cells="9"
         manufacturer="Aerodyne-int" />
     <canopy
         name="Radical"
@@ -364,5 +384,23 @@
         name="Elk ander type"
         category="6"
         manufacturer="Elke andere fabrikant" />
+
+    <!-- CATEGORY UNKNOWN -->
+
+    <canopy
+        name="Express"
+        category="6"
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/zp-main/express" />
+    <canopy
+        name="Prodigy"
+        category="?"
+        manufacturer="Flight Concepts"
+        url="http://flightconceptsint.com/zp-main/prodigy" />
+    <canopy
+        name="Sensei"
+        category="6"
+        cells="21"
+        manufacturer="Aerodyne-int" />
 
 </canopies>
