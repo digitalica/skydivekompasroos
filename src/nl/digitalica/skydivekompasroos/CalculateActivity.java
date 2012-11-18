@@ -76,6 +76,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			public void onClick(View v) {
 				Intent i = new Intent(getBaseContext(),
 						CanopyListActivity.class);
+				// TODO: remove extras as they will be in global vars...
 				i.putExtra("CATEGORY", category);
 				i.putExtra("TOTALJUMPS",
 						((SeekBar) findViewById(R.id.seekBarTotalJumps))
@@ -92,6 +93,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			}
 		});
 
+		// Just for testing the canopy list
+		canopyListButton.performClick();
 	}
 
 	@Override

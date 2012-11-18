@@ -13,11 +13,13 @@
     <color name="Gray75">#bfbfbf</color>
     <color name="Gray90">#e6e6e6</color>
     <color name="Cat1Red">#da0b11</color>
+    <color name="Cat1RedTransparent">#80da0b11</color>
     <color name="Cat2Red">#f66568</color>
     <color name="Cat3Red">#f9a4a5</color>
     <color name="Cat4Red">#fdcbcc</color>
     <color name="Cat5Red">#fedee1</color>
     <color name="Cat1Green">#11B209</color>
+    <color name="Cat1GreenTransparent">#8011B209</color>
     <color name="Cat2Green">#58C953</color>
     <color name="Cat3Green">#83C783</color>
     <color name="Cat4Green">#ADD5AB</color>

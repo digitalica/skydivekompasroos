@@ -5,6 +5,7 @@
     <string name="title_activity_calculate">Skydive kompasroos</string>
     <string name="title_activity_about">Over Skydive kompasroos</string>
     <string name="title_activity_canopylist">Skydive kompasroos parachutes</string>
+    <string name="title_activity_canopydetails">Skydive kompasroos parachute gegevens</string>
     <string name="to_be_replaced"></string>
     <string name="weightLabel">Exitgewicht</string>
     <string name="weightSetting">: %1$d kg (%2$d lbs)</string>
@@ -44,6 +45,10 @@
     <string name="reset_name_beginner">Een beginner</string>
     <string name="reset_name_intermediate">Gemiddelde springer</string>
     <string name="reset_name_skygod">Sky God</string>
+    <string name="detailsmanufacturer">Fabrikant:</string>
+    <string name="detailsUrl">Website:</string>
+    <string name="detailsCategory">Categorie:</string>
+    <string name="detailsRemarks">Bijzonderheden:</string>
     <string name="saveDialogHeader">Sla gegevens op als:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
 

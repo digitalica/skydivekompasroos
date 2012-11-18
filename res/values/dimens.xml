@@ -1,7 +1,11 @@
 <resources>
 
-    <dimen name="header1">10pt</dimen>
-    <dimen name="bodyText">8pt</dimen>
+    <dimen name="bodyText">10sp</dimen>
+    <dimen name="canopylistCategory">20sp</dimen>
+    <dimen name="canopylistCanopyName">12sp</dimen>
+    <dimen name="canopylistCanopyDetails">8sp</dimen>
+    <dimen name="canopydetailsName">20sp</dimen>
+    <dimen name="canopydetailsDetails">12sp</dimen>
     <dimen name="sb_thumb_width">15dip</dimen>
     <dimen name="sb_thumb_height">30dip</dimen>
     <dimen name="btn_seekbar_updown_width">30dip</dimen>

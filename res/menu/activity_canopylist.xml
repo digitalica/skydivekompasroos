@@ -5,5 +5,10 @@
         android:icon="@android:drawable/ic_menu_share"
         android:orderInCategory="100"
         android:title="@string/btnShareResult"/>
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@android:drawable/ic_menu_help"
+        android:orderInCategory="100"
+        android:title="@string/menu_about"/>
 
 </menu>

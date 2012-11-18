@@ -30,6 +30,10 @@
             android:label="@string/title_activity_canopylist" >
             >
         </activity>
-        </application>
+        <activity
+            android:name="CanopyDetailsActivity"
+            android:label="@string/title_activity_canopydetails" >
+        </activity>
+    </application>
 
 </manifest>
