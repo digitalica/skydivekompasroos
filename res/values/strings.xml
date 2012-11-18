@@ -20,6 +20,8 @@
     <string name="menu_resetbeginner">Reset als beginner</string>
     <string name="menu_resetnormal">Reset</string>
     <string name="menu_resetexpert">Reset als skygod</string>
+    <string name="menu_reset">Reset</string>
+    <string name="menu_save">Opslaan</string>
     <string name="menu_about">Over de Skydive kompasroos App</string>
     <string name="btnShowCanopyList">Toon geschikte parachutes</string>
     <string name="canopyListHeader">\nCategorie %1$d</string>
@@ -37,6 +39,13 @@
     <string name="shareresultsubject">Skydive kompasroos resultaat</string>
     <string name="shareresultheaderformat">Uw ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat u mag springen met parachutes uit categorie %4$d met een minimale oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
     <string name="shareresultfooter">\n\n\nSamengesteld door Skydive Kompasroos Android app van Digitalica</string>
+    <string name="reset_name_own">Uzelf</string>
+    <string name="reset_name_friend">Een vriend</string>
+    <string name="reset_name_beginner">Een beginner</string>
+    <string name="reset_name_intermediate">Gemiddelde springer</string>
+    <string name="reset_name_skygod">Sky God</string>
+    <string name="saveDialogHeader">Sla gegevens op als:</string>
+    <string name="resetDialogHeader">Reset naar instellingen van:</string>
 
     <string-array name="canopyCategories">
         <item>Unknown</item>

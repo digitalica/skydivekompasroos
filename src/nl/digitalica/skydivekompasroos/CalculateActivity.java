@@ -1,12 +1,16 @@
 package nl.digitalica.skydivekompasroos;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,9 +27,15 @@ import android.widget.TextView;
 public class CalculateActivity extends KompasroosBaseActivity {
 
 	// namen voor de verschillende settings
-	final static String SETTING_WEIGHT = "Weight"; // string
+	final static String SETTING_WEIGHT = "Weight"; // int
 	final static String SETTING_TOTAL_JUMPS = "TotalJumps"; // int
 	final static String SETTING_JUMPS_LAST_12_MONTHS = "JumpsLast12Months"; // int
+	final static String SETTING_OWN_WEIGHT = "OwnWeight";
+	final static String SETTING_OWN_TOTAL_JUMPS = "OwnTotalJumps";
+	final static String SETTING_OWN_LAST_12_MONTHS = "OwnJumpsLast12Months";
+	final static String SETTING_FRIEND_WEIGHT = "FriendWeight";
+	final static String SETTING_FRIEND_TOTAL_JUMPS = "FriendTotalJumps";
+	final static String SETTING_FRIEND_LAST_12_MONTHS = "FriendJumpsLast12Months";
 
 	// min & max weight in kg
 	final static int WEIGHT_MIN = 80;
@@ -45,6 +55,10 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	// wingload table
 	final static int WINGLOAD_FIRST_COL = 130;
 	final static int WINGLOAD_STEP = 20;
+
+	// dialog ID's
+	final static int SAVE_DIALOG_ID = 1;
+	final static int RESET_DIALOG_ID = 2;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +95,143 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	}
 
 	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+		case SAVE_DIALOG_ID:
+			return saveDialog();
+		case RESET_DIALOG_ID:
+			return resetDialog();
+
+		}
+		return null;
+	}
+
+	private Dialog saveDialog() {
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = inflater.inflate(R.layout.save_dialog,
+				(ViewGroup) findViewById(R.id.root));
+		Button asFriend = (Button) layout.findViewById(R.id.buttonFriend);
+		Button asOwn = (Button) layout.findViewById(R.id.buttonOwn);
+		// TODO: add onclick handlers to buttons
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setView(layout);
+		builder.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// We forcefully dismiss and remove the Dialog, so it
+						// cannot be used again (no cached info)
+						CalculateActivity.this.removeDialog(SAVE_DIALOG_ID);
+					}
+				});
+		asFriend.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				prefs = getSharedPreferences(KOMPASROOSPREFS,
+						Context.MODE_PRIVATE);
+				Editor e = prefs.edit();
+				e.putInt(SETTING_FRIEND_TOTAL_JUMPS, currentTotalJumps);
+				e.putInt(SETTING_FRIEND_LAST_12_MONTHS,
+						currentJumpsInLast12Months);
+				e.putInt(SETTING_FRIEND_WEIGHT, currentWeight);
+				e.commit();
+				CalculateActivity.this.removeDialog(SAVE_DIALOG_ID);
+			}
+		});
+		asOwn.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				prefs = getSharedPreferences(KOMPASROOSPREFS,
+						Context.MODE_PRIVATE);
+				Editor e = prefs.edit();
+				e.putInt(SETTING_OWN_TOTAL_JUMPS, currentTotalJumps);
+				e.putInt(SETTING_OWN_LAST_12_MONTHS, currentJumpsInLast12Months);
+				e.putInt(SETTING_OWN_WEIGHT, currentWeight);
+				e.commit();
+				CalculateActivity.this.removeDialog(SAVE_DIALOG_ID);
+			}
+		});
+		return builder.create();
+	}
+
+	private Dialog resetDialog() {
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = inflater.inflate(R.layout.reset_dialog,
+				(ViewGroup) findViewById(R.id.root));
+		Button asBeginner = (Button) layout.findViewById(R.id.buttonBeginner);
+		Button asIntermediate = (Button) layout
+				.findViewById(R.id.buttonIntermediate);
+		Button asSkyGod = (Button) layout.findViewById(R.id.buttonSkyGod);
+		Button asFriend = (Button) layout.findViewById(R.id.buttonFriend);
+		Button asOwn = (Button) layout.findViewById(R.id.buttonOwn);
+		// TODO: add onclick handlers to buttons
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setView(layout);
+		builder.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// We forcefully dismiss and remove the Dialog, so it
+						// cannot be used again (no cached info)
+						CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
+					}
+				});
+		asBeginner.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setSeekBars(WEIGHT_DEFAULT - WEIGHT_MIN, 5, 5);
+				CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
+			}
+		});
+		asIntermediate.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setSeekBars(WEIGHT_DEFAULT - WEIGHT_MIN, TOTALJUMPS_DEFAULT,
+						JUMPS_LAST_12_MONTHS_DEFAULT);
+				CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
+			}
+		});
+		asSkyGod.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				setSeekBars(WEIGHT_DEFAULT - WEIGHT_MIN, 1200, 200);
+				CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
+			}
+
+		});
+		asFriend.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				prefs = getSharedPreferences(KOMPASROOSPREFS,
+						Context.MODE_PRIVATE);
+				int weight = prefs
+						.getInt(SETTING_FRIEND_WEIGHT, WEIGHT_DEFAULT);
+				int totalJumps = prefs.getInt(SETTING_FRIEND_TOTAL_JUMPS,
+						TOTALJUMPS_DEFAULT);
+				int jumpsLastMonth = prefs.getInt(
+						SETTING_FRIEND_LAST_12_MONTHS,
+						JUMPS_LAST_12_MONTHS_DEFAULT);
+				setSeekBars(weight - WEIGHT_MIN, totalJumps, jumpsLastMonth);
+				CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
+			}
+		});
+		asOwn.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				prefs = getSharedPreferences(KOMPASROOSPREFS,
+						Context.MODE_PRIVATE);
+				int weight = prefs.getInt(SETTING_OWN_WEIGHT, WEIGHT_DEFAULT);
+				int totalJumps = prefs.getInt(SETTING_OWN_TOTAL_JUMPS,
+						TOTALJUMPS_DEFAULT);
+				int jumpsLastMonth = prefs.getInt(SETTING_OWN_LAST_12_MONTHS,
+						JUMPS_LAST_12_MONTHS_DEFAULT);
+				setSeekBars(weight - WEIGHT_MIN, totalJumps, jumpsLastMonth);
+				CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
+			}
+		});
+		return builder.create();
+	}
+
+	private void setSeekBars(int weight, int totalJumps, int jumpsLast12Months) {
+		((SeekBar) findViewById(R.id.seekBarWeight)).setProgress(weight);
+		((SeekBar) findViewById(R.id.seekBarTotalJumps))
+				.setProgress(totalJumps);
+		((SeekBar) findViewById(R.id.seekBarJumpsLast12Months))
+				.setProgress(jumpsLast12Months);
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_calculate, menu);
 		return true;
@@ -89,27 +240,18 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case R.id.menu_resetbeginner:
-			((SeekBar) findViewById(R.id.seekBarWeight))
-					.setProgress(WEIGHT_DEFAULT - WEIGHT_MIN);
-			((SeekBar) findViewById(R.id.seekBarTotalJumps)).setProgress(5);
-			((SeekBar) findViewById(R.id.seekBarJumpsLast12Months))
-					.setProgress(5);
+		// case R.id.menu_resetbeginner:
+		//
+		// return true;
+		// case R.id.menu_resetnormal:
+		// return true;
+		// case R.id.menu_resetexpert:
+		// return true;
+		case R.id.menu_reset:
+			showDialog(RESET_DIALOG_ID);
 			return true;
-		case R.id.menu_resetnormal:
-			((SeekBar) findViewById(R.id.seekBarWeight))
-					.setProgress(WEIGHT_DEFAULT - WEIGHT_MIN);
-			((SeekBar) findViewById(R.id.seekBarTotalJumps))
-					.setProgress(TOTALJUMPS_DEFAULT);
-			((SeekBar) findViewById(R.id.seekBarJumpsLast12Months))
-					.setProgress(JUMPS_LAST_12_MONTHS_DEFAULT);
-			return true;
-		case R.id.menu_resetexpert:
-			((SeekBar) findViewById(R.id.seekBarWeight))
-					.setProgress(WEIGHT_DEFAULT - WEIGHT_MIN);
-			((SeekBar) findViewById(R.id.seekBarTotalJumps)).setProgress(1200);
-			((SeekBar) findViewById(R.id.seekBarJumpsLast12Months))
-					.setProgress(200);
+		case R.id.menu_save:
+			showDialog(SAVE_DIALOG_ID);
 			return true;
 		case R.id.menu_about:
 			startActivity(new Intent(this, AboutActivity.class));
@@ -198,6 +340,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				boolean fromUser) {
 			int weightInKg = progress + WEIGHT_MIN;
 			savePreference(SETTING_WEIGHT, weightInKg);
+			currentWeight = weightInKg;
 			setWeightSettingText(weightInKg);
 			calculate();
 		}
@@ -218,6 +361,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		public void onProgressChanged(SeekBar seekBar, int progress,
 				boolean fromUser) {
 			savePreference(SETTING_TOTAL_JUMPS, progress);
+			currentTotalJumps = progress;
 			setTotalJumpsSettingText(progress);
 			// check to see if jumps in last 12 months in not higher
 			SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
@@ -243,6 +387,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		public void onProgressChanged(SeekBar seekBar, int progress,
 				boolean fromUser) {
 			savePreference(SETTING_JUMPS_LAST_12_MONTHS, progress);
+			currentJumpsInLast12Months = progress;
 			setJumpsLast12MonthsSettingText(progress);
 			// check to see if jumps in last 12 months in not higher
 			SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);

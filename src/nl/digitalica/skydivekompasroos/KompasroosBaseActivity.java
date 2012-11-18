@@ -21,7 +21,11 @@ public class KompasroosBaseActivity extends Activity {
 	SharedPreferences prefs;
 
 	// shared variables, to pass the configured settings between activities
-	int category = 0;
-	int minArea = MINAREAUNKOWN;
+	static int currentTotalJumps = 0;
+	static int currentJumpsInLast12Months = 0;
+	static int currentWeight = 0;
+
+	static int category = 0;
+	static int minArea = MINAREAUNKOWN;
 
 }
