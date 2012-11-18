@@ -1,102 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wolkenlucht"
-    android:orientation="vertical" >
+    android:paddingLeft="@dimen/screen_padding_left"
+    android:paddingRight="@dimen/screen_padding_right" >
 
-    <TextView
-        android:id="@+id/textViewNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/to_be_replaced"
-        android:textSize="@dimen/canopydetailsName" />
-
-    <TableLayout
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-        <TableRow
-            android:id="@+id/tableRow3"
+        <TextView
+            android:id="@+id/textViewNameText"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_be_replaced"
+            android:textSize="@dimen/canopydetailsName" />
+
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <TextView
-                android:id="@+id/textViewCategoryLabel"
+            <TableRow
+                android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsCategory"
-                android:textSize="@dimen/canopydetailsDetails" />
+                android:layout_height="wrap_content" >
 
-            <TextView
-                android:id="@+id/textViewCategoryText"
+                <TextView
+                    android:id="@+id/textViewCategoryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailsCategory"
+                    android:textSize="@dimen/canopydetailsDetails" />
+
+                <TextView
+                    android:id="@+id/textViewCategoryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/canopydetailsDetails" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/to_be_replaced"
-                android:textSize="@dimen/canopydetailsDetails" />
-        </TableRow>
+                android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/textViewManufacturerLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailsmanufacturer"
+                    android:textSize="@dimen/canopydetailsDetails" />
 
-            <TextView
-                android:id="@+id/textViewManufacturerLabel"
+                <TextView
+                    android:id="@+id/textViewManufacturerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/canopydetailsDetails" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsmanufacturer"
-                android:textSize="@dimen/canopydetailsDetails" />
+                android:layout_height="wrap_content" >
 
-            <TextView
-                android:id="@+id/textViewManufacturerText"
+                <TextView
+                    android:id="@+id/textViewUrlLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailsUrl"
+                    android:textSize="@dimen/canopydetailsDetails" />
+
+                <TextView
+                    android:id="@+id/textViewUrlText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/canopydetailsDetails" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/to_be_replaced"
-                android:textSize="@dimen/canopydetailsDetails" />
-        </TableRow>
+                android:layout_height="wrap_content" >
 
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/textViewRemarksLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailsRemarks"
+                    android:textSize="@dimen/canopydetailsDetails" />
 
-            <TextView
-                android:id="@+id/textViewUrlLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsUrl"
-                android:textSize="@dimen/canopydetailsDetails" />
+                <TextView
+                    android:id="@+id/textViewRemarksText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/canopydetailsDetails" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/textViewUrlText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoLink="web"
-                android:text="@string/to_be_replaced"
-                android:textSize="@dimen/canopydetailsDetails" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textViewRemarksLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/detailsRemarks"
-                android:textSize="@dimen/canopydetailsDetails" />
-
-            <TextView
-                android:id="@+id/textViewRemarksText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/to_be_replaced"
-                android:textSize="@dimen/canopydetailsDetails" />
-        </TableRow>
-    </TableLayout>
-
-</LinearLayout>
+</ScrollView>
