@@ -47,6 +47,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
 		TextView tvName = (TextView) findViewById(R.id.textViewNameText);
 		TextView tvCategory = (TextView) findViewById(R.id.textViewCategoryText);
+		TextView tvExperience = (TextView) findViewById(R.id.textViewExperienceText);
 		TextView tvUrl = (TextView) findViewById(R.id.textViewUrlText);
 		TextView tvManufacturer = (TextView) findViewById(R.id.textViewManufacturerText);
 
@@ -54,6 +55,9 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvName.setBackgroundColor(backgroundColorForAcceptance(currentMaxCategory >= canopy.category));
 
 		tvCategory.setText(Integer.toString(canopy.category));
+		String[] jumperCategories = getResources().getStringArray(
+				R.array.jumperCategories);
+		tvExperience.setText(jumperCategories[canopy.category]);
 		tvUrl.setText(url);
 		tvManufacturer.setText(canopy.manufacturer);
 	}

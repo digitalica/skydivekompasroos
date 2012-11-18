@@ -49,6 +49,7 @@
     <string name="detailsUrl">Website:</string>
     <string name="detailsCategory">Categorie:</string>
     <string name="detailsRemarks">Bijzonderheden:</string>
+    <string name="detailsExperience">Benodigde ervaring:</string>
     <string name="saveDialogHeader">Sla gegevens op als:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
 

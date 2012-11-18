@@ -24,7 +24,6 @@
             android:layout_height="wrap_content" >
 
             <TableRow
-                android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
@@ -44,7 +43,25 @@
             </TableRow>
 
             <TableRow
-                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewExperienceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detailsExperience"
+                    android:textSize="@dimen/canopydetailsDetails" />
+
+                <TextView
+                    android:id="@+id/textViewExperienceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/canopydetailsDetails" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
@@ -64,7 +81,6 @@
             </TableRow>
 
             <TableRow
-                android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
@@ -85,7 +101,6 @@
             </TableRow>
 
             <TableRow
-                android:id="@+id/tableRow4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
