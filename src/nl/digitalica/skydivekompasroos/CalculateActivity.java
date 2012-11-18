@@ -76,19 +76,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			public void onClick(View v) {
 				Intent i = new Intent(getBaseContext(),
 						CanopyListActivity.class);
-				// TODO: remove extras as they will be in global vars...
-				i.putExtra("CATEGORY", category);
-				i.putExtra("TOTALJUMPS",
-						((SeekBar) findViewById(R.id.seekBarTotalJumps))
-								.getProgress());
-				i.putExtra("JUMPSLAST12MONTHS",
-						((SeekBar) findViewById(R.id.seekBarJumpsLast12Months))
-								.getProgress());
-				i.putExtra(
-						"WEIGHT",
-						((SeekBar) findViewById(R.id.seekBarWeight))
-								.getProgress() + WEIGHT_MIN);
-				i.putExtra("MINAREA", minArea);
 				startActivity(i);
 			}
 		});
@@ -133,7 +120,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				Editor e = prefs.edit();
 				e.putInt(SETTING_FRIEND_TOTAL_JUMPS, currentTotalJumps);
 				e.putInt(SETTING_FRIEND_LAST_12_MONTHS,
-						currentJumpsInLast12Months);
+						currentJumpsLast12Months);
 				e.putInt(SETTING_FRIEND_WEIGHT, currentWeight);
 				e.commit();
 				CalculateActivity.this.removeDialog(SAVE_DIALOG_ID);
@@ -145,7 +132,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 						Context.MODE_PRIVATE);
 				Editor e = prefs.edit();
 				e.putInt(SETTING_OWN_TOTAL_JUMPS, currentTotalJumps);
-				e.putInt(SETTING_OWN_LAST_12_MONTHS, currentJumpsInLast12Months);
+				e.putInt(SETTING_OWN_LAST_12_MONTHS, currentJumpsLast12Months);
 				e.putInt(SETTING_OWN_WEIGHT, currentWeight);
 				e.commit();
 				CalculateActivity.this.removeDialog(SAVE_DIALOG_ID);
@@ -390,7 +377,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		public void onProgressChanged(SeekBar seekBar, int progress,
 				boolean fromUser) {
 			savePreference(SETTING_JUMPS_LAST_12_MONTHS, progress);
-			currentJumpsInLast12Months = progress;
+			currentJumpsLast12Months = progress;
 			setJumpsLast12MonthsSettingText(progress);
 			// check to see if jumps in last 12 months in not higher
 			SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
@@ -510,7 +497,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		// only update screen if there actually is a change, so speedbars
 		// respond quickly
-		if (this.category != jumperCategory || this.minArea != minArea) {
+		if (this.currentMaxCategory != jumperCategory || this.currentMinArea != minArea) {
 			TextView tvJumperCategory = (TextView) findViewById(R.id.textViewJumperCategory);
 			String jumperCatFormat = getString(R.string.categorySetting);
 			tvJumperCategory.setText(String.format(jumperCatFormat,
@@ -537,8 +524,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 					jumperCategory, minArea));
 
 			// save globally, to pass on in buttonClick
-			this.category = jumperCategory;
-			this.minArea = minArea;
+			this.currentMaxCategory = jumperCategory;
+			this.currentMinArea = minArea;
 		}
 		// get total jumps and set text
 		// get jumps last 12 months and set text

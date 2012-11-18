@@ -1,27 +1,17 @@
 package nl.digitalica.skydivekompasroos;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-import org.xmlpull.v1.XmlPullParserException;
-
-import android.app.Activity;
 import android.content.Intent;
-import android.content.res.XmlResourceParser;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.style.TextAppearanceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -47,21 +37,16 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		Collections.sort(canopyList, new Canopy.ComparatorByNameManufacturer());
 
 		Bundle extras = getIntent().getExtras();
-		int maxCategory = extras.getInt("CATEGORY");
-		int totalJumps = extras.getInt("TOTALJUMPS");
-		int jumpsLast12Months = extras.getInt("JUMPSLAST12MONTHS");
-		int weight = extras.getInt("WEIGHT");
-		int minArea = extras.getInt("MINAREA");
 
 		// now fill table with the list
 		String resultHeaderFormat = getString(R.string.shareresultheaderformat);
-		String resultheader = String.format(resultHeaderFormat, totalJumps,
-				jumpsLast12Months, weight, maxCategory, minArea);
+		String resultheader = String.format(resultHeaderFormat, currentTotalJumps,
+				currentJumpsLast12Months, currentWeight, currentMaxCategory, currentMinArea);
 		skydiveKompasroosResult.append(resultheader);
 
 		int lastCat = 999;
 		for (Canopy theCanopy : canopyList)
-			insertCanopyRow(canopyTable, theCanopy, maxCategory);
+			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory);
 		skydiveKompasroosResult.append(getString(R.string.shareresultfooter));
 
 		// add onclick handler to button
@@ -114,8 +99,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 	private void onCanopyRowClick(View v) {
 		String canopyKey = v.getTag().toString();
-		Intent i = new Intent(getBaseContext(),
-				CanopyDetailsActivity.class);
+		Intent i = new Intent(getBaseContext(), CanopyDetailsActivity.class);
 		// TODO: remove extras as they will be in global vars...
 		i.putExtra(CANOPYKEYEXTRA, canopyKey);
 		startActivity(i);
@@ -134,12 +118,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		});
 		hLayout.setOrientation(LinearLayout.HORIZONTAL);
 
-		if (maxCategory >= theCanopy.category)
-			hLayout.setBackgroundColor(getResources().getColor(
-					R.color.Cat1GreenTransparent));
-		else
-			hLayout.setBackgroundColor(getResources().getColor(
-					R.color.Cat1RedTransparent));
+		hLayout.setBackgroundColor(backgroundColorForAcceptance(maxCategory >= theCanopy.category));
 
 		// hLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 		// LayoutParams.WRAP_CONTENT));
@@ -164,7 +143,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		TextView tvCanopyName = new TextView(this);
 		tvCanopyName.setLayoutParams(new LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		tvCanopyName.setBackgroundDrawable(box);
+		// tvCanopyName.setBackgroundDrawable(box);
 		tvCanopyName.setTextSize(getResources().getDimension(
 				R.dimen.canopylistCanopyName));
 		tvCanopyName.setText(theCanopy.name);

@@ -51,6 +51,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvManufacturer = (TextView) findViewById(R.id.textViewManufacturerText);
 
 		tvName.setText(canopy.name);
+		tvName.setBackgroundColor(backgroundColorForAcceptance(currentMaxCategory >= canopy.category));
+
 		tvCategory.setText(Integer.toString(canopy.category));
 		tvUrl.setText(url);
 		tvManufacturer.setText(canopy.manufacturer);

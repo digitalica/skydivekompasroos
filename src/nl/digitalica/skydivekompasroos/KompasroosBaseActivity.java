@@ -1,7 +1,9 @@
 package nl.digitalica.skydivekompasroos;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 
 /***
  * Base class for kompasroos activities
@@ -18,16 +20,24 @@ public class KompasroosBaseActivity extends Activity {
 	final static int MINAREAUNLIMITED = 0;
 
 	final static String CANOPYKEYEXTRA = "CANOPYKEY";
-	
+
 	// class variables
 	SharedPreferences prefs;
 
 	// shared variables, to pass the configured settings between activities
 	static int currentTotalJumps = 0;
-	static int currentJumpsInLast12Months = 0;
+	static int currentJumpsLast12Months = 0;
 	static int currentWeight = 0;
+	static int currentMaxCategory = 0;
+	static int currentMinArea = MINAREAUNKOWN;
 
-	static int category = 0;
-	static int minArea = MINAREAUNKOWN;
+	int backgroundColorForAcceptance(boolean acceptable) {
+		int bgColor;
+		if (acceptable)
+			bgColor = getResources().getColor(R.color.Cat1GreenTransparent);
+		else
+			bgColor = getResources().getColor(R.color.Cat1RedTransparent);
+		return bgColor;
+	}
 
 }
