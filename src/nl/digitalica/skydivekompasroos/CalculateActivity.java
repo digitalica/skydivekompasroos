@@ -38,7 +38,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	final static String SETTING_FRIEND_LAST_12_MONTHS = "FriendJumpsLast12Months";
 
 	// min & max weight in kg
-	final static int WEIGHT_MIN = 80;
+	final static int WEIGHT_MIN = 60;
 	final static int WEIGHT_MAX = 140;
 	final static int WEIGHT_DEFAULT = 100;
 
