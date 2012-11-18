@@ -198,11 +198,13 @@
     <canopy
         name="Omni"
         category="2"
-        manufacturer="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=1&amp;Itemid=11" />
+        manufacturer="Icarus"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=1&amp;Itemid=11" />
     <canopy
         name="Omega"
         category="2"
-        manufacturer="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=13&amp;Itemid=10" />
+        manufacturer="Icarus"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=13&amp;Itemid=10" />
     <canopy
         name="Cayenne"
         category="2"
