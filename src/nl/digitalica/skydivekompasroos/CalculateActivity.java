@@ -81,7 +81,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		});
 
 		// Just for testing the canopy list
-		canopyListButton.performClick();
+		// canopyListButton.performClick();
 	}
 
 	@Override
@@ -256,34 +256,34 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		SeekBar sbWeight = (SeekBar) findViewById(R.id.seekBarWeight);
 		int weightInKg = prefs.getInt(SETTING_WEIGHT, WEIGHT_DEFAULT);
 		sbWeight.setMax(WEIGHT_MAX - WEIGHT_MIN);
-		sbWeight.setProgress(weightInKg - WEIGHT_MIN);
-		setWeightSettingText(weightInKg);
 		sbWeight.setOnSeekBarChangeListener(seekBarChangeListenerWeight);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonWeightMin,
 				R.id.buttonWeightPlus);
+		sbWeight.setProgress(weightInKg - WEIGHT_MIN);
+		setWeightSettingText(weightInKg); // TODO: not needed?
 
 		// total jumps seek bar
 		SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
 		int totalJumps = prefs.getInt(SETTING_TOTAL_JUMPS, TOTALJUMPS_DEFAULT);
 		sbTotalJumps.setMax(TOTALJUMPS_MAX);
-		sbTotalJumps.setProgress(totalJumps);
-		setTotalJumpsSettingText(totalJumps);
 		sbTotalJumps
 				.setOnSeekBarChangeListener(seekBarChangeListenerTotalJumps);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonTotalJumpsMin,
 				R.id.buttonTotalJumpsPlus);
+		sbTotalJumps.setProgress(totalJumps);
+		setTotalJumpsSettingText(totalJumps); // TODO: not needed?
 
 		// jumps last 12 months seek bar
 		SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
 		int jumpsLast12Months = prefs.getInt(SETTING_JUMPS_LAST_12_MONTHS,
 				JUMPS_LAST_12_MONTHS_DEFAULT);
 		sbJumpsLast12Months.setMax(JUMPS_LAST_12_MONTHS_MAX);
-		sbJumpsLast12Months.setProgress(jumpsLast12Months);
-		setJumpsLast12MonthsSettingText(jumpsLast12Months);
 		sbJumpsLast12Months
 				.setOnSeekBarChangeListener(seekBarChangeListenerJumpsLast12Months);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonJumpLast12MonthsMin,
 				R.id.buttonJumpLast12MonthsPlus);
+		sbJumpsLast12Months.setProgress(jumpsLast12Months);
+		setJumpsLast12MonthsSettingText(jumpsLast12Months); // TODO: not needed?
 
 	}
 
@@ -497,7 +497,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		// only update screen if there actually is a change, so speedbars
 		// respond quickly
-		if (this.currentMaxCategory != jumperCategory || this.currentMinArea != minArea) {
+		if (this.currentMaxCategory != jumperCategory
+				|| this.currentMinArea != minArea) {
 			TextView tvJumperCategory = (TextView) findViewById(R.id.textViewJumperCategory);
 			String jumperCatFormat = getString(R.string.categorySetting);
 			tvJumperCategory.setText(String.format(jumperCatFormat,

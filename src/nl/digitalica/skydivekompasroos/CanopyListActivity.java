@@ -26,7 +26,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	LinearLayout canopyTable;
 
 	// static, so it can be statically referenced from onClick...
-	static StringBuilder skydiveKompasroosResult = new StringBuilder();
+	static StringBuilder skydiveKompasroosResultAccepted;
+	static StringBuilder skydiveKompasroosResultNotAccepted;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -39,13 +40,6 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		canopyList = Canopy.getAllCanopiesInList(CanopyListActivity.this);
 
 		Bundle extras = getIntent().getExtras();
-
-		// now fill table with the list
-		String resultHeaderFormat = getString(R.string.shareresultheaderformat);
-		String resultheader = String.format(resultHeaderFormat,
-				currentTotalJumps, currentJumpsLast12Months, currentWeight,
-				currentMaxCategory, currentMinArea);
-		skydiveKompasroosResult.append(resultheader);
 
 		// TODO: store sorting so it is persistent (?)
 		fillCanopyTable(canopyTable, SORTBYNAME);
@@ -83,12 +77,44 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			break;
 		}
 		canopyTable.removeAllViewsInLayout();
+		skydiveKompasroosResultAccepted = new StringBuilder();
+		skydiveKompasroosResultNotAccepted = new StringBuilder();
+
 		for (Canopy theCanopy : canopyList)
 			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory);
-		skydiveKompasroosResult.append(getString(R.string.shareresultfooter));
 	}
 
-	static String skydiveKompasroosResult() {
+	/***
+	 * Return the full string for the results to share. It has one block for the
+	 * acceptable canopies, and one for the not acceptable, as colored
+	 * backgrounds are not an option here...
+	 * 
+	 * @param context
+	 * @return
+	 */
+	static String skydiveKompasroosResult(Context context) {
+		String nl = System.getProperty("line.separator");
+		String nlnl = nl + nl;
+		StringBuilder skydiveKompasroosResult = new StringBuilder();
+		// now fill table with the list
+		String resultHeaderFormat = context
+				.getString(R.string.shareresultheaderformat);
+		String resultheader = String.format(resultHeaderFormat,
+				currentTotalJumps, currentJumpsLast12Months, currentWeight,
+				currentMaxCategory, currentMinArea);
+
+		skydiveKompasroosResult.append(resultheader);
+		skydiveKompasroosResult.append(nl);
+		skydiveKompasroosResult.append(skydiveKompasroosResultAccepted);
+		skydiveKompasroosResult.append(nlnl);
+		skydiveKompasroosResult.append(context
+				.getString(R.string.shareresultnotaccepted));
+		skydiveKompasroosResult.append(nl);
+		skydiveKompasroosResult.append(skydiveKompasroosResultNotAccepted);
+		skydiveKompasroosResult.append(nlnl);
+		skydiveKompasroosResult.append(context
+				.getString(R.string.shareresultfooter));
+
 		return skydiveKompasroosResult.toString();
 	}
 
@@ -96,7 +122,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		Intent sendIntent = new Intent();
 		sendIntent.setAction(Intent.ACTION_SEND);
 		sendIntent.putExtra(Intent.EXTRA_TEXT,
-				CanopyListActivity.skydiveKompasroosResult());
+				CanopyListActivity.skydiveKompasroosResult(this));
 		sendIntent.putExtra(Intent.EXTRA_SUBJECT,
 				getString(R.string.shareresultsubject));
 		sendIntent.putExtra(Intent.EXTRA_TITLE,
@@ -200,10 +226,13 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// add row to table
 		canopyTable.addView(row);
 
-		// add row to text.
-		skydiveKompasroosResult
-				.append(theCanopy.name + " - " + theCanopy.manufacturer
-						+ System.getProperty("line.separator"));
+		// add row to text for results sharing
+		String shareResultLine = theCanopy.name + " - "
+				+ theCanopy.manufacturer + System.getProperty("line.separator");
+		if (maxCategory >= theCanopy.category)
+			skydiveKompasroosResultAccepted.append(shareResultLine);
+		else
+			skydiveKompasroosResultNotAccepted.append(shareResultLine);
 
 	}
 }
