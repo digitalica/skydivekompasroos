@@ -227,6 +227,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		canopyTable.addView(row);
 
 		// add row to text for results sharing
+		// TODO: in case of current sorting by manufacturer, show that first. 
 		String shareResultLine = theCanopy.name + " - "
 				+ theCanopy.manufacturer + System.getProperty("line.separator");
 		if (maxCategory >= theCanopy.category)
