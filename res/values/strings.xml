@@ -34,6 +34,7 @@
     <string name="btnMin">" - "</string>
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Deel resultaat</string>
+    <string name="btnShareUrl">Deel web address</string>
     <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en uw exitgewicht in, om te bepalen welke parachutes geschikt zijn.\n\n</string>
     <string name="calculationWarningText">Let op: deze app is nog in testfase! Er kunnen geen rechten aan worden ontleend.\n\n</string>
     <string name="calculationOvertimeWarning">Let op: deze applicatie is meer dan 1 jaar oud en mogelijk niet meer up to date!</string>

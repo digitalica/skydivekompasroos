@@ -3,9 +3,11 @@ package nl.digitalica.skydivekompasroos;
 import java.util.Collections;
 import java.util.List;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +26,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 	List<Canopy> canopyList;
 	TableLayout canopyTable;
-	
+
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResult = new StringBuilder();
 
@@ -134,6 +136,12 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		}
 	}
 
+	/***
+	 * Generic click handle to for clicks on a canopy row the tag is used to
+	 * decide what canopy details to show.
+	 * 
+	 * @param v
+	 */
 	private void onCanopyRowClick(View v) {
 		String canopyKey = v.getTag().toString();
 		Intent i = new Intent(getBaseContext(), CanopyDetailsActivity.class);
@@ -142,63 +150,54 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		startActivity(i);
 	}
 
+	/***
+	 * Add a canopy row to the canopy table
+	 * 
+	 * @param canopyTable
+	 * @param theCanopy
+	 * @param maxCategory
+	 */
 	private void insertCanopyRow(TableLayout canopyTable, Canopy theCanopy,
 			int maxCategory) {
 
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+		View canopyListRow = inflater.inflate(R.layout.canopy_row_layout, null);
+
 		Drawable box = getResources().getDrawable(R.drawable.box);
-		LinearLayout hLayout = new LinearLayout(this);
+		LinearLayout hLayout = (LinearLayout) canopyListRow
+				.findViewById(R.id.linearLayoutCanopyListRow);
 		hLayout.setTag(theCanopy.key());
 		hLayout.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				onCanopyRowClick(v);
 			}
 		});
-		hLayout.setOrientation(LinearLayout.HORIZONTAL);
 
 		hLayout.setBackgroundColor(backgroundColorForAcceptance(maxCategory >= theCanopy.category));
 
 		// hLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 		// LayoutParams.WRAP_CONTENT));
 
-		TextView tvCategory = new TextView(this);
-		tvCategory.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT));
+		TextView tvCategory = (TextView) canopyListRow
+				.findViewById(R.id.textViewCanopyListRowCategory);
 		// tvCategory.setBackgroundDrawable(box);
-		tvCategory.setTextSize(getResources().getDimension(
-				R.dimen.canopylistCategory));
 		tvCategory.setText(Integer.toString(theCanopy.category));
 
-		hLayout.addView(tvCategory);
-		// hLayout.setBackgroundDrawable(box);
-
-		LinearLayout vLayout = new LinearLayout(this);
-		// vLayout.setBackgroundDrawable(box);
-		vLayout.setOrientation(LinearLayout.VERTICAL);
-		// vLayout.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
-		// LayoutParams.WRAP_CONTENT));
-
-		TextView tvCanopyName = new TextView(this);
-		tvCanopyName.setLayoutParams(new LayoutParams(
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		TextView tvCanopyName = (TextView) canopyListRow
+				.findViewById(R.id.textViewCanopyListRowName);
 		// tvCanopyName.setBackgroundDrawable(box);
-		tvCanopyName.setTextSize(getResources().getDimension(
-				R.dimen.canopylistCanopyName));
 		tvCanopyName.setText(theCanopy.name);
-		vLayout.addView(tvCanopyName);
 
 		// TODO: add more details like cells and remarks here
-		TextView tvCanopyDetails = new TextView(this);
-		tvCanopyDetails.setTextSize(getResources().getDimension(
-				R.dimen.canopylistCanopyDetails));
+		TextView tvCanopyDetails = (TextView) canopyListRow
+				.findViewById(R.id.textViewCanopyListRowDetails);
 		tvCanopyDetails.setText(theCanopy.manufacturer);
 		// tvCanopyDetails.setBackgroundDrawable(box);
-		vLayout.addView(tvCanopyDetails);
-
-		hLayout.addView(vLayout);
 
 		// create text view and row
 		TableRow row = new TableRow(this);
-		row.addView(hLayout);
+		row.addView(canopyListRow);
 
 		// add row to table
 		canopyTable.addView(row);
@@ -209,5 +208,4 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 						+ System.getProperty("line.separator"));
 
 	}
-
 }
