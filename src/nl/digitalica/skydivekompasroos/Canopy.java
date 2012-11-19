@@ -119,7 +119,6 @@ public class Canopy {
 
 	}
 
-	
 	/***
 	 * Comparator, to be used for sorting
 	 * 
@@ -137,5 +136,21 @@ public class Canopy {
 
 	}
 
-	
+	/***
+	 * Comparator, to be used for sorting
+	 * 
+	 * @author robbert
+	 */
+	public static class ComparatorByManufacturerName implements Comparator {
+
+		public int compare(Object o1, Object o2) {
+			Canopy c1 = (Canopy) o1;
+			Canopy c2 = (Canopy) o2;
+			if (c1.manufacturer != c2.manufacturer)
+				return c1.manufacturer.compareTo(c2.manufacturer);
+			return c1.name.compareTo(c2.name);
+		}
+
+	}
+
 }

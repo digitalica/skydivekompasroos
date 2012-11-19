@@ -15,10 +15,13 @@ public class Manufacturer {
 
 	public String name;
 	public String url;
+	public String remarks;
 
-	public Manufacturer(String mName, String mUrl) {
+	public Manufacturer(String mName, String mUrl, String mRemarks) {
 		this.name = mName;
 		this.url = mUrl;
+		this.remarks = mRemarks;
+
 	}
 
 	/***
@@ -41,8 +44,11 @@ public class Manufacturer {
 							.getAttributeValue(null, "name");
 					String manufacturerUrl = manufacturersParser
 							.getAttributeValue(null, "url");
+					String manufacturerRemarks = manufacturersParser
+							.getAttributeValue(null, "remarks");
 					Manufacturer manufacturer = new Manufacturer(
-							manufacturerName, manufacturerUrl);
+							manufacturerName, manufacturerUrl,
+							manufacturerRemarks);
 					manufacturerHashMap.put(manufacturer.name, manufacturer);
 				}
 

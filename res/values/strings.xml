@@ -24,6 +24,9 @@
     <string name="menu_reset">Reset</string>
     <string name="menu_save">Opslaan</string>
     <string name="menu_about">Over de Skydive kompasroos App</string>
+    <string name="menu_sortbyname">Op naam</string>
+    <string name="menu_sortbymanufacturer">Op fabrikant</string>
+    <string name="menu_sortbycategory">Op categorie</string>
     <string name="btnShowCanopyList">Toon geschikte parachutes</string>
     <string name="canopyListHeader">\nCategorie %1$d</string>
     <string name="canopyListHeaderOk">Geschikt, mits minimaal %1$d sqft</string>

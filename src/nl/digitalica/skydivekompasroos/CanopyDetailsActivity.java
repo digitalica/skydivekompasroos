@@ -25,6 +25,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class CanopyDetailsActivity extends KompasroosBaseActivity {
+
+	
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canopydetails);
@@ -50,6 +53,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvExperience = (TextView) findViewById(R.id.textViewExperienceText);
 		TextView tvUrl = (TextView) findViewById(R.id.textViewUrlText);
 		TextView tvManufacturer = (TextView) findViewById(R.id.textViewManufacturerText);
+		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
 		tvName.setText(canopy.name);
 		tvName.setBackgroundColor(backgroundColorForAcceptance(currentMaxCategory >= canopy.category));
@@ -60,5 +64,6 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvExperience.setText(jumperCategories[canopy.category]);
 		tvUrl.setText(url);
 		tvManufacturer.setText(canopy.manufacturer);
+		tvRemarks.setText(manufacturer.remarks);
 	}
 }

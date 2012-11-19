@@ -135,12 +135,12 @@
         name="Electra"
         category="2"
         cells="9"
-        manufacturer="parachutes de France"
+        manufacturer="Parachutes de France"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/21/electra.html" />
     <canopy
         name="Merit"
         category="2"
-        manufacturer="parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Pilot"
         category="2"
@@ -291,15 +291,15 @@
     <canopy
         name="BT"
         category="4"
-        manufacturer="parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Springo"
         category="4"
-        manufacturer="parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Electra XS"
         category="4"
-        manufacturer="parachutes de France" />
+        manufacturer="Parachutes de France" />
     <canopy
         name="Batwing"
         category="4"

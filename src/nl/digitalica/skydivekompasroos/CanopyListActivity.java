@@ -18,6 +18,13 @@ import android.widget.TextView;
 
 public class CanopyListActivity extends KompasroosBaseActivity {
 
+	static final int SORTBYNAME = 1;
+	static final int SORTBYMANUFACTURER = 2;
+	static final int SORTBYCATEGORY = 3;
+
+	List<Canopy> canopyList;
+	TableLayout canopyTable;
+	
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResult = new StringBuilder();
 
@@ -27,27 +34,21 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canopylist);
 
-		TableLayout canopyTable = (TableLayout) findViewById(R.id.tablelayout_canopylist);
+		canopyTable = (TableLayout) findViewById(R.id.tablelayout_canopylist);
 
-		List<Canopy> canopyList = Canopy
-				.getAllCanopiesInList(CanopyListActivity.this);
-
-		// sort the canopyList on type, name, manufacturer
-		Collections.sort(canopyList, new Canopy.ComparatorByCategoryName());
-		Collections.sort(canopyList, new Canopy.ComparatorByNameManufacturer());
+		canopyList = Canopy.getAllCanopiesInList(CanopyListActivity.this);
 
 		Bundle extras = getIntent().getExtras();
 
 		// now fill table with the list
 		String resultHeaderFormat = getString(R.string.shareresultheaderformat);
-		String resultheader = String.format(resultHeaderFormat, currentTotalJumps,
-				currentJumpsLast12Months, currentWeight, currentMaxCategory, currentMinArea);
+		String resultheader = String.format(resultHeaderFormat,
+				currentTotalJumps, currentJumpsLast12Months, currentWeight,
+				currentMaxCategory, currentMinArea);
 		skydiveKompasroosResult.append(resultheader);
 
-		int lastCat = 999;
-		for (Canopy theCanopy : canopyList)
-			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory);
-		skydiveKompasroosResult.append(getString(R.string.shareresultfooter));
+		// TODO: store sorting so it is persistent (?)
+		fillCanopyTable(canopyTable, SORTBYNAME);
 
 		// add onclick handler to button
 		Button shareResultButton = (Button) findViewById(R.id.buttonShareResult);
@@ -58,6 +59,33 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		});
 
+	}
+
+	/***
+	 * Fills the canopy table on screen again based on the given sorting method
+	 * 
+	 * @param canopyTable
+	 * @param sortingMethod
+	 */
+	private void fillCanopyTable(TableLayout canopyTable, int sortingMethod) {
+		// sort the canopyList on type, name, manufacturer
+		switch (sortingMethod) {
+		case SORTBYNAME:
+			Collections.sort(canopyList,
+					new Canopy.ComparatorByNameManufacturer());
+			break;
+		case SORTBYCATEGORY:
+			Collections.sort(canopyList, new Canopy.ComparatorByCategoryName());
+			break;
+		case SORTBYMANUFACTURER:
+			Collections.sort(canopyList,
+					new Canopy.ComparatorByManufacturerName());
+			break;
+		}
+		canopyTable.removeAllViewsInLayout();
+		for (Canopy theCanopy : canopyList)
+			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory);
+		skydiveKompasroosResult.append(getString(R.string.shareresultfooter));
 	}
 
 	static String skydiveKompasroosResult() {
@@ -88,6 +116,15 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		switch (item.getItemId()) {
 		case R.id.menu_shareResult:
 			shareResult();
+			return true;
+		case R.id.menu_sortByName:
+			fillCanopyTable(canopyTable, SORTBYNAME);
+			return true;
+		case R.id.menu_sortByManufacturer:
+			fillCanopyTable(canopyTable, SORTBYMANUFACTURER);
+			return true;
+		case R.id.menu_sortByCategory:
+			fillCanopyTable(canopyTable, SORTBYCATEGORY);
 			return true;
 		case R.id.menu_about:
 			startActivity(new Intent(this, AboutActivity.class));
