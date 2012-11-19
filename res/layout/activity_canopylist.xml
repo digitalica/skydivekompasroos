@@ -11,12 +11,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <TableLayout
+        <LinearLayout
             android:id="@+id/tablelayout_canopylist"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="*" >
-        </TableLayout>
+            android:orientation="vertical" >
+        </LinearLayout>
 
         <Button
             android:id="@+id/buttonShareResult"

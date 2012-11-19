@@ -13,5 +13,6 @@
     <dimen name="btn_seekbar_updown_stroke">1px</dimen>
     <dimen name="screen_padding_left">4dip</dimen>
     <dimen name="screen_padding_right">4dip</dimen>
-
+    <dimen name="canopylistview_padding">4dip</dimen>
+    
 </resources>

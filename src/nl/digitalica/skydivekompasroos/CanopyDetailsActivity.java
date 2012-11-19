@@ -1,33 +1,14 @@
 package nl.digitalica.skydivekompasroos;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-import org.xmlpull.v1.XmlPullParserException;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.XmlResourceParser;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.SeekBar;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
-	
-	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canopydetails);
@@ -56,7 +37,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
 		tvName.setText(canopy.name);
-		tvName.setBackgroundColor(backgroundColorForAcceptance(currentMaxCategory >= canopy.category));
+		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(currentMaxCategory >= canopy.category));
 
 		tvCategory.setText(Integer.toString(canopy.category));
 		String[] jumperCategories = getResources().getStringArray(

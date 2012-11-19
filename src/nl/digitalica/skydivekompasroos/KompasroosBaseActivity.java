@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 
 /***
  * Base class for kompasroos activities
@@ -31,13 +32,13 @@ public class KompasroosBaseActivity extends Activity {
 	static int currentMaxCategory = 0;
 	static int currentMinArea = MINAREAUNKOWN;
 
-	int backgroundColorForAcceptance(boolean acceptable) {
-		int bgColor;
+	Drawable backgroundDrawableForAcceptance(boolean acceptable) {
+		Drawable background;
 		if (acceptable)
-			bgColor = getResources().getColor(R.color.Cat1GreenTransparent);
+			background = getResources().getDrawable(R.drawable.canopyacceptable);
 		else
-			bgColor = getResources().getColor(R.color.Cat1RedTransparent);
-		return bgColor;
+			background = getResources().getDrawable(R.drawable.canopynotacceptable);
+		return background;
 	}
 
 }

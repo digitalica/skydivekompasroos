@@ -11,10 +11,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -25,7 +23,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	static final int SORTBYCATEGORY = 3;
 
 	List<Canopy> canopyList;
-	TableLayout canopyTable;
+	LinearLayout canopyTable;
 
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResult = new StringBuilder();
@@ -36,7 +34,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canopylist);
 
-		canopyTable = (TableLayout) findViewById(R.id.tablelayout_canopylist);
+		canopyTable = (LinearLayout) findViewById(R.id.tablelayout_canopylist);
 
 		canopyList = Canopy.getAllCanopiesInList(CanopyListActivity.this);
 
@@ -69,7 +67,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param canopyTable
 	 * @param sortingMethod
 	 */
-	private void fillCanopyTable(TableLayout canopyTable, int sortingMethod) {
+	private void fillCanopyTable(LinearLayout canopyTable, int sortingMethod) {
 		// sort the canopyList on type, name, manufacturer
 		switch (sortingMethod) {
 		case SORTBYNAME:
@@ -157,7 +155,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param theCanopy
 	 * @param maxCategory
 	 */
-	private void insertCanopyRow(TableLayout canopyTable, Canopy theCanopy,
+	private void insertCanopyRow(LinearLayout canopyTable, Canopy theCanopy,
 			int maxCategory) {
 
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -174,7 +172,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			}
 		});
 
-		hLayout.setBackgroundColor(backgroundColorForAcceptance(maxCategory >= theCanopy.category));
+		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(maxCategory >= theCanopy.category));
 
 		// hLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 		// LayoutParams.WRAP_CONTENT));
