@@ -18,16 +18,18 @@ public class Canopy {
 	public String url;
 	public String cells;
 	public String remarks;
+	public int alwaysSortAtBottom = 0;
 
 	public Canopy(int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
-			String canopyRemarks) {
+			String canopyRemarks, int alwaysSortAtBottom) {
 		this.category = canopyCategory;
 		this.manufacturer = canopyManufacturer;
 		this.name = canopyName;
 		this.url = canopyUrl;
 		this.cells = canopyCells;
 		this.remarks = canopyRemarks;
+		this.alwaysSortAtBottom = alwaysSortAtBottom;
 	}
 
 	/***
@@ -53,7 +55,11 @@ public class Canopy {
 					String canopyCategoryString = canopiesParser
 							.getAttributeValue(null, "category");
 					int canopyCategory;
-					canopyCategory = Integer.parseInt(canopyCategoryString);
+					try {
+						canopyCategory = Integer.parseInt(canopyCategoryString);
+					} catch (NumberFormatException e) {
+						throw new RuntimeException("Canopy category no Int", e);
+					}
 					String canopyManufacturer = canopiesParser
 							.getAttributeValue(null, "manufacturer");
 					String canopyName = canopiesParser.getAttributeValue(null,
@@ -64,10 +70,16 @@ public class Canopy {
 							"cells");
 					String canopyRemarks = canopiesParser.getAttributeValue(
 							null, "remarks");
-
+					String alWaysSortAtBottomString = canopiesParser
+							.getAttributeValue(null, "alwayssortatbottom");
+					int alWaysSortAtBottom = 0;
+					if (alWaysSortAtBottomString != ""
+							&& alWaysSortAtBottomString != null)
+						alWaysSortAtBottom = Integer
+								.parseInt(alWaysSortAtBottomString);
 					Canopy canopy = new Canopy(canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
-							canopyCells, canopyRemarks);
+							canopyCells, canopyRemarks, alWaysSortAtBottom);
 					if (key == null)
 						canopyList.add(canopy);
 					else if (canopy.key().equals(key)) {
@@ -109,6 +121,10 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
+			if (c1.alwaysSortAtBottom == 1)
+				return 1;
+			if (c2.alwaysSortAtBottom == 1)
+				return -1;
 			if (c1.category != c2.category)
 				return c1.category < c2.category ? -1 : 1;
 			int result = c1.name.compareTo(c2.name);
@@ -129,6 +145,10 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
+			if (c1.alwaysSortAtBottom == 1)
+				return 1;
+			if (c2.alwaysSortAtBottom == 1)
+				return -1;
 			if (c1.name != c2.name)
 				return c1.name.compareTo(c2.name);
 			return c1.manufacturer.compareTo(c2.manufacturer);
@@ -146,6 +166,10 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
+			if (c1.alwaysSortAtBottom == 1)
+				return 1;
+			if (c2.alwaysSortAtBottom == 1)
+				return -1;
 			if (c1.manufacturer != c2.manufacturer)
 				return c1.manufacturer.compareTo(c2.manufacturer);
 			return c1.name.compareTo(c2.name);

@@ -2,6 +2,11 @@
 <canopies>
 
     <!-- CATEGORY 1 -->
+    <canopy
+        name="Elk ander type"
+        alwayssortatbottom="1"
+        category="6"
+        manufacturer="Elke andere fabrikant" />
 
     <canopy
         name="Navigator"
@@ -383,14 +388,6 @@
         manufacturer="Atair Aerodynamics" />
 
     <!-- CATEGORY 6 -->
-
-    <canopy
-        name="Elk ander type"
-        category="6"
-        manufacturer="Elke andere fabrikant" />
-
-    <!-- CATEGORY UNKNOWN -->
-
     <canopy
         name="Express"
         category="6"
