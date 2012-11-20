@@ -42,8 +42,8 @@
     <string name="canopyManufacturer">fabrikant</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
     <string name="shareresultsubject">Skydive kompasroos resultaat</string>
-    <string name="shareresultheaderformat">Uw ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat u mag springen met parachutes uit categorie %4$d met een minimale oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
-    <string name="shareresultnotaccepted">Onderstaande parachutes zijn NIET geschikt, ze vereiden meer ervaring:</string>
+    <string name="shareresultheaderformat">Uw ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat u mag springen met parachutes uit categorie %4$d met een oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
+    <string name="shareresultnotaccepted">Onderstaande parachutes zijn NIET geschikt, ze vereisen meer ervaring:</string>
     <string name="shareresultfooter">\n\n\nSamengesteld door Skydive Kompasroos Android app van Digitalica</string>
     <string name="reset_name_own">Uzelf</string>
     <string name="reset_name_friend">Een vriend</string>
