@@ -3,12 +3,6 @@
 
     <!-- CATEGORY 1 -->
     <canopy
-        name="Elk ander type"
-        alwayssortatbottom="1"
-        category="6"
-        manufacturer="Elke andere fabrikant" />
-
-    <canopy
         name="Navigator"
         category="1"
         manufacturer="Performance Designs"
@@ -406,5 +400,11 @@
         cells="21"
         manufacturer="Aerodyne-int"
         remark="CATEGORY UNKNOWN" />
-
+    
+    <canopy
+        name="Elk ander type"
+        isspecialcatchallcanopy="1"
+        category="6"
+        manufacturer="Elke andere fabrikant" />
+    
 </canopies>

@@ -18,18 +18,19 @@ public class Canopy {
 	public String url;
 	public String cells;
 	public String remarks;
-	public int alwaysSortAtBottom = 0;
+	// TODO: the below should be a boolean probably...
+	public int isSpecialCatchAllCanopy = 0;
 
 	public Canopy(int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
-			String canopyRemarks, int alwaysSortAtBottom) {
+			String canopyRemarks, int isSpecialCatchAllCanopy) {
 		this.category = canopyCategory;
 		this.manufacturer = canopyManufacturer;
 		this.name = canopyName;
 		this.url = canopyUrl;
 		this.cells = canopyCells;
 		this.remarks = canopyRemarks;
-		this.alwaysSortAtBottom = alwaysSortAtBottom;
+		this.isSpecialCatchAllCanopy = isSpecialCatchAllCanopy;
 	}
 
 	/***
@@ -70,16 +71,16 @@ public class Canopy {
 							"cells");
 					String canopyRemarks = canopiesParser.getAttributeValue(
 							null, "remarks");
-					String alWaysSortAtBottomString = canopiesParser
-							.getAttributeValue(null, "alwayssortatbottom");
-					int alWaysSortAtBottom = 0;
-					if (alWaysSortAtBottomString != ""
-							&& alWaysSortAtBottomString != null)
-						alWaysSortAtBottom = Integer
-								.parseInt(alWaysSortAtBottomString);
+					String isSpecialCatchAllCanopyString = canopiesParser
+							.getAttributeValue(null, "isspecialcatchallcanopy");
+					int isSpecialCatchAllCanopy = 0;
+					if (isSpecialCatchAllCanopyString != ""
+							&& isSpecialCatchAllCanopyString != null)
+						isSpecialCatchAllCanopy = Integer
+								.parseInt(isSpecialCatchAllCanopyString);
 					Canopy canopy = new Canopy(canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
-							canopyCells, canopyRemarks, alWaysSortAtBottom);
+							canopyCells, canopyRemarks, isSpecialCatchAllCanopy);
 					if (key == null)
 						canopyList.add(canopy);
 					else if (canopy.key().equals(key)) {
@@ -121,9 +122,9 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
-			if (c1.alwaysSortAtBottom == 1)
+			if (c1.isSpecialCatchAllCanopy == 1)
 				return 1;
-			if (c2.alwaysSortAtBottom == 1)
+			if (c2.isSpecialCatchAllCanopy == 1)
 				return -1;
 			if (c1.category != c2.category)
 				return c1.category < c2.category ? -1 : 1;
@@ -145,9 +146,9 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
-			if (c1.alwaysSortAtBottom == 1)
+			if (c1.isSpecialCatchAllCanopy == 1)
 				return 1;
-			if (c2.alwaysSortAtBottom == 1)
+			if (c2.isSpecialCatchAllCanopy == 1)
 				return -1;
 			if (c1.name != c2.name)
 				return c1.name.compareTo(c2.name);
@@ -166,9 +167,9 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
-			if (c1.alwaysSortAtBottom == 1)
+			if (c1.isSpecialCatchAllCanopy == 1)
 				return 1;
-			if (c2.alwaysSortAtBottom == 1)
+			if (c2.isSpecialCatchAllCanopy == 1)
 				return -1;
 			if (c1.manufacturer != c2.manufacturer)
 				return c1.manufacturer.compareTo(c2.manufacturer);

@@ -192,11 +192,12 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		LinearLayout hLayout = (LinearLayout) canopyListRow
 				.findViewById(R.id.linearLayoutCanopyListRow);
 		hLayout.setTag(theCanopy.key());
-		hLayout.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				onCanopyRowClick(v);
-			}
-		});
+		if (theCanopy.isSpecialCatchAllCanopy != 1)
+			hLayout.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					onCanopyRowClick(v);
+				}
+			});
 
 		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(maxCategory >= theCanopy.category));
 
@@ -219,6 +220,14 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		tvCanopyDetails.setText(theCanopy.manufacturer);
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
+		// if the link won't work, because this is the catch all, 
+		// don't show the arrow.
+		if (theCanopy.isSpecialCatchAllCanopy == 1) {
+			TextView tvArrowRight = (TextView) canopyListRow
+					.findViewById(R.id.textViewArrowRight);
+			tvArrowRight.setText("");
+		}
+
 		// create text view and row
 		TableRow row = new TableRow(this);
 		row.addView(canopyListRow);
@@ -227,7 +236,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		canopyTable.addView(row);
 
 		// add row to text for results sharing
-		// TODO: in case of current sorting by manufacturer, show that first. 
+		// TODO: in case of current sorting by manufacturer, show that first.
 		String shareResultLine = theCanopy.name + " - "
 				+ theCanopy.manufacturer + System.getProperty("line.separator");
 		if (maxCategory >= theCanopy.category)
