@@ -18,9 +18,6 @@
     <string name="canopySetting">U kunt springen met parachutes van categorie %1$d met %2$s\n</string>
     <string name="canopyAdvise">\nGeschikte parachutes:\nCategorie %1$d van minimaal %2$d sqft\n</string>
     <string name="ormore">" (of meer)"</string>
-    <string name="menu_resetbeginner">Reset als beginner</string>
-    <string name="menu_resetnormal">Reset</string>
-    <string name="menu_resetexpert">Reset als skygod</string>
     <string name="menu_reset">Reset</string>
     <string name="menu_save">Opslaan</string>
     <string name="menu_about">Over de Skydive kompasroos App</string>
