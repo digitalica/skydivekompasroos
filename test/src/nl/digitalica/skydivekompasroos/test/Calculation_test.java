@@ -54,20 +54,35 @@ public class Calculation_test extends TestCase {
 	public void testMinArea() {
 		final int LIGHT = 60;
 		int minArea = 0;
-		// for large exit weight, the min area is given by the category
-		assertEquals(MINAREACAT1, Calculation.minArea(1, LIGHT));
-		assertEquals(MINAREACAT2, Calculation.minArea(2, LIGHT));
-		assertEquals(MINAREACAT3, Calculation.minArea(3, LIGHT));
-		assertEquals(MINAREACAT4, Calculation.minArea(4, LIGHT));
-		assertEquals(MINAREACAT5, Calculation.minArea(5, LIGHT));
+		// for low exit weight, the min area is given by the category
+		assertEquals("Min Area based on weight incorrect for cat 1",
+				MINAREACAT1, Calculation.minArea(1, LIGHT));
+		assertEquals("Min Area based on weight incorrect for cat 2",
+				MINAREACAT2, Calculation.minArea(2, LIGHT));
+		assertEquals("Min Area based on weight incorrect for cat 3",
+				MINAREACAT3, Calculation.minArea(3, LIGHT));
+		assertEquals("Min Area based on weight incorrect for cat 4",
+				MINAREACAT4, Calculation.minArea(4, LIGHT));
+		assertEquals("Min Area based on weight incorrect for cat 5",
+				MINAREACAT5, Calculation.minArea(5, LIGHT));
 
-		// for small exit weight , the min area is given by the max wing load
+		// for height exit weight , the min area is given by the max wing load
 
-		assertMinAreaForWingload(MAXWINGLOADCAT1);
-		assertMinAreaForWingload(MAXWINGLOADCAT2);
-		assertMinAreaForWingload(MAXWINGLOADCAT3);
-		assertMinAreaForWingload(MAXWINGLOADCAT4);
-		assertMinAreaForWingload(MAXWINGLOADCAT5);
+		assertMinAreaForWingload(
+				"Min Area based on wingload incorrect for cat 1",
+				MAXWINGLOADCAT1, 1);
+		assertMinAreaForWingload(
+				"Min Area based on wingload incorrect for cat 2",
+				MAXWINGLOADCAT2, 2);
+		assertMinAreaForWingload(
+				"Min Area based on wingload incorrect for cat 3",
+				MAXWINGLOADCAT3, 3);
+		assertMinAreaForWingload(
+				"Min Area based on wingload incorrect for cat 4",
+				MAXWINGLOADCAT4, 4);
+		assertMinAreaForWingload(
+				"Min Area based on wingload incorrect for cat 5",
+				MAXWINGLOADCAT5, 5);
 	}
 
 	/***
@@ -76,14 +91,15 @@ public class Calculation_test extends TestCase {
 	 * @param maxWingLoad
 	 * @param weightInKg
 	 */
-	private void assertMinAreaForWingload(double maxWingLoad) {
+	private void assertMinAreaForWingload(String message, double maxWingLoad,
+			int category) {
 		// high exit weight, so minimal area will be based on wing load limit,
 		// not the minimal area for the group
-		final int HEAVY = 60;
+		final int HEAVY = 120;
 		int minArea = (int) Math.round((double) Calculation.kgToLbs(HEAVY)
 				/ maxWingLoad);
 
-		assertEquals(minArea, Calculation.minArea(1, HEAVY));
+		assertEquals(message, minArea, Calculation.minArea(category, HEAVY));
 	}
 
 }
