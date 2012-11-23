@@ -6,6 +6,8 @@
         name="Navigator"
         category="1"
         manufacturer="Performance Designs"
+        maxsize="300"
+        minsize="200"
         url="http://www.performancedesigns.com/products.asp?product=na" />
     <canopy
         name="PD F111 serie"
@@ -18,12 +20,17 @@
     <canopy
         name="Solo"
         category="1"
-        manufacturer="Aerodyne-int" />
+        manufacturer="Aerodyne-int"
+        maxsize="290"
+        minsize="190" />
     <canopy
         name="Prima"
         category="1"
         cells="9"
-        manufacturer="Parachutes de France" />
+        manufacturer="Parachutes de France"
+        maxsize="290"
+        minsize="230"
+        url="http://www.parachutes-de-france.net/en/products/main-canopies/20/prima-zp.html" />
     <canopy
         name="Drakkar"
         category="1"
@@ -48,11 +55,16 @@
         name="Skymaster"
         category="1"
         manufacturer="PISA"
+        maxsize="170"
+        minsize="290"
         url="http://www.pisa.co.za/default.aspx?id=31" />
     <canopy
         name="Balance"
         category="1"
+        cells="9"
         manufacturer="Paratec"
+        maxsize="280"
+        minsize="150"
         url="http://www.paratec.de/produkte-fallschirme/hauptschirme/balance/" />
     <canopy
         name="Maverick"
@@ -106,6 +118,8 @@
         name="Manta ZP"
         category="1"
         manufacturer="Flight Concepts"
+        maxsize="320"
+        minsize="185"
         url="http://flightconceptsint.com/zp-main/zp-manta" />
     <canopy
         name="Cruislite"
@@ -135,6 +149,10 @@
         category="2"
         cells="9"
         manufacturer="Parachutes de France"
+        maxsize="210"
+        minsize="130"
+        planform="9.5"
+        planformcells="4"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/21/electra.html" />
     <canopy
         name="Merit"
@@ -143,18 +161,28 @@
     <canopy
         name="Pilot"
         category="2"
-        manufacturer="Aerodyne-int" />
+        cells="9"
+        manufacturer="Aerodyne-int"
+        maxsize="230"
+        minsize="90"
+        planform="6.7"
+        planformcells="4" />
     <canopy
         name="Triathlon"
         category="2"
         cells="7"
         manufacturer="Aerodyne-int"
+        maxsize="260"
+        minsize="99"
         url="http://www.flyaerodyne.com/triathlon.html" />
     <canopy
         name="Eagle 9-cell ParaFoil"
         category="2"
         cells="9"
-        manufacturer="NAA" />
+        manufacturer="NAA"
+        maxsize="330"
+        minsize="110"
+        url="http://www.naaero.com/sport/Eagle%209-cell.htm" />
     <canopy
         name="Super 7"
         category="2"
@@ -172,42 +200,64 @@
         category="2"
         cells="7"
         manufacturer="Performance Designs"
+        maxsize="230"
+        minsize="97"
         url="http://www.performancedesigns.com/products.asp?product=sp" />
     <canopy
         name="Silhouette"
         category="2"
+        cells="9"
         manufacturer="Performance Designs"
+        maxsize="260"
+        minsize="135"
         url="http://www.performancedesigns.com/products.asp?product=si" />
     <canopy
         name="Zero"
         category="2"
+        cells="7"
         manufacturer="Performance Designs"
+        maxsize="305"
+        minsize="205"
         url="http://www.performancedesigns.com/zero.asp" />
     <canopy
         name="Pulse"
         category="2"
         cells="9"
         manufacturer="Performance Designs"
+        maxsize="260"
+        minsize="107"
         url="http://www.performancedesigns.com/products.asp?product=pl" />
     <canopy
         name="Synergy"
         category="2"
+        cells="7"
         manufacturer="Precision"
+        maxsize="230"
+        minsize="98"
         url="http://www.precision.aero/synergy.htm" />
     <canopy
         name="Omni"
         category="2"
+        cells="7"
         manufacturer="Icarus"
+        maxsize="229"
+        minsize="99"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=1&amp;Itemid=11" />
     <canopy
         name="Omega"
         category="2"
+        cells="7"
         manufacturer="Icarus"
+        maxsize="229"
+        minsize="99"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=13&amp;Itemid=10" />
     <canopy
         name="Cayenne"
         category="2"
-        manufacturer="Firebird" />
+        manufacturer="Firebird"
+        maxsize="190"
+        minsize="130"
+        url="http://cms.flyfirebird.com/skydive/index.php?option=com_content&amp;view=article&amp;id=56%3Acayenne-light&amp;catid=34%3Aprodukte&amp;Itemid=75&amp;lang=en" />
     <canopy
         name="Dragon"
         category="2"
@@ -221,6 +271,10 @@
         category="3"
         cells="9"
         manufacturer="Performance Designs"
+        maxsize="260"
+        minsize="97"
+        planform="5.4"
+        planformcells="6"
         url="http://www.performancedesigns.com/products.asp?product=sa" />
     <canopy
         name="Lightning"
@@ -232,21 +286,31 @@
         category="3"
         cells="7"
         manufacturer="Performance Designs"
+        maxsize="230"
+        minsize="97"
         url="http://www.performancedesigns.com/products.asp?product=tf" />
     <canopy
         name="Fusion"
         category="3"
+        cells="9"
         manufacturer="Precision"
+        maxsize="230"
+        minsize="89"
         url="http://www.precision.aero/fusion.htm" />
     <canopy
         name="Sentry"
         category="3"
         manufacturer="Flight Concepts"
+        maxsize="230"
+        minsize="99"
         url="http://flightconceptsint.com/zp-main/sentry" />
     <canopy
         name="Lotus"
         category="3"
+        cells="9"
         manufacturer="Big-air sports"
+        maxsize="190"
+        minsize="95"
         url="http://www.bigairsportz.com/lotus.php" />
     <canopy
         name="Safire 1"
@@ -255,17 +319,28 @@
     <canopy
         name="Safire 2"
         category="3"
+        cells="9"
         manufacturer="Icarus"
+        maxsize="229"
+        minsize="99"
+        planform="16.4"
+        planformcells="8"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=3&amp;Itemid=9" />
     <canopy
         name="Z-po"
         category="3"
+        cells="9"
         manufacturer="Strong"
+        maxsize="210"
+        minsize="130"
         url="http://www.strongparachutes.com/pages/Sport/spmain.html" />
     <canopy
         name="Faqtor"
         category="3"
+        cells="9"
         manufacturer="Paratec"
+        maxsize="150"
+        minsize="97"
         url="http://www.paratec.de/en/products-parachutes/main-canopies/50/" />
     <canopy
         name="Hornet"
@@ -285,7 +360,12 @@
     <canopy
         name="Stiletto"
         category="4"
+        cells="9"
         manufacturer="Performance Designs"
+        maxsize="190"
+        minsize="89"
+        planform="13.3"
+        planformcells="4"
         url="http://www.performancedesigns.com/products.asp?product=st" />
     <canopy
         name="BT"
@@ -294,7 +374,10 @@
     <canopy
         name="Springo"
         category="4"
-        manufacturer="Parachutes de France" />
+        cells="9"
+        manufacturer="Parachutes de France"
+        planform="28.0"
+        planformcells="8" />
     <canopy
         name="Electra XS"
         category="4"
@@ -322,11 +405,15 @@
     <canopy
         name="Vision"
         category="4"
-        manufacturer="Aerodyne-int" />
+        manufacturer="Aerodyne-int"
+        planform="15.5"
+        planformcells="6" />
     <canopy
         name="Diablo"
         category="4"
-        manufacturer="Aerodyne-int" />
+        manufacturer="Aerodyne-int"
+        planform="10.7"
+        planformcells="4" />
     <canopy
         name="Rage"
         category="4"
@@ -351,12 +438,17 @@
     <canopy
         name="Hurricane"
         category="4"
+        cells="9"
         manufacturer="Chute Shop"
+        maxsize="170"
+        minsize="95"
         url="http://www.parachutesystems.co.za/hurricane_elliptical" />
     <canopy
         name="Firebolt"
         category="4"
         manufacturer="Jump Shack"
+        maxsize="396"
+        minsize="84"
         url="http://www.jumpshack.com/firebolt.htm" />
 
     <!-- CATEGORY 5 -->
@@ -366,6 +458,8 @@
         category="5"
         cells="9"
         manufacturer="Performance Designs"
+        maxsize="170"
+        minsize="83"
         url="http://www.performancedesigns.com/products.asp?product=ka" />
     <canopy
         name="Crossfire"
@@ -375,7 +469,9 @@
         name="Mamba"
         category="5"
         cells="9"
-        manufacturer="Aerodyne-int" />
+        manufacturer="Aerodyne-int"
+        maxsize="150"
+        minsize="90" />
     <canopy
         name="Radical"
         category="5"
@@ -386,25 +482,183 @@
         name="Express"
         category="6"
         manufacturer="Flight Concepts"
-        remark="CATEGORY UNKNOWN"
+        maxsize="200"
+        minsize="125"
+        remarks="CATEGORY UNKNOWN"
         url="http://flightconceptsint.com/zp-main/express" />
     <canopy
         name="Prodigy"
         category="6"
         manufacturer="Flight Concepts"
-        remark="CATEGORY UNKNOWN"
+        maxsize="250"
+        minsize="150"
+        remarks="CATEGORY UNKNOWN"
         url="http://flightconceptsint.com/zp-main/prodigy" />
     <canopy
         name="Sensei"
         category="6"
         cells="21"
         manufacturer="Aerodyne-int"
-        remark="CATEGORY UNKNOWN" />
-    
+        maxsize="121"
+        minsize="71"
+        remarks="CATEGORY UNKNOWN" />
+    <canopy
+        name="Volt"
+        category="6"
+        cells="9"
+        manufacturer="Chute Shop"
+        maxsize="215"
+        minsize="125"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.parachutesystems.co.za/exe_square_parachute" />
+    <canopy
+        name="V-Max"
+        category="6"
+        cells="27"
+        manufacturer="Chute Shop"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.parachutesystems.co.za/max_crossed" />
+    <canopy
+        name="Crossfire 2"
+        category="6"
+        manufacturer="Icarus"
+        maxsize="169"
+        minsize="89"
+        planform="21.6"
+        planformcells="8"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=9&amp;Itemid=8" />
+    <canopy
+        name="Samurai"
+        category="6"
+        cells="9"
+        manufacturer="Big-air sports"
+        maxsize="170"
+        minsize="95"
+        remarks="CATEGORY UNKNOWN" />
+    <canopy
+        name="Extreme VX"
+        category="6"
+        cells="27"
+        manufacturer="Icarus"
+        maxsize="119"
+        minsize="69"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=12&amp;Itemid=6" />
+    <canopy
+        name="Extreme FX"
+        category="6"
+        manufacturer="Icarus"
+        maxsize="119"
+        minsize="69"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=11&amp;Itemid=7" />
+    <canopy
+        name="Neos"
+        category="6"
+        manufacturer="Icarus"
+        maxsize="119"
+        minsize="59"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=11&amp;Itemid=7" />
+    <canopy
+        name="Equinox"
+        category="6"
+        cells="9"
+        manufacturer="Icarus"
+        maxsize="229"
+        minsize="189"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=20&amp;Itemid=19" />
+    <canopy
+        name="Prime"
+        category="6"
+        cells="9"
+        manufacturer="Parachutes de France"
+        maxsize="200"
+        minsize="280"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.parachutes-de-france.net/en/products/main-canopies/19/prime.html" />
+    <canopy
+        name="Springo NG"
+        category="6"
+        cells="9"
+        manufacturer="Parachutes de France"
+        maxsize="110"
+        minsize="160"
+        planform="28.0"
+        planformcells="8"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.parachutes-de-france.net/en/products/main-canopies/22/springo-ng.html" />
+    <canopy
+        name="Instinct"
+        category="6"
+        cells="9"
+        manufacturer="Parachutes de France"
+        maxsize="80"
+        minsize="110"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.parachutes-de-france.net/en/products/main-canopies/23/instinct.html" />
+    <canopy
+        name="Element"
+        category="6"
+        cells="9"
+        manufacturer="Paratec"
+        maxsize="260"
+        minsize="220"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.paratec.de/produkte-fallschirme/hauptschirme/element/" />
+    <canopy
+        name="NRG"
+        category="6"
+        cells="9"
+        manufacturer="Paratec"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.paratec.de/produkte-fallschirme/hauptschirme/element/" />
+    <canopy
+        name="Rage"
+        category="6"
+        manufacturer="Paratec"
+        maxsize="107"
+        minsize="86"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.paratec.de/produkte-fallschirme/hauptschirme/rage/" />
+    <canopy
+        name="Velocity"
+        category="6"
+        manufacturer="Performance Designs"
+        maxsize="120"
+        minsize="75"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.performancedesigns.com/products.asp?product=ve" />
+    <canopy
+        name="Xaos-27"
+        category="6"
+        cells="27"
+        manufacturer="Precision"
+        maxsize="118"
+        minsize="58"
+        url="http://www.precision.aero/xaos-27.htm" />
+    <canopy
+        name="Xaos-21"
+        category="6"
+        cells="21"
+        manufacturer="Precision"
+        maxsize="135"
+        minsize="68"
+        url="http://www.precision.aero/xaos-21.htm" />
+    <canopy
+        name="Nitron"
+        category="6"
+        cells="9"
+        manufacturer="Precision"
+        maxsize="170"
+        minsize="78"
+        url="http://www.precision.aero/xaos-21.htm" />
     <canopy
         name="Elk ander type"
-        isspecialcatchallcanopy="1"
         category="6"
+        isspecialcatchallcanopy="1"
         manufacturer="Elke andere fabrikant" />
-    
+
 </canopies>

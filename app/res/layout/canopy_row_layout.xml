@@ -39,6 +39,8 @@
                 android:id="@+id/textViewCanopyListRowDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screen_padding_left"
+                android:layout_marginRight="@dimen/screen_padding_right"
                 android:text="Category"
                 android:textSize="@dimen/canopylistCanopyDetails" />
         </LinearLayout>

@@ -48,9 +48,12 @@
     <string name="reset_name_intermediate">Gemiddelde springer</string>
     <string name="reset_name_skygod">Sky God</string>
     <string name="detailsmanufacturer">Fabrikant:</string>
+    <string name="detailsmanufacturercountry">Uit:</string>
     <string name="detailsUrl">Website:</string>
     <string name="detailsCategory">Categorie:</string>
     <string name="detailsRemarks">Bijzonderheden:</string>
+    <string name="detailsCells">Cellen:</string>
+    <string name="detailsSizes">Maten beschikbaar:</string>
     <string name="detailsExperience">Benodigde ervaring:</string>
     <string name="saveDialogHeader">Sla gegevens op als:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>

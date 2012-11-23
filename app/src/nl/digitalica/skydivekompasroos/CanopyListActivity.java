@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -220,7 +221,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		tvCanopyDetails.setText(theCanopy.manufacturer);
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
-		// if the link won't work, because this is the catch all, 
+		// if the link won't work, because this is the catch all,
 		// don't show the arrow.
 		if (theCanopy.isSpecialCatchAllCanopy == 1) {
 			TextView tvArrowRight = (TextView) canopyListRow
@@ -245,4 +246,5 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			skydiveKompasroosResultNotAccepted.append(shareResultLine);
 
 	}
+
 }

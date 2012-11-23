@@ -10,15 +10,19 @@ import org.xmlpull.v1.XmlPullParserException;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
+import android.util.Log;
 
 public class Manufacturer {
 
 	public String name;
+	public String countryCode;
 	public String url;
 	public String remarks;
 
-	public Manufacturer(String mName, String mUrl, String mRemarks) {
+	public Manufacturer(String mName, String mCountryCode, String mUrl,
+			String mRemarks) {
 		this.name = mName;
+		this.countryCode = mCountryCode;
 		this.url = mUrl;
 		this.remarks = mRemarks;
 
@@ -46,9 +50,11 @@ public class Manufacturer {
 							.getAttributeValue(null, "url");
 					String manufacturerRemarks = manufacturersParser
 							.getAttributeValue(null, "remarks");
+					String manufacturerCountryCode = manufacturersParser
+							.getAttributeValue(null, "countrycode");
 					Manufacturer manufacturer = new Manufacturer(
-							manufacturerName, manufacturerUrl,
-							manufacturerRemarks);
+							manufacturerName, manufacturerCountryCode,
+							manufacturerUrl, manufacturerRemarks);
 					manufacturerHashMap.put(manufacturer.name, manufacturer);
 				}
 
@@ -65,6 +71,45 @@ public class Manufacturer {
 		}
 		return manufacturerHashMap;
 
+	}
+
+	/***
+	 * Return the full name of the country. Note we allow multipe countries
+	 * codes and will translate to multiple countries this is for Icarus (us and
+	 * fr)
+	 * 
+	 * @return
+	 */
+	public String countryFullName() {
+		StringBuilder countries = new StringBuilder();
+		String[] countryCodes = this.countryCode.split(",");
+		for (String code : countryCodes) {
+			if (countries.length() > 0)
+				countries.append(", ");
+			countries.append(country(code));
+		}
+		return countries.toString();
+	}
+
+	/***
+	 * Return the full name of a single country
+	 * 
+	 * TODO: make sure we return different language if needed (use string array?)
+	 * 
+	 * @param countryCode
+	 * @return
+	 */
+	private String country(String countryCode) {
+		if (countryCode.equals("us"))
+			return "Verenigde Staten";
+		if (countryCode.equals("sa"))
+			return "Zuid Afrika";
+		if (countryCode.equals("de"))
+			return "Duitsland";
+		if (countryCode.equals("fr"))
+			return "Frankrijk";
+		Log.e(KompasroosBaseActivity.LOG_TAG, "Unknown country code: " + countryCode);
+		return countryCode;
 	}
 
 }

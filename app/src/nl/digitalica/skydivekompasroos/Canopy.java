@@ -17,18 +17,23 @@ public class Canopy {
 	public String name;
 	public String url;
 	public String cells;
+	public String minSize;
+	public String maxSize;
 	public String remarks;
 	// TODO: the below should be a boolean probably...
 	public int isSpecialCatchAllCanopy = 0;
 
 	public Canopy(int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
-			String canopyRemarks, int isSpecialCatchAllCanopy) {
+			String canopyMinSize, String canopyMaxSize, String canopyRemarks,
+			int isSpecialCatchAllCanopy) {
 		this.category = canopyCategory;
 		this.manufacturer = canopyManufacturer;
 		this.name = canopyName;
 		this.url = canopyUrl;
 		this.cells = canopyCells;
+		this.minSize = canopyMinSize;
+		this.maxSize = canopyMaxSize;
 		this.remarks = canopyRemarks;
 		this.isSpecialCatchAllCanopy = isSpecialCatchAllCanopy;
 	}
@@ -69,6 +74,10 @@ public class Canopy {
 							"url");
 					String canopyCells = canopiesParser.getAttributeValue(null,
 							"cells");
+					String canopyMinSize = canopiesParser.getAttributeValue(
+							null, "minsize");
+					String canopyMaxSize = canopiesParser.getAttributeValue(
+							null, "maxsize");
 					String canopyRemarks = canopiesParser.getAttributeValue(
 							null, "remarks");
 					String isSpecialCatchAllCanopyString = canopiesParser
@@ -80,7 +89,8 @@ public class Canopy {
 								.parseInt(isSpecialCatchAllCanopyString);
 					Canopy canopy = new Canopy(canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
-							canopyCells, canopyRemarks, isSpecialCatchAllCanopy);
+							canopyCells, canopyMinSize, canopyMaxSize,
+							canopyRemarks, isSpecialCatchAllCanopy);
 					if (key == null)
 						canopyList.add(canopy);
 					else if (canopy.key().equals(key)) {
