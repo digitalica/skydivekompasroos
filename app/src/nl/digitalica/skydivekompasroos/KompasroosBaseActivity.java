@@ -32,12 +32,17 @@ public class KompasroosBaseActivity extends Activity {
 	static int currentMaxCategory = 0;
 	static int currentMinArea = MINAREAUNKOWN;
 
-	Drawable backgroundDrawableForAcceptance(boolean acceptable) {
-		Drawable background;
-		if (acceptable)
-			background = getResources().getDrawable(R.drawable.canopyacceptable);
-		else
-			background = getResources().getDrawable(R.drawable.canopynotacceptable);
+	Drawable backgroundDrawableForAcceptance(int acceptability) {
+		Drawable background = null;
+		if (acceptability == Canopy.ACCEPTABLE)
+			background = getResources()
+					.getDrawable(R.drawable.canopyacceptable);
+		else if (acceptability == Canopy.NEEDEDSIZENOTAVAILABLE)
+			background = getResources().getDrawable(
+					R.drawable.canopyneededsizenotavailable);
+		else if (acceptability == Canopy.CATEGORYTOOHIGH)
+			background = getResources().getDrawable(
+					R.drawable.canopycategorytoohigh);
 		return background;
 	}
 

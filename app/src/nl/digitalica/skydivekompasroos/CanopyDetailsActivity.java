@@ -40,7 +40,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
 		tvName.setText(canopy.name);
-		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(currentMaxCategory >= canopy.category));
+		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(canopy.acceptablility(currentMaxCategory, currentWeight)));
 
 		tvCategory.setText(Integer.toString(canopy.category));
 		String[] jumperCategories = getResources().getStringArray(

@@ -55,8 +55,8 @@
         name="Skymaster"
         category="1"
         manufacturer="PISA"
-        maxsize="170"
-        minsize="290"
+        minsize="170"
+        maxsize="290"
         url="http://www.pisa.co.za/default.aspx?id=31" />
     <canopy
         name="Balance"

@@ -6,6 +6,7 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -74,7 +75,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			break;
 		case SORTBYMANUFACTURER:
 			Collections.sort(canopyList,
-					new Canopy.ComparatorByManufacturerName());
+					new Canopy.ComparatorByManufacturerCategoryName());
 			break;
 		}
 		canopyTable.removeAllViewsInLayout();
@@ -82,7 +83,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		skydiveKompasroosResultNotAccepted = new StringBuilder();
 
 		for (Canopy theCanopy : canopyList)
-			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory);
+			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory, currentWeight);
 	}
 
 	/***
@@ -183,7 +184,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param maxCategory
 	 */
 	private void insertCanopyRow(LinearLayout canopyTable, Canopy theCanopy,
-			int maxCategory) {
+			int maxCategory, int exitWeightInKg) {
 
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -200,8 +201,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				}
 			});
 
-		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(maxCategory >= theCanopy.category));
-
+		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(theCanopy.acceptablility(maxCategory, exitWeightInKg)));
+				
 		// hLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 		// LayoutParams.WRAP_CONTENT));
 

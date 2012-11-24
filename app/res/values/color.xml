@@ -29,5 +29,11 @@
     <color name="Cat3Blue">#629595</color>
     <color name="Cat4Blue">#86A7A6</color>
     <color name="Cat5Blue">#D5F4F0</color>
+    <color name="Cat1Orange">#DC680B</color>
+    <color name="Cat1OrangeTransparent">#80DC680B</color>
+    <color name="Cat2Orange">#F8A766</color>
+    <color name="Cat3Orange">#F9CBA4</color>
+    <color name="Cat4Orange">#FFE3CD</color>
+    <color name="Cat5Orange">#FFECDF</color>
 
 </resources>

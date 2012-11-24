@@ -2,6 +2,7 @@ package nl.digitalica.skydivekompasroos;
 
 public class Calculation {
 
+	// conversion
 	final static double WEIGHT_FACTOR_KG_TO_LBS = 2.20462262185;
 
 	/***
@@ -63,7 +64,7 @@ public class Calculation {
 	 * @return
 	 */
 	static public int minAreaBasedOnCategory(int jumperCategory) {
-		int minAreaBasedOnCategory = 999;
+		int minAreaBasedOnCategory = 0;
 
 		switch (jumperCategory) {
 		case 1:
@@ -139,4 +140,5 @@ public class Calculation {
 
 		return minArea;
 	}
+	
 }

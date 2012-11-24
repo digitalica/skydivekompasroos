@@ -12,6 +12,16 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 
 public class Canopy {
+
+	final public static String DEFAULTMANUFACTURER = "Some manufacturer";
+	final public static String DEFAULTSIZE = "170";
+
+	// results
+	public final static int ACCEPTABLE = 0;
+	public final static int NEEDEDSIZENOTAVAILABLE = 1;
+	public final static int CATEGORYTOOHIGH = 2;
+
+	// properties
 	public int category;
 	public String manufacturer;
 	public String name;
@@ -36,6 +46,30 @@ public class Canopy {
 		this.maxSize = canopyMaxSize;
 		this.remarks = canopyRemarks;
 		this.isSpecialCatchAllCanopy = isSpecialCatchAllCanopy;
+	}
+
+	/***
+	 * Constructor to create a specific canopy (mostly convenient for testing)
+	 * 
+	 * @param canopyCategory
+	 * @param canopyName
+	 * @param size
+	 */
+	public Canopy(int canopyCategory, String canopyName, String size) {
+		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, size,
+				size, null, 0);
+	}
+
+	/***
+	 * Constructor to create a specific canopy (mostly convenient for testing)
+	 * 
+	 * @param canopyCategory
+	 * @param canopyName
+	 * @param size
+	 */
+	public Canopy(int canopyCategory, String canopyName) {
+		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null,
+				DEFAULTSIZE, DEFAULTSIZE, null, 0);
 	}
 
 	/***
@@ -168,11 +202,14 @@ public class Canopy {
 	}
 
 	/***
-	 * Comparator, to be used for sorting
+	 * Comparator, to be used for sorting For each manufacturer we sort on cat
+	 * first, so the colored bars will show up nicely in list and help
+	 * separating suppliers
 	 * 
 	 * @author robbert
 	 */
-	public static class ComparatorByManufacturerName implements Comparator {
+	public static class ComparatorByManufacturerCategoryName implements
+			Comparator {
 
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
@@ -183,9 +220,33 @@ public class Canopy {
 				return -1;
 			if (c1.manufacturer != c2.manufacturer)
 				return c1.manufacturer.compareTo(c2.manufacturer);
+			if (c1.category != c2.category)
+				return c1.category < c2.category ? -1 : 1;
 			return c1.name.compareTo(c2.name);
 		}
+	}
 
+	@Override
+	public String toString() {
+		return Integer.toString(this.category) + " " + this.name + " ("
+				+ this.manufacturer + ")";
+	}
+
+	/***
+	 * Determines if a canopy is acceptable for a given jumper
+	 * 
+	 * @param jumperCategory
+	 * @param exitWeightInKg
+	 * @return
+	 */
+	public int acceptablility(int jumperCategory, int exitWeightInKg) {
+		if (jumperCategory < this.category)
+			return CATEGORYTOOHIGH; // not acceptable
+		if (this.maxSize != "" && this.maxSize != null)
+			if (Integer.parseInt(this.maxSize) < Calculation.minArea(
+					jumperCategory, exitWeightInKg))
+				return NEEDEDSIZENOTAVAILABLE;
+		return ACCEPTABLE;
 	}
 
 }
