@@ -100,13 +100,14 @@ public class Manufacturer {
 	 * @return
 	 */
 	private String country(String countryCode) {
-		if (countryCode.equals("us"))
+		String trimmedCountryCode = countryCode.trim();
+		if (trimmedCountryCode.equals("us"))
 			return "Verenigde Staten";
-		if (countryCode.equals("sa"))
+		if (trimmedCountryCode.equals("sa"))
 			return "Zuid Afrika";
-		if (countryCode.equals("de"))
+		if (trimmedCountryCode.equals("de"))
 			return "Duitsland";
-		if (countryCode.equals("fr"))
+		if (trimmedCountryCode.equals("fr"))
 			return "Frankrijk";
 		Log.e(KompasroosBaseActivity.LOG_TAG, "Unknown country code: " + countryCode);
 		return countryCode;
