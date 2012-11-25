@@ -51,6 +51,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:paddingLeft="@dimen/screen_padding_left"
+                android:paddingRight="@dimen/screen_padding_right"
                 android:progressDrawable="@drawable/sb_progress"
                 android:thumb="@drawable/sb_thumb" />
 
@@ -87,6 +89,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:paddingLeft="@dimen/screen_padding_left"
+                android:paddingRight="@dimen/screen_padding_right"
                 android:progressDrawable="@drawable/sb_progress"
                 android:thumb="@drawable/sb_thumb" />
 
@@ -141,6 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:paddingLeft="@dimen/screen_padding_left"
+                android:paddingRight="@dimen/screen_padding_right"
                 android:progressDrawable="@drawable/sb_progress"
                 android:thumb="@drawable/sb_thumb" />
 
@@ -274,7 +280,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_normal"
             android:text="@string/btnShowCanopyList" />
-
     </LinearLayout>
 
 </ScrollView>
