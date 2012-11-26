@@ -97,47 +97,64 @@
     <canopy
         name="Fury"
         category="1"
+        cells="7"
         manufacturer="Flight Concepts"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Firelite"
         category="1"
+        cells="7"
         manufacturer="Flight Concepts"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Cricket"
         category="1"
+        cells="7"
         manufacturer="Flight Concepts"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Startrac"
         category="1"
+        cells="7"
         manufacturer="Flight Concepts"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Sharpshuter"
         category="1"
+        cells="7"
         manufacturer="Flight Concepts"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Raider"
         category="1"
+        cells="9"
         manufacturer="Flight Concepts"
+        maxsize="220"
+        minsize="220"
         url="http://flightconceptsint.com/classic/9-cell-classic" />
     <canopy
         name="Maverone"
         category="1"
+        cells="9"
         manufacturer="Flight Concepts"
+        maxsize="250"
+        minsize="250"
         url="http://flightconceptsint.com/classic/9-cell-classic" />
     <canopy
         name="Clipper"
         category="1"
+        cells="9"
         manufacturer="Flight Concepts"
+        maxsize="195"
+        minsize="195"
         url="http://flightconceptsint.com/classic/9-cell-classic" />
     <canopy
         name="Manta"
         category="1"
-        manufacturer="Flight Concepts" />
+        cells="9"
+        manufacturer="Flight Concepts"
+        maxsize="290"
+        minsize="290" />
     <canopy
         name="Manta ZP"
         category="1"
@@ -461,6 +478,8 @@
         name="Rage"
         category="4"
         manufacturer="Flight concepts"
+        maxsize="230"
+        minsize="90"
         remarks="Er bestaat ook een &apos;Rage&apos; van Paratec"
         url="http://flightconceptsint.com/zp-main/rage" />
     <canopy
