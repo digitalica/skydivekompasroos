@@ -310,7 +310,10 @@
     <canopy
         name="Dragon"
         category="2"
+        cells="7"
         manufacturer="Atair Aerodynamics"
+        maxsize="210"
+        minsize="135"
         url="http://www.basetroll.com/products_4.html" />
 
     <!-- CATEGORY 3 -->
@@ -540,7 +543,11 @@
     <canopy
         name="Radical"
         category="5"
-        manufacturer="Atair Aerodynamics" />
+        cells="9"
+        manufacturer="Atair Aerodynamics"
+        maxsize="170"
+        minsize="85"
+        url="http://www.basetroll.com/products_3.html" />
 
     <!-- CATEGORY 6 -->
     <canopy
