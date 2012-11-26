@@ -5,18 +5,42 @@
     <canopy
         name="Navigator"
         category="1"
+        cells="9"
+        firstyearofproduction=""
+        lastyearofproduction="1998"
         manufacturer="Performance Designs"
         maxsize="300"
         minsize="200"
         url="http://www.performancedesigns.com/products.asp?product=na" />
     <canopy
-        name="PD F111 serie"
+        name="PD F111 serie (7 cell)"
         category="1"
-        manufacturer="Performance Designs" />
+        cells="7"
+        firstyearofproduction="1985"
+        lastyearofproduction="2000"
+        manufacturer="Performance Designs"
+        maxsize="253"
+        minsize="143" />
+    <canopy
+        name="PD F111 serie (9 cell)"
+        category="1"
+        cells="9"
+        firstyearofproduction="1984"
+        lastyearofproduction="2000"
+        manufacturer="Performance Designs"
+        maxsize="340"
+        minsize="150" />
     <canopy
         name="Sabre"
         category="1"
-        manufacturer="Performance Designs" />
+        cells="9"
+        firstyearofproduction="”2005”"
+        lastyearofproduction="”1990”"
+        manufacturer="Performance Designs"
+        url = "http://www.performancedesigns.com/products.asp?product=ls
+"
+        maxsize="230"
+        minsize="97" />
     <canopy
         name="Solo"
         category="1"
@@ -55,8 +79,8 @@
         name="Skymaster"
         category="1"
         manufacturer="PISA"
-        minsize="170"
         maxsize="290"
+        minsize="170"
         url="http://www.pisa.co.za/default.aspx?id=31" />
     <canopy
         name="Balance"
@@ -199,6 +223,8 @@
         name="Spectre"
         category="2"
         cells="7"
+        firstyearofproduction="1997"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="230"
         minsize="97"
@@ -207,6 +233,8 @@
         name="Silhouette"
         category="2"
         cells="9"
+        firstyearofproduction="1997"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="260"
         minsize="135"
@@ -215,6 +243,8 @@
         name="Zero"
         category="2"
         cells="7"
+        firstyearofproduction="2010"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="305"
         minsize="205"
@@ -223,6 +253,8 @@
         name="Pulse"
         category="2"
         cells="9"
+        firstyearofproduction="2009"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="260"
         minsize="107"
@@ -270,6 +302,8 @@
         name="Sabre 2"
         category="3"
         cells="9"
+        firstyearofproduction="2001"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="260"
         minsize="97"
@@ -279,12 +313,19 @@
     <canopy
         name="Lightning"
         category="3"
+        cells="7"
+        firstyearofproduction="1990"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
+        maxsize="253"
+        minsize="126"
         url="http://www.performancedesigns.com/products.asp?product=ps" />
     <canopy
         name="Storm"
         category="3"
         cells="7"
+        firstyearofproduction="2008"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="230"
         minsize="97"
@@ -361,6 +402,8 @@
         name="Stiletto"
         category="4"
         cells="9"
+        firstyearofproduction="1992"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="190"
         minsize="89"
@@ -457,6 +500,8 @@
         name="Katana"
         category="5"
         cells="9"
+        firstyearofproduction="2003"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="170"
         minsize="83"
@@ -626,9 +671,23 @@
     <canopy
         name="Velocity"
         category="6"
+        cells="7"
+        firstyearofproduction="1998"
+        lastyearofproduction=""
         manufacturer="Performance Designs"
         maxsize="120"
         minsize="75"
+        remarks="CATEGORY UNKNOWN"
+        url="http://www.performancedesigns.com/products.asp?product=ve" />
+    <canopy
+        name="Comp Velocity"
+        category="6"
+        cells="7"
+        firstyearofproduction="2009"
+        lastyearofproduction=""
+        manufacturer="Performance Designs"
+        maxsize="111"
+        minsize="71"
         remarks="CATEGORY UNKNOWN"
         url="http://www.performancedesigns.com/products.asp?product=ve" />
     <canopy
