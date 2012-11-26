@@ -31,6 +31,7 @@
                     android:id="@+id/textViewCategoryLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsCategory"
                     android:textSize="@dimen/canopydetailsDetails" />
 
@@ -51,6 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="100"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsExperience"
                     android:textSize="@dimen/canopydetailsDetails" />
 
@@ -70,6 +72,7 @@
                     android:id="@+id/textViewCellsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsCells"
                     android:textSize="@dimen/canopydetailsDetails" />
 
@@ -80,7 +83,7 @@
                     android:text="@string/to_be_replaced"
                     android:textSize="@dimen/canopydetailsDetails" />
             </TableRow>
-            
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -89,6 +92,7 @@
                     android:id="@+id/textViewSizesLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsSizes"
                     android:textSize="@dimen/canopydetailsDetails" />
 
@@ -99,7 +103,7 @@
                     android:text="@string/to_be_replaced"
                     android:textSize="@dimen/canopydetailsDetails" />
             </TableRow>
-            
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -108,6 +112,7 @@
                     android:id="@+id/textViewManufacturerLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsmanufacturer"
                     android:textSize="@dimen/canopydetailsDetails" />
 
@@ -119,7 +124,7 @@
                     android:textSize="@dimen/canopydetailsDetails" />
             </TableRow>
 
-                        <TableRow
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
@@ -127,6 +132,7 @@
                     android:id="@+id/textViewManufacturerCountryLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsmanufacturercountry"
                     android:textSize="@dimen/canopydetailsDetails" />
 
@@ -137,8 +143,7 @@
                     android:text="@string/to_be_replaced"
                     android:textSize="@dimen/canopydetailsDetails" />
             </TableRow>
-            
-            
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -147,6 +152,7 @@
                     android:id="@+id/textViewUrlLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsUrl"
                     android:textSize="@dimen/canopydetailsDetails" />
 
@@ -167,6 +173,7 @@
                     android:id="@+id/textViewRemarksLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/screen_padding_right"
                     android:text="@string/detailsRemarks"
                     android:textSize="@dimen/canopydetailsDetails" />
 
