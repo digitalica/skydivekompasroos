@@ -29,13 +29,17 @@ public class Canopy {
 	public String cells;
 	public String minSize;
 	public String maxSize;
+	public String firstYearOfProduction;
+	public String lastYearOfProduction;
 	public String remarks;
 	// TODO: the below should be a boolean probably...
 	public int isSpecialCatchAllCanopy = 0;
 
 	public Canopy(int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
-			String canopyMinSize, String canopyMaxSize, String canopyRemarks,
+			String canopyMinSize, String canopyMaxSize,
+			String canopyFirstYearOfProduction,
+			String canopyLastYearOfProduction, String canopyRemarks,
 			int isSpecialCatchAllCanopy) {
 		this.category = canopyCategory;
 		this.manufacturer = canopyManufacturer;
@@ -44,6 +48,8 @@ public class Canopy {
 		this.cells = canopyCells;
 		this.minSize = canopyMinSize;
 		this.maxSize = canopyMaxSize;
+		this.firstYearOfProduction = canopyFirstYearOfProduction;
+		this.lastYearOfProduction = canopyLastYearOfProduction;
 		this.remarks = canopyRemarks;
 		this.isSpecialCatchAllCanopy = isSpecialCatchAllCanopy;
 	}
@@ -57,7 +63,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName, String size) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, size,
-				size, null, 0);
+				size, null, null, null, 0);
 	}
 
 	/***
@@ -69,7 +75,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null,
-				DEFAULTSIZE, DEFAULTSIZE, null, 0);
+				DEFAULTSIZE, DEFAULTSIZE, null, null, null, 0);
 	}
 
 	/***
@@ -112,6 +118,10 @@ public class Canopy {
 							null, "minsize");
 					String canopyMaxSize = canopiesParser.getAttributeValue(
 							null, "maxsize");
+					String canopyFirstyearOfProduction = canopiesParser
+							.getAttributeValue(null, "firstyearofproduction");
+					String canopyLastyearOfProduction = canopiesParser
+							.getAttributeValue(null, "lastyearofproduction");
 					String canopyRemarks = canopiesParser.getAttributeValue(
 							null, "remarks");
 					String isSpecialCatchAllCanopyString = canopiesParser
@@ -124,7 +134,9 @@ public class Canopy {
 					Canopy canopy = new Canopy(canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
 							canopyCells, canopyMinSize, canopyMaxSize,
-							canopyRemarks, isSpecialCatchAllCanopy);
+							canopyFirstyearOfProduction,
+							canopyLastyearOfProduction, canopyRemarks,
+							isSpecialCatchAllCanopy);
 					if (key == null)
 						canopyList.add(canopy);
 					else if (canopy.key().equals(key)) {
@@ -132,7 +144,6 @@ public class Canopy {
 						return canopyList;
 					}
 				}
-
 			}
 			try {
 				eventType = canopiesParser.next();

@@ -55,6 +55,7 @@
     <string name="detailsCells">Cellen:</string>
     <string name="detailsSizes">Maten beschikbaar:</string>
     <string name="detailsExperience">Benodigde ervaring:</string>
+    <string name="detailsProduction">In productie:</string>
     <string name="saveDialogHeader">Sla gegevens op als:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
 

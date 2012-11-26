@@ -26,7 +26,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		Manufacturer manufacturer = manufacturers.get(canopy.manufacturer);
 
 		String url = manufacturer.url;
-		if (canopy.url != "" && canopy.url != null)
+		if (canopy.url != null && !canopy.url.equals(""))
 			url = canopy.url; // if we have a canopy url use that.
 
 		TextView tvName = (TextView) findViewById(R.id.textViewNameText);
@@ -37,10 +37,12 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvUrl = (TextView) findViewById(R.id.textViewUrlText);
 		TextView tvManufacturer = (TextView) findViewById(R.id.textViewManufacturerText);
 		TextView tvManufacturerCountry = (TextView) findViewById(R.id.textViewManufacturerCountryText);
+		TextView tvProduction = (TextView) findViewById(R.id.textViewProductionText);
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
 		tvName.setText(canopy.name);
-		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(canopy.acceptablility(currentMaxCategory, currentWeight)));
+		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(canopy
+				.acceptablility(currentMaxCategory, currentWeight)));
 
 		tvCategory.setText(Integer.toString(canopy.category));
 		String[] jumperCategories = getResources().getStringArray(
@@ -48,8 +50,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvExperience.setText(jumperCategories[canopy.category]);
 		tvCells.setText(canopy.cells);
 		String sizes = "";
-		if (canopy.minSize != "" && canopy.minSize != null)
-			if (canopy.maxSize != "" && canopy.maxSize != null) {
+		if (canopy.minSize != null && !canopy.minSize.equals(""))
+			if (canopy.maxSize != null && !canopy.maxSize.equals("")) {
 				// TODO: change to format string in strings for translation
 				sizes = canopy.minSize + " tot " + canopy.maxSize + " sqft";
 			}
@@ -58,12 +60,22 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvManufacturer.setText(canopy.manufacturer);
 		tvManufacturerCountry.setText(manufacturer.countryFullName());
 		StringBuilder remarks = new StringBuilder();
-		if (canopy.remarks != "" && canopy.remarks != null) {
+		if (canopy.remarks != null && !canopy.remarks.equals("")) {
 			remarks.append(canopy.remarks);
 			remarks.append(System.getProperty("line.separator"));
 		}
-		if (manufacturer.remarks != "" && manufacturer.remarks != null)
+		if (manufacturer.remarks != null && !manufacturer.remarks.equals(""))
 			remarks.append(manufacturer.remarks);
+		// TODO: move strings below to resource file (using string format?)
+		String geproduceerd = "";
+		if (canopy.firstYearOfProduction != null
+				&& !canopy.firstYearOfProduction.equals("")) {
+			geproduceerd = "vanaf " + canopy.firstYearOfProduction;
+			if (canopy.lastYearOfProduction != null
+					&& !canopy.lastYearOfProduction.equals(""))
+				geproduceerd += " tot en met " + canopy.lastYearOfProduction;
+		}
+		tvProduction.setText(geproduceerd);
 		tvRemarks.setText(remarks.toString());
 	}
 }
