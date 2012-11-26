@@ -53,7 +53,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		if (canopy.minSize != null && !canopy.minSize.equals(""))
 			if (canopy.maxSize != null && !canopy.maxSize.equals("")) {
 				// TODO: change to format string in strings for translation
-				sizes = canopy.minSize + " tot " + canopy.maxSize + " sqft";
+				sizes = canopy.minSize + " tot en met " + canopy.maxSize
+						+ " sqft";
 			}
 		tvSizes.setText(sizes);
 		tvUrl.setText(url);
