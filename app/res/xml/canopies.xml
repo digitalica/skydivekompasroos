@@ -37,10 +37,10 @@
         firstyearofproduction="2005"
         lastyearofproduction="1990"
         manufacturer="Performance Designs"
-        url = "http://www.performancedesigns.com/products.asp?product=ls
-"
         maxsize="230"
-        minsize="97" />
+        minsize="97"
+        url="http://www.performancedesigns.com/products.asp?product=ls
+" />
     <canopy
         name="Solo"
         category="1"
@@ -461,6 +461,7 @@
         name="Rage"
         category="4"
         manufacturer="Flight concepts"
+        remarks="Er bestaat ook een &apos;Rage&apos; van Paratec"
         url="http://flightconceptsint.com/zp-main/rage" />
     <canopy
         name="Pro serie"
@@ -666,7 +667,7 @@
         manufacturer="Paratec"
         maxsize="107"
         minsize="86"
-        remarks="CATEGORY UNKNOWN"
+        remarks="CATEGORY UNKNOWN, er bestaat ook een Rage van Flight Concepts"
         url="http://www.paratec.de/produkte-fallschirme/hauptschirme/rage/" />
     <canopy
         name="Velocity"
