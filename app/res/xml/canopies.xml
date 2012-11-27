@@ -34,8 +34,8 @@
         name="Sabre"
         category="1"
         cells="9"
-        firstyearofproduction="2005"
-        lastyearofproduction="1990"
+        firstyearofproduction="1990"
+        lastyearofproduction="2005"
         manufacturer="Performance Designs"
         maxsize="230"
         minsize="97"
@@ -492,7 +492,7 @@
     <canopy
         name="Rage"
         category="4"
-        manufacturer="Flight concepts"
+        manufacturer="Flight Concepts"
         maxsize="230"
         minsize="90"
         remarks="Er bestaat ook een &apos;Rage&apos; van Paratec"
@@ -659,8 +659,8 @@
         category="6"
         cells="9"
         manufacturer="Parachutes de France"
-        maxsize="200"
-        minsize="280"
+        maxsize="280"
+        minsize="200"
         remarks="CATEGORY UNKNOWN"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/19/prime.html" />
     <canopy
@@ -668,8 +668,8 @@
         category="6"
         cells="9"
         manufacturer="Parachutes de France"
-        maxsize="110"
-        minsize="160"
+        maxsize="160"
+        minsize="110"
         planform="28.0"
         planformcells="8"
         remarks="CATEGORY UNKNOWN"
@@ -679,8 +679,8 @@
         category="6"
         cells="9"
         manufacturer="Parachutes de France"
-        maxsize="80"
-        minsize="110"
+        maxsize="110"
+        minsize="80"
         remarks="CATEGORY UNKNOWN"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/23/instinct.html" />
     <canopy
