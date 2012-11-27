@@ -93,36 +93,49 @@
     <canopy
         name="Maverick"
         category="1"
-        manufacturer="Flight Concepts" />
+        cells="7"
+        manufacturer="Flight Concepts"
+        maxsize="200"
+        minsize="200" />
     <canopy
         name="Fury"
         category="1"
         cells="7"
         manufacturer="Flight Concepts"
+        maxsize="220"
+        minsize="200"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Firelite"
         category="1"
         cells="7"
         manufacturer="Flight Concepts"
+        maxsize="175"
+        minsize="175"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Cricket"
         category="1"
         cells="7"
         manufacturer="Flight Concepts"
+        maxsize="145"
+        minsize="145"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Startrac"
         category="1"
         cells="7"
         manufacturer="Flight Concepts"
+        maxsize="320"
+        minsize="265"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Sharpshuter"
         category="1"
         cells="7"
         manufacturer="Flight Concepts"
+        maxsize="245"
+        minsize="245"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
         name="Raider"
