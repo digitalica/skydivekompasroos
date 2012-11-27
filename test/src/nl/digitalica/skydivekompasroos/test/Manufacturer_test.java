@@ -12,45 +12,48 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 
 import android.net.Uri;
+import android.test.AndroidTestCase;
 
 import nl.digitalica.skydivekompasroos.Manufacturer;
 
 import junit.framework.TestCase;
 
-public class Manufacturer_test extends TestCase {
+public class Manufacturer_test extends AndroidTestCase {
 
-	// public void testUrls() {
-	// final String NOERROR = "";
-	// HashMap<String, Manufacturer> manufacturers = Manufacturer
-	// .getManufacturerHash();
-	// StringBuilder errors = new StringBuilder();
-	// for (HashMap.Entry<String, Manufacturer> manufacturer : manufacturers
-	// .entrySet()) {
-	// if (!manufacturer.getValue().url.equals("")) {
-	// HttpClient httpClient = new DefaultHttpClient();
-	// HttpContext localContext = new BasicHttpContext();
-	// HttpGet httpGet = new HttpGet(manufacturer.getValue().url);
-	// String error = NOERROR;
-	// try {
-	// HttpResponse response = httpClient.execute(httpGet,
-	// localContext);
-	// } catch (ClientProtocolException e) {
-	// error = "ClientProtocolException: "
-	// + manufacturer.getValue().url;
-	// } catch (IOException e) {
-	// // TODO Auto-generated catch block
-	// error = "IO: " + manufacturer.getValue().url;
-	// }
-	// if (!error.equals(NOERROR))
-	// errors.append(error);
-	// }
-	// }
-	// if (errors.length() == 0)
-	// assertTrue(true);
-	// else
-	// fail(errors.toString());
-	//
-	// }
+// test works, but nees INTERNET access in manifest of app (!)	
+//	
+//	public void testUrls() {
+//		final String NOERROR = "";
+//		HashMap<String, Manufacturer> manufacturers = Manufacturer
+//				.getManufacturerHash(getContext());
+//		StringBuilder errors = new StringBuilder();
+//		for (HashMap.Entry<String, Manufacturer> manufacturer : manufacturers
+//				.entrySet()) {
+//			if (!manufacturer.getValue().url.equals("")) {
+//				HttpClient httpClient = new DefaultHttpClient();
+//				HttpContext localContext = new BasicHttpContext();
+//				HttpGet httpGet = new HttpGet(manufacturer.getValue().url);
+//				String error = NOERROR;
+//				try {
+//					HttpResponse response = httpClient.execute(httpGet,
+//							localContext);
+//				} catch (ClientProtocolException e) {
+//					error = "ClientProtocolException: "
+//							+ manufacturer.getValue().url;
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					error = "IO: " + manufacturer.getValue().url;
+//				}
+//				if (!error.equals(NOERROR))
+//					errors.append(error);
+//			}
+//		}
+//		if (errors.length() == 0)
+//			assertTrue(true);
+//		else
+//			fail(errors.toString());
+//
+//	}
 
 	public void testCountry() {
 		// sanity check and get full names
