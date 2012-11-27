@@ -64,7 +64,6 @@ public class Manufacturer_test extends TestCase {
 		// simple sanity check on rest
 		assertFullNameForCountryCode("de");
 		assertFullNameForCountryCode("sa");
-
 	}
 
 	private String assertFullNameForCountryCode(String code) {
@@ -75,6 +74,12 @@ public class Manufacturer_test extends TestCase {
 				countryFullName.equals(code));
 		assertFalse("Full name empty for " + code, countryFullName.equals(""));
 		return countryFullName;
+	}
+
+	public void testCountryFullNameForNull() {
+		Manufacturer testManufacturer = new Manufacturer("testManufacturer",
+				null, null, null);
+		assertNull(testManufacturer.countryFullName());
 	}
 
 }

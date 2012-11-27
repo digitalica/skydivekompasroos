@@ -25,7 +25,6 @@ public class Manufacturer {
 		this.countryCode = mCountryCode;
 		this.url = mUrl;
 		this.remarks = mRemarks;
-
 	}
 
 	/***
@@ -81,6 +80,8 @@ public class Manufacturer {
 	 * @return
 	 */
 	public String countryFullName() {
+		if (this.countryCode == null)
+			return null;
 		StringBuilder countries = new StringBuilder();
 		String[] countryCodes = this.countryCode.split(",");
 		for (String code : countryCodes) {
@@ -94,7 +95,8 @@ public class Manufacturer {
 	/***
 	 * Return the full name of a single country
 	 * 
-	 * TODO: make sure we return different language if needed (use string array?)
+	 * TODO: make sure we return different language if needed (use string
+	 * array?)
 	 * 
 	 * @param countryCode
 	 * @return
@@ -109,7 +111,8 @@ public class Manufacturer {
 			return "Duitsland";
 		if (trimmedCountryCode.equals("fr"))
 			return "Frankrijk";
-		Log.e(KompasroosBaseActivity.LOG_TAG, "Unknown country code: " + countryCode);
+		Log.e(KompasroosBaseActivity.LOG_TAG, "Unknown country code: "
+				+ countryCode);
 		return countryCode;
 	}
 
