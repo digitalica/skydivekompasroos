@@ -45,9 +45,9 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 				.acceptablility(currentMaxCategory, currentWeight)));
 
 		tvCategory.setText(Integer.toString(canopy.category));
-		String[] jumperCategories = getResources().getStringArray(
-				R.array.jumperCategories);
-		tvExperience.setText(jumperCategories[canopy.category]);
+		String[] neededExperience = getResources().getStringArray(
+				R.array.neededExperience);
+		tvExperience.setText(neededExperience[canopy.category]);
 		tvCells.setText(canopy.cells);
 		String sizes = "";
 		if (canopy.minSize != null && !canopy.minSize.equals(""))

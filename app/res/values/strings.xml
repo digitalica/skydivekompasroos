@@ -15,7 +15,7 @@
     <string name="jumpsLast12MonthsSetting">: %1$d%2$s</string>
     <string name="categorySetting">\nSpringer in categorie <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
-    <string name="canopySetting">U kunt springen met parachutes van categorie %1$d met %2$s\n</string>
+    <string name="canopySetting">Je kunt springen met parachutes van categorie %1$d met %2$s\n</string>
     <string name="canopyAdvise">\nGeschikte parachutes:\nCategorie %1$d van minimaal %2$d sqft\n</string>
     <string name="ormore">" (of meer)"</string>
     <string name="menu_reset">Reset</string>
@@ -32,17 +32,17 @@
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Deel resultaat</string>
     <string name="btnShareUrl">Deel web address</string>
-    <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en uw exitgewicht in, om te bepalen welke parachutes geschikt zijn.\n\n</string>
+    <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en je exitgewicht in, om te bepalen welke parachutes geschikt zijn.\n\n</string>
     <string name="calculationWarningText">Let op: deze app is nog in testfase! Er kunnen geen rechten aan worden ontleend.\n\n</string>
     <string name="calculationOvertimeWarning">Let op: deze applicatie is meer dan 1 jaar oud en mogelijk niet meer up to date!</string>
     <string name="canopyType">type</string>
     <string name="canopyManufacturer">fabrikant</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
     <string name="shareresultsubject">Skydive kompasroos resultaat</string>
-    <string name="shareresultheaderformat">Uw ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat u mag springen met parachutes uit categorie %4$d met een oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
+    <string name="shareresultheaderformat">Je ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat je mag springen met parachutes uit categorie %4$d met een oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
     <string name="shareresultnotaccepted">Onderstaande parachutes zijn NIET geschikt, ze vereisen meer ervaring:</string>
     <string name="shareresultfooter">\n\n\nSamengesteld door Skydive Kompasroos Android app van Digitalica</string>
-    <string name="reset_name_own">Uzelf</string>
+    <string name="reset_name_own">=Jezelf</string>
     <string name="reset_name_friend">Een vriend</string>
     <string name="reset_name_beginner">Een beginner</string>
     <string name="reset_name_intermediate">Gemiddelde springer</string>
@@ -77,5 +77,16 @@
         <item>700 tot 1000 sprongen; minstens 75 sprongen in de afgelopen 12 maanden</item>
         <item>meer dan 1000 sprongen; minstens 100 sprongen in de afgelopen 12 maanden met een sport main canopy</item>
     </string-array>
-
+    <!-- below is the same array as jumperCategories, but worded differently to use in 
+         canopy details screen.  -->
+    <string-array name="neededExperience">
+        <item>Unknown</item>
+        <item>Geen</item>
+        <item>Minimaal 25 sprongen, waarvan minimaal 10 in de de laatste 12 maanden</item>
+        <item>Minimaal 100 sprongen, waarvan minimaal 25 in de afgelopen 12 maanden</item>
+        <item>Minimaal 400 sprongen, waarvan minimaal 50 in de afgelopen 12 maanden</item>
+        <item>Minimaal 700 sprongen, waarvan minimaal 75 in de afgelopen 12 maanden</item>
+        <item>Minimaal 1000 sprongen, waarvan minmaal 100 in de afgelopen 12 maanden met een sport main canopy</item>
+    </string-array>
+    
 </resources>
