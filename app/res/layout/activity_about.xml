@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:autoLink="web"
         android:linksClickable="true"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="@dimen/bodyText" />
 
 </ScrollView>

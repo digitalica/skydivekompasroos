@@ -1,5 +1,9 @@
 package nl.digitalica.skydivekompasroos;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -25,17 +29,6 @@ import android.widget.TextView;
  * 
  */
 public class CalculateActivity extends KompasroosBaseActivity {
-
-	// namen voor de verschillende settings
-	final static String SETTING_WEIGHT = "Weight"; // int
-	final static String SETTING_TOTAL_JUMPS = "TotalJumps"; // int
-	final static String SETTING_JUMPS_LAST_12_MONTHS = "JumpsLast12Months"; // int
-	final static String SETTING_OWN_WEIGHT = "OwnWeight";
-	final static String SETTING_OWN_TOTAL_JUMPS = "OwnTotalJumps";
-	final static String SETTING_OWN_LAST_12_MONTHS = "OwnJumpsLast12Months";
-	final static String SETTING_FRIEND_WEIGHT = "FriendWeight";
-	final static String SETTING_FRIEND_TOTAL_JUMPS = "FriendTotalJumps";
-	final static String SETTING_FRIEND_LAST_12_MONTHS = "FriendJumpsLast12Months";
 
 	// min & max weight in kg
 	final static int WEIGHT_MIN = 50;
@@ -66,6 +59,23 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		setContentView(R.layout.activity_calculate);
 		prefs = getSharedPreferences(KOMPASROOSPREFS, Context.MODE_PRIVATE);
 
+		// if compile date over 1 year ago, show warning text
+		TextView tvWarning = (TextView) findViewById(R.id.textViewWarning);
+		String warning = "";
+		try {
+			long time = getCompileDateTime();
+			Calendar cal = Calendar.getInstance();
+			long now = cal.getTime().getTime();
+			long maxDiff = 1000 * 60 * 60 * 24 * 365; // 1 year
+			// maxDiff = 1000 * 60 * 5; // 5 mins (for testing)
+			if (now - time > maxDiff)
+				warning = getString(R.string.calculationOvertimeWarning);
+		} catch (Exception e) {
+			warning = getString(R.string.calculationOvertimeUnknownWarning);
+		}
+		tvWarning.setText(warning);
+
+		// initialize seek bars and calculated texts
 		initSeekBars();
 		calculate();
 
@@ -415,8 +425,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	private void setWeightSettingText(int weightInKg) {
 		int weightInLbs = Calculation.kgToLbs(weightInKg);
 		TextView tvWeight = (TextView) findViewById(R.id.textViewWeightLabel);
-		String weightLabel = getString(R.string.weightLabel);
-		String weightFormat = getString(R.string.weightSetting);
+		String weightLabel = getString(R.string.calculationWeightLabel);
+		String weightFormat = getString(R.string.calculationWeightSetting);
 		tvWeight.setText(weightLabel
 				+ String.format(weightFormat, weightInKg, weightInLbs));
 
@@ -445,7 +455,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 	private void fillWingLoadTableColumn(int column, int weightInLbs,
 			TextView tvArea, TextView tvWingLoad) {
-		// TODO Auto-generated method stub
 		int area = WINGLOAD_FIRST_COL + column * WINGLOAD_STEP;
 		double wingload = (double) weightInLbs / (double) area;
 		tvArea.setText(String.format(" %d ", area));
@@ -454,8 +463,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 	private void setTotalJumpsSettingText(int totalJumps) {
 		TextView tvTotalJumps = (TextView) findViewById(R.id.textViewTotalJumpsLabel);
-		String totalJumpsLabel = getString(R.string.totalJumpsLabel);
-		String totalJumpsFormat = getString(R.string.totalJumpsSetting);
+		String totalJumpsLabel = getString(R.string.calculationTotalJumpsLabel);
+		String totalJumpsFormat = getString(R.string.calculationTotalJumpsSetting);
 		String orMoreText = "";
 		if (totalJumps > TOTALJUMPS_LASTGROUP)
 			orMoreText = getString(R.string.ormore);
@@ -465,8 +474,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 	private void setJumpsLast12MonthsSettingText(int jumps) {
 		TextView tvJumpsLast12Months = (TextView) findViewById(R.id.textViewJumpsLast12MonthsLabel);
-		String jumpsLast12MonthsLabel = getString(R.string.jumpsLast12MonthsLabel);
-		String jumpsLast12MonthsFormat = getString(R.string.jumpsLast12MonthsSetting);
+		String jumpsLast12MonthsLabel = getString(R.string.calculationJumpsLast12MonthsLabel);
+		String jumpsLast12MonthsFormat = getString(R.string.calculationJumpsLast12MonthsSetting);
 		String orMoreText = "";
 		if (jumps > JUMPS_LAST_12_MONTHS_LASTGROUP)
 			orMoreText = getString(R.string.ormore);
@@ -495,10 +504,10 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		// now decide on minArea and maxWingload
 		int minArea = Calculation.minArea(jumperCategory, weightInKg);
 
-		// only update screen if there actually is a change, so speedbars
+		// only update screen if there actually is a change, so seek bars
 		// respond quickly
-		if (this.currentMaxCategory != jumperCategory
-				|| this.currentMinArea != minArea) {
+		if (KompasroosBaseActivity.currentMaxCategory != jumperCategory
+				|| KompasroosBaseActivity.currentMinArea != minArea) {
 			TextView tvJumperCategory = (TextView) findViewById(R.id.textViewJumperCategory);
 			String jumperCatFormat = getString(R.string.categorySetting);
 			tvJumperCategory.setText(String.format(jumperCatFormat,
@@ -512,12 +521,50 @@ public class CalculateActivity extends KompasroosBaseActivity {
 					jumperCatDescriptionFormat,
 					jumperCategories[jumperCategory]));
 
-			TextView tvCanopyCategory = (TextView) findViewById(R.id.textViewCanopyCategory);
-			String canopyCatFormat = getString(R.string.canopySetting);
-			String canopyCategories[] = getResources().getStringArray(
-					R.array.canopyCategories);
-			tvCanopyCategory.setText(String.format(canopyCatFormat,
-					jumperCategory, canopyCategories[jumperCategory]));
+			TextView tvCanopyCategory = (TextView) findViewById(R.id.textViewCanopyCategoryText);
+			String canopyCatFormat;
+			switch (jumperCategory) {
+			case 1:
+				canopyCatFormat = getString(R.string.calculationCanopyCategoryOne);
+				break;
+			case 6:
+				canopyCatFormat = getString(R.string.calculationCanopyCategoryAll);
+				break;
+			default:
+				canopyCatFormat = String.format(
+						getString(R.string.calculationCanopyCategoryMultiple),
+						jumperCategory);
+				break;
+			}
+			tvCanopyCategory.setText(canopyCatFormat);
+
+			TextView tvCanopyMinArea = (TextView) findViewById(R.id.textViewCanopyMinAreaText);
+			int minAreaBasedOnCategory = Calculation
+					.minAreaBasedOnCategory(jumperCategory);
+			String minAreaText;
+			switch (minAreaBasedOnCategory) {
+			case 0:
+				minAreaText = getString(R.string.calculationCanopyMinAreaAny);
+				break;
+			default:
+				minAreaText = String.format(
+						getString(R.string.calculationCanopyMinArea),
+						minAreaBasedOnCategory);
+				break;
+			}
+			tvCanopyMinArea.setText(minAreaText);
+
+			TextView tvCanopyMaxWingLoad = (TextView) findViewById(R.id.textViewCanopyMaxWingLoadText);
+			double maxWingLoad = Calculation
+					.maxWingLoadBasedOnCategory(jumperCategory);
+			String maxWingLoadText;
+			if (maxWingLoad > 10)
+				maxWingLoadText = getString(R.string.calculationCanopyMaxWingLoadAny);
+			else
+				maxWingLoadText = String.format(
+						getString(R.string.calculationCanopyMaxWingLoad),
+						maxWingLoad);
+			tvCanopyMaxWingLoad.setText(maxWingLoadText);
 
 			TextView tvCanopyAdvise = (TextView) findViewById(R.id.textViewCanopyAdvise);
 			String canopyAdviseFormat = getString(R.string.canopyAdvise);
@@ -525,11 +572,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 					jumperCategory, minArea));
 
 			// save globally, to pass on in buttonClick
-			this.currentMaxCategory = jumperCategory;
-			this.currentMinArea = minArea;
+			KompasroosBaseActivity.currentMaxCategory = jumperCategory;
+			KompasroosBaseActivity.currentMinArea = minArea;
 		}
-		// get total jumps and set text
-		// get jumps last 12 months and set text
-		// calculate category and set text
 	}
 }

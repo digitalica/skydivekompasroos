@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/screen_padding_left"
                 android:layout_marginRight="@dimen/screen_padding_right"
-                android:text="Name"
+                android:text="@string/to_be_replaced"
                 android:textSize="@dimen/canopydetailsName" />
 
             <TextView
@@ -41,8 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/screen_padding_left"
                 android:layout_marginRight="@dimen/screen_padding_right"
-                android:text="Category"
-                android:textSize="@dimen/canopylistCanopyDetails" />
+                android:text="@string/to_be_replaced"
+                android:textSize="@dimen/bodyText" />
         </LinearLayout>
 
         <TextView

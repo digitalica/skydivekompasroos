@@ -34,16 +34,16 @@
                     android:id="@+id/textViewCategoryLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsCategory"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewCategoryText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -54,16 +54,16 @@
                     android:id="@+id/textViewProductionLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsProduction"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewProductionText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -75,16 +75,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="100"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsExperience"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewExperienceText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -95,16 +95,16 @@
                     android:id="@+id/textViewCellsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsCells"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewCellsText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -115,16 +115,16 @@
                     android:id="@+id/textViewSizesLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsSizes"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewSizesText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -135,16 +135,16 @@
                     android:id="@+id/textViewManufacturerLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsmanufacturer"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewManufacturerText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -155,16 +155,16 @@
                     android:id="@+id/textViewManufacturerCountryLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsmanufacturercountry"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewManufacturerCountryText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -175,9 +175,9 @@
                     android:id="@+id/textViewUrlLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsUrl"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewUrlText"
@@ -185,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:autoLink="web"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
 
             <TableRow
@@ -196,16 +196,16 @@
                     android:id="@+id/textViewRemarksLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/screen_padding_right"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
                     android:text="@string/detailsRemarks"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
 
                 <TextView
                     android:id="@+id/textViewRemarksText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/canopydetailsDetails" />
+                    android:textSize="@dimen/bodyText" />
             </TableRow>
         </TableLayout>
     </LinearLayout>

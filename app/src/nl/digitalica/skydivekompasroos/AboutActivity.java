@@ -44,15 +44,12 @@ public class AboutActivity extends KompasroosBaseActivity {
 
 		String compileDate = "";
 		try {
-			ApplicationInfo ai = getPackageManager().getApplicationInfo(
-					getPackageName(), 0);
-			ZipFile zf = new ZipFile(ai.sourceDir);
-			ZipEntry ze = zf.getEntry("classes.dex");
-			long time = ze.getTime();
+			long time = getCompileDateTime();
 			compileDate = SimpleDateFormat.getInstance().format(
 					new java.util.Date(time));
 
 		} catch (Exception e) {
+			// TODO: something smart?
 		}
 		if (!compileDate.equals(""))
 			compileDate = " (" + compileDate + ")";

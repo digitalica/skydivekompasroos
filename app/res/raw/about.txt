@@ -15,6 +15,7 @@ http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2011-0
 Bedoeling is deze app onder GNU Public License te brengen en natuurlijk in Google Play te krijgen. De source is al te vinden op GitHub:
 https://github.com/digitalica/skydivekompasroos
 
+Let op: deze app is nog in testfase! Er kunnen geen rechten aan worden ontleend.
 
 Robbert Wethmar
 robbert@digitalica.nl

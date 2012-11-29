@@ -162,42 +162,54 @@ public class Canopy_test extends TestCase {
 
 	public void testAcceptablity() {
 		Canopy beginnerCanopy = new Canopy(1, "beginnercanopy", "230");
-		Canopy intermediateCanopy120 = new Canopy(3, "intermediatecanopy120", "120");
-		Canopy intermediateCanopy190 = new Canopy(3, "intermediatecanopy190", "190");
+		Canopy intermediateCanopy120 = new Canopy(3, "intermediatecanopy120",
+				"120");
+		Canopy intermediateCanopy190 = new Canopy(3, "intermediatecanopy190",
+				"190");
 		Canopy expertCanopy = new Canopy(6, "expertcanopy", "90");
 
 		// beginner can jump beginner canopy
 		assertAcceptability(Canopy.ACCEPTABLE, 1, 50, beginnerCanopy);
 		assertAcceptability(Canopy.ACCEPTABLE, 1, 100, beginnerCanopy);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 1, 120, beginnerCanopy);
+		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 1, 120,
+				beginnerCanopy);
 
 		// beginner can NOT EVER jump intermediate canopy
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50, intermediateCanopy120);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100, intermediateCanopy120);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120, intermediateCanopy120);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50, intermediateCanopy190);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100, intermediateCanopy190);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120, intermediateCanopy190);
-		
+		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50,
+				intermediateCanopy120);
+		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100,
+				intermediateCanopy120);
+		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120,
+				intermediateCanopy120);
+		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50,
+				intermediateCanopy190);
+		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100,
+				intermediateCanopy190);
+		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120,
+				intermediateCanopy190);
+
 		// beginner can NOT EVER jump expert canopy
 		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50, expertCanopy);
 		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100, expertCanopy);
 		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120, expertCanopy);
 
-		
 		// intermediate can jump beginner canopy
 		assertAcceptability(Canopy.ACCEPTABLE, 3, 50, beginnerCanopy);
 		assertAcceptability(Canopy.ACCEPTABLE, 3, 100, beginnerCanopy);
 		assertAcceptability(Canopy.ACCEPTABLE, 3, 120, beginnerCanopy);
 
 		// intermediate can jump intermediate canopy IF wingload is ok
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 50, intermediateCanopy120);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 100, intermediateCanopy120);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 120, intermediateCanopy120);
+		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 50,
+				intermediateCanopy120);
+		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 100,
+				intermediateCanopy120);
+		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 120,
+				intermediateCanopy120);
 		assertAcceptability(Canopy.ACCEPTABLE, 3, 50, intermediateCanopy190);
 		assertAcceptability(Canopy.ACCEPTABLE, 3, 100, intermediateCanopy190);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 120, intermediateCanopy190);
-		
+		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 120,
+				intermediateCanopy190);
+
 		// intermediate can NOT jump expert canopy
 		assertAcceptability(Canopy.CATEGORYTOOHIGH, 3, 50, expertCanopy);
 		assertAcceptability(Canopy.CATEGORYTOOHIGH, 3, 100, expertCanopy);
@@ -215,7 +227,7 @@ public class Canopy_test extends TestCase {
 		assertAcceptability(Canopy.ACCEPTABLE, 6, 50, intermediateCanopy190);
 		assertAcceptability(Canopy.ACCEPTABLE, 6, 100, intermediateCanopy190);
 		assertAcceptability(Canopy.ACCEPTABLE, 6, 120, intermediateCanopy190);
-		
+
 		// expert can always jump expert canopy
 		assertAcceptability(Canopy.ACCEPTABLE, 6, 50, expertCanopy);
 		assertAcceptability(Canopy.ACCEPTABLE, 6, 100, expertCanopy);
@@ -230,10 +242,29 @@ public class Canopy_test extends TestCase {
 		message.append("Jumper Cat " + Integer.toString(jumperCategory));
 		message.append(", exit weight " + Integer.toString(exitWeightInKg)
 				+ " kg");
-		message.append(", "+ canopy.name);
+		message.append(", " + canopy.name);
 		message.append(" cat " + Integer.toString(canopy.category));
 		message.append(", area " + canopy.minSize + "/" + canopy.maxSize);
 		assertEquals(message.toString(), acceptability, acceptablity);
+	}
+
+	public void testAddionalInformation() {
+		Canopy c = new Canopy(1, "testCanopy");
+		assertTrue("Empty canopy needs more info",
+				c.addtionalInformationNeeded());
+		c.cells = "9";
+		assertTrue("Canopy with only cells needs more info",
+				c.addtionalInformationNeeded());
+		c.minSize = "10";
+		assertTrue("Canopy with cells, minsize needs more info",
+				c.addtionalInformationNeeded());
+		c.maxSize = "20";
+		assertTrue("Canopy with cells, minsize, maxsize needs more info",
+				c.addtionalInformationNeeded());
+		c.firstYearOfProduction = "2010";
+		assertFalse(
+				"Canopy with cells, minsize, maxsize and first year of production needs NO more info",
+				c.addtionalInformationNeeded());
 	}
 
 }

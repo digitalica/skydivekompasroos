@@ -79,6 +79,30 @@ public class Canopy {
 	}
 
 	/***
+	 * Determine if we would like to know more details about this canopy
+	 * used to decide if a text should be shown in Canopy Details screen
+	 * 
+	 * @return
+	 */
+	public boolean addtionalInformationNeeded() {
+		if (this.firstYearOfProduction == null
+				|| this.firstYearOfProduction.equals(""))
+			return true;
+
+		if (this.cells == null || this.cells.equals(""))
+			return true;
+
+		if (this.minSize == null || this.minSize.equals(""))
+			return true;
+
+		if (this.maxSize == null || this.maxSize.equals(""))
+			return true;
+
+		// seems we know all we want to...
+		return false;
+	}
+
+	/***
 	 * Reads all canopies from the XML in a list. This is ok as the number will
 	 * always be limited anyway
 	 * 

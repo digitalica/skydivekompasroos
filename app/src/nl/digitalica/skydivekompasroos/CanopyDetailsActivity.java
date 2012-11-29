@@ -65,8 +65,16 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 			remarks.append(canopy.remarks);
 			remarks.append(System.getProperty("line.separator"));
 		}
-		if (manufacturer.remarks != null && !manufacturer.remarks.equals(""))
+		if (manufacturer.remarks != null && !manufacturer.remarks.equals("")) {
 			remarks.append(manufacturer.remarks);
+			remarks.append(System.getProperty("line.separator"));
+		}
+		if (canopy.addtionalInformationNeeded()) {
+			remarks.append(getString(R.string.detailsAdditionalInformationWelcome));
+			remarks.append(System.getProperty("line.separator"));
+		}
+		tvRemarks.setText(remarks.toString());
+
 		// TODO: move strings below to resource file (using string format?)
 		String geproduceerd = "";
 		if (canopy.firstYearOfProduction != null
@@ -77,6 +85,6 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 				geproduceerd += " tot en met " + canopy.lastYearOfProduction;
 		}
 		tvProduction.setText(geproduceerd);
-		tvRemarks.setText(remarks.toString());
+
 	}
 }

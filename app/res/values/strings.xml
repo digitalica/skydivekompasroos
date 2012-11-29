@@ -6,16 +6,9 @@
     <string name="title_activity_about">Over Skydive kompasroos</string>
     <string name="title_activity_canopylist">Skydive kompasroos parachutes</string>
     <string name="title_activity_canopydetails">Skydive kompasroos parachute gegevens</string>
-    <string name="to_be_replaced"></string>
-    <string name="weightLabel">Exitgewicht</string>
-    <string name="weightSetting">: %1$d kg (%2$d lbs)</string>
-    <string name="totalJumpsLabel">Totaal aantal sprongen</string>
-    <string name="totalJumpsSetting">: %1$d%2$s</string>
-    <string name="jumpsLast12MonthsLabel">Sprongen in laatste 12 maanden</string>
-    <string name="jumpsLast12MonthsSetting">: %1$d%2$s</string>
-    <string name="categorySetting">\nSpringer in categorie <b>%1$d</b></string>
+    <string name="to_be_replaced">to_be_replaced</string>
+    <string name="categorySetting">\nJe valt in categorie <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
-    <string name="canopySetting">Je kunt springen met parachutes van categorie %1$d met %2$s\n</string>
     <string name="canopyAdvise">\nGeschikte parachutes:\nCategorie %1$d van minimaal %2$d sqft\n</string>
     <string name="ormore">" (of meer)"</string>
     <string name="menu_reset">Reset</string>
@@ -32,9 +25,25 @@
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Deel resultaat</string>
     <string name="btnShareUrl">Deel web address</string>
-    <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en je exitgewicht in, om te bepalen welke parachutes geschikt zijn.\n\n</string>
-    <string name="calculationWarningText">Let op: deze app is nog in testfase! Er kunnen geen rechten aan worden ontleend.\n\n</string>
-    <string name="calculationOvertimeWarning">Let op: deze applicatie is meer dan 1 jaar oud en mogelijk niet meer up to date!</string>
+    <string name="calculationWeightLabel">\nExitgewicht</string>
+    <string name="calculationWeightSetting">: %1$d kg (%2$d lbs)</string>
+    <string name="calculationTotalJumpsLabel">\nTotaal aantal sprongen</string>
+    <string name="calculationTotalJumpsSetting">: %1$d%2$s</string>
+    <string name="calculationJumpsLast12MonthsLabel">\nSprongen in laatste 12 maanden</string>
+    <string name="calculationJumpsLast12MonthsSetting">: %1$d%2$s</string>
+    <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en je exitgewicht in, om te bepalen welke parachutes geschikt zijn: de knop onderaan toont de lijst.</string>
+    <string name="calculationOvertimeWarning">\nLet op: deze applicatie is meer dan 1 jaar oud en mogelijk niet meer up to date!</string>
+    <string name="calculationOvertimeUnknownWarning">\nHuidige datum of datum van deze app kon niet bepaald worden. Gegevens zijn mogelijk niet meer up to date!</string>
+    <string name="calculationCanopyCategoryLabel">Toegestane parachutes:</string>
+    <string name="calculationCanopyMinAreaLabel">Minimale oppervlakte:</string>
+    <string name="calculationMaxWingLoadLabel">Maximale wingload:</string>
+    <string name="calculationCanopyCategoryOne">categorie 1</string>
+    <string name="calculationCanopyCategoryMultiple">categorie 1 tot en met %1$d</string>
+    <string name="calculationCanopyCategoryAll">categorie 1 tot en met 6 (alle)</string>
+    <string name="calculationCanopyMinArea">%1$d sqft</string>
+    <string name="calculationCanopyMinAreaAny">geen beperking</string>
+    <string name="calculationCanopyMaxWingLoad">%1$.1f lbs/sqft</string>
+    <string name="calculationCanopyMaxWingLoadAny">geen beperking</string>
     <string name="canopyType">type</string>
     <string name="canopyManufacturer">fabrikant</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
@@ -56,6 +65,7 @@
     <string name="detailsSizes">Maten beschikbaar:</string>
     <string name="detailsExperience">Benodigde ervaring:</string>
     <string name="detailsProduction">In productie:</string>
+    <string name="detailsAdditionalInformationWelcome">Aanvullingen op bovenstaande gegevens zijn welkom, zie about pagina voor contactgegevens.</string>
     <string name="saveDialogHeader">Sla gegevens op als:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
 
@@ -70,15 +80,17 @@
     </string-array>
     <string-array name="jumperCategories">
         <item>Unknown</item>
-        <item>Minder dan 25 sprongen of geen sprongen in laatste 12 maanden</item>
+        <item>Minder dan 25 sprongen of minder dan 10 sprongen in laatste 12 maanden</item>
         <item>25 tot 100 sprongen; minstens 10 sprongen in de afgelopen 12 maanden</item>
         <item>100 tot 400 sprongen; minstens 25 sprongen in de afgelopen 12 maanden</item>
         <item>400 tot 700 sprongen; minstens 50 sprongen in de afgelopen 12 maanden</item>
         <item>700 tot 1000 sprongen; minstens 75 sprongen in de afgelopen 12 maanden</item>
         <item>meer dan 1000 sprongen; minstens 100 sprongen in de afgelopen 12 maanden met een sport main canopy</item>
     </string-array>
-    <!-- below is the same array as jumperCategories, but worded differently to use in 
-         canopy details screen.  -->
+    <!--
+         below is the same array as jumperCategories, but worded differently to use in 
+         canopy details screen.
+    -->
     <string-array name="neededExperience">
         <item>Unknown</item>
         <item>Geen</item>
@@ -88,5 +100,5 @@
         <item>Minimaal 700 sprongen, waarvan minimaal 75 in de afgelopen 12 maanden</item>
         <item>Minimaal 1000 sprongen, waarvan minmaal 100 in de afgelopen 12 maanden met een sport main canopy</item>
     </string-array>
-    
+
 </resources>

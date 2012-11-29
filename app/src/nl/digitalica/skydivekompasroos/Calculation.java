@@ -97,7 +97,7 @@ public class Calculation {
 	 * @return
 	 */
 	static public double maxWingLoadBasedOnCategory(int jumperCategory) {
-		double maxWingload = 9;
+		double maxWingload = 9999;
 
 		switch (jumperCategory) {
 		case 1:
