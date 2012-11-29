@@ -36,4 +36,9 @@
     <color name="Cat4Orange">#FFE3CD</color>
     <color name="Cat5Orange">#FFECDF</color>
 
+    <color name="SuzanBackGroundBlue">#95c4d2</color>
+    <color name="SuzanGreen">#00974d</color>
+    <color name="SuzanBrownSlider">#6c2e16</color>
+    <color name="SuzanBrownBar">#753820</color>
+    
 </resources>
