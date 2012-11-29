@@ -58,13 +58,14 @@ public class Calculation {
 	}
 
 	/***
-	 * Get the minimal area based on the category
+	 * Get the minimal area based on the category note: the special result 0
+	 * means there is NO limit
 	 * 
 	 * @param jumperCategory
 	 * @return
 	 */
 	static public int minAreaBasedOnCategory(int jumperCategory) {
-		int minAreaBasedOnCategory = 0;
+		int minAreaBasedOnCategory = 999; // SHOULD NEVER BE RETURNED
 
 		switch (jumperCategory) {
 		case 1:
@@ -83,7 +84,7 @@ public class Calculation {
 			minAreaBasedOnCategory = 120;
 			break;
 		case 6:
-			// no limits
+			minAreaBasedOnCategory = 0; // NO LIMIT
 			break;
 		}
 		return minAreaBasedOnCategory;
@@ -132,13 +133,13 @@ public class Calculation {
 	static public int minArea(int jumperCategory, int exitWeightInKg) {
 		double maxWingload = maxWingLoadBasedOnCategory(jumperCategory);
 		int minAreaBasedOnCategory = minAreaBasedOnCategory(jumperCategory);
+		if (minAreaBasedOnCategory == 0) // means there is NO LIMIT
+			return minAreaBasedOnCategory;
 		int minAreaBasedOnExitWeight = (int) Math.round(kgToLbs(exitWeightInKg)
 				/ maxWingload);
-
 		int minArea = Math
 				.max(minAreaBasedOnCategory, minAreaBasedOnExitWeight);
-
 		return minArea;
 	}
-	
+
 }

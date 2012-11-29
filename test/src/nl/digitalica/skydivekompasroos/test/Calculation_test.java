@@ -85,6 +85,17 @@ public class Calculation_test extends TestCase {
 				MAXWINGLOADCAT5, 5);
 	}
 
+
+	/***
+	 * We check the SkyGods separately, as they actually have no minimum area limit..
+	 */
+	public void testMinAreaForSkyGod() {
+		assertEquals("simple area based on Cat", 0, Calculation.minAreaBasedOnCategory(6));
+		assertEquals("area for light sky god ",0, Calculation.minArea(6, 50));
+		assertEquals("area for medium weight sky god ",0, Calculation.minArea(6, 90));
+		assertEquals("area for heavy sky god ",0, Calculation.minArea(6, 130));
+	}
+	
 	/***
 	 * Helper method to check the min area based on the wingload
 	 * 
