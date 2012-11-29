@@ -60,6 +60,7 @@
     <canopy
         name="Drakkar"
         category="1"
+        cells="9"
         manufacturer="Parachutes de France" />
     <canopy
         name="Turbo Voyager student"
@@ -213,6 +214,7 @@
     <canopy
         name="Merit"
         category="2"
+        cells="9"
         manufacturer="Parachutes de France" />
     <canopy
         name="Pilot"
@@ -380,6 +382,7 @@
     <canopy
         name="Sentry"
         category="3"
+        cells="9"
         manufacturer="Flight Concepts"
         maxsize="230"
         minsize="99"
@@ -394,6 +397,7 @@
         url="http://www.bigairsportz.com/lotus.php" />
     <canopy
         name="Safire 1"
+        cells="9"
         category="3"
         manufacturer="Icarus" />
     <canopy
@@ -429,6 +433,7 @@
     <canopy
         name="Zepo exe"
         category="3"
+        cells="9"
         manufacturer="Chute Shop" />
     <canopy
         name="Spark"
@@ -463,6 +468,7 @@
     <canopy
         name="Electra XS"
         category="4"
+        cells="9"
         manufacturer="Parachutes de France" />
     <canopy
         name="Batwing"
@@ -479,6 +485,7 @@
     <canopy
         name="Cobalt"
         category="4"
+        cells="9"
         manufacturer="Atair Aerodynamics" />
     <canopy
         name="Impulse"
@@ -560,6 +567,7 @@
     <canopy
         name="Crossfire"
         category="5"
+        cells="9"
         manufacturer="Icarus" />
     <canopy
         name="Mamba"
@@ -625,6 +633,7 @@
     <canopy
         name="Crossfire 2"
         category="6"
+        cells="9"
         manufacturer="Icarus"
         maxsize="169"
         minsize="89"
@@ -652,6 +661,7 @@
     <canopy
         name="Extreme FX"
         category="6"
+        cells="21"
         manufacturer="Icarus"
         maxsize="119"
         minsize="69"
