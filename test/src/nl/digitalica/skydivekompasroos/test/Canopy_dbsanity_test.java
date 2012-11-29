@@ -21,6 +21,9 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
 		HashMap<String, String> canopyKeys = new HashMap<String, String>();
 		for (Canopy c : canopies) {
+			// check category is within range (1-6)
+			assertTrue("category should be 1-6 for " + c.name, c.category >= 1
+					&& c.category <= 6);
 			// check maxSize is larger than minSize
 			if (c.minSize != null && !c.minSize.equals(""))
 				if (c.maxSize != null && !c.maxSize.equals("")) {
