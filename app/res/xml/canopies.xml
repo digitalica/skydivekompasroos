@@ -43,6 +43,9 @@
     <canopy
         name="Solo"
         category="1"
+        cells="9"
+        firstyearofproduction="2003"
+        lastyearofproduction=""
         manufacturer="Aerodyne-int"
         maxsize="290"
         minsize="190" />
@@ -215,6 +218,8 @@
         name="Pilot"
         category="2"
         cells="9"
+        firstyearofproduction="2003"
+        lastyearofproduction=""
         manufacturer="Aerodyne-int"
         maxsize="230"
         minsize="90"
@@ -224,6 +229,8 @@
         name="Triathlon"
         category="2"
         cells="7"
+        firstyearofproduction="2000"
+        lastyearofproduction=""
         manufacturer="Aerodyne-int"
         maxsize="260"
         minsize="99"
@@ -480,13 +487,22 @@
     <canopy
         name="Vision"
         category="4"
+        firstyearofproduction="2005"
+        lastyearofproduction="2010"
         manufacturer="Aerodyne-int"
+        maxsize="210"
+        minsize="90"
         planform="15.5"
         planformcells="6" />
     <canopy
         name="Diablo"
         category="4"
+        cells="7"
+        firstyearofproduction="2000"
+        lastyearofproduction="2006"
         manufacturer="Aerodyne-int"
+        maxsize="190"
+        minsize="88"
         planform="10.7"
         planformcells="4" />
     <canopy
@@ -549,6 +565,8 @@
         name="Mamba"
         category="5"
         cells="9"
+        firstyearofproduction="2005"
+        lastyearofproduction=""
         manufacturer="Aerodyne-int"
         maxsize="150"
         minsize="90" />
@@ -582,6 +600,8 @@
         name="Sensei"
         category="6"
         cells="21"
+        firstyearofproduction="2010"
+        lastyearofproduction=""
         manufacturer="Aerodyne-int"
         maxsize="121"
         minsize="71"
