@@ -9,7 +9,9 @@
     <string name="to_be_replaced">to_be_replaced</string>
     <string name="categorySetting">\nJe valt in categorie <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
-    <string name="canopyAdvise">\nGeschikte parachutes:\nCategorie %1$d van minimaal %2$d sqft\n</string>
+    <string name="canopyAdviseOne">\nGeschikte parachutes:\nCategorie %1$d van minimaal %2$d sqft\n</string>
+    <string name="canopyAdvise">\nGeschikte parachutes:\nCategorie 1 tot en met %1$d van minimaal %2$d sqft\n</string>
+    <string name="canopyAdviseAny">\nGeschikte parachutes:\nCategorie 1 tot en met 6 zonder oppervlaktebeperking\n</string>
     <string name="ormore">" (of meer)"</string>
     <string name="menu_reset">Reset</string>
     <string name="menu_save">Opslaan</string>

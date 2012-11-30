@@ -567,7 +567,18 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			tvCanopyMaxWingLoad.setText(maxWingLoadText);
 
 			TextView tvCanopyAdvise = (TextView) findViewById(R.id.textViewCanopyAdvise);
-			String canopyAdviseFormat = getString(R.string.canopyAdvise);
+			String canopyAdviseFormat;
+			switch (jumperCategory) {
+			case 1:
+				canopyAdviseFormat = getString(R.string.canopyAdviseOne);
+				break;
+			case 6:
+				canopyAdviseFormat = getString(R.string.canopyAdviseAny);
+				break;
+			default:
+				canopyAdviseFormat = getString(R.string.canopyAdvise);
+				break;
+			}
 			tvCanopyAdvise.setText(String.format(canopyAdviseFormat,
 					jumperCategory, minArea));
 
