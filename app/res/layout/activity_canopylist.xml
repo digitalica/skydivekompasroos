@@ -27,7 +27,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/button_margin_top"
             android:background="@drawable/btn_normal"
-            android:text="@string/btnShareResult" />
+            android:text="@string/btnShareResult"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/bodyText" />
     </LinearLayout>
 
 </ScrollView>

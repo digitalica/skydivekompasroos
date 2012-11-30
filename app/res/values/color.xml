@@ -38,7 +38,7 @@
 
     <color name="SuzanBackGroundBlue">#95c4d2</color>
     <color name="SuzanGreen">#00974d</color>
-    <color name="SuzanBrownSlider">#6c2e16</color>
-    <color name="SuzanBrownBar">#753820</color>
+    <color name="SuzanBrown">#753820</color>
+    <color name="SuzanBrown50">#ba8a77</color>
     
 </resources>

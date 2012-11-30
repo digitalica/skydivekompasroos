@@ -2,25 +2,21 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle" >
 
-    <size
-        android:height="@dimen/btn_seekbar_updown_height"
-        android:width="@dimen/btn_seekbar_updown_width" />
-
     <padding
-        android:bottom="0dip"
-        android:left="3dip"
-        android:right="3dip"
-        android:top="0dip" />
+        android:bottom="3dip"
+        android:left="6dip"
+        android:right="6dip"
+        android:top="3dip" />
 
     <gradient
-        android:angle="270"
-        android:centerColor="@color/Cat1Blue"
-        android:endColor="@color/Cat2Blue"
-        android:startColor="@color/Cat2Blue" />
+        android:angle="90"
+        android:centerColor="@color/SuzanBrown50"
+        android:endColor="@color/SuzanBrown50"
+        android:startColor="@color/SuzanBrown" />
 
     <stroke
         android:width="@dimen/btn_seekbar_updown_stroke"
-        android:color="@color/Cat1Blue" />
+        android:color="@color/SuzanBrown" />
 
     <corners android:radius="5dip" />
 

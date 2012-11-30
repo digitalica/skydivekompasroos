@@ -46,7 +46,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_sb_updown"
-                android:text="@string/btnMin" />
+                android:text="@string/btnMin"
+                android:textColor="@color/SuzanBrown"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBarJumpsLast12Months"
@@ -64,7 +66,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_sb_updown"
-                android:text="@string/btnPlus" />
+                android:text="@string/btnPlus"
+                android:textColor="@color/SuzanBrown"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
@@ -85,7 +89,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_sb_updown"
-                android:text="@string/btnMin" />
+                android:text="@string/btnMin"
+                android:textColor="@color/SuzanBrown"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBarTotalJumps"
@@ -103,7 +109,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_sb_updown"
-                android:text="@string/btnPlus" />
+                android:text="@string/btnPlus"
+                android:textColor="@color/SuzanBrown"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
@@ -204,7 +212,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_sb_updown"
-                android:text="@string/btnMin" />
+                android:text="@string/btnMin"
+                android:textColor="@color/SuzanBrown"
+                android:textStyle="bold" />
 
             <SeekBar
                 android:id="@+id/seekBarWeight"
@@ -222,7 +232,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_sb_updown"
-                android:text="@string/btnPlus" />
+                android:text="@string/btnPlus"
+                android:textColor="@color/SuzanBrown"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
@@ -369,6 +381,7 @@
             android:layout_marginTop="@dimen/button_margin_top"
             android:background="@drawable/btn_normal"
             android:text="@string/btnShowCanopyList"
+            android:textColor="@android:color/white"
             android:textSize="@dimen/bodyText" />
     </LinearLayout>
 
