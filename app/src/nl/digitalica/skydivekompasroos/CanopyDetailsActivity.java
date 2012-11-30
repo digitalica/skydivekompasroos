@@ -3,11 +3,17 @@ package nl.digitalica.skydivekompasroos;
 import java.util.HashMap;
 import java.util.List;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class CanopyDetailsActivity extends KompasroosBaseActivity {
+
+	static Canopy currentCanopy;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,12 +28,13 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		if (thisCanopy.size() != 1)
 			Log.e(LOG_TAG, "Onjuist aantal op basis van key " + canopyKey);
 
-		Canopy canopy = thisCanopy.get(0);
-		Manufacturer manufacturer = manufacturers.get(canopy.manufacturer);
+		currentCanopy = thisCanopy.get(0);
+		Manufacturer manufacturer = manufacturers
+				.get(currentCanopy.manufacturer);
 
 		String url = manufacturer.url;
-		if (canopy.url != null && !canopy.url.equals(""))
-			url = canopy.url; // if we have a canopy url use that.
+		if (currentCanopy.url != null && !currentCanopy.url.equals(""))
+			url = currentCanopy.url; // if we have a canopy url use that.
 
 		TextView tvName = (TextView) findViewById(R.id.textViewNameText);
 		TextView tvCategory = (TextView) findViewById(R.id.textViewCategoryText);
@@ -40,36 +47,37 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvProduction = (TextView) findViewById(R.id.textViewProductionText);
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
-		tvName.setText(canopy.name);
-		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(canopy
+		tvName.setText(currentCanopy.name);
+		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(currentCanopy
 				.acceptablility(currentMaxCategory, currentWeight)));
 
-		tvCategory.setText(Integer.toString(canopy.category));
+		tvCategory.setText(Integer.toString(currentCanopy.category));
 		String[] neededExperience = getResources().getStringArray(
 				R.array.neededExperience);
-		tvExperience.setText(neededExperience[canopy.category]);
-		tvCells.setText(canopy.cells);
+		tvExperience.setText(neededExperience[currentCanopy.category]);
+		tvCells.setText(currentCanopy.cells);
 		String sizes = "";
-		if (canopy.minSize != null && !canopy.minSize.equals(""))
-			if (canopy.maxSize != null && !canopy.maxSize.equals("")) {
+		if (currentCanopy.minSize != null && !currentCanopy.minSize.equals(""))
+			if (currentCanopy.maxSize != null
+					&& !currentCanopy.maxSize.equals("")) {
 				// TODO: change to format string in strings for translation
-				sizes = canopy.minSize + " tot en met " + canopy.maxSize
-						+ " sqft";
+				sizes = currentCanopy.minSize + " tot en met "
+						+ currentCanopy.maxSize + " sqft";
 			}
 		tvSizes.setText(sizes);
 		tvUrl.setText(url);
-		tvManufacturer.setText(canopy.manufacturer);
+		tvManufacturer.setText(currentCanopy.manufacturer);
 		tvManufacturerCountry.setText(manufacturer.countryFullName());
 		StringBuilder remarks = new StringBuilder();
-		if (canopy.remarks != null && !canopy.remarks.equals("")) {
-			remarks.append(canopy.remarks);
+		if (currentCanopy.remarks != null && !currentCanopy.remarks.equals("")) {
+			remarks.append(currentCanopy.remarks);
 			remarks.append(System.getProperty("line.separator"));
 		}
 		if (manufacturer.remarks != null && !manufacturer.remarks.equals("")) {
 			remarks.append(manufacturer.remarks);
 			remarks.append(System.getProperty("line.separator"));
 		}
-		if (canopy.addtionalInformationNeeded()) {
+		if (currentCanopy.addtionalInformationNeeded()) {
 			remarks.append(getString(R.string.detailsAdditionalInformationWelcome));
 			remarks.append(System.getProperty("line.separator"));
 		}
@@ -77,14 +85,97 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
 		// TODO: move strings below to resource file (using string format?)
 		String geproduceerd = "";
-		if (canopy.firstYearOfProduction != null
-				&& !canopy.firstYearOfProduction.equals("")) {
-			geproduceerd = "vanaf " + canopy.firstYearOfProduction;
-			if (canopy.lastYearOfProduction != null
-					&& !canopy.lastYearOfProduction.equals(""))
-				geproduceerd += " tot en met " + canopy.lastYearOfProduction;
+		if (currentCanopy.firstYearOfProduction != null
+				&& !currentCanopy.firstYearOfProduction.equals("")) {
+			geproduceerd = "vanaf " + currentCanopy.firstYearOfProduction;
+			if (currentCanopy.lastYearOfProduction != null
+					&& !currentCanopy.lastYearOfProduction.equals(""))
+				geproduceerd += " tot en met "
+						+ currentCanopy.lastYearOfProduction;
 		}
 		tvProduction.setText(geproduceerd);
 
 	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_canopydetails, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_shareDetails:
+			shareDetails();
+			return true;
+		case R.id.menu_about:
+			startActivity(new Intent(this, AboutActivity.class));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	private void shareDetails() {
+		Intent sendIntent = new Intent();
+		sendIntent.setAction(Intent.ACTION_SEND);
+		sendIntent.putExtra(Intent.EXTRA_TEXT,
+				CanopyDetailsActivity.skydiveKompasroosDetails(this));
+		sendIntent.putExtra(Intent.EXTRA_SUBJECT,
+				getString(R.string.sharedetailssubject));
+		sendIntent.putExtra(Intent.EXTRA_TITLE,
+				getString(R.string.sharedetailssubject));
+		sendIntent.setType("text/plain");
+		startActivity(sendIntent);
+
+	}
+
+	/***
+	 * Return the full string for the details to share.
+	 * 
+	 * @param context
+	 * @return
+	 */
+	static String skydiveKompasroosDetails(Context context) {
+		String nl = System.getProperty("line.separator");
+
+		StringBuilder details = new StringBuilder();
+
+		// first line: name (manufacturer, cat X)
+		details.append(currentCanopy.name);
+		details.append(" (");
+		details.append(currentCanopy.manufacturer + ", ");
+		details.append("categorie: " + Integer.toString(currentCanopy.category)
+				+ ")");
+		details.append(nl);
+
+		// second line: needed experience
+		details.append(context.getString(R.string.detailsExperience));
+		String[] neededExperience = context.getResources().getStringArray(
+				R.array.neededExperience);
+		details.append(" " + neededExperience[currentCanopy.category]);
+		details.append(nl);
+
+		// last line, url if available
+		HashMap<String, Manufacturer> manufacturers = Manufacturer
+				.getManufacturerHash(context);
+		Manufacturer manufacturer = manufacturers
+				.get(currentCanopy.manufacturer);
+		String url = manufacturer.url;
+		if (currentCanopy.url != null && !currentCanopy.url.equals(""))
+			url = currentCanopy.url; // if we have a canopy url use that.
+		if (url != null && !url.equals("")) {
+			details.append(url);
+			details.append(nl);
+		}
+
+		details.append(nl);
+		details.append(context
+				.getString(R.string.shareresultfooter));
+
+		// return the result
+		return details.toString();
+	}
+
 }

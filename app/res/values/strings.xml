@@ -26,7 +26,7 @@
     <string name="btnMin">" - "</string>
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Deel resultaat</string>
-    <string name="btnShareUrl">Deel web address</string>
+    <string name="btnShareDetails">Deel koepel</string>
     <string name="calculationWeightLabel">\nExitgewicht</string>
     <string name="calculationWeightSetting">: %1$d kg (%2$d lbs)</string>
     <string name="calculationTotalJumpsLabel">\nTotaal aantal sprongen</string>
@@ -49,6 +49,7 @@
     <string name="canopyType">type</string>
     <string name="canopyManufacturer">fabrikant</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
+    <string name="sharedetailssubject">Skydive kompasroos parachute gegevens</string>
     <string name="shareresultsubject">Skydive kompasroos resultaat</string>
     <string name="shareresultheaderformat">Je ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat je mag springen met parachutes uit categorie %4$d met een oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
     <string name="shareresultnotaccepted">Onderstaande parachutes zijn NIET geschikt, ze vereisen meer ervaring:</string>
