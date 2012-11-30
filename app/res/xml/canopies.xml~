@@ -476,7 +476,6 @@
     <canopy
         name="Batwing"
         category="4"
-        cells="9"
         manufacturer="Precision" />
     <canopy
         name="Jonathan"
