@@ -94,7 +94,6 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 						+ currentCanopy.lastYearOfProduction;
 		}
 		tvProduction.setText(geproduceerd);
-
 	}
 
 	@Override

@@ -29,6 +29,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResultAccepted;
+	static StringBuilder skydiveKompasroosResultNeededSizeNotAvailable;
 	static StringBuilder skydiveKompasroosResultNotAccepted;
 
 	@SuppressWarnings("unchecked")
@@ -79,10 +80,12 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		}
 		canopyTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
+		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
 		skydiveKompasroosResultNotAccepted = new StringBuilder();
 
 		for (Canopy theCanopy : canopyList)
-			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory, currentWeight);
+			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory,
+					currentWeight);
 	}
 
 	/***
@@ -108,11 +111,21 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		skydiveKompasroosResult.append(nl);
 		skydiveKompasroosResult.append(skydiveKompasroosResultAccepted);
 		skydiveKompasroosResult.append(nlnl);
-		skydiveKompasroosResult.append(context
-				.getString(R.string.shareresultnotaccepted));
-		skydiveKompasroosResult.append(nl);
-		skydiveKompasroosResult.append(skydiveKompasroosResultNotAccepted);
-		skydiveKompasroosResult.append(nlnl);
+		if (skydiveKompasroosResultNeededSizeNotAvailable.length() > 0) {
+			skydiveKompasroosResult.append(context
+					.getString(R.string.shareresultneededsizenotavailable));
+			skydiveKompasroosResult.append(nl);
+			skydiveKompasroosResult
+					.append(skydiveKompasroosResultNeededSizeNotAvailable);
+			skydiveKompasroosResult.append(nlnl);
+		}
+		if (skydiveKompasroosResultNotAccepted.length() > 0) {
+			skydiveKompasroosResult.append(context
+					.getString(R.string.shareresultnotaccepted));
+			skydiveKompasroosResult.append(nl);
+			skydiveKompasroosResult.append(skydiveKompasroosResultNotAccepted);
+			skydiveKompasroosResult.append(nlnl);
+		}
 		skydiveKompasroosResult.append(context
 				.getString(R.string.shareresultfooter));
 
@@ -200,8 +213,9 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				}
 			});
 
-		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(theCanopy.acceptablility(maxCategory, exitWeightInKg)));
-				
+		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(theCanopy
+				.acceptablility(maxCategory, exitWeightInKg)));
+
 		// hLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 		// LayoutParams.WRAP_CONTENT));
 
@@ -240,11 +254,19 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// TODO: in case of current sorting by manufacturer, show that first.
 		String shareResultLine = theCanopy.name + " - "
 				+ theCanopy.manufacturer + System.getProperty("line.separator");
-		if (maxCategory >= theCanopy.category)
+
+		switch (theCanopy.acceptablility(currentMaxCategory, currentWeight)) {
+		case Canopy.ACCEPTABLE:
 			skydiveKompasroosResultAccepted.append(shareResultLine);
-		else
+			break;
+		case Canopy.NEEDEDSIZENOTAVAILABLE:
+			skydiveKompasroosResultNeededSizeNotAvailable
+					.append(shareResultLine);
+			break;
+		case Canopy.CATEGORYTOOHIGH:
 			skydiveKompasroosResultNotAccepted.append(shareResultLine);
+			break;
+		}
 
 	}
-
 }
