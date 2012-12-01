@@ -48,8 +48,7 @@
         lastyearofproduction=""
         manufacturer="Aerodyne-int"
         maxsize="290"
-        minsize="190"
-        url="http://www.flyaerodyne.com/solo.html" />
+        minsize="190" />
     <canopy
         name="Prima"
         category="1"
@@ -229,8 +228,7 @@
         maxsize="230"
         minsize="90"
         planform="6.7"
-        planformcells="4"
-        url="http://www.flyaerodyne.com/pilot.html" />
+        planformcells="4" />
     <canopy
         name="Triathlon"
         category="2"
@@ -402,8 +400,8 @@
         url="http://www.bigairsportz.com/lotus.php" />
     <canopy
         name="Safire 1"
-        category="3"
         cells="9"
+        category="3"
         manufacturer="Icarus" />
     <canopy
         name="Safire 2"
@@ -478,7 +476,6 @@
     <canopy
         name="Batwing"
         category="4"
-        cells="9"
         manufacturer="Precision" />
     <canopy
         name="Jonathan"
@@ -584,8 +581,7 @@
         lastyearofproduction=""
         manufacturer="Aerodyne-int"
         maxsize="150"
-        minsize="90"
-        url="http://www.flyaerodyne.com/mamba.html" />
+        minsize="90" />
     <canopy
         name="Radical"
         category="5"
@@ -621,8 +617,7 @@
         manufacturer="Aerodyne-int"
         maxsize="121"
         minsize="71"
-        remarks="CATEGORY UNKNOWN"
-        url="http://www.flyaerodyne.com/sensei.html" />
+        remarks="CATEGORY UNKNOWN" />
     <canopy
         name="Volt"
         category="6"
