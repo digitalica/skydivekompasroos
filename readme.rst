@@ -15,6 +15,7 @@ Version
 
 
 Version 0.3 (30 Nov 2012)
+
 - more canopy details (available sizes, years of fabrication)
 - completed canopy details for Aerodyne and Performance Designs
 - indication of canopies not available in required size
@@ -24,6 +25,7 @@ Version 0.3 (30 Nov 2012)
 - make sure 'elk ander type' special canopy always sorted at bottom
 
 Version 0.2 (19 Nov 2012)
+
 - fixed some canopy details
 - added canopy details screen
 - added sorting options to canopy list screen
