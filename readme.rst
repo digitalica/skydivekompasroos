@@ -11,8 +11,6 @@ It is based on the dutch 'Kompasroos' system.
 Changelog and New Features
 **************************
 
-Version 
-
 
 Version 0.3 (30 Nov 2012)
 
