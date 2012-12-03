@@ -9,19 +9,25 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/saveDialogHeader"
+        android:text="@string/sortDialogHeader"
         android:textColor="@android:color/white" />
 
     <Button
-        android:id="@+id/buttonOwn"
+        android:id="@+id/buttonByName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_name_own" />
+        android:text="@string/menu_sortbyname" />
 
     <Button
-        android:id="@+id/buttonFriend"
+        android:id="@+id/buttonByManufacturer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_name_friend" />
+        android:text="@string/menu_sortbymanufacturer" />
+
+    <Button
+        android:id="@+id/buttonByCategory"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_sortbycategory" />
 
 </LinearLayout>

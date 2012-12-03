@@ -3,8 +3,12 @@ package nl.digitalica.skydivekompasroos;
 import java.util.Collections;
 import java.util.List;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
@@ -14,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
@@ -33,6 +38,9 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	LinearLayout canopyTable;
 
 	SortingEnum sortingMethod;
+	FilterCatEnum filterCat;
+
+	final static int SORT_DIALOG_ID = 1;
 
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResultAccepted;
@@ -52,6 +60,11 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		int sortingMethodOrdinal = prefs.getInt(SETTING_SORTING,
 				SortingEnum.SORTBYNAME.ordinal());
 		this.sortingMethod = SortingEnum.values()[sortingMethodOrdinal];
+
+		// get the saved filter cat
+		int filterCatdOrdinal = prefs.getInt(SETTING_FILTER_CATS,
+				FilterCatEnum.AROUNDMAX.ordinal());
+		this.filterCat = FilterCatEnum.values()[filterCatdOrdinal];
 
 		// TODO: store sorting so it is persistent (?)
 		fillCanopyTable(canopyTable, sortingMethod);
@@ -100,19 +113,33 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		String previousManufacturer = "";
 		int previousCat = 9999;
 		for (Canopy theCanopy : canopyList) {
-			if (sortingMethod == SortingEnum.SORTBYMANUFACTURER
-					&& !previousManufacturer.equals(theCanopy.manufacturer)) {
-				insertCanopyHeaderRow(canopyTable, theCanopy.manufacturer);
-				previousManufacturer = theCanopy.manufacturer;
+			boolean showThisCanopy = true;
+			// check cat filter
+			if (filterCat == FilterCatEnum.MAXCAT)
+				if (theCanopy.category != currentMaxCategory)
+					showThisCanopy = false;
+			if (filterCat == FilterCatEnum.AROUNDMAX)
+				if (theCanopy.category < currentMaxCategory - 1
+						|| theCanopy.category > currentMaxCategory + 1)
+					showThisCanopy = false;
+			// show the canopy (and maybe headerline) if needed
+			if (showThisCanopy) {
+				if (sortingMethod == SortingEnum.SORTBYMANUFACTURER
+						&& !previousManufacturer.equals(theCanopy.manufacturer)) {
+					insertCanopyHeaderRow(canopyTable, theCanopy.manufacturer);
+					previousManufacturer = theCanopy.manufacturer;
+				}
+				if (sortingMethod == SortingEnum.SORTBYCATEGORY
+						&& previousCat != theCanopy.category) {
+					insertCanopyHeaderRow(
+							canopyTable,
+							"Categorie: "
+									+ Integer.toString(theCanopy.category));
+					previousCat = theCanopy.category;
+				}
+				insertCanopyRow(canopyTable, theCanopy, currentMaxCategory,
+						currentWeight);
 			}
-			if (sortingMethod == SortingEnum.SORTBYCATEGORY
-					&& previousCat != theCanopy.category) {
-				insertCanopyHeaderRow(canopyTable,
-						"Categorie: " + Integer.toString(theCanopy.category));
-				previousCat = theCanopy.category;
-			}
-			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory,
-					currentWeight);
 		}
 	}
 
@@ -185,14 +212,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		case R.id.menu_shareResult:
 			shareResult();
 			return true;
-		case R.id.menu_sortByName:
-			fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME);
-			return true;
-		case R.id.menu_sortByManufacturer:
-			fillCanopyTable(canopyTable, SortingEnum.SORTBYMANUFACTURER);
-			return true;
-		case R.id.menu_sortByCategory:
-			fillCanopyTable(canopyTable, SortingEnum.SORTBYCATEGORY);
+		case R.id.menu_sort:
+			showDialog(SORT_DIALOG_ID);
 			return true;
 		case R.id.menu_about:
 			startActivity(new Intent(this, AboutActivity.class));
@@ -310,4 +331,56 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		}
 
 	}
+
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+		case SORT_DIALOG_ID:
+			return sortDialog();
+
+		}
+		return null;
+	}
+
+	private Dialog sortDialog() {
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = inflater.inflate(R.layout.sort_dialog,
+				(ViewGroup) findViewById(R.id.root));
+
+		Button byName = (Button) layout.findViewById(R.id.buttonByName);
+		Button byManufacturer = (Button) layout
+				.findViewById(R.id.buttonByManufacturer);
+		Button byCategory = (Button) layout.findViewById(R.id.buttonByCategory);
+		// TODO: add onclick handlers to buttons
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setView(layout);
+		builder.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// We forcefully dismiss and remove the Dialog, so it
+						// cannot be used again (no cached info)
+						CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+					}
+				});
+		byName.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME);
+				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+			}
+		});
+		byManufacturer.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				fillCanopyTable(canopyTable, SortingEnum.SORTBYMANUFACTURER);
+				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+			}
+		});
+		byCategory.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				fillCanopyTable(canopyTable, SortingEnum.SORTBYCATEGORY);
+				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+			}
+		});
+		return builder.create();
+	}
+
 }

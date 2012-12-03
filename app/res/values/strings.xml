@@ -16,6 +16,7 @@
     <string name="menu_reset">Reset</string>
     <string name="menu_save">Opslaan</string>
     <string name="menu_about">Over de Skydive kompasroos App</string>
+    <string name="menu_sort">Sortering</string>
     <string name="menu_sortbyname">Op naam</string>
     <string name="menu_sortbymanufacturer">Op fabrikant</string>
     <string name="menu_sortbycategory">Op categorie</string>
@@ -71,6 +72,7 @@
     <string name="detailsProduction">In productie:</string>
     <string name="detailsAdditionalInformationWelcome">Aanvullingen op bovenstaande gegevens zijn welkom, zie about pagina voor contactgegevens.</string>
     <string name="saveDialogHeader">Sla gegevens op als:</string>
+    <string name="sortDialogHeader">Sorteer gegegevens:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
 
     <string-array name="canopyCategories">

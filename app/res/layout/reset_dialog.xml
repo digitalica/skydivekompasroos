@@ -9,7 +9,8 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/resetDialogHeader" />
+        android:text="@string/resetDialogHeader"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonBeginner"
