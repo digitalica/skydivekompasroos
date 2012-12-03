@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.os.Bundle;
@@ -53,7 +54,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		this.sortingMethod = SortingEnum.values()[sortingMethodOrdinal];
 
 		// TODO: store sorting so it is persistent (?)
-		fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME);
+		fillCanopyTable(canopyTable, sortingMethod);
 
 		// add onclick handler to button
 		Button shareResultButton = (Button) findViewById(R.id.buttonShareResult);
@@ -78,28 +79,41 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		case SORTBYNAME:
 			Collections.sort(canopyList,
 					new Canopy.ComparatorByNameManufacturer());
-			savePreference(SETTING_SORTING, SortingEnum.SORTBYNAME.ordinal());
+			sortingMethod = SortingEnum.SORTBYNAME;
 			break;
 		case SORTBYCATEGORY:
 			Collections.sort(canopyList, new Canopy.ComparatorByCategoryName());
-			savePreference(SETTING_SORTING,
-					SortingEnum.SORTBYCATEGORY.ordinal());
+			sortingMethod = SortingEnum.SORTBYCATEGORY;
 			break;
 		case SORTBYMANUFACTURER:
 			Collections.sort(canopyList,
 					new Canopy.ComparatorByManufacturerCategoryName());
-			savePreference(SETTING_SORTING,
-					SortingEnum.SORTBYMANUFACTURER.ordinal());
+			sortingMethod = SortingEnum.SORTBYMANUFACTURER;
 			break;
 		}
+		savePreference(SETTING_SORTING, sortingMethod.ordinal());
 		canopyTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
 		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
 		skydiveKompasroosResultNotAccepted = new StringBuilder();
 
-		for (Canopy theCanopy : canopyList)
+		String previousManufacturer = "";
+		int previousCat = 9999;
+		for (Canopy theCanopy : canopyList) {
+			if (sortingMethod == SortingEnum.SORTBYMANUFACTURER
+					&& !previousManufacturer.equals(theCanopy.manufacturer)) {
+				insertCanopyHeaderRow(canopyTable, theCanopy.manufacturer);
+				previousManufacturer = theCanopy.manufacturer;
+			}
+			if (sortingMethod == SortingEnum.SORTBYCATEGORY
+					&& previousCat != theCanopy.category) {
+				insertCanopyHeaderRow(canopyTable,
+						"Categorie: " + Integer.toString(theCanopy.category));
+				previousCat = theCanopy.category;
+			}
 			insertCanopyRow(canopyTable, theCanopy, currentMaxCategory,
 					currentWeight);
+		}
 	}
 
 	/***
@@ -200,6 +214,19 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// TODO: remove extras as they will be in global vars...
 		i.putExtra(CANOPYKEYEXTRA, canopyKey);
 		startActivity(i);
+	}
+
+	private void insertCanopyHeaderRow(LinearLayout canopyTable, String header) {
+		String nl = System.getProperty("line.separator");
+		TextView canopyListHeader = new TextView(CanopyListActivity.this);
+		canopyListHeader.setText(nl + header);
+		canopyListHeader.setTextSize(getResources().getDimension(
+				R.dimen.canopylistCategory));
+
+		// create row, and add row to table
+		TableRow row = new TableRow(this);
+		row.addView(canopyListHeader);
+		canopyTable.addView(row);
 	}
 
 	/***
