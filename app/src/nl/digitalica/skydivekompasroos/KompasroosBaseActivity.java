@@ -7,10 +7,12 @@ import java.util.zip.ZipFile;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 
 /***
  * Base class for kompasroos activities
@@ -49,6 +51,15 @@ public class KompasroosBaseActivity extends Activity {
 	final static String SETTING_FRIEND_TOTAL_JUMPS = "FriendTotalJumps";
 	final static String SETTING_FRIEND_LAST_12_MONTHS = "FriendJumpsLast12Months";
 
+	static final String SETTING_SORTING = "Sorting";
+	static final String SETTING_FILTER_CATS = "FilterCats";
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		prefs = getSharedPreferences(KOMPASROOSPREFS, Context.MODE_PRIVATE);
+	}
+
 	/***
 	 * Returns a suitable background based on the acceptablity of a canopy
 	 * 
@@ -86,5 +97,20 @@ public class KompasroosBaseActivity extends Activity {
 		long time = ze.getTime();
 		return time;
 	}
+
+	/***
+	 * Saves an (integer) preference to the global prefs var.
+	 * 
+	 * @param preferenceName
+	 *            the name of the preference
+	 * @param value
+	 *            the (new) value of the preference
+	 */
+	protected void savePreference(String preferenceName, int value) {
+		Editor e = prefs.edit();
+		e.putInt(preferenceName, value);
+		e.commit();
+	}
+
 
 }

@@ -57,7 +57,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calculate);
-		prefs = getSharedPreferences(KOMPASROOSPREFS, Context.MODE_PRIVATE);
 
 		// if compile date over 1 year ago, show warning text
 		TextView tvWarning = (TextView) findViewById(R.id.textViewWarning);
@@ -297,14 +296,18 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 	}
 
+	/***
+	 * Add click listeners to the plus and min buttons at the left and right of
+	 * a seekbar
+	 */
 	private void setPlusMinButtonListeners(SeekBar sb, int minButtonId,
 			int plusButtonId) {
+		// get the buttons based on the give id's
 		Button minButton = (Button) findViewById(minButtonId);
 		Button plusButton = (Button) findViewById(plusButtonId);
+		// add click listener to the min button
 		minButton.setOnClickListener(new View.OnClickListener() {
-
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				// find matching seekbar
 				ViewGroup hList = (ViewGroup) v.getParent();
 				if (hList.getChildCount() != 3)
@@ -316,10 +319,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 					sb.setProgress(progress - 1);
 			}
 		});
+		// add click listener to the plus button
 		plusButton.setOnClickListener(new View.OnClickListener() {
-
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				// find matching seekbar
 				ViewGroup hList = (ViewGroup) v.getParent();
 				if (hList.getChildCount() != 3)
@@ -331,9 +333,12 @@ public class CalculateActivity extends KompasroosBaseActivity {
 					sb.setProgress(progress + 1);
 			}
 		});
-
 	}
 
+
+	/***
+	 * The seekbar change listner for the exit weight
+	 */
 	private OnSeekBarChangeListener seekBarChangeListenerWeight = new OnSeekBarChangeListener() {
 
 		public void onProgressChanged(SeekBar seekBar, int progress,
@@ -346,13 +351,11 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		}
 
 		public void onStartTrackingTouch(SeekBar seekBar) {
-			// TODO Auto-generated method stub
-
+			// No action required
 		}
 
 		public void onStopTrackingTouch(SeekBar seekBar) {
-			// TODO Auto-generated method stub
-
+			// No action required
 		}
 	};
 
@@ -408,19 +411,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		}
 	};
 
-	/***
-	 * Saves an (integer) preference to the global prefs var.
-	 * 
-	 * @param preferenceName
-	 *            the name of the preference
-	 * @param value
-	 *            the (new) value of the preference
-	 */
-	private void savePreference(String preferenceName, int value) {
-		Editor e = prefs.edit();
-		e.putInt(preferenceName, value);
-		e.commit();
-	}
 
 	private void setWeightSettingText(int weightInKg) {
 		int weightInLbs = Calculation.kgToLbs(weightInKg);
@@ -450,7 +440,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		TextView area6 = (TextView) findViewById(R.id.textViewArea6);
 		TextView wingLoad6 = (TextView) findViewById(R.id.textViewWingLoad6);
 		fillWingLoadTableColumn(column++, weightInLbs, area6, wingLoad6);
-
 	}
 
 	private void fillWingLoadTableColumn(int column, int weightInLbs,

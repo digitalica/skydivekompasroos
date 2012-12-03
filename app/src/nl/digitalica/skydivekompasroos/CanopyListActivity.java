@@ -20,19 +20,24 @@ import android.widget.TextView;
 
 public class CanopyListActivity extends KompasroosBaseActivity {
 
-	static final int SORTBYNAME = 1;
-	static final int SORTBYMANUFACTURER = 2;
-	static final int SORTBYCATEGORY = 3;
+	public enum SortingEnum {
+		SORTBYNAME, SORTBYMANUFACTURER, SORTBYCATEGORY
+	}
+
+	public enum FilterCatEnum {
+		MAXCAT, AROUNDMAX, ALLCATS
+	}
 
 	List<Canopy> canopyList;
 	LinearLayout canopyTable;
+
+	SortingEnum sortingMethod;
 
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResultAccepted;
 	static StringBuilder skydiveKompasroosResultNeededSizeNotAvailable;
 	static StringBuilder skydiveKompasroosResultNotAccepted;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,10 +47,13 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		canopyList = Canopy.getAllCanopiesInList(CanopyListActivity.this);
 
-		Bundle extras = getIntent().getExtras();
+		// get the saved sorting Method
+		int sortingMethodOrdinal = prefs.getInt(SETTING_SORTING,
+				SortingEnum.SORTBYNAME.ordinal());
+		this.sortingMethod = SortingEnum.values()[sortingMethodOrdinal];
 
 		// TODO: store sorting so it is persistent (?)
-		fillCanopyTable(canopyTable, SORTBYNAME);
+		fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME);
 
 		// add onclick handler to button
 		Button shareResultButton = (Button) findViewById(R.id.buttonShareResult);
@@ -63,19 +71,25 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param canopyTable
 	 * @param sortingMethod
 	 */
-	private void fillCanopyTable(LinearLayout canopyTable, int sortingMethod) {
+	private void fillCanopyTable(LinearLayout canopyTable,
+			SortingEnum sortingMethod) {
 		// sort the canopyList on type, name, manufacturer
 		switch (sortingMethod) {
 		case SORTBYNAME:
 			Collections.sort(canopyList,
 					new Canopy.ComparatorByNameManufacturer());
+			savePreference(SETTING_SORTING, SortingEnum.SORTBYNAME.ordinal());
 			break;
 		case SORTBYCATEGORY:
 			Collections.sort(canopyList, new Canopy.ComparatorByCategoryName());
+			savePreference(SETTING_SORTING,
+					SortingEnum.SORTBYCATEGORY.ordinal());
 			break;
 		case SORTBYMANUFACTURER:
 			Collections.sort(canopyList,
 					new Canopy.ComparatorByManufacturerCategoryName());
+			savePreference(SETTING_SORTING,
+					SortingEnum.SORTBYMANUFACTURER.ordinal());
 			break;
 		}
 		canopyTable.removeAllViewsInLayout();
@@ -158,13 +172,13 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			shareResult();
 			return true;
 		case R.id.menu_sortByName:
-			fillCanopyTable(canopyTable, SORTBYNAME);
+			fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME);
 			return true;
 		case R.id.menu_sortByManufacturer:
-			fillCanopyTable(canopyTable, SORTBYMANUFACTURER);
+			fillCanopyTable(canopyTable, SortingEnum.SORTBYMANUFACTURER);
 			return true;
 		case R.id.menu_sortByCategory:
-			fillCanopyTable(canopyTable, SORTBYCATEGORY);
+			fillCanopyTable(canopyTable, SortingEnum.SORTBYCATEGORY);
 			return true;
 		case R.id.menu_about:
 			startActivity(new Intent(this, AboutActivity.class));
