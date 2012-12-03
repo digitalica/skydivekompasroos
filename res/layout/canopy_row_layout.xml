@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/linearLayoutCanopyListRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/canopylistview_padding"
+        android:layout_marginTop="@dimen/canopylistview_padding"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textViewCanopyListRowCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="1"
+            android:textSize="@dimen/canopylistCategory" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textViewCanopyListRowName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screen_padding_left"
+                android:layout_marginRight="@dimen/screen_padding_right"
+                android:text="@string/to_be_replaced"
+                android:textSize="@dimen/canopydetailsName" />
+
+            <TextView
+                android:id="@+id/textViewCanopyListRowDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screen_padding_left"
+                android:layout_marginRight="@dimen/screen_padding_right"
+                android:text="@string/to_be_replaced"
+                android:textSize="@dimen/bodyText" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewArrowRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text=">"
+            android:textSize="@dimen/canopylistCategory" />
+    </LinearLayout>
+
+</LinearLayout>

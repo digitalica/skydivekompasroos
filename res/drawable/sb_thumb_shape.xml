@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape android:shape="rectangle" >
+            <size
+                android:height="@dimen/sb_thumb_height"
+                android:width="@dimen/sb_thumb_width" />
+
+            <solid android:color="@color/SuzanBrown" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="90"
+                android:centerColor="@android:color/transparent"
+                android:centerY="80%"
+                android:endColor="@color/SuzanBrown50"
+                android:startColor="@android:color/transparent" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="-90"
+                android:centerColor="@android:color/transparent"
+                android:centerY="80%"
+                android:endColor="@color/SuzanBrown50"
+                android:startColor="@android:color/transparent" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="0"
+                android:centerColor="@android:color/transparent"
+                android:centerX="80%"
+                android:endColor="@color/SuzanBrown50"
+                android:startColor="@android:color/transparent" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="180"
+                android:centerColor="@android:color/transparent"
+                android:centerX="80%"
+                android:endColor="@color/SuzanBrown50"
+                android:startColor="@android:color/transparent" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    
+    
+</layer-list>

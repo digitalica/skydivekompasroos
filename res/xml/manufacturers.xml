@@ -1,0 +1,70 @@
+<?xml version ="1.0" encoding = "utf-8"?>
+<manufacturers>
+
+    <manufacturer
+        name="Aerodyne-int"
+        countrycode="us"
+        url="http://www.flyaerodyne.com" />
+    <manufacturer
+        name="Airtime"
+        url="" />
+    <manufacturer
+        name="Atair Aerodynamics"
+        countrycode="us"
+        url="http://www.atair.com/parachutes/" />
+    <manufacturer
+        name="Big-air sportz"
+        countrycode="us"
+        url="http://www.bigairsportz.com/" />
+    <manufacturer
+        name="Chute Shop"
+        countrycode="sa"
+        remarks="Parachute Systems heette voorheen Chute Shop."
+        url="http://www.parachutesystems.co.za/" />
+    <manufacturer
+        name="Firebird"
+        countrycode="de"
+        url="http://cms.flyfirebird.com/" />
+    <manufacturer
+        name="Flight Concepts"
+        countrycode="us"
+        url="http://flightconceptsint.com/" />
+    <manufacturer
+        name="Icarus"
+        countrycode="us, fr"
+        url="http://www.icaruscanopies.aero/" />
+    <manufacturer
+        name="Jump Shack"
+        countrycode="us"
+        url="http://www.jumpshack.com/" />
+    <manufacturer
+        name="NAA"
+        countrycode="us"
+        remarks="NAA is North American Aerodynamics, Inc."
+        url="http://www.naaero.com/" />
+    <manufacturer
+        name="Parachutes de France"
+        countrycode="fr"
+        url="http://www.parachutes-de-france.net/en" />
+    <manufacturer
+        name="Paratec"
+        countrycode="de"
+        url="http://www.paratec.de/" />
+    <manufacturer
+        name="Performance Designs"
+        countrycode="us"
+        url="http://www.performancedesigns.com/" />
+    <manufacturer
+        name="PISA"
+        countrycode="sa"
+        url="http://www.pisa.co.za/" />
+    <manufacturer
+        name="Precision"
+        countrycode="us"
+        url="http://www.precision.aero/" />
+    <manufacturer
+        name="Strong"
+        countrycode="us"
+        url="http://www.strongparachutes.com/" />
+
+</manufacturers>

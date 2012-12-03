@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape android:shape="rectangle" >
+            <size
+                android:height="@dimen/btn_seekbar_updown_height"
+                android:width="@dimen/btn_seekbar_updown_width" />
+
+            <solid android:color="@android:color/white" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="0"
+                android:centerColor="@android:color/transparent"
+                android:centerX="20%"
+                android:endColor="@android:color/transparent"
+                android:startColor="@color/SuzanBrown" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="90"
+                android:centerColor="@android:color/transparent"
+                android:centerY="20%"
+                android:endColor="@android:color/transparent"
+                android:startColor="@color/SuzanBrown" />
+
+            <corners android:radius="5dip" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ReleasecableYellow">#FCFC00</color>
+    <color name="ReleasecableYellowSaturation50">#fcfc7e</color>
+    <color name="ReleasehandleRed">#ff0000</color>
+    <color name="ReleasehandleRedSaturation75">#FF4040</color>
+    <color name="ReleasehandleRedSaturation50">#ff8080</color>
+    <color name="ReleasehandleRedSaturation25">#ffbfbf</color>
+    <color name="Gray30">#4d4d4d</color>
+    <color name="Gray50">#808080</color>
+    <color name="Gray70">#b3b3b3</color>
+    <color name="Gray75">#bfbfbf</color>
+    <color name="Gray90">#e6e6e6</color>
+    <color name="Cat1Red">#da0b11</color>
+    <color name="Cat1RedTransparent">#80da0b11</color>
+    <color name="Cat2Red">#f66568</color>
+    <color name="Cat3Red">#f9a4a5</color>
+    <color name="Cat4Red">#fdcbcc</color>
+    <color name="Cat5Red">#fedee1</color>
+    <color name="Cat1Green">#11B209</color>
+    <color name="Cat1GreenTransparent">#8011B209</color>
+    <color name="Cat2Green">#58C953</color>
+    <color name="Cat3Green">#83C783</color>
+    <color name="Cat4Green">#ADD5AB</color>
+    <color name="Cat5Green">#E0FADB</color>
+    <color name="Cat1Blue">#078681</color>
+    <color name="Cat2Blue">#3E9793</color>
+    <color name="Cat3Blue">#629595</color>
+    <color name="Cat4Blue">#86A7A6</color>
+    <color name="Cat5Blue">#D5F4F0</color>
+    <color name="Cat1Orange">#DC680B</color>
+    <color name="Cat1OrangeTransparent">#80DC680B</color>
+    <color name="Cat2Orange">#F8A766</color>
+    <color name="Cat3Orange">#F9CBA4</color>
+    <color name="Cat4Orange">#FFE3CD</color>
+    <color name="Cat5Orange">#FFECDF</color>
+
+    <color name="SuzanBackGroundBlue">#95c4d2</color>
+    <color name="SuzanGreen">#00974d</color>
+    <color name="SuzanBrown">#753820</color>
+    <color name="SuzanBrown50">#ba8a77</color>
+    
+</resources>
