@@ -6,8 +6,6 @@ Skydive Kompasroos is an Android app to help you decide what canopies
 you can jump, based on your experience as a skydiver and your weight.
 It is based on the dutch 'Kompasroos' system.
 
-![QRCode](http://www.digitalica.nl/SkydiveKompasroos/skydiveappqr.png)
-
 
 **************************
 Changelog and New Features
@@ -38,6 +36,10 @@ Installation
 The app can be installed from Google Play:
 
 https://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos
+
+Or use QR code:
+
+![QRCode](http://www.digitalica.nl/SkydiveKompasroos/skydiveappqr.png)
 
 
 *******
