@@ -13,6 +13,7 @@
     <string name="canopyAdvise">\nGeschikte parachutes:\nCategorie 1 tot en met %1$d van minimaal %2$d sqft\n</string>
     <string name="canopyAdviseAny">\nGeschikte parachutes:\nCategorie 1 tot en met 6 zonder oppervlaktebeperking\n</string>
     <string name="ormore">" (of meer)"</string>
+    <string name="menu_filter">Filter</string>
     <string name="menu_reset">Reset</string>
     <string name="menu_save">Opslaan</string>
     <string name="menu_about">Over de Skydive kompasroos App</string>
@@ -20,6 +21,9 @@
     <string name="menu_sortbyname">Op naam</string>
     <string name="menu_sortbymanufacturer">Op fabrikant</string>
     <string name="menu_sortbycategory">Op categorie</string>
+    <string name="menu_filterCatMax">Alleen de hoogste categorie</string>
+    <string name="menu_filterCatAround">Rond de hoogste categorie</string>
+    <string name="menu_filterCatAll">Alle categorieen</string>
     <string name="btnShowCanopyList">Toon geschikte parachutes</string>
     <string name="canopyListHeader">\nCategorie %1$d</string>
     <string name="canopyListHeaderOk">Geschikt, mits minimaal %1$d sqft</string>
@@ -74,6 +78,7 @@
     <string name="saveDialogHeader">Sla gegevens op als:</string>
     <string name="sortDialogHeader">Sorteer gegegevens:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
+    <string name="filterDialogHeader">Filter de gegevens:</string>
 
     <string-array name="canopyCategories">
         <item>Unknown</item>

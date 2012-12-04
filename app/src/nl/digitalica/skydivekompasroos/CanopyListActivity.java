@@ -41,6 +41,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	FilterCatEnum filterCat;
 
 	final static int SORT_DIALOG_ID = 1;
+	final static int FILTER_DIALOG_ID = 2;
 
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResultAccepted;
@@ -76,6 +77,15 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				shareResult();
 			}
 
+		});
+		
+		// add onclink handler to filter header
+		View filterHeader = findViewById(R.id.tablelayout_filterheader);
+		filterHeader.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				showDialog(FILTER_DIALOG_ID);
+			}
 		});
 	}
 
@@ -215,6 +225,9 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		case R.id.menu_sort:
 			showDialog(SORT_DIALOG_ID);
 			return true;
+		case R.id.menu_filter:
+			showDialog(FILTER_DIALOG_ID);
+			return true;
 		case R.id.menu_about:
 			startActivity(new Intent(this, AboutActivity.class));
 			return true;
@@ -338,6 +351,9 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		case SORT_DIALOG_ID:
 			return sortDialog();
 
+		case FILTER_DIALOG_ID:
+			return filterDialog();
+
 		}
 		return null;
 	}
@@ -380,6 +396,24 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
+		return builder.create();
+	}
+
+	private Dialog filterDialog() {
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View layout = inflater.inflate(R.layout.filter_dialog,
+				(ViewGroup) findViewById(R.id.root));
+		// TODO: add functionality for radio buttons for category
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setView(layout);
+		builder.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// We forcefully dismiss and remove the Dialog, so it
+						// cannot be used again (no cached info)
+						CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+					}
+				});
 		return builder.create();
 	}
 
