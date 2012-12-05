@@ -21,6 +21,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -68,7 +70,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		this.filterCat = FilterCatEnum.values()[filterCatdOrdinal];
 
 		// TODO: store sorting so it is persistent (?)
-		fillCanopyTable(canopyTable, sortingMethod);
+		fillCanopyTable(canopyTable, sortingMethod, filterCat);
 
 		// add onclick handler to button
 		Button shareResultButton = (Button) findViewById(R.id.buttonShareResult);
@@ -78,11 +80,11 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			}
 
 		});
-		
+
 		// add onclink handler to filter header
 		View filterHeader = findViewById(R.id.tablelayout_filterheader);
 		filterHeader.setOnClickListener(new View.OnClickListener() {
-			
+
 			public void onClick(View v) {
 				showDialog(FILTER_DIALOG_ID);
 			}
@@ -96,7 +98,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param sortingMethod
 	 */
 	private void fillCanopyTable(LinearLayout canopyTable,
-			SortingEnum sortingMethod) {
+			SortingEnum sortingMethod, FilterCatEnum filterCat) {
 		// sort the canopyList on type, name, manufacturer
 		switch (sortingMethod) {
 		case SORTBYNAME:
@@ -115,6 +117,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			break;
 		}
 		savePreference(SETTING_SORTING, sortingMethod.ordinal());
+		savePreference(SETTING_FILTER_CATS, filterCat.ordinal());
 		canopyTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
 		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
@@ -122,7 +125,10 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		String previousManufacturer = "";
 		int previousCat = 9999;
+		int shownCount = 0;
+		int allCount = 0;
 		for (Canopy theCanopy : canopyList) {
+			allCount++;
 			boolean showThisCanopy = true;
 			// check cat filter
 			if (filterCat == FilterCatEnum.MAXCAT)
@@ -134,6 +140,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 					showThisCanopy = false;
 			// show the canopy (and maybe headerline) if needed
 			if (showThisCanopy) {
+				shownCount++;
 				if (sortingMethod == SortingEnum.SORTBYMANUFACTURER
 						&& !previousManufacturer.equals(theCanopy.manufacturer)) {
 					insertCanopyHeaderRow(canopyTable, theCanopy.manufacturer);
@@ -151,6 +158,41 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 						currentWeight);
 			}
 		}
+		String nl = System.getProperty("line.separator");
+
+		TextView tvFilterText = (TextView) findViewById(R.id.textview_filtersettings);
+		StringBuilder filterText = new StringBuilder();
+		if (allCount != shownCount)
+			filterText.append(Integer.toString(shownCount) + " van "
+					+ Integer.toString(allCount) + nl);
+		else
+			filterText.append("Geen filter actief" + nl);
+		switch (filterCat) {
+		case ALLCATS:
+			filterText.append("Alle categorieen getoond" + nl);
+			break;
+		case AROUNDMAX:
+			filterText.append("Categorieen rond de hoogste" + nl);
+			break;
+		case MAXCAT:
+			filterText.append("Hoogst toegestane categorie" + nl);
+			break;
+		}
+
+		switch (sortingMethod) {
+		case SORTBYNAME:
+			filterText.append("Gesorteerd op naam" + nl);
+			break;
+		case SORTBYCATEGORY:
+			filterText.append("Gesorteerd op categorie" + nl);
+			break;
+		case SORTBYMANUFACTURER:
+			filterText.append("Gesorteerd op fabrikant" + nl);
+			break;
+		}
+
+		tvFilterText.setText(filterText.toString());
+
 	}
 
 	/***
@@ -380,19 +422,21 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				});
 		byName.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME);
+				fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME, filterCat);
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
 		byManufacturer.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				fillCanopyTable(canopyTable, SortingEnum.SORTBYMANUFACTURER);
+				fillCanopyTable(canopyTable, SortingEnum.SORTBYMANUFACTURER,
+						filterCat);
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
 		byCategory.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				fillCanopyTable(canopyTable, SortingEnum.SORTBYCATEGORY);
+				fillCanopyTable(canopyTable, SortingEnum.SORTBYCATEGORY,
+						filterCat);
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
@@ -403,7 +447,27 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflater.inflate(R.layout.filter_dialog,
 				(ViewGroup) findViewById(R.id.root));
-		// TODO: add functionality for radio buttons for category
+
+		// check the correct radiobutton in group
+		RadioButton radioToCheck = null;
+		switch (filterCat) {
+		case MAXCAT:
+			radioToCheck = (RadioButton) layout
+					.findViewById(R.id.radioButtonCatMax);
+			break;
+		case AROUNDMAX:
+			radioToCheck = (RadioButton) layout
+					.findViewById(R.id.radioButtonCatAround);
+			break;
+		case ALLCATS:
+			radioToCheck = (RadioButton) layout
+					.findViewById(R.id.radioButtonCatAll);
+			break;
+
+		}
+		if (radioToCheck != null)
+			radioToCheck.setChecked(true);
+
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(layout);
 		builder.setNegativeButton(android.R.string.cancel,
@@ -414,6 +478,29 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 						CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 					}
 				});
+
+		RadioGroup rg = (RadioGroup) layout
+				.findViewById(R.id.radioGroupFilterOptions);
+		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				int checkButtonId = group.getCheckedRadioButtonId();
+				switch (checkButtonId) {
+				case R.id.radioButtonCatMax:
+					filterCat = FilterCatEnum.MAXCAT;
+					break;
+				case R.id.radioButtonCatAround:
+					filterCat = FilterCatEnum.AROUNDMAX;
+					break;
+				case R.id.radioButtonCatAll:
+					filterCat = FilterCatEnum.ALLCATS;
+					break;
+				}
+				fillCanopyTable(canopyTable, sortingMethod, filterCat);
+				CanopyListActivity.this.removeDialog(FILTER_DIALOG_ID);
+			}
+		});
+
 		return builder.create();
 	}
 

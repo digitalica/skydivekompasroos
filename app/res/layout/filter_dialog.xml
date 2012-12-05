@@ -4,30 +4,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/filterDialogHeader"
         android:textColor="@android:color/white" />
-    
-    <RadioButton
-        android:id="@+id/radioButton1"
+
+    <RadioGroup
+        android:id="@+id/radioGroupFilterOptions"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_filterCatMax" />
+        android:layout_height="wrap_content" >
 
         <RadioButton
-        android:id="@+id/radioButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_filterCatAround" />
-    
-            <RadioButton
-        android:id="@+id/radioButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_filterCatAll" />
-        
+            android:id="@+id/radioButtonCatMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_filterCatMax"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCatAround"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_filterCatAround"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCatAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_filterCatAll"
+            android:textColor="@android:color/white" />
+    </RadioGroup>
+
 </LinearLayout>

@@ -16,18 +16,21 @@
         android:id="@+id/buttonByName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/menu_sortbyname" />
+        android:text="@string/menu_sortbyname"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonByManufacturer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/menu_sortbymanufacturer" />
+        android:text="@string/menu_sortbymanufacturer"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonByCategory"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/menu_sortbycategory" />
+        android:text="@string/menu_sortbycategory"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

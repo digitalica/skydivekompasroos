@@ -16,30 +16,35 @@
         android:id="@+id/buttonBeginner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_name_beginner" />
+        android:text="@string/reset_name_beginner"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonIntermediate"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_name_intermediate" />
+        android:text="@string/reset_name_intermediate"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonSkyGod"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_name_skygod" />
+        android:text="@string/reset_name_skygod"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonOwn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_name_own" />
+        android:text="@string/reset_name_own"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/buttonFriend"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_name_friend" />
+        android:text="@string/reset_name_friend"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
