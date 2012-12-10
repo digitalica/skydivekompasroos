@@ -27,6 +27,7 @@ public class Canopy {
 	public String name;
 	public String url;
 	public String cells;
+	public boolean commontype;
 	public String minSize;
 	public String maxSize;
 	public String firstYearOfProduction;
@@ -37,8 +38,8 @@ public class Canopy {
 
 	public Canopy(int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
-			String canopyMinSize, String canopyMaxSize,
-			String canopyFirstYearOfProduction,
+			boolean canopyCommonType, String canopyMinSize,
+			String canopyMaxSize, String canopyFirstYearOfProduction,
 			String canopyLastYearOfProduction, String canopyRemarks,
 			int isSpecialCatchAllCanopy) {
 		this.category = canopyCategory;
@@ -46,6 +47,7 @@ public class Canopy {
 		this.name = canopyName;
 		this.url = canopyUrl;
 		this.cells = canopyCells;
+		this.commontype = canopyCommonType;
 		this.minSize = canopyMinSize;
 		this.maxSize = canopyMaxSize;
 		this.firstYearOfProduction = canopyFirstYearOfProduction;
@@ -62,8 +64,8 @@ public class Canopy {
 	 * @param size
 	 */
 	public Canopy(int canopyCategory, String canopyName, String size) {
-		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, size,
-				size, null, null, null, 0);
+		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
+				size, size, null, null, null, 0);
 	}
 
 	/***
@@ -74,13 +76,13 @@ public class Canopy {
 	 * @param size
 	 */
 	public Canopy(int canopyCategory, String canopyName) {
-		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null,
+		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
 				DEFAULTSIZE, DEFAULTSIZE, null, null, null, 0);
 	}
 
 	/***
-	 * Determine if we would like to know more details about this canopy
-	 * used to decide if a text should be shown in Canopy Details screen
+	 * Determine if we would like to know more details about this canopy used to
+	 * decide if a text should be shown in Canopy Details screen
 	 * 
 	 * @return
 	 */
@@ -138,6 +140,11 @@ public class Canopy {
 							"url");
 					String canopyCells = canopiesParser.getAttributeValue(null,
 							"cells");
+					String canopyCommonTypeString = canopiesParser
+							.getAttributeValue(null, "commontype");
+					boolean canopyCommonType = true;
+					if (Integer.parseInt(canopyCommonTypeString) == 0)
+						canopyCommonType = false;
 					String canopyMinSize = canopiesParser.getAttributeValue(
 							null, "minsize");
 					String canopyMaxSize = canopiesParser.getAttributeValue(
@@ -157,8 +164,8 @@ public class Canopy {
 								.parseInt(isSpecialCatchAllCanopyString);
 					Canopy canopy = new Canopy(canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
-							canopyCells, canopyMinSize, canopyMaxSize,
-							canopyFirstyearOfProduction,
+							canopyCells, canopyCommonType, canopyMinSize,
+							canopyMaxSize, canopyFirstyearOfProduction,
 							canopyLastyearOfProduction, canopyRemarks,
 							isSpecialCatchAllCanopy);
 					if (key == null)
