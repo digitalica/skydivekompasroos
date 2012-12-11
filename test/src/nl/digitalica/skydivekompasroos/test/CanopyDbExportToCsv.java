@@ -32,11 +32,12 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 				.getManufacturerHash(getContext());
 
 		Log.v(TAG,
-				"name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks,url");
+				",name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks,url");
 
 		for (Canopy c : canopies) {
 			Manufacturer m = manufacturers.get(c.manufacturer);
 			StringBuilder line = new StringBuilder();
+			line.append(SEPARATOR); // convenient, to remove other logcat cols.
 			line.append(c.name + SEPARATOR);
 			line.append(c.manufacturer + SEPARATOR);
 			if (m != null)
