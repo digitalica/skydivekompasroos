@@ -18,7 +18,7 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 
 	private static final String SEPARATOR = ",";
 	private static final String CSVFILENAME = "KompasroosAppParachutes.csv";
-
+	private static final String QUOTE = "\"";
 	private static final String TAG = "CSV";
 
 	/**
@@ -32,16 +32,17 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 				.getManufacturerHash(getContext());
 
 		Log.v(TAG,
-				",name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks,url");
+				",cat,name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks manufacturer, remarks canopy ,url manufacturer, url canopy");
 
 		for (Canopy c : canopies) {
 			Manufacturer m = manufacturers.get(c.manufacturer);
 			StringBuilder line = new StringBuilder();
 			line.append(SEPARATOR); // convenient, to remove other logcat cols.
+			line.append(Integer.toString(c.category) + SEPARATOR);
 			line.append(c.name + SEPARATOR);
 			line.append(c.manufacturer + SEPARATOR);
-			if (m != null)
-				line.append(m.countryFullName() + SEPARATOR);
+			if (m != null) // add with quotes for multipe countries
+				line.append(QUOTE + m.countryFullName() + QUOTE + SEPARATOR);
 			else
 				line.append(SEPARATOR);
 			line.append((c.cells == null ? "" : c.cells) + SEPARATOR);
@@ -52,7 +53,17 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 			line.append((c.lastYearOfProduction == null ? ""
 					: c.lastYearOfProduction) + SEPARATOR);
 			line.append((c.commontype ? "yes" : "no") + SEPARATOR);
-			line.append((c.remarks == null ? "" : c.remarks) + SEPARATOR);
+			if (m != null) // add with quotes for multipe countries
+				line.append((m.remarks == null ? "" : QUOTE + m.remarks + QUOTE)
+						+ SEPARATOR);
+			else
+				line.append(SEPARATOR);
+			line.append((c.remarks == null ? "" : QUOTE + c.remarks + QUOTE)
+					+ SEPARATOR);
+			if (m != null) // add with quotes for multipe countries
+				line.append((m.url == null ? "" : m.url) + SEPARATOR);
+			else
+				line.append(SEPARATOR);
 			line.append((c.url == null ? "" : c.url) + SEPARATOR);
 			Log.v(TAG, line.toString());
 		}
