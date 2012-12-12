@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,15 +33,15 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		SORTBYNAME, SORTBYMANUFACTURER, SORTBYCATEGORY
 	}
 
-	public enum FilterCatEnum {
-		MAXCAT, AROUNDMAX, ALLCATS
+	public enum FilterEnum {
+		COMMONAROUNDMAX, ONLYCOMMON, ALL
 	}
 
 	List<Canopy> canopyList;
 	LinearLayout canopyTable;
 
 	SortingEnum sortingMethod;
-	FilterCatEnum filterCat;
+	FilterEnum filterCat;
 
 	final static int SORT_DIALOG_ID = 1;
 	final static int FILTER_DIALOG_ID = 2;
@@ -66,14 +67,14 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		// get the saved filter cat
 		int filterCatdOrdinal = prefs.getInt(SETTING_FILTER_CATS,
-				FilterCatEnum.AROUNDMAX.ordinal());
-		this.filterCat = FilterCatEnum.values()[filterCatdOrdinal];
+				FilterEnum.COMMONAROUNDMAX.ordinal());
+		this.filterCat = FilterEnum.values()[filterCatdOrdinal];
 
 		// TODO: store sorting so it is persistent (?)
 		fillCanopyTable(canopyTable, sortingMethod, filterCat);
 
 		// add onclick handler to button
-		Button shareResultButton = (Button) findViewById(R.id.buttonShareResult);
+		ImageButton shareResultButton = (ImageButton) findViewById(R.id.buttonShareResult);
 		shareResultButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				shareResult();
@@ -98,7 +99,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param sortingMethod
 	 */
 	private void fillCanopyTable(LinearLayout canopyTable,
-			SortingEnum sortingMethod, FilterCatEnum filterCat) {
+			SortingEnum sortingMethod, FilterEnum filterCat) {
 		// sort the canopyList on type, name, manufacturer
 		switch (sortingMethod) {
 		case SORTBYNAME:
@@ -131,11 +132,12 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			allCount++;
 			boolean showThisCanopy = true;
 			// check cat filter
-			if (filterCat == FilterCatEnum.MAXCAT)
-				if (theCanopy.category != currentMaxCategory)
+			if (filterCat == FilterEnum.ONLYCOMMON)
+				if (!theCanopy.commontype)
 					showThisCanopy = false;
-			if (filterCat == FilterCatEnum.AROUNDMAX)
-				if (theCanopy.category < currentMaxCategory - 1
+			if (filterCat == FilterEnum.COMMONAROUNDMAX)
+				if (!theCanopy.commontype
+						|| theCanopy.category < currentMaxCategory - 1
 						|| theCanopy.category > currentMaxCategory + 1)
 					showThisCanopy = false;
 			// show the canopy (and maybe headerline) if needed
@@ -168,14 +170,15 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		else
 			filterText.append("Geen filter actief" + nl);
 		switch (filterCat) {
-		case ALLCATS:
-			filterText.append("Alle categorieen getoond" + nl);
+		case ALL:
+			filterText.append("Alle koepels getoond" + nl);
 			break;
-		case AROUNDMAX:
-			filterText.append("Categorieen rond de hoogste" + nl);
+		case COMMONAROUNDMAX:
+			filterText.append("Gangbare koepels rond cat "
+					+ Integer.toString(currentMaxCategory) + nl);
 			break;
-		case MAXCAT:
-			filterText.append("Hoogst toegestane categorie" + nl);
+		case ONLYCOMMON:
+			filterText.append("Alleen gangbare koepels" + nl);
 			break;
 		}
 
@@ -451,17 +454,17 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// check the correct radiobutton in group
 		RadioButton radioToCheck = null;
 		switch (filterCat) {
-		case MAXCAT:
+		case ONLYCOMMON:
 			radioToCheck = (RadioButton) layout
-					.findViewById(R.id.radioButtonCatMax);
+					.findViewById(R.id.radioButtonCommon);
 			break;
-		case AROUNDMAX:
+		case COMMONAROUNDMAX:
 			radioToCheck = (RadioButton) layout
-					.findViewById(R.id.radioButtonCatAround);
+					.findViewById(R.id.radioButtonCommonAround);
 			break;
-		case ALLCATS:
+		case ALL:
 			radioToCheck = (RadioButton) layout
-					.findViewById(R.id.radioButtonCatAll);
+					.findViewById(R.id.radioButtonAll);
 			break;
 
 		}
@@ -486,14 +489,14 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				int checkButtonId = group.getCheckedRadioButtonId();
 				switch (checkButtonId) {
-				case R.id.radioButtonCatMax:
-					filterCat = FilterCatEnum.MAXCAT;
+				case R.id.radioButtonCommon:
+					filterCat = FilterEnum.ONLYCOMMON;
 					break;
-				case R.id.radioButtonCatAround:
-					filterCat = FilterCatEnum.AROUNDMAX;
+				case R.id.radioButtonCommonAround:
+					filterCat = FilterEnum.COMMONAROUNDMAX;
 					break;
-				case R.id.radioButtonCatAll:
-					filterCat = FilterCatEnum.ALLCATS;
+				case R.id.radioButtonAll:
+					filterCat = FilterEnum.ALL;
 					break;
 				}
 				fillCanopyTable(canopyTable, sortingMethod, filterCat);

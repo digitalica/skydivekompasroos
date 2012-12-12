@@ -21,9 +21,9 @@
     <string name="menu_sortbyname">Op naam</string>
     <string name="menu_sortbymanufacturer">Op fabrikant</string>
     <string name="menu_sortbycategory">Op categorie</string>
-    <string name="menu_filterCatMax">Alleen de hoogste categorie</string>
-    <string name="menu_filterCatAround">Rond de hoogste categorie</string>
-    <string name="menu_filterCatAll">Alle categorieen</string>
+    <string name="menu_filterCommon">Alleen gangbare koepels</string>
+    <string name="menu_filterCommonAround">Gangbare koepels rond hoogste categorie</string>
+    <string name="menu_filterAll">Alle koepels</string>
     <string name="btnShowCanopyList">Toon geschikte parachutes</string>
     <string name="canopyListHeader">\nCategorie %1$d</string>
     <string name="canopyListHeaderOk">Geschikt, mits minimaal %1$d sqft</string>
