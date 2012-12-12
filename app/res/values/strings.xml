@@ -9,9 +9,9 @@
     <string name="to_be_replaced">to_be_replaced</string>
     <string name="categorySetting">\nJe valt in categorie <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
-    <string name="canopyAdviseOne">\nGeschikte parachutes:\nCategorie %1$d van minimaal %2$d sqft\n</string>
-    <string name="canopyAdvise">\nGeschikte parachutes:\nCategorie 1 tot en met %1$d van minimaal %2$d sqft\n</string>
-    <string name="canopyAdviseAny">\nGeschikte parachutes:\nCategorie 1 tot en met 6 zonder oppervlaktebeperking\n</string>
+    <string name="canopyAdviseOne">Geschikte parachutes:\nCategorie %1$d van minimaal %2$d sqft</string>
+    <string name="canopyAdvise">Geschikte parachutes:\nCategorie 1 tot en met %1$d van minimaal %2$d sqft</string>
+    <string name="canopyAdviseAny">Geschikte parachutes:\nCategorie 1 tot en met 6 zonder oppervlaktebeperking</string>
     <string name="ormore">" (of meer)"</string>
     <string name="menu_filter">Filter</string>
     <string name="menu_reset">Reset</string>
@@ -21,7 +21,7 @@
     <string name="menu_sortbyname">Op naam</string>
     <string name="menu_sortbymanufacturer">Op fabrikant</string>
     <string name="menu_sortbycategory">Op categorie</string>
-    <string name="menu_filterCommon">Alleen gangbare koepels</string>
+    <string name="menu_filterCommon">Alle gangbare koepels</string>
     <string name="menu_filterCommonAround">Gangbare koepels rond hoogste categorie</string>
     <string name="menu_filterAll">Alle koepels</string>
     <string name="btnShowCanopyList">Toon geschikte parachutes</string>
@@ -38,7 +38,7 @@
     <string name="calculationTotalJumpsSetting">: %1$d%2$s</string>
     <string name="calculationJumpsLast12MonthsLabel">\nSprongen in laatste 12 maanden</string>
     <string name="calculationJumpsLast12MonthsSetting">: %1$d%2$s</string>
-    <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en je exitgewicht in, om te bepalen welke parachutes geschikt zijn: de knop onderaan toont de lijst.</string>
+    <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en je exitgewicht in, om te bepalen welke parachutes geschikt zijn: de knop rechtsboven toont de lijst.</string>
     <string name="calculationOvertimeWarning">\nLet op: deze applicatie is meer dan 1 jaar oud en mogelijk niet meer up to date!</string>
     <string name="calculationOvertimeUnknownWarning">\nHuidige datum of datum van deze app kon niet bepaald worden. Gegevens zijn mogelijk niet meer up to date!</string>
     <string name="calculationCanopyCategoryLabel">Toegestane parachutes:</string>

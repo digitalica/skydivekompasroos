@@ -19,7 +19,7 @@
             android:id="@+id/buttonEditFilter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="Edit filter"
+            android:contentDescription="@string/menu_filter"
             android:src="@android:drawable/ic_menu_edit" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:contentDescription="Edit sortering"
+            android:contentDescription="@string/btnShareResult"
             android:src="@android:drawable/ic_menu_share" />
 
     </LinearLayout>

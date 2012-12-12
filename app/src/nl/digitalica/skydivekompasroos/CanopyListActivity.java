@@ -73,7 +73,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// TODO: store sorting so it is persistent (?)
 		fillCanopyTable(canopyTable, sortingMethod, filterCat);
 
-		// add onclick handler to button
+		// add onclick handler to share button
 		ImageButton shareResultButton = (ImageButton) findViewById(R.id.buttonShareResult);
 		shareResultButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -90,6 +90,16 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				showDialog(FILTER_DIALOG_ID);
 			}
 		});
+
+		// add onclink handler to filter button
+		View filterButton = findViewById(R.id.tablelayout_filterheader);
+		filterButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				showDialog(FILTER_DIALOG_ID);
+			}
+		});
+
 	}
 
 	/***
@@ -300,7 +310,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		TextView canopyListHeader = new TextView(CanopyListActivity.this);
 		canopyListHeader.setText(nl + header);
 		canopyListHeader.setTextSize(getResources().getDimension(
-				R.dimen.canopylistCategory));
+				R.dimen.canopylistCanopyName));
 
 		// create row, and add row to table
 		TableRow row = new TableRow(this);
@@ -352,7 +362,20 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// TODO: add more details like cells and remarks here
 		TextView tvCanopyDetails = (TextView) canopyListRow
 				.findViewById(R.id.textViewCanopyListRowDetails);
-		tvCanopyDetails.setText(theCanopy.manufacturer);
+		if (sortingMethod != SortingEnum.SORTBYMANUFACTURER)
+			tvCanopyDetails.setText(theCanopy.manufacturer);
+		else {
+			String detailsText = "";
+			if (theCanopy.cells != null)
+				detailsText = theCanopy.cells + " cellen";
+			if (theCanopy.minSize != null && theCanopy.maxSize != null
+					&& theCanopy.minSize != "" && theCanopy.maxSize != "") {
+				if (detailsText.equals(""))
+					detailsText += ", ";
+				detailsText += theCanopy.minSize + "tot en met "
+						+ theCanopy.maxSize + " sqft";
+			}
+		}
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
 		// if the link won't work, because this is the catch all,

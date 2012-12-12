@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -79,8 +80,18 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		calculate();
 
 		// set click listener for canopy list button
-		Button canopyListButton = (Button) findViewById(R.id.buttonShowCanopyList);
+		ImageButton canopyListButton = (ImageButton) findViewById(R.id.buttonShowCanopyList);
 		canopyListButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				Context context = v.getContext();
+				startActivity(new Intent(context, AboutActivity.class));
+			}
+		});
+
+		// set click listener for about button
+		ImageButton aboutButton = (ImageButton) findViewById(R.id.buttonShowCanopyList);
+		aboutButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
 				Intent i = new Intent(getBaseContext(),
@@ -335,7 +346,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		});
 	}
 
-
 	/***
 	 * The seekbar change listner for the exit weight
 	 */
@@ -410,7 +420,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		}
 	};
-
 
 	private void setWeightSettingText(int weightInKg) {
 		int weightInLbs = Calculation.kgToLbs(weightInKg);
