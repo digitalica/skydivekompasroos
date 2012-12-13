@@ -82,7 +82,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		});
 
-		// add onclink handler to filter header
+		// add onclick handler to filter header
 		View filterHeader = findViewById(R.id.tablelayout_filterheader);
 		filterHeader.setOnClickListener(new View.OnClickListener() {
 
@@ -92,7 +92,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		});
 
 		// add onclink handler to filter button
-		View filterButton = findViewById(R.id.tablelayout_filterheader);
+		ImageButton filterButton = (ImageButton) findViewById(R.id.buttonEditFilter);
 		filterButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -184,11 +184,11 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			filterText.append("Alle koepels getoond" + nl);
 			break;
 		case COMMONAROUNDMAX:
-			filterText.append("Gangbare koepels rond cat "
+			filterText.append("Gangbaar rond cat "
 					+ Integer.toString(currentMaxCategory) + nl);
 			break;
 		case ONLYCOMMON:
-			filterText.append("Alleen gangbare koepels" + nl);
+			filterText.append("Alle gangbare koepels" + nl);
 			break;
 		}
 
@@ -310,7 +310,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		TextView canopyListHeader = new TextView(CanopyListActivity.this);
 		canopyListHeader.setText(nl + header);
 		canopyListHeader.setTextSize(getResources().getDimension(
-				R.dimen.canopylistCanopyName));
+				R.dimen.bodyText));
 
 		// create row, and add row to table
 		TableRow row = new TableRow(this);
@@ -370,11 +370,12 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				detailsText = theCanopy.cells + " cellen";
 			if (theCanopy.minSize != null && theCanopy.maxSize != null
 					&& theCanopy.minSize != "" && theCanopy.maxSize != "") {
-				if (detailsText.equals(""))
+				if (!detailsText.equals(""))
 					detailsText += ", ";
-				detailsText += theCanopy.minSize + "tot en met "
+				detailsText += theCanopy.minSize + " tot en met "
 						+ theCanopy.maxSize + " sqft";
 			}
+			tvCanopyDetails.setText(detailsText);
 		}
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
