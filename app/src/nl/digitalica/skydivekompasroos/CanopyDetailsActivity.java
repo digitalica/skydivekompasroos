@@ -59,7 +59,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		String advice = "";
 		switch (acceptability) {
 		case Canopy.ACCEPTABLE:
-			advice = "Dit type is geschikt";
+			advice = String.format("Dit type is geschikt, mits oppervlakte minimaal %d sqft",currentMinArea);
 			break;
 		case Canopy.NEEDEDSIZENOTAVAILABLE:
 			advice = String
