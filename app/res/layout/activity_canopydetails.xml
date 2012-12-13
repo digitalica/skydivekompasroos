@@ -51,6 +51,26 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
+                    android:id="@+id/textViewAdviseLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
+                    android:text="@string/detailsAdvise"
+                    android:textSize="@dimen/bodyText" />
+
+                <TextView
+                    android:id="@+id/textViewAdviseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/bodyText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
                     android:id="@+id/textViewProductionLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -5,6 +5,12 @@ public class Calculation {
 	// conversion
 	final static double WEIGHT_FACTOR_KG_TO_LBS = 2.20462262185;
 
+	// minimal jumps needed for cat of index
+	public static final int[] MINIMUMTOTALJUMPS = new int[] { 0, 0, 25, 100,
+			400, 700, 1000 };
+	public static final int[] MINIMUMJUMPSLAST12MONTHS = new int[] { 0, 0, 10,
+			25, 50, 75, 100 };
+
 	/***
 	 * Convert a weight in kg to pounds. The result is rounded.
 	 * 
@@ -24,30 +30,31 @@ public class Calculation {
 	 * @return
 	 */
 	static public int jumperCategory(int totalJumps, int jumpsLast12Months) {
+		// TODO: below can be done in a simple loop
 		int categoryBasedOnTotalJumps = 0;
-		if (totalJumps < 25)
+		if (totalJumps < MINIMUMTOTALJUMPS[2])
 			categoryBasedOnTotalJumps = 1;
-		else if (totalJumps < 100)
+		else if (totalJumps < MINIMUMTOTALJUMPS[3])
 			categoryBasedOnTotalJumps = 2;
-		else if (totalJumps < 400)
+		else if (totalJumps < MINIMUMTOTALJUMPS[4])
 			categoryBasedOnTotalJumps = 3;
-		else if (totalJumps < 700)
+		else if (totalJumps < MINIMUMTOTALJUMPS[5])
 			categoryBasedOnTotalJumps = 4;
-		else if (totalJumps < 1000)
+		else if (totalJumps < MINIMUMTOTALJUMPS[6])
 			categoryBasedOnTotalJumps = 5;
 		else
 			categoryBasedOnTotalJumps = 6;
 
 		int categoryBasedOnJumpsLast12Months = 0;
-		if (jumpsLast12Months < 10)
+		if (jumpsLast12Months < MINIMUMJUMPSLAST12MONTHS[2])
 			categoryBasedOnJumpsLast12Months = 1;
-		else if (jumpsLast12Months < 25)
+		else if (jumpsLast12Months < MINIMUMJUMPSLAST12MONTHS[3])
 			categoryBasedOnJumpsLast12Months = 2;
-		else if (jumpsLast12Months < 50)
+		else if (jumpsLast12Months < MINIMUMJUMPSLAST12MONTHS[4])
 			categoryBasedOnJumpsLast12Months = 3;
-		else if (jumpsLast12Months < 75)
+		else if (jumpsLast12Months < MINIMUMJUMPSLAST12MONTHS[5])
 			categoryBasedOnJumpsLast12Months = 4;
-		else if (jumpsLast12Months < 100)
+		else if (jumpsLast12Months < MINIMUMJUMPSLAST12MONTHS[6])
 			categoryBasedOnJumpsLast12Months = 5;
 		else
 			categoryBasedOnJumpsLast12Months = 6;

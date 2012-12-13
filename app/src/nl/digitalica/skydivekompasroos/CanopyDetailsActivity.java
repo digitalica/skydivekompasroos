@@ -3,6 +3,7 @@ package nl.digitalica.skydivekompasroos;
 import java.util.HashMap;
 import java.util.List;
 
+import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
 		TextView tvName = (TextView) findViewById(R.id.textViewNameText);
 		TextView tvCategory = (TextView) findViewById(R.id.textViewCategoryText);
+		TextView tvAdvise = (TextView) findViewById(R.id.textViewAdviseText);
 		TextView tvExperience = (TextView) findViewById(R.id.textViewExperienceText);
 		TextView tvCells = (TextView) findViewById(R.id.textViewCellsText);
 		TextView tvSizes = (TextView) findViewById(R.id.textViewSizesText);
@@ -47,11 +49,36 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvProduction = (TextView) findViewById(R.id.textViewProductionText);
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
+		int acceptability = currentCanopy.acceptablility(currentMaxCategory,
+				currentWeight);
+
 		tvName.setText(currentCanopy.name);
-		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(currentCanopy
-				.acceptablility(currentMaxCategory, currentWeight)));
+		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(acceptability));
 
 		tvCategory.setText(Integer.toString(currentCanopy.category));
+		String advice = "";
+		switch (acceptability) {
+		case Canopy.ACCEPTABLE:
+			advice = "Dit type is geschikt";
+			break;
+		case Canopy.NEEDEDSIZENOTAVAILABLE:
+			advice = String
+					.format("Ongeschikt: categorie mag, maar benodigde maat (%d sqft) niet beschikbaar.",
+							currentMinArea);
+			break;
+		case Canopy.CATEGORYTOOHIGH:
+			int extraNeededJumsThis12Months = Calculation.MINIMUMJUMPSLAST12MONTHS[currentCanopy.category]
+					- currentJumpsLast12Months;
+			int extraNeededTotalJumps = Calculation.MINIMUMTOTALJUMPS[currentCanopy.category]
+					- currentTotalJumps;
+			int minimalExtraNeededJumps = Math.max(extraNeededJumsThis12Months,
+					extraNeededTotalJumps);
+			advice = String.format(
+					"Ongeschikt: nog minimaal %d sprongen extra ervaring nodig.",
+					minimalExtraNeededJumps);
+			break;
+		}
+		tvAdvise.setText(advice);
 		String[] neededExperience = getResources().getStringArray(
 				R.array.neededExperience);
 		tvExperience.setText(neededExperience[currentCanopy.category]);
@@ -170,8 +197,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		}
 
 		details.append(nl);
-		details.append(context
-				.getString(R.string.shareresultfooter));
+		details.append(context.getString(R.string.shareresultfooter));
 
 		// return the result
 		return details.toString();

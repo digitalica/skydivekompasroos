@@ -280,6 +280,8 @@ public class Canopy {
 	 * @param jumperCategory
 	 * @param exitWeightInKg
 	 * @return
+	 * 
+	 * TODO: should return an enum, not an int!!!!!
 	 */
 	public int acceptablility(int jumperCategory, int exitWeightInKg) {
 		if (jumperCategory < this.category)
