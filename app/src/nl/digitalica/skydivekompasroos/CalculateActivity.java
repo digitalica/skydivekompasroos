@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -46,10 +47,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	final static int JUMPS_LAST_12_MONTHS_LASTGROUP = 100;
 	final static int JUMPS_LAST_12_MONTHS_DEFAULT = 25;
 
-	// wingload table
-	final static int WINGLOAD_FIRST_COL = 130;
-	final static int WINGLOAD_STEP = 20;
-
 	// dialog ID's
 	final static int SAVE_DIALOG_ID = 1;
 	final static int RESET_DIALOG_ID = 2;
@@ -76,8 +73,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		tvWarning.setText(warning);
 
 		// initialize seek bars and calculated texts
-		initSeekBars();
-		calculate();
+		initSeekBarsAndTexts();
 
 		// set click listener for canopy list button
 		ImageButton canopyListButton = (ImageButton) findViewById(R.id.buttonShowCanopyList);
@@ -99,7 +95,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			}
 		});
 
-		// add onclick handler to allowed header
+		// add click listener for allowed header
 		View filterHeader = findViewById(R.id.tablelayout_filterheader);
 		filterHeader.setOnClickListener(new View.OnClickListener() {
 
@@ -121,18 +117,22 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			return saveDialog();
 		case RESET_DIALOG_ID:
 			return resetDialog();
-
 		}
 		return null;
 	}
 
+	/***
+	 * The save dialog to allow saving the current settings. They can be saved
+	 * as 'own' or 'friend' settings.
+	 * 
+	 * @return
+	 */
 	private Dialog saveDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflater.inflate(R.layout.save_dialog,
 				(ViewGroup) findViewById(R.id.root));
 		Button asFriend = (Button) layout.findViewById(R.id.buttonFriend);
 		Button asOwn = (Button) layout.findViewById(R.id.buttonOwn);
-		// TODO: add onclick handlers to buttons
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(layout);
 		builder.setNegativeButton(android.R.string.cancel,
@@ -171,6 +171,12 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		return builder.create();
 	}
 
+	/***
+	 * The dialog to reset the settings. Settings can be reset to beginner,
+	 * intermediate or pro or to saved users own or friend settings.
+	 * 
+	 * @return
+	 */
 	private Dialog resetDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflater.inflate(R.layout.reset_dialog,
@@ -243,6 +249,14 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		return builder.create();
 	}
 
+	/***
+	 * Set three seekbars. This will automatically trigger calculate calls
+	 * through the OnProgressChanged of the seekbars.
+	 * 
+	 * @param weight
+	 * @param totalJumps
+	 * @param jumpsLast12Months
+	 */
 	private void setSeekBars(int weight, int totalJumps, int jumpsLast12Months) {
 		((SeekBar) findViewById(R.id.seekBarWeight)).setProgress(weight);
 		((SeekBar) findViewById(R.id.seekBarTotalJumps))
@@ -260,13 +274,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		// case R.id.menu_resetbeginner:
-		//
-		// return true;
-		// case R.id.menu_resetnormal:
-		// return true;
-		// case R.id.menu_resetexpert:
-		// return true;
 		case R.id.menu_reset:
 			showDialog(RESET_DIALOG_ID);
 			return true;
@@ -281,7 +288,10 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		}
 	}
 
-	private void initSeekBars() {
+	/***
+	 * Initialize the seekbars and texts
+	 */
+	private void initSeekBarsAndTexts() {
 		// weight seek bar
 		SeekBar sbWeight = (SeekBar) findViewById(R.id.seekBarWeight);
 		int weightInKg = prefs.getInt(SETTING_WEIGHT, WEIGHT_DEFAULT);
@@ -290,7 +300,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		setPlusMinButtonListeners(sbWeight, R.id.buttonWeightMin,
 				R.id.buttonWeightPlus);
 		sbWeight.setProgress(weightInKg - WEIGHT_MIN);
-		setWeightSettingText(weightInKg); // TODO: not needed?
 
 		// total jumps seek bar
 		SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
@@ -301,7 +310,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		setPlusMinButtonListeners(sbWeight, R.id.buttonTotalJumpsMin,
 				R.id.buttonTotalJumpsPlus);
 		sbTotalJumps.setProgress(totalJumps);
-		setTotalJumpsSettingText(totalJumps); // TODO: not needed?
 
 		// jumps last 12 months seek bar
 		SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
@@ -313,8 +321,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		setPlusMinButtonListeners(sbWeight, R.id.buttonJumpLast12MonthsMin,
 				R.id.buttonJumpLast12MonthsPlus);
 		sbJumpsLast12Months.setProgress(jumpsLast12Months);
-		setJumpsLast12MonthsSettingText(jumpsLast12Months); // TODO: not needed?
 
+		// now calculate to set all texts
+		calculate();
 	}
 
 	/***
@@ -357,7 +366,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	}
 
 	/***
-	 * The seekbar change listner for the exit weight
+	 * The seekbar change listener for the exit weight
 	 */
 	private OnSeekBarChangeListener seekBarChangeListenerWeight = new OnSeekBarChangeListener() {
 
@@ -379,6 +388,10 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		}
 	};
 
+	/***
+	 * Listener for changes on the total jumps seekbar. Triggers a calculate
+	 * call, that updates texts where needed.
+	 */
 	private OnSeekBarChangeListener seekBarChangeListenerTotalJumps = new OnSeekBarChangeListener() {
 
 		public void onProgressChanged(SeekBar seekBar, int progress,
@@ -405,6 +418,10 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		}
 	};
 
+	/***
+	 * Listener for changes on the jumps in last 12 months seekbar. Triggers a
+	 * calculate call, that updates texts where needed.
+	 */
 	private OnSeekBarChangeListener seekBarChangeListenerJumpsLast12Months = new OnSeekBarChangeListener() {
 
 		public void onProgressChanged(SeekBar seekBar, int progress,
@@ -431,42 +448,82 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		}
 	};
 
-	private void setWeightSettingText(int weightInKg) {
-		int weightInLbs = Calculation.kgToLbs(weightInKg);
-		TextView tvWeight = (TextView) findViewById(R.id.textViewWeightLabel);
-		String weightLabel = getString(R.string.calculationWeightLabel);
-		String weightFormat = getString(R.string.calculationWeightSetting);
-		tvWeight.setText(weightLabel
-				+ String.format(weightFormat, weightInKg, weightInLbs));
+	/**
+	 * Fills the wingloadtable. As the table is allways six positings, its
+	 * starting point depends on the current category and weight.
+	 * 
+	 * @param weightInKg
+	 */
+	private void fillWingloadTable(int weightInKg) {
+
+		final int[] WLTBL = new int[] { 125, 135, 150, 170, 190, 210, 230 };
 
 		// fill the wingload table
 		int column = 0;
 		TextView area1 = (TextView) findViewById(R.id.textViewArea1);
 		TextView wingLoad1 = (TextView) findViewById(R.id.textViewWingLoad1);
-		fillWingLoadTableColumn(column++, weightInLbs, area1, wingLoad1);
+		fillWingLoadTableColumn(WLTBL[column++], weightInKg, area1, wingLoad1);
 		TextView area2 = (TextView) findViewById(R.id.textViewArea2);
 		TextView wingLoad2 = (TextView) findViewById(R.id.textViewWingLoad2);
-		fillWingLoadTableColumn(column++, weightInLbs, area2, wingLoad2);
+		fillWingLoadTableColumn(WLTBL[column++], weightInKg, area2, wingLoad2);
 		TextView area3 = (TextView) findViewById(R.id.textViewArea3);
 		TextView wingLoad3 = (TextView) findViewById(R.id.textViewWingLoad3);
-		fillWingLoadTableColumn(column++, weightInLbs, area3, wingLoad3);
+		fillWingLoadTableColumn(WLTBL[column++], weightInKg, area3, wingLoad3);
 		TextView area4 = (TextView) findViewById(R.id.textViewArea4);
 		TextView wingLoad4 = (TextView) findViewById(R.id.textViewWingLoad4);
-		fillWingLoadTableColumn(column++, weightInLbs, area4, wingLoad4);
+		fillWingLoadTableColumn(WLTBL[column++], weightInKg, area4, wingLoad4);
 		TextView area5 = (TextView) findViewById(R.id.textViewArea5);
 		TextView wingLoad5 = (TextView) findViewById(R.id.textViewWingLoad5);
-		fillWingLoadTableColumn(column++, weightInLbs, area5, wingLoad5);
+		fillWingLoadTableColumn(WLTBL[column++], weightInKg, area5, wingLoad5);
 		TextView area6 = (TextView) findViewById(R.id.textViewArea6);
 		TextView wingLoad6 = (TextView) findViewById(R.id.textViewWingLoad6);
-		fillWingLoadTableColumn(column++, weightInLbs, area6, wingLoad6);
+		fillWingLoadTableColumn(WLTBL[column++], weightInKg, area6, wingLoad6);
+		TextView area7 = (TextView) findViewById(R.id.textViewArea7);
+		TextView wingLoad7 = (TextView) findViewById(R.id.textViewWingLoad7);
+		fillWingLoadTableColumn(WLTBL[column++], weightInKg, area7, wingLoad7);
 	}
 
-	private void fillWingLoadTableColumn(int column, int weightInLbs,
+	/***
+	 * Fills a single column in the wing load table
+	 * 
+	 * @param area
+	 * @param weightInKg
+	 * @param tvArea
+	 * @param tvWingLoad
+	 */
+	private void fillWingLoadTableColumn(int area, int weightInKg,
 			TextView tvArea, TextView tvWingLoad) {
-		int area = WINGLOAD_FIRST_COL + column * WINGLOAD_STEP;
+		int weightInLbs = Calculation.kgToLbs(weightInKg);
 		double wingload = (double) weightInLbs / (double) area;
-		tvArea.setText(String.format(" %d ", area));
-		tvWingLoad.setText(String.format(" %.2f ", wingload));
+
+		Drawable backgroundRed = getResources().getDrawable(
+				R.drawable.canopycategorytoohigh);
+		Drawable backgroundOrange = getResources().getDrawable(
+				R.drawable.canopyneededsizenotavailable);
+		Drawable backgroundGreen = getResources().getDrawable(
+				R.drawable.canopyacceptable);
+
+		int areaAllowedOnCat = Calculation
+				.minAreaBasedOnCategory(currentMaxCategory);
+		boolean areaOrWingloadOutOfRange = area < Calculation.minArea(
+				currentMaxCategory, weightInKg);
+		tvArea.setText(String.format("%d", area));
+		if (area < areaAllowedOnCat)
+			tvArea.setBackgroundDrawable(backgroundRed);
+		else if (areaOrWingloadOutOfRange)
+			tvArea.setBackgroundDrawable(backgroundOrange);
+		else
+			tvArea.setBackgroundDrawable(backgroundGreen);
+
+		double maxWinloadAllowed = Calculation
+				.maxWingLoadBasedOnCategory(currentMaxCategory);
+		tvWingLoad.setText(String.format("%.2f", wingload));
+		if (wingload > maxWinloadAllowed)
+			tvWingLoad.setBackgroundDrawable(backgroundRed);
+		else if (areaOrWingloadOutOfRange)
+			tvWingLoad.setBackgroundDrawable(backgroundOrange);
+		else
+			tvWingLoad.setBackgroundDrawable(backgroundGreen);
 	}
 
 	private void setTotalJumpsSettingText(int totalJumps) {
@@ -491,9 +548,19 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				+ String.format(jumpsLast12MonthsFormat, jumps, orMoreText));
 	}
 
+	private void setWeightSettingText(int weightInKg) {
+		TextView tvWeight = (TextView) findViewById(R.id.textViewWeightLabel);
+		String weightLabel = getString(R.string.calculationWeightLabel);
+		String weightFormat = getString(R.string.calculationWeightSetting);
+		tvWeight.setText(weightLabel
+				+ String.format(weightFormat, weightInKg,
+						Calculation.kgToLbs(weightInKg)));
+		fillWingloadTable(weightInKg);
+	}
+
 	/**
 	 * Calculate the current category, based on weight, total jumps and jumps
-	 * last year
+	 * last year.
 	 */
 	private void calculate() {
 		// get weight and set text
@@ -550,6 +617,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			int minAreaBasedOnCategory = Calculation
 					.minAreaBasedOnCategory(jumperCategory);
 			String minAreaText;
+			// TODO: this string should be taken from canopy class (or method in
+			// calculation)
 			switch (minAreaBasedOnCategory) {
 			case 0:
 				minAreaText = getString(R.string.calculationCanopyMinAreaAny);
@@ -576,6 +645,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			TextView tvCanopyAdvise = (TextView) findViewById(R.id.textViewCanopyAdvise);
 			String canopyAdviseFormat;
+			// TODO: this string should be taken from a jumper class (or method
+			// in calculation)
 			switch (jumperCategory) {
 			case 1:
 				canopyAdviseFormat = getString(R.string.canopyAdviseOne);
@@ -593,6 +664,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			// save globally, to pass on in buttonClick
 			KompasroosBaseActivity.currentMaxCategory = jumperCategory;
 			KompasroosBaseActivity.currentMinArea = minArea;
+
+			fillWingloadTable(weightInKg);
 		}
 	}
 }

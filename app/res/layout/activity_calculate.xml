@@ -159,6 +159,236 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/textViewWeightLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/calculationWeightLabel"
+                android:textSize="@dimen/bodyText"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/buttonWeightMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_sb_updown"
+                    android:text="@string/btnMin"
+                    android:textColor="@color/SuzanBrown"
+                    android:textStyle="bold" />
+
+                <SeekBar
+                    android:id="@+id/seekBarWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/screen_padding_left"
+                    android:paddingRight="@dimen/screen_padding_right"
+                    android:progressDrawable="@drawable/sb_progress"
+                    android:thumb="@drawable/sb_thumb" />
+
+                <Button
+                    android:id="@+id/buttonWeightPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_sb_updown"
+                    android:text="@string/btnPlus"
+                    android:textColor="@color/SuzanBrown"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewWingLoadTable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wingloadtableheader"
+                android:textSize="@dimen/bodyText"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left" >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/textViewArea1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText" />
+
+                    <TextView
+                        android:id="@+id/textViewArea2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText" />
+
+                    <TextView
+                        android:id="@+id/textViewArea3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText" />
+
+                    <TextView
+                        android:id="@+id/textViewArea4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText" />
+
+                    <TextView
+                        android:id="@+id/textViewArea5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText" />
+
+                    <TextView
+                        android:id="@+id/textViewArea6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText" />
+
+                    <TextView
+                        android:id="@+id/textViewArea7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/textViewWingLoad1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewWingLoad2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewWingLoad3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewWingLoad4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewWingLoad5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewWingLoad6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textViewWingLoad7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/screen_padding_left"
+                        android:gravity="left"
+                        android:paddingLeft="@dimen/screen_padding_left"
+                        android:paddingRight="@dimen/screen_padding_right"
+                        android:text="@string/to_be_replaced"
+                        android:textSize="@dimen/bodyText"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
                 android:id="@+id/textViewJumperCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -237,191 +467,6 @@
                         android:textSize="@dimen/smallText" />
                 </TableRow>
             </TableLayout>
-
-            <TextView
-                android:id="@+id/textViewWeightLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/calculationWeightLabel"
-                android:textSize="@dimen/bodyText"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/buttonWeightMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_sb_updown"
-                    android:text="@string/btnMin"
-                    android:textColor="@color/SuzanBrown"
-                    android:textStyle="bold" />
-
-                <SeekBar
-                    android:id="@+id/seekBarWeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:paddingLeft="@dimen/screen_padding_left"
-                    android:paddingRight="@dimen/screen_padding_right"
-                    android:progressDrawable="@drawable/sb_progress"
-                    android:thumb="@drawable/sb_thumb" />
-
-                <Button
-                    android:id="@+id/buttonWeightPlus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_sb_updown"
-                    android:text="@string/btnPlus"
-                    android:textColor="@color/SuzanBrown"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textViewWingLoadTable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/wingloadtableheader"
-                android:textSize="@dimen/bodyText"
-                android:textStyle="bold" />
-
-            <TableLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left" >
-
-                <TableRow
-                    android:id="@+id/tableRow1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/textViewArea1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText" />
-
-                    <TextView
-                        android:id="@+id/textViewArea2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText" />
-
-                    <TextView
-                        android:id="@+id/textViewArea3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText" />
-
-                    <TextView
-                        android:id="@+id/textViewArea4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText" />
-
-                    <TextView
-                        android:id="@+id/textViewArea5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText" />
-
-                    <TextView
-                        android:id="@+id/textViewArea6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/textViewWingLoad1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewWingLoad2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewWingLoad3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewWingLoad4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewWingLoad5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textViewWingLoad6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:text="@string/to_be_replaced"
-                        android:textSize="@dimen/bodyText"
-                        android:textStyle="bold" />
-                </TableRow>
-            </TableLayout>
-
-            <!--
-             Button
-            android:id="@+id/buttonShowCanopyList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/button_margin_top"
-            android:background="@drawable/btn_normal"
-            android:text="@string/btnShowCanopyList"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/bodyText" /
-            -->
-
         </LinearLayout>
     </ScrollView>
 
