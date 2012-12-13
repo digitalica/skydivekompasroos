@@ -21,9 +21,9 @@
     <string name="menu_sortbyname">Op naam</string>
     <string name="menu_sortbymanufacturer">Op fabrikant</string>
     <string name="menu_sortbycategory">Op categorie</string>
-    <string name="menu_filterCommon">Alle gangbare koepels</string>
-    <string name="menu_filterCommonAround">Gangbare koepels rond hoogste categorie</string>
-    <string name="menu_filterAll">Alle koepels</string>
+    <string name="menu_filterCommon">Alle gangbare parachutes</string>
+    <string name="menu_filterCommonAround">Gangbare parachutes rond hoogste categorie</string>
+    <string name="menu_filterAll">Alle parachutes</string>
     <string name="btnShowCanopyList">Toon geschikte parachutes</string>
     <string name="canopyListHeader">\nCategorie %1$d</string>
     <string name="canopyListHeaderOk">Geschikt, mits minimaal %1$d sqft</string>
@@ -31,7 +31,7 @@
     <string name="btnMin">" - "</string>
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Deel resultaat</string>
-    <string name="btnShareDetails">Deel koepelgegevens</string>
+    <string name="btnShareDetails">Deel parachute gegevens</string>
     <string name="calculationWeightLabel">\nExitgewicht</string>
     <string name="calculationWeightSetting">: %1$d kg (%2$d lbs)</string>
     <string name="calculationTotalJumpsLabel">\nTotaal aantal sprongen</string>
