@@ -12,8 +12,11 @@ http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_Bijlage_A_2011.pdf
 BVR Bijlage B: Indeling hoofdparachutes, versie 2011-07 (juli)
 http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2011-07_juli.pdf
 
-Bedoeling is deze app onder GNU Public License te brengen en natuurlijk in Google Play te krijgen. De source is al te vinden op GitHub:
+Bedoeling is deze app onder GNU Public License te brengen. De source is al te vinden op GitHub:
 https://github.com/digitalica/skydivekompasroos
+
+De app staat in Google Play:
+https://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos
 
 Let op: deze app is nog in testfase! Er kunnen geen rechten aan worden ontleend.
 
