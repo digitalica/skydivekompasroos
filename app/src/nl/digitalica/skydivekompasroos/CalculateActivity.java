@@ -80,18 +80,17 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		canopyListButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				startActivity(new Intent(getBaseContext(), AboutActivity.class));
+				startActivity(new Intent(getBaseContext(),
+						CanopyListActivity.class));
 			}
 		});
 
 		// set click listener for about button
-		ImageButton aboutButton = (ImageButton) findViewById(R.id.buttonShowCanopyList);
+		ImageButton aboutButton = (ImageButton) findViewById(R.id.buttonAbout);
 		aboutButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				Intent i = new Intent(getBaseContext(),
-						CanopyListActivity.class);
-				startActivity(i);
+				startActivity(new Intent(getBaseContext(), AboutActivity.class));
 			}
 		});
 
@@ -100,9 +99,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		filterHeader.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				Intent i = new Intent(getBaseContext(),
-						CanopyListActivity.class);
-				startActivity(i);
+				startActivity(new Intent(getBaseContext(),
+						CanopyListActivity.class));
 			}
 		});
 
