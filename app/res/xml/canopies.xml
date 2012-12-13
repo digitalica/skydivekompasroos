@@ -348,7 +348,7 @@
         category="2"
         cells="7"
         commontype="1"
-        manufacturer="Precision"
+        manufacturer="Precision Aerodynamics"
         maxsize="230"
         minsize="98"
         url="http://www.precision.aero/synergy.htm" />
@@ -430,7 +430,7 @@
         category="3"
         cells="9"
         commontype="1"
-        manufacturer="Precision"
+        manufacturer="Precision Aerodynamics"
         maxsize="230"
         minsize="89"
         url="http://www.precision.aero/fusion.htm" />
@@ -543,7 +543,7 @@
         category="4"
         cells="9"
         commontype="0"
-        manufacturer="Precision" />
+        manufacturer="Precision Aerodynamics" />
     <canopy
         name="Jonathan"
         category="4"
@@ -873,7 +873,7 @@
         category="6"
         cells="27"
         commontype="1"
-        manufacturer="Precision"
+        manufacturer="Precision Aerodynamics"
         maxsize="118"
         minsize="58"
         remarks="CATEGORY UNKNOWN"
@@ -883,7 +883,7 @@
         category="6"
         cells="21"
         commontype="1"
-        manufacturer="Precision"
+        manufacturer="Precision Aerodynamics"
         maxsize="135"
         minsize="68"
         remarks="CATEGORY UNKNOWN"
@@ -893,7 +893,7 @@
         category="6"
         cells="9"
         commontype="1"
-        manufacturer="Precision"
+        manufacturer="Precision Aerodynamics"
         maxsize="170"
         minsize="78"
         remarks="CATEGORY UNKNOWN"
