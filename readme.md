@@ -11,6 +11,13 @@ It is based on the dutch 'Kompasroos' system.
 Changelog and New Features
 **************************
 
+Version 0.4 (13 Dec 2012)
+
+- filter added in canopy list screen
+- advice added in canopy details screen
+- some layout changes
+- colors added and numbers changed in wingload table
+- canopy database improvements
 
 Version 0.3 (30 Nov 2012)
 
