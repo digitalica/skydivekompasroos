@@ -219,7 +219,7 @@
         category="1"
         cells="7"
         commontype="1"
-        manufacturer="Icarus" />
+        manufacturer="Icarus Canopies" />
     <canopy
         name="Zepo Student"
         category="1"
@@ -357,7 +357,7 @@
         category="2"
         cells="7"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="229"
         minsize="99"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=1&amp;Itemid=11" />
@@ -366,7 +366,7 @@
         category="2"
         cells="7"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="229"
         minsize="99"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=13&amp;Itemid=10" />
@@ -457,13 +457,13 @@
         category="3"
         cells="9"
         commontype="1"
-        manufacturer="Icarus" />
+        manufacturer="Icarus Canopies" />
     <canopy
         name="Safire 2"
         category="3"
         cells="9"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="229"
         minsize="99"
         planform="16.4"
@@ -654,7 +654,7 @@
         category="5"
         cells="9"
         commontype="1"
-        manufacturer="Icarus" />
+        manufacturer="Icarus Canopies" />
     <canopy
         name="Mamba"
         category="5"
@@ -730,7 +730,7 @@
         category="6"
         cells="9"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="169"
         minsize="89"
         planform="21.6"
@@ -751,7 +751,7 @@
         category="6"
         cells="27"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
@@ -761,7 +761,7 @@
         category="6"
         cells="21"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
@@ -770,7 +770,7 @@
         name="Neos"
         category="6"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="119"
         minsize="59"
         remarks="CATEGORY UNKNOWN"
@@ -780,7 +780,7 @@
         category="6"
         cells="9"
         commontype="1"
-        manufacturer="Icarus"
+        manufacturer="Icarus Canopies"
         maxsize="229"
         minsize="189"
         remarks="CATEGORY UNKNOWN"
