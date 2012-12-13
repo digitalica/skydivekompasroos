@@ -58,7 +58,7 @@
     <manufacturer
         name="PISA"
         countrycode="sa"
-        remark="PISA bestaat niet meer"
+        remarks="PISA bestaat niet meer"
         url="http://www.pisa.co.za/" />
     <manufacturer
         name="Precision Aerodynamics"
