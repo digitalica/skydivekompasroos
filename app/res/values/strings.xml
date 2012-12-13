@@ -59,7 +59,7 @@
     <string name="shareresultheaderformat">Je ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat je mag springen met parachutes uit categorie %4$d met een oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
     <string name="shareresultneededsizenotavailable">Onderstaande parachuts zouden geschikt zijn, maar zijn niet leverbaar in de vereiste oppervlakte:</string>
     <string name="shareresultnotaccepted">Onderstaande parachutes zijn NIET geschikt, ze vereisen meer ervaring:</string>
-    <string name="shareresultfooter">\n\n\nSamengesteld door Skydive Kompasroos Android app van Digitalica</string>
+    <string name="shareresultfooter">\n\n\nSamengesteld door Skydive Kompasroos Android app van Digitalica\nhttps://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos</string>
     <string name="reset_name_own">Jezelf</string>
     <string name="reset_name_friend">Een vriend</string>
     <string name="reset_name_beginner">Een beginner</string>
