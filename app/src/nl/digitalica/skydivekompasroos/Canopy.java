@@ -28,6 +28,7 @@ public class Canopy {
 	public String url;
 	public String cells;
 	public boolean commontype;
+	public String dropzoneId;
 	public String minSize;
 	public String maxSize;
 	public String firstYearOfProduction;
@@ -38,8 +39,9 @@ public class Canopy {
 
 	public Canopy(int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
-			boolean canopyCommonType, String canopyMinSize,
-			String canopyMaxSize, String canopyFirstYearOfProduction,
+			boolean canopyCommonType, String canopyDropzoneId,
+			String canopyMinSize, String canopyMaxSize,
+			String canopyFirstYearOfProduction,
 			String canopyLastYearOfProduction, String canopyRemarks,
 			int isSpecialCatchAllCanopy) {
 		this.category = canopyCategory;
@@ -48,6 +50,7 @@ public class Canopy {
 		this.url = canopyUrl;
 		this.cells = canopyCells;
 		this.commontype = canopyCommonType;
+		this.dropzoneId = canopyDropzoneId;
 		this.minSize = canopyMinSize;
 		this.maxSize = canopyMaxSize;
 		this.firstYearOfProduction = canopyFirstYearOfProduction;
@@ -65,7 +68,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName, String size) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				size, size, null, null, null, 0);
+				null, size, size, null, null, null, 0);
 	}
 
 	/***
@@ -77,7 +80,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				DEFAULTSIZE, DEFAULTSIZE, null, null, null, 0);
+				null, DEFAULTSIZE, DEFAULTSIZE, null, null, null, 0);
 	}
 
 	/***
@@ -142,6 +145,8 @@ public class Canopy {
 							"cells");
 					String canopyCommonTypeString = canopiesParser
 							.getAttributeValue(null, "commontype");
+					String canopyDropzoneId = canopiesParser.getAttributeValue(
+							null, "dropzoneid");
 					boolean canopyCommonType = true;
 					if (Integer.parseInt(canopyCommonTypeString) == 0)
 						canopyCommonType = false;
@@ -164,8 +169,9 @@ public class Canopy {
 								.parseInt(isSpecialCatchAllCanopyString);
 					Canopy canopy = new Canopy(canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
-							canopyCells, canopyCommonType, canopyMinSize,
-							canopyMaxSize, canopyFirstyearOfProduction,
+							canopyCells, canopyCommonType, canopyDropzoneId,
+							canopyMinSize, canopyMaxSize,
+							canopyFirstyearOfProduction,
 							canopyLastyearOfProduction, canopyRemarks,
 							isSpecialCatchAllCanopy);
 					if (key == null)
@@ -281,7 +287,7 @@ public class Canopy {
 	 * @param exitWeightInKg
 	 * @return
 	 * 
-	 * TODO: should return an enum, not an int!!!!!
+	 *         TODO: should return an enum, not an int!!!!!
 	 */
 	public int acceptablility(int jumperCategory, int exitWeightInKg) {
 		if (jumperCategory < this.category)

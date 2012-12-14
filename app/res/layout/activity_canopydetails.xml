@@ -51,6 +51,70 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
+                    android:id="@+id/textViewManufacturerLabel"
+                    android:layout_width="wrap_content"
+                    android:background="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
+                    android:text="@string/detailsmanufacturer"
+                    android:textSize="@dimen/bodyText" />
+
+                <TextView
+                    android:id="@+id/textViewManufacturerText"
+                    android:layout_width="wrap_content"
+                    android:background="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/bodyText" />
+            </TableRow>
+
+            
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewManufacturerCountryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
+                    android:text="@string/detailsmanufacturercountry"
+                    android:textSize="@dimen/bodyText" />
+
+                <TextView
+                    android:id="@+id/textViewManufacturerCountryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/bodyText" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/textViewUrlLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/table_padding_aftercolon"
+                    android:text="@string/detailsUrl"
+                    android:textSize="@dimen/bodyText" />
+
+                <TextView
+                    android:id="@+id/textViewUrlText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:text="@string/to_be_replaced"
+                    android:textSize="@dimen/bodyText" />
+            </TableRow>
+            
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
                     android:id="@+id/textViewAdviseLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -152,55 +216,15 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:id="@+id/textViewManufacturerLabel"
+                    android:id="@+id/textViewDropzoneIdLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="@dimen/table_padding_aftercolon"
-                    android:text="@string/detailsmanufacturer"
+                    android:text="@string/detailsDropzoneId"
                     android:textSize="@dimen/bodyText" />
 
                 <TextView
-                    android:id="@+id/textViewManufacturerText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/bodyText" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/textViewManufacturerCountryLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/table_padding_aftercolon"
-                    android:text="@string/detailsmanufacturercountry"
-                    android:textSize="@dimen/bodyText" />
-
-                <TextView
-                    android:id="@+id/textViewManufacturerCountryText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/to_be_replaced"
-                    android:textSize="@dimen/bodyText" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/textViewUrlLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/table_padding_aftercolon"
-                    android:text="@string/detailsUrl"
-                    android:textSize="@dimen/bodyText" />
-
-                <TextView
-                    android:id="@+id/textViewUrlText"
+                    android:id="@+id/textViewDropzoneIdText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:autoLink="web"

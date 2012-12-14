@@ -47,6 +47,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvManufacturer = (TextView) findViewById(R.id.textViewManufacturerText);
 		TextView tvManufacturerCountry = (TextView) findViewById(R.id.textViewManufacturerCountryText);
 		TextView tvProduction = (TextView) findViewById(R.id.textViewProductionText);
+		TextView tvDropzoneId = (TextView) findViewById(R.id.textViewDropzoneIdText);
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
 		int acceptability = currentCanopy.acceptablility(currentMaxCategory,
@@ -59,7 +60,9 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		String advice = "";
 		switch (acceptability) {
 		case Canopy.ACCEPTABLE:
-			advice = String.format("Dit type is geschikt, mits oppervlakte minimaal %d sqft",currentMinArea);
+			advice = String.format(
+					"Dit type is geschikt, mits oppervlakte minimaal %d sqft",
+					currentMinArea);
 			break;
 		case Canopy.NEEDEDSIZENOTAVAILABLE:
 			advice = String
@@ -73,9 +76,9 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 					- currentTotalJumps;
 			int minimalExtraNeededJumps = Math.max(extraNeededJumsThis12Months,
 					extraNeededTotalJumps);
-			advice = String.format(
-					"Ongeschikt: nog minimaal %d sprongen extra ervaring nodig.",
-					minimalExtraNeededJumps);
+			advice = String
+					.format("Ongeschikt: nog minimaal %d sprongen extra ervaring nodig.",
+							minimalExtraNeededJumps);
 			break;
 		}
 		tvAdvise.setText(advice);
@@ -95,6 +98,11 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvUrl.setText(url);
 		tvManufacturer.setText(currentCanopy.manufacturer);
 		tvManufacturerCountry.setText(manufacturer.countryFullName());
+		if (currentCanopy.dropzoneId != null && !currentCanopy.equals(""))
+			tvDropzoneId.setText("http://www.dropzone.com/gear/Detailed/"
+					+ currentCanopy.dropzoneId + ".html");
+		else
+			tvDropzoneId.setText("");
 		StringBuilder remarks = new StringBuilder();
 		if (currentCanopy.remarks != null && !currentCanopy.remarks.equals("")) {
 			remarks.append(currentCanopy.remarks);
