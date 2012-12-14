@@ -127,7 +127,9 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			sortingMethod = SortingEnum.SORTBYMANUFACTURER;
 			break;
 		}
+		this.sortingMethod = sortingMethod;
 		savePreference(SETTING_SORTING, sortingMethod.ordinal());
+		this.filterCat = filterCat;
 		savePreference(SETTING_FILTER_CATS, filterCat.ordinal());
 		canopyTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
@@ -362,7 +364,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// TODO: add more details like cells and remarks here
 		TextView tvCanopyDetails = (TextView) canopyListRow
 				.findViewById(R.id.textViewCanopyListRowDetails);
-		if (sortingMethod != SortingEnum.SORTBYMANUFACTURER)
+		if (this.sortingMethod != SortingEnum.SORTBYMANUFACTURER)
 			tvCanopyDetails.setText(theCanopy.manufacturer);
 		else {
 			String detailsText = "";
@@ -436,7 +438,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		Button byManufacturer = (Button) layout
 				.findViewById(R.id.buttonByManufacturer);
 		Button byCategory = (Button) layout.findViewById(R.id.buttonByCategory);
-		// TODO: add onclick handlers to buttons
+		// TODO: add on click handlers to buttons
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(layout);
 		builder.setNegativeButton(android.R.string.cancel,
