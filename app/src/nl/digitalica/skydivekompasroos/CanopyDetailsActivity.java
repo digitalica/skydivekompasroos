@@ -98,11 +98,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvUrl.setText(url);
 		tvManufacturer.setText(currentCanopy.manufacturer);
 		tvManufacturerCountry.setText(manufacturer.countryFullName());
-		if (currentCanopy.dropzoneId != null && !currentCanopy.equals(""))
-			tvDropzoneId.setText("http://www.dropzone.com/gear/Detailed/"
-					+ currentCanopy.dropzoneId + ".html");
-		else
-			tvDropzoneId.setText("");
+		tvDropzoneId.setText(currentCanopy.dropZoneUrl());
 		StringBuilder remarks = new StringBuilder();
 		if (currentCanopy.remarks != null && !currentCanopy.remarks.equals("")) {
 			remarks.append(currentCanopy.remarks);

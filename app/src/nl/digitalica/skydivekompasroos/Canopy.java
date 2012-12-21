@@ -299,4 +299,16 @@ public class Canopy {
 		return ACCEPTABLE;
 	}
 
+	/**
+	 * returns the url in dropzone.com for this canopy
+	 * 
+	 * @return
+	 */
+	public String dropZoneUrl() {
+		String url = "";
+		if (dropzoneId != null && !dropzoneId.equals(""))
+			url = "http://www.dropzone.com/gear/Detailed/" + dropzoneId
+					+ ".html";
+		return url;
+	}
 }
