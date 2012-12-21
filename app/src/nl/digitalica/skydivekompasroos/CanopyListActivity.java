@@ -183,14 +183,14 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			filterText.append("Geen filter actief" + nl);
 		switch (filterCat) {
 		case ALL:
-			filterText.append("Alle koepels getoond" + nl);
+			filterText.append("Alle parachutes getoond" + nl);
 			break;
 		case COMMONAROUNDMAX:
 			filterText.append("Gangbaar rond cat "
 					+ Integer.toString(currentMaxCategory) + nl);
 			break;
 		case ONLYCOMMON:
-			filterText.append("Alle gangbare koepels" + nl);
+			filterText.append("Alle gangbare parachutes" + nl);
 			break;
 		}
 
