@@ -596,19 +596,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			TextView tvCanopyCategory = (TextView) findViewById(R.id.textViewCanopyCategoryText);
 			String canopyCatFormat;
-			switch (jumperCategory) {
-			case 1:
-				canopyCatFormat = getString(R.string.calculationCanopyCategoryOne);
-				break;
-			case 6:
-				canopyCatFormat = getString(R.string.calculationCanopyCategoryAll);
-				break;
-			default:
-				canopyCatFormat = String.format(
-						getString(R.string.calculationCanopyCategoryMultiple),
-						jumperCategory);
-				break;
-			}
+			canopyCatFormat = String.format(
+					getString(R.string.calculationCanopyCategory),
+					jumperCategory);
 			tvCanopyCategory.setText(canopyCatFormat);
 
 			TextView tvCanopyMinArea = (TextView) findViewById(R.id.textViewCanopyMinAreaText);
@@ -645,17 +635,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			String canopyAdviseFormat;
 			// TODO: this string should be taken from a jumper class (or method
 			// in calculation)
-			switch (jumperCategory) {
-			case 1:
-				canopyAdviseFormat = getString(R.string.canopyAdviseOne);
-				break;
-			case 6:
-				canopyAdviseFormat = getString(R.string.canopyAdviseAny);
-				break;
-			default:
-				canopyAdviseFormat = getString(R.string.canopyAdvise);
-				break;
-			}
+			canopyAdviseFormat = getString(R.string.canopyAdvise);
 			tvCanopyAdvise.setText(String.format(canopyAdviseFormat,
 					jumperCategory, minArea));
 
