@@ -194,18 +194,6 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			break;
 		}
 
-		switch (sortingMethod) {
-		case SORTBYNAME:
-			filterText.append("Gesorteerd op naam" + nl);
-			break;
-		case SORTBYCATEGORY:
-			filterText.append("Gesorteerd op categorie" + nl);
-			break;
-		case SORTBYMANUFACTURER:
-			filterText.append("Gesorteerd op fabrikant" + nl);
-			break;
-		}
-
 		tvFilterText.setText(filterText.toString());
 
 	}
