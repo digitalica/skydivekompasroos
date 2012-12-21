@@ -8,6 +8,8 @@ import java.util.List;
 import nl.digitalica.skydivekompasroos.Canopy;
 import nl.digitalica.skydivekompasroos.Manufacturer;
 
+import org.apache.http.Header;
+import org.apache.http.HeaderIterator;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -31,7 +33,7 @@ public class UrlChecker extends AndroidTestCase {
 	 * 
 	 * not named test... to avoid automatic running
 	 */
-	public void checkCanopyUrls() {
+	public void xtestCanopyUrls() {
 		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
 		StringBuilder errors = new StringBuilder();
 		for (Canopy c : canopies) {
@@ -46,7 +48,7 @@ public class UrlChecker extends AndroidTestCase {
 	 * 
 	 * not named test... to avoid automatic running
 	 */
-	public void checkManufacturerUrls() {
+	public void xtestManufacturerUrls() {
 		HashMap<String, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
 		StringBuilder errors = new StringBuilder();
@@ -80,6 +82,10 @@ public class UrlChecker extends AndroidTestCase {
 			if (error.equals(""))
 				try {
 					httpResponse = httpClient.execute(httpGet);
+					int status = httpResponse.getStatusLine().getStatusCode();
+					if (status != 200)
+						error = "Page not found or moved ("
+								+ Integer.toString(status) + ") ";
 				} catch (Exception e) {
 					error = "Network error ";
 					e.printStackTrace();
