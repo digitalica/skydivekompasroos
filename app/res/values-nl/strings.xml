@@ -23,9 +23,6 @@
     <string name="menu_filterCommonAround">Gangbare parachutes rond hoogste categorie</string>
     <string name="menu_filterAll">Alle parachutes</string>
     <string name="btnShowCanopyList">Toon geschikte parachutes</string>
-    <string name="canopyListHeader">\nCategorie %1$d</string>
-    <string name="canopyListHeaderOk">Geschikt, mits minimaal %1$d sqft</string>
-    <string name="canopyListHeaderNotOk">Niet geschikt</string>
     <string name="btnMin">" - "</string>
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Deel resultaat</string>
@@ -49,6 +46,7 @@
     <string name="calculationCanopyMaxWingLoadAny">geen beperking</string>
     <string name="canopyType">type</string>
     <string name="canopyManufacturer">fabrikant</string>
+    <string name="canopyListCategoryHeader">Categorie: %1$d</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
     <string name="sharedetailssubject">Skydive kompasroos parachute gegevens</string>
     <string name="shareresultsubject">Skydive kompasroos resultaat</string>
@@ -79,7 +77,12 @@
     <string name="filterDialogHeader">Filter de gegevens:</string>
     <string name="alternativeCells">%1$s cellen</string>
     <string name="alternativeSizes">%1$s + " tot en met " + %2$s + " sqft"</string>
-    
+    <string name="filterNone">Geen filter actief</string>
+    <string name="filterRange">%1$d van %2$d getoond</string>
+    <string name="filterTypeAll">Alle %1$d parachutes getoond</string>
+    <string name="filterTypeAround">Gangbaar, rond cat %1$d</string>
+    <string name="filterTypeCommon">Alle gangbare parachutes</string>
+
     <string-array name="canopyCategories">
         <item>Unknown</item>
         <item>wingload maximaal 1,1; oppervlakte minimaal 170 sqft</item>

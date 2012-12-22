@@ -24,9 +24,6 @@
     <string name="menu_filterCommonAround">Common canopies around max category</string>
     <string name="menu_filterAll">All canopies</string>
     <string name="btnShowCanopyList">Show valid canopies</string>
-    <string name="canopyListHeader">\nCategory %1$d</string>
-    <string name="canopyListHeaderOk">Valid, if minimal %1$d sqft</string>
-    <string name="canopyListHeaderNotOk">Not valid</string>
     <string name="btnMin">" - "</string>
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Share result</string>
@@ -50,6 +47,7 @@
     <string name="calculationCanopyMaxWingLoadAny">no limit</string>
     <string name="canopyType">type</string>
     <string name="canopyManufacturer">manufacturer</string>
+    <string name="canopyListCategoryHeader">Category: %1$d</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
     <string name="sharedetailssubject">Skydive kompasroos canopy data</string>
     <string name="shareresultsubject">Skydive kompasroos result</string>
@@ -80,6 +78,11 @@
     <string name="filterDialogHeader">Filter list:</string>
     <string name="alternativeCells">%1$d cells</string>
     <string name="alternativeSizes">%1$s + " to " + %2$s + " sqft"</string>
+    <string name="filterNone">No active filter</string>
+    <string name="filterRange">%1$d of %2$d shown</string>
+    <string name="filterTypeAll">All %1$d canopies shown</string>
+    <string name="filterTypeAround">Common, around cat %1$d</string>
+    <string name="filterTypeCommon">All common types</string>
 
     <string-array name="canopyCategories">
         <item>Unknown</item>

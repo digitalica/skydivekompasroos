@@ -109,7 +109,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param sortingMethod
 	 */
 	private void fillCanopyTable(LinearLayout canopyTable,
-			SortingEnum sortingMethod, FilterEnum filterCat) {
+			SortingEnum sortingMethod, FilterEnum filterType) {
 		// sort the canopyList on type, name, manufacturer
 		switch (sortingMethod) {
 		case SORTBYNAME:
@@ -129,8 +129,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		}
 		this.sortingMethod = sortingMethod;
 		savePreference(SETTING_SORTING, sortingMethod.ordinal());
-		this.filterCat = filterCat;
-		savePreference(SETTING_FILTER_CATS, filterCat.ordinal());
+		this.filterCat = filterType;
+		savePreference(SETTING_FILTER_CATS, filterType.ordinal());
 		canopyTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
 		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
@@ -144,10 +144,10 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			allCount++;
 			boolean showThisCanopy = true;
 			// check cat filter
-			if (filterCat == FilterEnum.ONLYCOMMON)
+			if (filterType == FilterEnum.ONLYCOMMON)
 				if (!theCanopy.commontype)
 					showThisCanopy = false;
-			if (filterCat == FilterEnum.COMMONAROUNDMAX)
+			if (filterType == FilterEnum.COMMONAROUNDMAX)
 				if (!theCanopy.commontype
 						|| theCanopy.category < currentMaxCategory - 1
 						|| theCanopy.category > currentMaxCategory + 1)
@@ -162,10 +162,9 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				}
 				if (sortingMethod == SortingEnum.SORTBYCATEGORY
 						&& previousCat != theCanopy.category) {
-					insertCanopyHeaderRow(
-							canopyTable,
-							"Categorie: "
-									+ Integer.toString(theCanopy.category));
+					insertCanopyHeaderRow(canopyTable, String.format(
+							getString(R.string.canopyListCategoryHeader),
+							theCanopy.category));
 					previousCat = theCanopy.category;
 				}
 				insertCanopyRow(canopyTable, theCanopy, currentMaxCategory,
@@ -177,25 +176,29 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		TextView tvFilterText = (TextView) findViewById(R.id.textview_filtersettings);
 		StringBuilder filterText = new StringBuilder();
 		if (allCount != shownCount)
-			filterText.append(Integer.toString(shownCount) + " van "
-					+ Integer.toString(allCount) + nl);
+			filterText.append(String.format(getString(R.string.filterRange),
+					shownCount, allCount) + nl);
 		else
-			filterText.append("Geen filter actief" + nl);
-		switch (filterCat) {
+			filterText.append(getResources().getString(R.string.filterNone)
+					+ nl);
+		switch (filterType) {
 		case ALL:
-			filterText.append("Alle parachutes getoond" + nl);
+			filterText.append(String.format(
+					getResources().getString(R.string.filterTypeAll), allCount)
+					+ nl);
 			break;
 		case COMMONAROUNDMAX:
-			filterText.append("Gangbaar rond cat "
-					+ Integer.toString(currentMaxCategory) + nl);
+			filterText.append(String.format(
+					getResources().getString(R.string.filterTypeAround),
+					currentMaxCategory) + nl);
 			break;
 		case ONLYCOMMON:
-			filterText.append("Alle gangbare parachutes" + nl);
+			filterText.append(getResources().getString(
+					R.string.filterTypeCommon)
+					+ nl);
 			break;
 		}
-
 		tvFilterText.setText(filterText.toString());
-
 	}
 
 	/***
@@ -355,7 +358,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		if (this.sortingMethod != SortingEnum.SORTBYMANUFACTURER)
 			tvCanopyDetails.setText(theCanopy.manufacturer);
 		else
-			tvCanopyDetails.setText(theCanopy.alternativeDetailsText(CanopyListActivity.this));
+			tvCanopyDetails.setText(theCanopy
+					.alternativeDetailsText(CanopyListActivity.this));
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
 		// if the link won't work, because this is the catch all,
@@ -454,7 +458,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		View layout = inflater.inflate(R.layout.filter_dialog,
 				(ViewGroup) findViewById(R.id.root));
 
-		// check the correct radiobutton in group
+		// check the correct radio button in group
 		RadioButton radioToCheck = null;
 		switch (filterCat) {
 		case ONLYCOMMON:
