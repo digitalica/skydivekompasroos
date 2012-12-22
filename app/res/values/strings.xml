@@ -78,6 +78,8 @@
     <string name="sortDialogHeader">Sort data:</string>
     <string name="resetDialogHeader">Reset to:</string>
     <string name="filterDialogHeader">Filter list:</string>
+    <string name="alternativeCells">%1$d cells</string>
+    <string name="alternativeSizes">%1$s + " to " + %2$s + " sqft"</string>
 
     <string-array name="canopyCategories">
         <item>Unknown</item>

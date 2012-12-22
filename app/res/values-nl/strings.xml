@@ -77,7 +77,9 @@
     <string name="sortDialogHeader">Sorteer gegegevens:</string>
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
     <string name="filterDialogHeader">Filter de gegevens:</string>
-
+    <string name="alternativeCells">%1$s cellen</string>
+    <string name="alternativeSizes">%1$s + " tot en met " + %2$s + " sqft"</string>
+    
     <string-array name="canopyCategories">
         <item>Unknown</item>
         <item>wingload maximaal 1,1; oppervlakte minimaal 170 sqft</item>

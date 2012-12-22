@@ -354,19 +354,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				.findViewById(R.id.textViewCanopyListRowDetails);
 		if (this.sortingMethod != SortingEnum.SORTBYMANUFACTURER)
 			tvCanopyDetails.setText(theCanopy.manufacturer);
-		else {
-			String detailsText = "";
-			if (theCanopy.cells != null)
-				detailsText = theCanopy.cells + " cellen";
-			if (theCanopy.minSize != null && theCanopy.maxSize != null
-					&& theCanopy.minSize != "" && theCanopy.maxSize != "") {
-				if (!detailsText.equals(""))
-					detailsText += ", ";
-				detailsText += theCanopy.minSize + " tot en met "
-						+ theCanopy.maxSize + " sqft";
-			}
-			tvCanopyDetails.setText(detailsText);
-		}
+		else
+			tvCanopyDetails.setText(theCanopy.alternativeDetailsText(CanopyListActivity.this));
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
 		// if the link won't work, because this is the catch all,

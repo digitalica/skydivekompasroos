@@ -311,4 +311,27 @@ public class Canopy {
 					+ ".html";
 		return url;
 	}
+
+	/**
+	 * returns a text showing the number of cells and min/max size, to use in
+	 * the canopy list, as an alternative to the manufacturer when the sorting
+	 * is by manufacturer
+	 * 
+	 * @return
+	 */
+	public String alternativeDetailsText(Context c) {
+		String detailsText = "";
+		if (cells != null)
+			detailsText = String.format(c.getString(R.string.alternativeCells),
+					cells);
+
+		if (minSize != null && maxSize != null && minSize != ""
+				&& maxSize != "") {
+			if (!detailsText.equals(""))
+				detailsText += ", ";
+			detailsText += String.format(
+					c.getString(R.string.alternativeSizes), minSize, maxSize);
+		}
+		return detailsText;
+	}
 }
