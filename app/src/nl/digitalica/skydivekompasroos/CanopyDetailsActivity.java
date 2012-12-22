@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CanopyDetailsActivity extends KompasroosBaseActivity {
@@ -125,6 +127,16 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 						+ currentCanopy.lastYearOfProduction;
 		}
 		tvProduction.setText(geproduceerd);
+		
+		// add on click handler to share button
+		ImageButton shareResultButton = (ImageButton) findViewById(R.id.buttonShareResult);
+		shareResultButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				shareDetails();
+			}
+
+		});
+		
 	}
 
 	@Override

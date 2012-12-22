@@ -73,7 +73,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// TODO: store sorting so it is persistent (?)
 		fillCanopyTable(canopyTable, sortingMethod, filterCat);
 
-		// add onclick handler to share button
+		// add on click handler to share button
 		ImageButton shareResultButton = (ImageButton) findViewById(R.id.buttonShareResult);
 		shareResultButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -82,7 +82,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		});
 
-		// add onclick handler to filter header
+		// add on click handler to filter header
 		View filterHeader = findViewById(R.id.tablelayout_filterheader);
 		filterHeader.setOnClickListener(new View.OnClickListener() {
 
@@ -91,7 +91,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			}
 		});
 
-		// add onclink handler to filter button
+		// add on click handler to filter button
 		ImageButton filterButton = (ImageButton) findViewById(R.id.buttonEditFilter);
 		filterButton.setOnClickListener(new View.OnClickListener() {
 
