@@ -52,7 +52,8 @@ public class KompasroosBaseActivity extends Activity {
 	final static String SETTING_FRIEND_LAST_12_MONTHS = "FriendJumpsLast12Months";
 
 	static final String SETTING_SORTING = "Sorting";
-	static final String SETTING_FILTER_CATS = "FilterCats";
+	static final String SETTING_FILTER_TYPE = "FilterType";
+	static final String SETTING_SORTING_FILTER_TIME = "SortingFilterTime";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

@@ -9,11 +9,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.media.ExifInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +43,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	final static int SORT_DIALOG_ID = 1;
 	final static int FILTER_DIALOG_ID = 2;
 
+	final static int MILLISINDAY = 1000 * 60 * 60 * 24;
+
 	// static, so it can be statically referenced from onClick...
 	static StringBuilder skydiveKompasroosResultAccepted;
 	static StringBuilder skydiveKompasroosResultNeededSizeNotAvailable;
@@ -60,13 +59,23 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		canopyList = Canopy.getAllCanopiesInList(CanopyListActivity.this);
 
+		// if sorting and filter were save over 1 day ago, clear them
+		int sortingFilterTime = prefs.getInt(SETTING_SORTING_FILTER_TIME, 0);
+		int currentTime = (int) (System.currentTimeMillis() / MILLISINDAY);
+		if (currentTime - sortingFilterTime > 7) {
+			Editor e = prefs.edit();
+			e.remove(SETTING_SORTING);
+			e.remove(SETTING_FILTER_TYPE);
+			e.commit();
+		}
+
 		// get the saved sorting Method
 		int sortingMethodOrdinal = prefs.getInt(SETTING_SORTING,
 				SortingEnum.SORTBYNAME.ordinal());
 		this.sortingMethod = SortingEnum.values()[sortingMethodOrdinal];
 
 		// get the saved filter cat
-		int filterCatdOrdinal = prefs.getInt(SETTING_FILTER_CATS,
+		int filterCatdOrdinal = prefs.getInt(SETTING_FILTER_TYPE,
 				FilterEnum.COMMONAROUNDMAX.ordinal());
 		this.filterCat = FilterEnum.values()[filterCatdOrdinal];
 
@@ -130,8 +139,9 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		this.sortingMethod = sortingMethod;
 		savePreference(SETTING_SORTING, sortingMethod.ordinal());
 		this.filterCat = filterType;
-		savePreference(SETTING_FILTER_CATS, filterType.ordinal());
-		canopyTable.removeAllViewsInLayout();
+		savePreference(SETTING_FILTER_TYPE, filterType.ordinal());
+		savePreference(SETTING_SORTING_FILTER_TIME,
+				(int) (System.currentTimeMillis() / MILLISINDAY));
 		skydiveKompasroosResultAccepted = new StringBuilder();
 		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
 		skydiveKompasroosResultNotAccepted = new StringBuilder();
