@@ -7,94 +7,94 @@
     <string name="title_activity_canopylist">Skydive kompasroos parachutes</string>
     <string name="title_activity_canopydetails">Skydive kompasroos parachute gegevens</string>
     <string name="to_be_replaced">to_be_replaced</string>
-    <string name="categorySetting">\nJe valt in categorie <b>%1$d</b></string>
+    <string name="categorySetting">\nYou\'re in category <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
-    <string name="canopyAdvise">Geschikte parachutes:\nCategorie %1$d, min. %2$d sqft</string>
-    <string name="ormore">" (of meer)"</string>
+    <string name="canopyAdvise">Valid canopies:\nCategory %1$d, min. %2$d sqft</string>
+    <string name="ormore">" (or more)"</string>
     <string name="menu_filter">Filter</string>
     <string name="menu_reset">Reset</string>
-    <string name="menu_save">Opslaan</string>
-    <string name="menu_about">Over de Skydive kompasroos App</string>
-    <string name="menu_sort">Sortering</string>
-    <string name="menu_sortbyname">Op naam</string>
-    <string name="menu_sortbymanufacturer">Op fabrikant</string>
-    <string name="menu_sortbycategory">Op categorie</string>
-    <string name="menu_filterCommon">Alle gangbare parachutes</string>
-    <string name="menu_filterCommonAround">Gangbare parachutes rond hoogste categorie</string>
-    <string name="menu_filterAll">Alle parachutes</string>
-    <string name="btnShowCanopyList">Toon geschikte parachutes</string>
-    <string name="canopyListHeader">\nCategorie %1$d</string>
-    <string name="canopyListHeaderOk">Geschikt, mits minimaal %1$d sqft</string>
-    <string name="canopyListHeaderNotOk">Niet geschikt</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_about">About Skydive kompasroos App</string>
+    <string name="menu_sort">Sorting</string>
+    <string name="menu_sortbyname">On name</string>
+    <string name="menu_sortbymanufacturer">On manufacturer</string>
+    <string name="menu_sortbycategory">On category</string>
+    <string name="menu_filterCommon">All common canopies</string>
+    <string name="menu_filterCommonAround">Common canopies around max category</string>
+    <string name="menu_filterAll">All canopies</string>
+    <string name="btnShowCanopyList">Show valid canopies</string>
+    <string name="canopyListHeader">\nCategory %1$d</string>
+    <string name="canopyListHeaderOk">Valid, if minimal %1$d sqft</string>
+    <string name="canopyListHeaderNotOk">Not valid</string>
     <string name="btnMin">" - "</string>
     <string name="btnPlus">" + "</string>
-    <string name="btnShareResult">Deel resultaat</string>
-    <string name="btnShareDetails">Deel parachute gegevens</string>
-    <string name="calculationWeightLabel">\nExitgewicht</string>
+    <string name="btnShareResult">Share result</string>
+    <string name="btnShareDetails">Share canopy details</string>
+    <string name="calculationWeightLabel">\nExit weight</string>
     <string name="calculationWeightSetting">: %1$d kg (%2$d lbs)</string>
-    <string name="calculationTotalJumpsLabel">\nTotaal aantal sprongen</string>
+    <string name="calculationTotalJumpsLabel">\nTotal number of jumps</string>
     <string name="calculationTotalJumpsSetting">: %1$d%2$s</string>
-    <string name="calculationJumpsLast12MonthsLabel">\nSprongen in laatste 12 maanden</string>
+    <string name="calculationJumpsLast12MonthsLabel">\nJumps in last 12 months</string>
     <string name="calculationJumpsLast12MonthsSetting">: %1$d%2$s</string>
-    <string name="calculationIntrotext">Stel hieronder de juiste sprongaantallen en je exitgewicht in, om te bepalen welke parachutes geschikt zijn. De knop rechtsboven toont de lijst.</string>
-    <string name="calculationOvertimeWarning">\nLet op: deze applicatie is meer dan 1 jaar oud en mogelijk niet meer up to date!</string>
-    <string name="calculationOvertimeUnknownWarning">\nHuidige datum of datum van deze app kon niet bepaald worden. Gegevens zijn mogelijk niet meer up to date!</string>
-    <string name="calculationCanopyCategoryLabel">Toegestane parachutes:</string>
-    <string name="calculationCanopyMinAreaLabel">Minimale oppervlakte:</string>
-    <string name="calculationMaxWingLoadLabel">Maximale wingload:</string>
-    <string name="calculationCanopyCategory">Categorie %1$d</string>
+    <string name="calculationIntrotext">Configure the correct number of jumps and your exit weight below, to see what canopies are valid. The button at the top right will show the list.</string>
+    <string name="calculationOvertimeWarning">\nBeware: this application is over 1 year old, and probably not up to date any more!</string>
+    <string name="calculationOvertimeUnknownWarning">\nCurrent date or date of this app could not be found. This app may not be up to date any more!</string>
+    <string name="calculationCanopyCategoryLabel">Valid canopies:</string>
+    <string name="calculationCanopyMinAreaLabel">Minimal area:</string>
+    <string name="calculationMaxWingLoadLabel">Maximum wingload:</string>
+    <string name="calculationCanopyCategory">Category %1$d</string>
     <string name="calculationCanopyMinArea">%1$d sqft</string>
-    <string name="calculationCanopyMinAreaAny">geen beperking</string>
+    <string name="calculationCanopyMinAreaAny">no limit</string>
     <string name="calculationCanopyMaxWingLoad">%1$.1f lbs/sqft</string>
-    <string name="calculationCanopyMaxWingLoadAny">geen beperking</string>
+    <string name="calculationCanopyMaxWingLoadAny">no limit</string>
     <string name="canopyType">type</string>
-    <string name="canopyManufacturer">fabrikant</string>
+    <string name="canopyManufacturer">manufacturer</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
-    <string name="sharedetailssubject">Skydive kompasroos parachute gegevens</string>
-    <string name="shareresultsubject">Skydive kompasroos resultaat</string>
-    <string name="shareresultheaderformat">Je ervaring (%1$d sprongen, waarvan %2$d in de laatste 12 maanden) en gewicht (%3$d kg) maken dat je mag springen met parachutes uit categorie %4$d met een oppervlakte van minimaal %5$d sqft.\n\n\nHieronder de lijst:\n\n</string>
-    <string name="shareresultneededsizenotavailable">Onderstaande parachuts zouden geschikt zijn, maar zijn niet leverbaar in de vereiste oppervlakte:</string>
-    <string name="shareresultnotaccepted">Onderstaande parachutes zijn NIET geschikt, ze vereisen meer ervaring:</string>
+    <string name="sharedetailssubject">Skydive kompasroos canopy data</string>
+    <string name="shareresultsubject">Skydive kompasroos result</string>
+    <string name="shareresultheaderformat">Your experience (%1$d jumps, of which %2$d in the last 12 months) and exit weight (%3$d kg) make canopies from category %4$d and a minimum area of %5$d sqft valid for you.\n\nSee the list below:\n\n</string>
+    <string name="shareresultneededsizenotavailable">Canopies mentioned below would be valid, but are not available in the needed size:</string>
+    <string name="shareresultnotaccepted">Canopies below are NOT valid, the require more experience:</string>
     <string name="shareresultfooter">\n\n\nSamengesteld door Skydive Kompasroos Android app van Digitalica\nhttps://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos</string>
-    <string name="reset_name_own">Jezelf</string>
-    <string name="reset_name_friend">Een vriend</string>
-    <string name="reset_name_beginner">Een beginner</string>
-    <string name="reset_name_intermediate">Gemiddelde springer</string>
+    <string name="reset_name_own">You</string>
+    <string name="reset_name_friend">A friend</string>
+    <string name="reset_name_beginner">A beginner</string>
+    <string name="reset_name_intermediate">Intermediate jumper</string>
     <string name="reset_name_skygod">Sky God</string>
-    <string name="detailsmanufacturer">Fabrikant:</string>
-    <string name="detailsmanufacturercountry">Uit:</string>
+    <string name="detailsmanufacturer">Manufacturer:</string>
+    <string name="detailsmanufacturercountry">From:</string>
     <string name="detailsUrl">Website:</string>
-    <string name="detailsCategory">Categorie:</string>
-    <string name="detailsAdvise">Advies:</string>
-    <string name="detailsRemarks">Bijzonderheden:</string>
-    <string name="detailsCells">Cellen:</string>
+    <string name="detailsCategory">Category:</string>
+    <string name="detailsAdvise">Advice:</string>
+    <string name="detailsRemarks">Remarks:</string>
+    <string name="detailsCells">Cells:</string>
     <string name="detailsDropzoneId">Dropzone.com:</string>
-    <string name="detailsSizes">Maten:</string>
-    <string name="detailsExperience">Ervaring nodig:</string>
-    <string name="detailsProduction">In productie:</string>
-    <string name="detailsAdditionalInformationWelcome">Aanvullingen op bovenstaande gegevens zijn welkom, zie about pagina voor contactgegevens.</string>
-    <string name="saveDialogHeader">Sla gegevens op als:</string>
-    <string name="sortDialogHeader">Sorteer gegegevens:</string>
-    <string name="resetDialogHeader">Reset naar instellingen van:</string>
-    <string name="filterDialogHeader">Filter de gegevens:</string>
+    <string name="detailsSizes">Sizes:</string>
+    <string name="detailsExperience">Needed experience:</string>
+    <string name="detailsProduction">In production:</string>
+    <string name="detailsAdditionalInformationWelcome">More information is welcome, see about page for contact details.</string>
+    <string name="saveDialogHeader">Save data as:</string>
+    <string name="sortDialogHeader">Sort data:</string>
+    <string name="resetDialogHeader">Reset to:</string>
+    <string name="filterDialogHeader">Filter list:</string>
 
     <string-array name="canopyCategories">
         <item>Unknown</item>
-        <item>wingload maximaal 1,1; oppervlakte minimaal 170 sqft</item>
-        <item>wingload maximaal 1,1; oppervlakte minimaal 170 sqft</item>
-        <item>wingload maximaal 1,3; oppervlakte minimaal 150 sqft</item>
-        <item>wingload maximaal 1,5; oppervlakte minimaal 135 sqft</item>
-        <item>wingload maximaal 1,7; oppervlakte minimaal 120 sqft</item>
-        <item>geen limiten</item>
+        <item>wingload maximum 1,1; minimal size 170 sqft</item>
+        <item>wingload maximum 1,1; minimal size 170 sqft</item>
+        <item>wingload maximum 1,3; minimal size 150 sqft</item>
+        <item>wingload maximum 1,5; minimal size 135 sqft</item>
+        <item>wingload maximum 1,7; minimal size 120 sqft</item>
+        <item>no limits</item>
     </string-array>
     <string-array name="jumperCategories">
         <item>Unknown</item>
-        <item>Minder dan 25 sprongen of minder dan 10 sprongen in laatste 12 maanden</item>
-        <item>25 tot 100 sprongen; minstens 10 sprongen in de afgelopen 12 maanden</item>
-        <item>100 tot 400 sprongen; minstens 25 sprongen in de afgelopen 12 maanden</item>
-        <item>400 tot 700 sprongen; minstens 50 sprongen in de afgelopen 12 maanden</item>
-        <item>700 tot 1000 sprongen; minstens 75 sprongen in de afgelopen 12 maanden</item>
-        <item>meer dan 1000 sprongen; minstens 100 sprongen in de afgelopen 12 maanden met een sport main canopy</item>
+        <item>Less then 25 jumps or less then 10 jumps in the last 12 months</item>
+        <item>25 to 100 jumps; at least 10 jumps in the last 12 months</item>
+        <item>100 to 400 jumps; at least 25 jumps in the last 12 months</item>
+        <item>400 to 700 jumps; at least 50 jumps in the last 12 months</item>
+        <item>700 to 1000 jumps; at least 75 jumps in the last 12 months</item>
+        <item>over 1000 jumps; at least 100 jumps in the last 12 months with a sport main canopy</item>
     </string-array>
     <!--
          below is the same array as jumperCategories, but worded differently to use in 
@@ -102,12 +102,12 @@
     -->
     <string-array name="neededExperience">
         <item>Unknown</item>
-        <item>Geen</item>
-        <item>Minimaal 25 sprongen, waarvan minimaal 10 in de de laatste 12 maanden</item>
-        <item>Minimaal 100 sprongen, waarvan minimaal 25 in de afgelopen 12 maanden</item>
-        <item>Minimaal 400 sprongen, waarvan minimaal 50 in de afgelopen 12 maanden</item>
-        <item>Minimaal 700 sprongen, waarvan minimaal 75 in de afgelopen 12 maanden</item>
-        <item>Minimaal 1000 sprongen, waarvan minmaal 100 in de afgelopen 12 maanden met een sport main canopy</item>
+        <item>No experience</item>
+        <item>Minimal 25 jumps, of which at least 10 in the last 12 months</item>
+        <item>Minimal 100 jumps, of which at least 25 in the last 12 months</item>
+        <item>Minimal 400 jumps, of which at least 50 in the last 12 months</item>
+        <item>Minimal 700 jumps, of which at least 75 in the last 12 months</item>
+        <item>Minimal 1000 jumps, of which at least 100 in the last 12 months with a sport main canopy</item>
     </string-array>
 
 </resources>
