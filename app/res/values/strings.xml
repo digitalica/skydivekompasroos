@@ -76,8 +76,8 @@
     <string name="sortDialogHeader">Sort data:</string>
     <string name="resetDialogHeader">Reset to:</string>
     <string name="filterDialogHeader">Filter list:</string>
-    <string name="alternativeCells">%1$d cells</string>
-    <string name="alternativeSizes">%1$s + " to " + %2$s + " sqft"</string>
+    <string name="alternativeCells">%1$s cells</string>
+    <string name="alternativeSizes">%1$s to %2$s sqft</string>
     <string name="filterNone">No active filter</string>
     <string name="filterRange">Shown: %1$d of %2$d</string>
     <string name="filterTypeAll">All %1$d canopies shown</string>

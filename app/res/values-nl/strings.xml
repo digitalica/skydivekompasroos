@@ -76,7 +76,7 @@
     <string name="resetDialogHeader">Reset naar instellingen van:</string>
     <string name="filterDialogHeader">Filter de gegevens:</string>
     <string name="alternativeCells">%1$s cellen</string>
-    <string name="alternativeSizes">%1$s + " tot en met " + %2$s + " sqft"</string>
+    <string name="alternativeSizes">%1$s tot en met %2$s sqft</string>
     <string name="filterNone">Geen filter actief</string>
     <string name="filterRange">Getoond: %1$d van %2$d</string>
     <string name="filterTypeAll">Alle %1$d parachutes getoond</string>
