@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -107,18 +108,19 @@ public class Manufacturer {
 	 */
 	private String country(String countryCode) {
 		String trimmedCountryCode = countryCode.trim();
+		boolean dutch = Calculation.isLanguageDutch();
 		if (trimmedCountryCode.equals("us"))
-			return "Verenigde Staten";
+			return dutch ? "Verenigde Staten" : "United States";
 		if (trimmedCountryCode.equals("sa"))
-			return "Zuid Afrika";
+			return dutch ? "Zuid Afrika" : "South Africa";
 		if (trimmedCountryCode.equals("de"))
-			return "Duitsland";
+			return dutch ? "Duitsland" : "Germany";
 		if (trimmedCountryCode.equals("fr"))
-			return "Frankrijk";
+			return dutch ? "Frankrijk" : "France";
 		if (trimmedCountryCode.equals("nz"))
-			return "Nieuw Zeeland";
+			return dutch ? "Nieuw Zeeland" : "New Sealand";
 		if (trimmedCountryCode.equals("es"))
-			return "Spanje";
+			return dutch ? "Spanje" : "Spain";
 		Log.e(KompasroosBaseActivity.LOG_TAG, "Unknown country code: "
 				+ countryCode);
 		return countryCode;

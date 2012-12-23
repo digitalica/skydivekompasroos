@@ -1,5 +1,7 @@
 package nl.digitalica.skydivekompasroos;
 
+import java.util.Locale;
+
 public class Calculation {
 
 	// conversion
@@ -147,6 +149,19 @@ public class Calculation {
 		int minArea = Math
 				.max(minAreaBasedOnCategory, minAreaBasedOnExitWeight);
 		return minArea;
+	}
+
+	/**
+	 * Return true if the language for locale is dutch
+	 * 
+	 * @return
+	 */
+	static public boolean isLanguageDutch() {
+		String language = Locale.getDefault().getLanguage();
+		if (language.toUpperCase().startsWith("NL"))
+			return true;
+		else
+			return false;
 	}
 
 }
