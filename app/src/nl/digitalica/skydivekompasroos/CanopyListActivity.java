@@ -1,6 +1,7 @@
 package nl.digitalica.skydivekompasroos;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import android.app.AlertDialog;
@@ -37,8 +38,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	List<Canopy> canopyList;
 	LinearLayout canopyTable;
 
-	SortingEnum sortingMethod;
-	FilterEnum filterCat;
+	SortingEnum currentSortingMethod;
+	FilterEnum currentFilterType;
 
 	final static int SORT_DIALOG_ID = 1;
 	final static int FILTER_DIALOG_ID = 2;
@@ -60,7 +61,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		canopyList = Canopy.getAllCanopiesInList(CanopyListActivity.this);
 
 		// if sorting and filter were save over 1 day ago, clear them
-		int sortingFilterTime = prefs.getInt(SETTING_SORTING_FILTER_TIME, 0);
+		int sortingFilterTime = prefs.getInt(SETTING_SORTING_FILTER_DAYNR, 0);
 		int currentTime = (int) (System.currentTimeMillis() / MILLISINDAY);
 		if (currentTime - sortingFilterTime > 7) {
 			Editor e = prefs.edit();
@@ -72,15 +73,15 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// get the saved sorting Method
 		int sortingMethodOrdinal = prefs.getInt(SETTING_SORTING,
 				SortingEnum.SORTBYNAME.ordinal());
-		this.sortingMethod = SortingEnum.values()[sortingMethodOrdinal];
+		this.currentSortingMethod = SortingEnum.values()[sortingMethodOrdinal];
 
 		// get the saved filter cat
 		int filterCatdOrdinal = prefs.getInt(SETTING_FILTER_TYPE,
 				FilterEnum.COMMONAROUNDMAX.ordinal());
-		this.filterCat = FilterEnum.values()[filterCatdOrdinal];
+		this.currentFilterType = FilterEnum.values()[filterCatdOrdinal];
 
 		// TODO: store sorting so it is persistent (?)
-		fillCanopyTable(canopyTable, sortingMethod, filterCat);
+		fillCanopyTable(canopyTable, currentSortingMethod, currentFilterType);
 
 		// add on click handler to share button
 		ImageButton shareResultButton = (ImageButton) findViewById(R.id.buttonShareResult);
@@ -120,28 +121,27 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	private void fillCanopyTable(LinearLayout canopyTable,
 			SortingEnum sortingMethod, FilterEnum filterType) {
 		// sort the canopyList on type, name, manufacturer
+		Comparator<Canopy> canopyComparator = null;
 		switch (sortingMethod) {
 		case SORTBYNAME:
-			Collections.sort(canopyList,
-					new Canopy.ComparatorByNameManufacturer());
-			sortingMethod = SortingEnum.SORTBYNAME;
+			canopyComparator = new Canopy.ComparatorByNameManufacturer();
 			break;
 		case SORTBYCATEGORY:
-			Collections.sort(canopyList, new Canopy.ComparatorByCategoryName());
-			sortingMethod = SortingEnum.SORTBYCATEGORY;
+			canopyComparator = new Canopy.ComparatorByCategoryName();
 			break;
 		case SORTBYMANUFACTURER:
-			Collections.sort(canopyList,
-					new Canopy.ComparatorByManufacturerCategoryName());
-			sortingMethod = SortingEnum.SORTBYMANUFACTURER;
+			canopyComparator = new Canopy.ComparatorByManufacturerCategoryName();
 			break;
 		}
-		this.sortingMethod = sortingMethod;
+		Collections.sort(canopyList, canopyComparator);
+
+		this.currentSortingMethod = sortingMethod;
 		savePreference(SETTING_SORTING, sortingMethod.ordinal());
-		this.filterCat = filterType;
+		this.currentFilterType = filterType;
 		savePreference(SETTING_FILTER_TYPE, filterType.ordinal());
-		savePreference(SETTING_SORTING_FILTER_TIME,
+		savePreference(SETTING_SORTING_FILTER_DAYNR,
 				(int) (System.currentTimeMillis() / MILLISINDAY));
+		canopyTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
 		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
 		skydiveKompasroosResultNotAccepted = new StringBuilder();
@@ -365,7 +365,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// TODO: add more details like cells and remarks here
 		TextView tvCanopyDetails = (TextView) canopyListRow
 				.findViewById(R.id.textViewCanopyListRowDetails);
-		if (this.sortingMethod != SortingEnum.SORTBYMANUFACTURER)
+		if (this.currentSortingMethod != SortingEnum.SORTBYMANUFACTURER)
 			tvCanopyDetails.setText(theCanopy.manufacturer);
 		else
 			tvCanopyDetails.setText(theCanopy
@@ -442,21 +442,22 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				});
 		byName.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME, filterCat);
+				fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME,
+						currentFilterType);
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
 		byManufacturer.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				fillCanopyTable(canopyTable, SortingEnum.SORTBYMANUFACTURER,
-						filterCat);
+						currentFilterType);
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
 		byCategory.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				fillCanopyTable(canopyTable, SortingEnum.SORTBYCATEGORY,
-						filterCat);
+						currentFilterType);
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
@@ -470,7 +471,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		// check the correct radio button in group
 		RadioButton radioToCheck = null;
-		switch (filterCat) {
+		switch (currentFilterType) {
 		case ONLYCOMMON:
 			radioToCheck = (RadioButton) layout
 					.findViewById(R.id.radioButtonCommon);
@@ -507,16 +508,17 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				int checkButtonId = group.getCheckedRadioButtonId();
 				switch (checkButtonId) {
 				case R.id.radioButtonCommon:
-					filterCat = FilterEnum.ONLYCOMMON;
+					currentFilterType = FilterEnum.ONLYCOMMON;
 					break;
 				case R.id.radioButtonCommonAround:
-					filterCat = FilterEnum.COMMONAROUNDMAX;
+					currentFilterType = FilterEnum.COMMONAROUNDMAX;
 					break;
 				case R.id.radioButtonAll:
-					filterCat = FilterEnum.ALL;
+					currentFilterType = FilterEnum.ALL;
 					break;
 				}
-				fillCanopyTable(canopyTable, sortingMethod, filterCat);
+				fillCanopyTable(canopyTable, currentSortingMethod,
+						currentFilterType);
 				CanopyListActivity.this.removeDialog(FILTER_DIALOG_ID);
 			}
 		});

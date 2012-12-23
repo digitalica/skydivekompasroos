@@ -53,7 +53,7 @@ public class KompasroosBaseActivity extends Activity {
 
 	static final String SETTING_SORTING = "Sorting";
 	static final String SETTING_FILTER_TYPE = "FilterType";
-	static final String SETTING_SORTING_FILTER_TIME = "SortingFilterTime";
+	static final String SETTING_SORTING_FILTER_DAYNR = "SortingFilterTime";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
