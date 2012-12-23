@@ -27,6 +27,10 @@ public class Manufacturer {
 		this.remarks = mRemarks;
 	}
 
+	public Manufacturer(String mName, String mCountryCode) {
+		this(mName, mCountryCode, null, null);
+	}
+
 	/***
 	 * Returns a hash containing all manufacturers by name
 	 * 
@@ -111,6 +115,10 @@ public class Manufacturer {
 			return "Duitsland";
 		if (trimmedCountryCode.equals("fr"))
 			return "Frankrijk";
+		if (trimmedCountryCode.equals("nz"))
+			return "Nieuw Zeeland";
+		if (trimmedCountryCode.equals("es"))
+			return "Spanje";
 		Log.e(KompasroosBaseActivity.LOG_TAG, "Unknown country code: "
 				+ countryCode);
 		return countryCode;

@@ -68,10 +68,20 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 		HashMap<String, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
 		HashMap<String, String> countryCodes = new HashMap<String, String>();
-		for (Manufacturer m : manufacturers.values())
+		for (Manufacturer m : manufacturers.values()) {
 			// make sure country (if set) can be translated to full name
-			if (m.countryCode != null)
-				assertFalse("countrycode not translated " + m.countryCode,
-						m.countryCode.equals(m.countryFullName()));
+			String[] countryCodeList = m.countryCode.split(",");
+			for (String countryCode : countryCodeList) {
+				String trimmedCountryCode = countryCode.trim();
+				if (!countryCodes.containsKey(trimmedCountryCode)) {
+					Manufacturer testManufacturer = new Manufacturer("test",
+							trimmedCountryCode);
+					assertFalse("countrycode not translated "
+							+ testManufacturer.countryCode,
+							testManufacturer.countryCode
+									.equals(testManufacturer.countryFullName()));
+				}
+			}
+		}
 	}
 }
