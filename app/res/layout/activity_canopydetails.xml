@@ -3,18 +3,18 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@android:color/black"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/screen_padding_bottom"
-    android:paddingLeft="@dimen/screen_padding_left"
-    android:paddingRight="@dimen/screen_padding_right"
-    android:paddingTop="@dimen/screen_padding_top" >
+    android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/tablelayout_filterheader"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-        
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/screen_padding_bottom"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:paddingTop="@dimen/screen_padding_top" >
+
         <TextView
             android:id="@+id/textview_dummy"
             android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/bodyText" >
         </TextView>
-        
+
         <ImageButton
             android:id="@+id/buttonShareResult"
             android:layout_width="wrap_content"
@@ -37,7 +37,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/SuzanBackGroundBlue" >
+        android:background="@color/SuzanBackGroundBlue"
+        android:paddingBottom="@dimen/screen_padding_bottom"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:paddingTop="@dimen/screen_padding_top" >
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
