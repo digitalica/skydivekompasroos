@@ -62,14 +62,13 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		String advice = "";
 		switch (acceptability) {
 		case Canopy.ACCEPTABLE:
-			advice = String.format(
-					"Dit type is geschikt, mits oppervlakte minimaal %d sqft",
+			advice = String.format(getString(R.string.canopyAdviseAcceptable),
 					currentMinArea);
 			break;
 		case Canopy.NEEDEDSIZENOTAVAILABLE:
-			advice = String
-					.format("Ongeschikt: categorie mag, maar benodigde maat (%d sqft) niet beschikbaar.",
-							currentMinArea);
+			advice = String.format(
+					getString(R.string.canopyAdviseNeededSizeNotAvailable),
+					currentMinArea);
 			break;
 		case Canopy.CATEGORYTOOHIGH:
 			int extraNeededJumsThis12Months = Calculation.MINIMUMJUMPSLAST12MONTHS[currentCanopy.category]
@@ -79,7 +78,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 			int minimalExtraNeededJumps = Math.max(extraNeededJumsThis12Months,
 					extraNeededTotalJumps);
 			advice = String
-					.format("Ongeschikt: nog minimaal %d sprongen extra ervaring nodig.",
+					.format(getString(R.string.canopyAdviseCategoryTooHigh),
 							minimalExtraNeededJumps);
 			break;
 		}

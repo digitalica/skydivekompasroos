@@ -82,6 +82,9 @@
     <string name="filterTypeAll">Alle %1$d parachutes getoond</string>
     <string name="filterTypeAround">Gangbaar, rond cat %1$d</string>
     <string name="filterTypeCommon">Alle gangbare parachutes</string>
+    <string name="canopyAdviseAcceptable">Dit type is geschikt, mits oppervlakte minimaal %1$d sqft</string>
+    <string name="canopyAdviseNeededSizeNotAvailable">Ongeschikt: categorie mag, maar benodigde maat (%1$d sqft) niet beschikbaar.</string>
+    <string name="canopyAdviseCategoryTooHigh">Ongeschikt: nog minimaal %1$d sprongen extra ervaring nodig.</string>
 
     <string-array name="canopyCategories">
         <item>Unknown</item>
