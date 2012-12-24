@@ -59,6 +59,20 @@ public class Canopy {
 		this.remarks = canopyRemarks;
 		this.remarks_nl = canopyRemarks_nl;
 		this.isSpecialCatchAllCanopy = isSpecialCatchAllCanopy;
+
+		// to be able to have the special catch all canopy in
+		// both languages, we have the strings hard coded here,
+		// and not in the XML. Using strings doesn't work as
+		// we have no context here.
+		if (isSpecialCatchAllCanopy == 1) {
+			if (Calculation.isLanguageDutch()) {
+				this.name = "Elk ander type";
+				this.manufacturer = "Elke andere fabrikant";
+			} else {
+				this.name = "Every other type";
+				this.manufacturer = "Every other manufacturer";
+			}
+		}
 	}
 
 	/***

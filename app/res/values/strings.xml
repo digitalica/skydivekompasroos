@@ -86,7 +86,7 @@
     <string name="canopyAdviseAcceptable">This type valid, as long as the area is minimal %1$d sqft</string>
     <string name="canopyAdviseNeededSizeNotAvailable">NOT valid: category is fine, but required size (%1$d sqft) not available.</string>
     <string name="canopyAdviseCategoryTooHigh">NOT valid: you need at least %1$d more jumps experience.</string>
-    
+
     <string-array name="canopyCategories">
         <item>Unknown</item>
         <item>wingload maximum 1,1; minimal size 170 sqft</item>

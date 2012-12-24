@@ -1005,10 +1005,10 @@
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND" />
     <canopy
-        name="Elk ander type"
+        name="SPECIAL_CATCH_ALL_NAME_WILL_BE_REPLACED"
         category="6"
         commontype="1"
         isspecialcatchallcanopy="1"
-        manufacturer="Elke andere fabrikant" />
+        manufacturer="SPECIAL_CATCH_ALL_MANUFACTURER_WILL_BE_REPLACED" />
 
 </canopies>
