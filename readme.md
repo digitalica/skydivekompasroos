@@ -11,13 +11,21 @@ It is based on the dutch 'Kompasroos' system.
 Changelog and New Features
 **************************
 
-Version 0.4 (13 Dec 2012)
+Version 0.5 (24 dec 2012)
+
+- text improvements
+- added English translation
+- layout tweaks
+- fixes in canopy datase
+
+Version 0.41 (13 Dec 2012)
 
 - filter added in canopy list screen
 - advice added in canopy details screen
 - some layout changes
 - colors added and numbers changed in wingload table
 - canopy database improvements
+- added links to dropzone.com
 
 Version 0.3 (30 Nov 2012)
 
