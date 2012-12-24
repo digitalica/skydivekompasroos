@@ -54,7 +54,7 @@
     <string name="shareresultheaderformat">Your experience (%1$d jumps, of which %2$d in the last 12 months) and exit weight (%3$d kg) make canopies from category %4$d and a minimum area of %5$d sqft valid for you.\n\nSee the list below:\n\n</string>
     <string name="shareresultneededsizenotavailable">Canopies mentioned below would be valid, but are not available in the needed size:</string>
     <string name="shareresultnotaccepted">Canopies below are NOT valid, the require more experience:</string>
-    <string name="shareresultfooter">\n\n\nSamengesteld door Skydive Kompasroos Android app van Digitalica\nhttps://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos</string>
+    <string name="shareresultfooter">\n\n\nSent to you from the Skydive Kompasroos Android app by Digitalica\nhttps://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos</string>
     <string name="reset_name_own">You</string>
     <string name="reset_name_friend">A friend</string>
     <string name="reset_name_beginner">A beginner</string>
@@ -69,6 +69,7 @@
     <string name="detailsCells">Cells:</string>
     <string name="detailsDropzoneId">Dropzone.com:</string>
     <string name="detailsSizes">Sizes:</string>
+    <string name="detailsSizesRange">%1$s to %2$s sqft</string>
     <string name="detailsExperience">Needed experience:</string>
     <string name="detailsProduction">In production:</string>
     <string name="detailsAdditionalInformationWelcome">More information is welcome, see about page for contact details.</string>

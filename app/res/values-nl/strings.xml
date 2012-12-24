@@ -68,6 +68,7 @@
     <string name="detailsCells">Cellen:</string>
     <string name="detailsDropzoneId">Dropzone.com:</string>
     <string name="detailsSizes">Maten:</string>
+    <string name="detailsSizesRange">%1$s tot en met %2$s sqft</string>
     <string name="detailsExperience">Ervaring nodig:</string>
     <string name="detailsProduction">In productie:</string>
     <string name="detailsAdditionalInformationWelcome">Aanvullingen op bovenstaande gegevens zijn welkom, zie about pagina voor contactgegevens.</string>

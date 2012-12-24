@@ -77,9 +77,9 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 					- currentTotalJumps;
 			int minimalExtraNeededJumps = Math.max(extraNeededJumsThis12Months,
 					extraNeededTotalJumps);
-			advice = String
-					.format(getString(R.string.canopyAdviseCategoryTooHigh),
-							minimalExtraNeededJumps);
+			advice = String.format(
+					getString(R.string.canopyAdviseCategoryTooHigh),
+					minimalExtraNeededJumps);
 			break;
 		}
 		tvAdvise.setText(advice);
@@ -92,8 +92,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 			if (currentCanopy.maxSize != null
 					&& !currentCanopy.maxSize.equals("")) {
 				// TODO: change to format string in strings for translation
-				sizes = currentCanopy.minSize + " tot en met "
-						+ currentCanopy.maxSize + " sqft";
+				sizes = String.format(getString(R.string.detailsSizesRange),
+						currentCanopy.minSize, currentCanopy.maxSize);
 			}
 		tvSizes.setText(sizes);
 		tvUrl.setText(url);
