@@ -70,6 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsCategory"
                         android:textSize="@dimen/bodyText" />
 
@@ -77,6 +78,7 @@
                         android:id="@+id/textViewCategoryText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -90,6 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsmanufacturer"
                         android:textSize="@dimen/bodyText" />
 
@@ -97,6 +100,7 @@
                         android:id="@+id/textViewManufacturerText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -110,6 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsmanufacturercountry"
                         android:textSize="@dimen/bodyText" />
 
@@ -117,6 +122,7 @@
                         android:id="@+id/textViewManufacturerCountryText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -130,6 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsUrl"
                         android:textSize="@dimen/bodyText" />
 
@@ -138,6 +145,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:autoLink="web"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -151,6 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsAdvise"
                         android:textSize="@dimen/bodyText" />
 
@@ -158,6 +167,7 @@
                         android:id="@+id/textViewAdviseText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -171,6 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsProduction"
                         android:textSize="@dimen/bodyText" />
 
@@ -178,6 +189,7 @@
                         android:id="@+id/textViewProductionText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -192,6 +204,7 @@
                         android:layout_height="wrap_content"
                         android:maxLines="100"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsExperience"
                         android:textSize="@dimen/bodyText" />
 
@@ -199,6 +212,7 @@
                         android:id="@+id/textViewExperienceText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -212,6 +226,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsCells"
                         android:textSize="@dimen/bodyText" />
 
@@ -219,6 +234,7 @@
                         android:id="@+id/textViewCellsText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -232,6 +248,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsSizes"
                         android:textSize="@dimen/bodyText" />
 
@@ -239,6 +256,7 @@
                         android:id="@+id/textViewSizesText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -252,6 +270,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsDropzoneId"
                         android:textSize="@dimen/bodyText" />
 
@@ -260,6 +279,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:autoLink="web"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
@@ -273,6 +293,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingRight="@dimen/table_padding_aftercolon"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/detailsRemarks"
                         android:textSize="@dimen/bodyText" />
 
@@ -280,6 +301,7 @@
                         android:id="@+id/textViewRemarksText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/screen_padding_top"
                         android:text="@string/to_be_replaced"
                         android:textSize="@dimen/bodyText" />
                 </TableRow>
