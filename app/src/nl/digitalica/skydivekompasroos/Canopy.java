@@ -33,7 +33,8 @@ public class Canopy {
 	public String maxSize;
 	public String firstYearOfProduction;
 	public String lastYearOfProduction;
-	public String remarks;
+	private String remarks;
+	private String remarks_nl;
 	// TODO: the below should be a boolean probably...
 	public int isSpecialCatchAllCanopy = 0;
 
@@ -43,7 +44,7 @@ public class Canopy {
 			String canopyMinSize, String canopyMaxSize,
 			String canopyFirstYearOfProduction,
 			String canopyLastYearOfProduction, String canopyRemarks,
-			int isSpecialCatchAllCanopy) {
+			String canopyRemarks_nl, int isSpecialCatchAllCanopy) {
 		this.category = canopyCategory;
 		this.manufacturer = canopyManufacturer;
 		this.name = canopyName;
@@ -56,6 +57,7 @@ public class Canopy {
 		this.firstYearOfProduction = canopyFirstYearOfProduction;
 		this.lastYearOfProduction = canopyLastYearOfProduction;
 		this.remarks = canopyRemarks;
+		this.remarks_nl = canopyRemarks_nl;
 		this.isSpecialCatchAllCanopy = isSpecialCatchAllCanopy;
 	}
 
@@ -68,7 +70,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName, String size) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				null, size, size, null, null, null, 0);
+				null, size, size, null, null, null, null, 0);
 	}
 
 	/***
@@ -80,7 +82,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				null, DEFAULTSIZE, DEFAULTSIZE, null, null, null, 0);
+				null, DEFAULTSIZE, DEFAULTSIZE, null, null, null, null, 0);
 	}
 
 	/***
@@ -160,6 +162,8 @@ public class Canopy {
 							.getAttributeValue(null, "lastyearofproduction");
 					String canopyRemarks = canopiesParser.getAttributeValue(
 							null, "remarks");
+					String canopyRemarks_nl = canopiesParser.getAttributeValue(
+							null, "remarks_nl");
 					String isSpecialCatchAllCanopyString = canopiesParser
 							.getAttributeValue(null, "isspecialcatchallcanopy");
 					int isSpecialCatchAllCanopy = 0;
@@ -173,7 +177,7 @@ public class Canopy {
 							canopyMinSize, canopyMaxSize,
 							canopyFirstyearOfProduction,
 							canopyLastyearOfProduction, canopyRemarks,
-							isSpecialCatchAllCanopy);
+							canopyRemarks_nl, isSpecialCatchAllCanopy);
 					if (key == null)
 						canopyList.add(canopy);
 					else if (canopy.key().equals(key)) {
@@ -334,4 +338,15 @@ public class Canopy {
 		}
 		return detailsText;
 	}
+
+	/***
+	 * Return remarks in current locale
+	 * 
+	 * @return
+	 */
+	public String remarks() {
+		boolean dutch = Calculation.isLanguageDutch();
+		return dutch ? this.remarks_nl : this.remarks;
+	}
+
 }

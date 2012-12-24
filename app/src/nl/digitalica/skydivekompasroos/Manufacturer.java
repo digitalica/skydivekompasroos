@@ -18,18 +18,20 @@ public class Manufacturer {
 	public String name;
 	public String countryCode;
 	public String url;
-	public String remarks;
+	private String remarks;
+	private String remarks_nl;
 
 	public Manufacturer(String mName, String mCountryCode, String mUrl,
-			String mRemarks) {
+			String mRemarks, String mRemarks_nl) {
 		this.name = mName;
 		this.countryCode = mCountryCode;
 		this.url = mUrl;
 		this.remarks = mRemarks;
+		this.remarks_nl = mRemarks_nl;
 	}
 
 	public Manufacturer(String mName, String mCountryCode) {
-		this(mName, mCountryCode, null, null);
+		this(mName, mCountryCode, null, null, null);
 	}
 
 	/***
@@ -54,11 +56,14 @@ public class Manufacturer {
 							.getAttributeValue(null, "url");
 					String manufacturerRemarks = manufacturersParser
 							.getAttributeValue(null, "remarks");
+					String manufacturerRemarks_nl = manufacturersParser
+							.getAttributeValue(null, "remarks_nl");
 					String manufacturerCountryCode = manufacturersParser
 							.getAttributeValue(null, "countrycode");
 					Manufacturer manufacturer = new Manufacturer(
 							manufacturerName, manufacturerCountryCode,
-							manufacturerUrl, manufacturerRemarks);
+							manufacturerUrl, manufacturerRemarks,
+							manufacturerRemarks_nl);
 					manufacturerHashMap.put(manufacturer.name, manufacturer);
 				}
 
@@ -79,8 +84,8 @@ public class Manufacturer {
 
 	/***
 	 * Return the full name of the country. Note we allow multipe countries
-	 * codes and will translate to multiple countries this is for Icarus (us and
-	 * fr)
+	 * codes and will translate to multiple countries this is for Icarus (nz and
+	 * es)
 	 * 
 	 * @return
 	 */
@@ -98,7 +103,7 @@ public class Manufacturer {
 	}
 
 	/***
-	 * Return the full name of a single country
+	 * Return the full name of a single country, in the current language
 	 * 
 	 * TODO: make sure we return different language if needed (use string
 	 * array?)
@@ -126,4 +131,13 @@ public class Manufacturer {
 		return countryCode;
 	}
 
+	/***
+	 * Return remarks in current locale
+	 * 
+	 * @return
+	 */
+	public String remarks() {
+		boolean dutch = Calculation.isLanguageDutch();
+		return dutch ? this.remarks_nl : this.remarks;
+	}
 }

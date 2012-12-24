@@ -638,7 +638,8 @@
         manufacturer="Flight Concepts"
         maxsize="230"
         minsize="90"
-        remarks="Er bestaat ook een &apos;Rage&apos; van Paratec"
+        remarks="There is a &apos;Rage&apos; from Paratec too"
+        remarks_nl="Er bestaat ook een &apos;Rage&apos; van Paratec"
         url="http://flightconceptsint.com/zp-main/rage" />
     <canopy
         name="Pro serie"
@@ -735,6 +736,7 @@
         maxsize="200"
         minsize="125"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://flightconceptsint.com/zp-main/express" />
     <canopy
         name="Prodigy"
@@ -745,6 +747,7 @@
         maxsize="250"
         minsize="150"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://flightconceptsint.com/zp-main/prodigy" />
     <canopy
         name="Sensei"
@@ -758,6 +761,7 @@
         maxsize="121"
         minsize="71"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.flyaerodyne.com/sensei.html" />
     <canopy
         name="Volt"
@@ -768,6 +772,7 @@
         maxsize="215"
         minsize="125"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.parachutesystems.co.za/exe_square_parachute" />
     <canopy
         name="V-Max"
@@ -777,6 +782,7 @@
         dropzoneid="700"
         manufacturer="Chute Shop"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.parachutesystems.co.za/max_crossed" />
     <canopy
         name="Crossfire 2"
@@ -790,6 +796,7 @@
         planform="21.6"
         planformcells="8"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=9&amp;Itemid=8" />
     <canopy
         name="Samurai"
@@ -800,7 +807,8 @@
         manufacturer="Big-air sportz"
         maxsize="170"
         minsize="95"
-        remarks="CATEGORY UNKNOWN" />
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND" />
     <canopy
         name="Extreme VX"
         category="6"
@@ -811,6 +819,7 @@
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=12&amp;Itemid=6" />
     <canopy
         name="Extreme FX"
@@ -822,6 +831,7 @@
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=11&amp;Itemid=7" />
     <canopy
         name="Neos"
@@ -832,6 +842,7 @@
         maxsize="119"
         minsize="59"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=11&amp;Itemid=7" />
     <canopy
         name="Equinox"
@@ -843,6 +854,7 @@
         maxsize="229"
         minsize="189"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=20&amp;Itemid=19" />
     <canopy
         name="Prime"
@@ -853,6 +865,7 @@
         maxsize="280"
         minsize="200"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/19/prime.html" />
     <canopy
         name="Springo NG"
@@ -865,6 +878,7 @@
         planform="28.0"
         planformcells="8"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/22/springo-ng.html" />
     <canopy
         name="Instinct"
@@ -875,6 +889,7 @@
         maxsize="110"
         minsize="80"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/23/instinct.html" />
     <canopy
         name="Element"
@@ -885,6 +900,7 @@
         maxsize="260"
         minsize="220"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.paratec.de/produkte-fallschirme/hauptschirme/element/" />
     <canopy
         name="NRG"
@@ -893,6 +909,7 @@
         commontype="0"
         manufacturer="Paratec"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.paratec.de/produkte-fallschirme/hauptschirme/element/" />
     <canopy
         name="Rage"
@@ -902,7 +919,8 @@
         manufacturer="Paratec"
         maxsize="107"
         minsize="86"
-        remarks="CATEGORY UNKNOWN, er bestaat ook een Rage van Flight Concepts"
+        remarks="CATEGORY UNKNOWN, there is a Rage from Flight Concepts too"
+        remarks_nl="CATEGORIE ONBEKEND, er bestaat ook een Rage van Flight Concepts"
         url="http://www.paratec.de/produkte-fallschirme/hauptschirme/rage/" />
     <canopy
         name="Velocity"
@@ -916,6 +934,7 @@
         maxsize="120"
         minsize="75"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.performancedesigns.com/products.asp?product=ve" />
     <canopy
         name="Comp Velocity"
@@ -929,6 +948,7 @@
         maxsize="111"
         minsize="71"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.performancedesigns.com/products.asp?product=ve" />
     <canopy
         name="Xaos-27"
@@ -940,6 +960,7 @@
         maxsize="118"
         minsize="58"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.precision.aero/xaos-27.htm" />
     <canopy
         name="Xaos-21"
@@ -951,6 +972,7 @@
         maxsize="135"
         minsize="68"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.precision.aero/xaos-21.htm" />
     <canopy
         name="Nitron"
@@ -962,6 +984,7 @@
         maxsize="170"
         minsize="78"
         remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.precision.aero/xaos-21.htm" />
     <canopy
         name="Alhpa"
@@ -970,7 +993,8 @@
         commontype="0"
         dropzoneid="34"
         manufacturer="Atair Aerodynamics"
-        remarks="CATEGORY UNKNOWN" />
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND" />
     <canopy
         name="Space"
         category="6"
@@ -978,7 +1002,8 @@
         commontype="0"
         dropzoneid="33"
         manufacturer="Atair Aerodynamics"
-        remarks="CATEGORY UNKNOWN" />
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND" />
     <canopy
         name="Elk ander type"
         category="6"

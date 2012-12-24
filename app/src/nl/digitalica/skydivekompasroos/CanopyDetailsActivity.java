@@ -102,12 +102,14 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvManufacturerCountry.setText(manufacturer.countryFullName());
 		tvDropzoneId.setText(currentCanopy.dropZoneUrl());
 		StringBuilder remarks = new StringBuilder();
-		if (currentCanopy.remarks != null && !currentCanopy.remarks.equals("")) {
-			remarks.append(currentCanopy.remarks);
+		if (currentCanopy.remarks() != null
+				&& !currentCanopy.remarks().equals("")) {
+			remarks.append(currentCanopy.remarks());
 			remarks.append(System.getProperty("line.separator"));
 		}
-		if (manufacturer.remarks != null && !manufacturer.remarks.equals("")) {
-			remarks.append(manufacturer.remarks);
+		if (manufacturer.remarks() != null
+				&& !manufacturer.remarks().equals("")) {
+			remarks.append(manufacturer.remarks());
 			remarks.append(System.getProperty("line.separator"));
 		}
 		if (currentCanopy.addtionalInformationNeeded()) {
@@ -127,7 +129,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 						+ currentCanopy.lastYearOfProduction;
 		}
 		tvProduction.setText(geproduceerd);
-		
+
 		// add on click handler to share button
 		ImageButton shareResultButton = (ImageButton) findViewById(R.id.buttonShareResult);
 		shareResultButton.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +138,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 			}
 
 		});
-		
+
 	}
 
 	@Override

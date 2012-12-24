@@ -21,6 +21,7 @@
         name="Chute Shop"
         countrycode="sa"
         remarks="Parachute Systems heette voorheen Chute Shop."
+        remarks_nl="Parachute Systems was called Chute Shop originally."
         url="http://www.parachutesystems.co.za/" />
     <manufacturer
         name="Firebird"
@@ -42,6 +43,7 @@
         name="NAA"
         countrycode="us"
         remarks="NAA is North American Aerodynamics, Inc."
+        remarks_nl="NAA is North American Aerodynamics, Inc."
         url="http://www.naaero.com/" />
     <manufacturer
         name="Parachutes de France"
@@ -58,7 +60,8 @@
     <manufacturer
         name="PISA"
         countrycode="sa"
-        remarks="PISA bestaat niet meer"
+        remarks="PISA is no longer active"
+        remarks_nl="PISA is niet meer actief"
         url="http://www.pisa.co.za/" />
     <manufacturer
         name="Precision Aerodynamics"
