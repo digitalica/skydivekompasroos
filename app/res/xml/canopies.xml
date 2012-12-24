@@ -987,7 +987,7 @@
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.precision.aero/xaos-21.htm" />
     <canopy
-        name="Alhpa"
+        name="Alpha"
         category="6"
         cells="9"
         commontype="0"
