@@ -32,7 +32,7 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 				.getManufacturerHash(getContext());
 
 		Log.v(TAG,
-				",cat,name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks manufacturer, remarks canopy ,url manufacturer, url canopy");
+				",cat,name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks manufacturer,remarks canopy,url manufacturer, url canopy,remarks manufacturer nl, remarks canopy nl");
 
 		for (Canopy c : canopies) {
 			Manufacturer m = manufacturers.get(c.manufacturer);
@@ -41,7 +41,7 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 			line.append(Integer.toString(c.category) + SEPARATOR);
 			line.append(c.name + SEPARATOR);
 			line.append(c.manufacturer + SEPARATOR);
-			if (m != null) // add with quotes for multipe countries
+			if (m != null) // add with quotes for multiple countries
 				line.append(QUOTE + m.countryFullName() + QUOTE + SEPARATOR);
 			else
 				line.append(SEPARATOR);
@@ -53,18 +53,29 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 			line.append((c.lastYearOfProduction == null ? ""
 					: c.lastYearOfProduction) + SEPARATOR);
 			line.append((c.commontype ? "yes" : "no") + SEPARATOR);
-			if (m != null) // add with quotes for multipe countries
-				line.append((m.remarks == null ? "" : QUOTE + m.remarks + QUOTE)
+			if (m != null) // add with quotes for complicated remarks
+				line.append((m.remarks(false) == null ? "" : QUOTE
+						+ m.remarks(false) + QUOTE)
 						+ SEPARATOR);
 			else
 				line.append(SEPARATOR);
-			line.append((c.remarks == null ? "" : QUOTE + c.remarks + QUOTE)
+			line.append((c.remarks(false) == null ? "" : QUOTE
+					+ c.remarks(false) + QUOTE)
 					+ SEPARATOR);
-			if (m != null) // add with quotes for multipe countries
+			if (m != null) // add with quotes
 				line.append((m.url == null ? "" : m.url) + SEPARATOR);
 			else
 				line.append(SEPARATOR);
 			line.append((c.url == null ? "" : c.url) + SEPARATOR);
+			if (m != null) // add with quotes for complicated remarks
+				line.append((m.remarks(true) == null ? "" : QUOTE
+						+ m.remarks(true) + QUOTE)
+						+ SEPARATOR);
+			else
+				line.append(SEPARATOR);
+			line.append((c.remarks(true) == null ? "" : QUOTE + c.remarks(true)
+					+ QUOTE)
+					+ SEPARATOR);
 			Log.v(TAG, line.toString());
 		}
 

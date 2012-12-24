@@ -346,7 +346,17 @@ public class Canopy {
 	 */
 	public String remarks() {
 		boolean dutch = Calculation.isLanguageDutch();
-		return dutch ? this.remarks_nl : this.remarks;
+		return remarks(dutch);
+	}
+
+	/***
+	 * Return remarks in Dutch or English
+	 * 
+	 * @param inDutch
+	 * @return
+	 */
+	public String remarks(boolean inDutch) {
+		return inDutch ? this.remarks_nl : this.remarks;
 	}
 
 }

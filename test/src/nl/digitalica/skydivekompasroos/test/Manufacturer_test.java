@@ -2,6 +2,7 @@ package nl.digitalica.skydivekompasroos.test;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -35,18 +36,32 @@ public class Manufacturer_test extends AndroidTestCase {
 	}
 
 	private String assertFullNameForCountryCode(String code) {
-		Manufacturer m = new Manufacturer("testManufacturer", code, null, null);
+		Locale locale;
+		Manufacturer m = new Manufacturer("testManufacturer", code, null, null,
+				null);
 		String countryFullName = m.countryFullName();
 		assertNotNull(countryFullName);
 		assertFalse("Full name equals code for " + code,
 				countryFullName.equals(code));
 		assertFalse("Full name empty for " + code, countryFullName.equals(""));
+
+		Locale orgLocale = Locale.getDefault();
+		locale = new Locale("us");
+		Locale.setDefault(locale);
+		String english = m.countryFullName();
+		locale = new Locale("nl");
+		Locale.setDefault(locale);
+		String dutch = m.countryFullName();
+		assertFalse("Dutch & English for " + code + " are equal",
+				dutch.equals(english));
+		Locale.setDefault(orgLocale);
+
 		return countryFullName;
 	}
 
 	public void testCountryFullNameForNull() {
 		Manufacturer testManufacturer = new Manufacturer("testManufacturer",
-				null, null, null);
+				null, null, null, null);
 		assertNull(testManufacturer.countryFullName());
 	}
 

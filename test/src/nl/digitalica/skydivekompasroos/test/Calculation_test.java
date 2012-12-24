@@ -1,5 +1,7 @@
 package nl.digitalica.skydivekompasroos.test;
 
+import java.util.Locale;
+
 import nl.digitalica.skydivekompasroos.Calculation;
 import junit.framework.TestCase;
 
@@ -97,6 +99,29 @@ public class Calculation_test extends TestCase {
 	}
 	
 	/***
+	 * Check the isLanguageDutch method
+	 */
+	public void testIsLanguageDutch() {
+		Locale locale;
+		// Netherlands, IS Dutch
+		locale= new Locale("nl"); 
+		Locale.setDefault(locale);
+		assertTrue("Netherlands should not be dutch",Calculation.isLanguageDutch());
+		// US, NOT Dutch
+		locale= new Locale("us"); 
+		Locale.setDefault(locale);
+		assertFalse("United States should not be dutch",Calculation.isLanguageDutch());
+		// UK, NOT Dutch
+		locale= new Locale("gb"); 
+		Locale.setDefault(locale);
+		assertFalse("United Kingdom should not be dutch",Calculation.isLanguageDutch());
+		// Sri Lanka, NOT Dutch
+		locale= new Locale("si", "LK"); 
+		Locale.setDefault(locale);
+		assertFalse("Sri Lanka should not be dutch",Calculation.isLanguageDutch());
+	}
+	
+	/***
 	 * Helper method to check the min area based on the wingload
 	 * 
 	 * @param maxWingLoad
@@ -112,5 +137,8 @@ public class Calculation_test extends TestCase {
 
 		assertEquals(message, minArea, Calculation.minArea(category, HEAVY));
 	}
+	
+	
+	
 
 }
