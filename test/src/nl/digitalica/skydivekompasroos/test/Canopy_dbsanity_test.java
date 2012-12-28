@@ -50,7 +50,7 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 			assertFalse("duplicate key: " + key, canopyKeys.containsKey(key));
 			canopyKeys.put(key, key);
 			// check manufacturer has entry in manufactures table
-			if (c.isSpecialCatchAllCanopy != 1)
+			if (!c.isSpecialCatchAllCanopy)
 				assertTrue("manufacturer not in manufactures table: ["
 						+ c.manufacturer + "]",
 						manufacturers.containsKey(c.manufacturer));

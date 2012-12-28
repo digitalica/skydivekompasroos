@@ -339,7 +339,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		LinearLayout hLayout = (LinearLayout) canopyListRow
 				.findViewById(R.id.linearLayoutCanopyListRow);
 		hLayout.setTag(theCanopy.key());
-		if (theCanopy.isSpecialCatchAllCanopy != 1)
+		if (!theCanopy.isSpecialCatchAllCanopy)
 			hLayout.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					onCanopyRowClick(v);
@@ -374,7 +374,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 		// if the link won't work, because this is the catch all,
 		// don't show the arrow.
-		if (theCanopy.isSpecialCatchAllCanopy == 1) {
+		if (theCanopy.isSpecialCatchAllCanopy) {
 			TextView tvArrowRight = (TextView) canopyListRow
 					.findViewById(R.id.textViewArrowRight);
 			tvArrowRight.setText("");

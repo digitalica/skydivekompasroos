@@ -8,7 +8,6 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 
 public class Canopy {
@@ -36,7 +35,7 @@ public class Canopy {
 	private String remarks;
 	private String remarks_nl;
 	// TODO: the below should be a boolean probably...
-	public int isSpecialCatchAllCanopy = 0;
+	public boolean isSpecialCatchAllCanopy = false;
 
 	public Canopy(int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
@@ -44,7 +43,7 @@ public class Canopy {
 			String canopyMinSize, String canopyMaxSize,
 			String canopyFirstYearOfProduction,
 			String canopyLastYearOfProduction, String canopyRemarks,
-			String canopyRemarks_nl, int isSpecialCatchAllCanopy) {
+			String canopyRemarks_nl, boolean isSpecialCatchAllCanopy) {
 		this.category = canopyCategory;
 		this.manufacturer = canopyManufacturer;
 		this.name = canopyName;
@@ -64,7 +63,7 @@ public class Canopy {
 		// both languages, we have the strings hard coded here,
 		// and not in the XML. Using strings doesn't work as
 		// we have no context here.
-		if (isSpecialCatchAllCanopy == 1) {
+		if (isSpecialCatchAllCanopy) {
 			if (Calculation.isLanguageDutch()) {
 				this.name = "Elk ander type";
 				this.manufacturer = "Elke andere fabrikant";
@@ -84,7 +83,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName, String size) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				null, size, size, null, null, null, null, 0);
+				null, size, size, null, null, null, null, false);
 	}
 
 	/***
@@ -96,7 +95,7 @@ public class Canopy {
 	 */
 	public Canopy(int canopyCategory, String canopyName) {
 		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				null, DEFAULTSIZE, DEFAULTSIZE, null, null, null, null, 0);
+				null, DEFAULTSIZE, DEFAULTSIZE, null, null, null, null, false);
 	}
 
 	/***
@@ -180,11 +179,11 @@ public class Canopy {
 							null, "remarks_nl");
 					String isSpecialCatchAllCanopyString = canopiesParser
 							.getAttributeValue(null, "isspecialcatchallcanopy");
-					int isSpecialCatchAllCanopy = 0;
+					boolean isSpecialCatchAllCanopy = false;
 					if (isSpecialCatchAllCanopyString != ""
-							&& isSpecialCatchAllCanopyString != null)
-						isSpecialCatchAllCanopy = Integer
-								.parseInt(isSpecialCatchAllCanopyString);
+							&& isSpecialCatchAllCanopyString != null
+							&& Integer.parseInt(isSpecialCatchAllCanopyString) != 0)
+						isSpecialCatchAllCanopy = true;
 					Canopy canopy = new Canopy(canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
 							canopyCells, canopyCommonType, canopyDropzoneId,
@@ -232,9 +231,9 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
-			if (c1.isSpecialCatchAllCanopy == 1)
+			if (c1.isSpecialCatchAllCanopy)
 				return 1;
-			if (c2.isSpecialCatchAllCanopy == 1)
+			if (c2.isSpecialCatchAllCanopy)
 				return -1;
 			if (c1.category != c2.category)
 				return c1.category < c2.category ? -1 : 1;
@@ -256,9 +255,9 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
-			if (c1.isSpecialCatchAllCanopy == 1)
+			if (c1.isSpecialCatchAllCanopy)
 				return 1;
-			if (c2.isSpecialCatchAllCanopy == 1)
+			if (c2.isSpecialCatchAllCanopy)
 				return -1;
 			if (c1.name != c2.name)
 				return c1.name.compareTo(c2.name);
@@ -280,9 +279,9 @@ public class Canopy {
 		public int compare(Object o1, Object o2) {
 			Canopy c1 = (Canopy) o1;
 			Canopy c2 = (Canopy) o2;
-			if (c1.isSpecialCatchAllCanopy == 1)
+			if (c1.isSpecialCatchAllCanopy)
 				return 1;
-			if (c2.isSpecialCatchAllCanopy == 1)
+			if (c2.isSpecialCatchAllCanopy)
 				return -1;
 			if (c1.manufacturer != c2.manufacturer)
 				return c1.manufacturer.compareTo(c2.manufacturer);

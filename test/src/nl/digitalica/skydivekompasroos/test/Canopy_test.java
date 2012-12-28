@@ -5,10 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import junit.framework.TestCase;
 import nl.digitalica.skydivekompasroos.Canopy;
-import junit.framework.TestCase;
-
-import junit.framework.TestCase;
 
 public class Canopy_test extends TestCase {
 	final String CANOPYNAME1 = "testcanopy1";
@@ -128,7 +126,7 @@ public class Canopy_test extends TestCase {
 		// canopyList.addAll(canopyListForManufacturer("Manufacturer 2"));
 
 		Canopy testCanopyLast = new Canopy(2, CANOPYNAME2);
-		testCanopyLast.isSpecialCatchAllCanopy = 1;
+		testCanopyLast.isSpecialCatchAllCanopy = true;
 		canopyList.add(testCanopyLast);
 
 		return canopyList;
