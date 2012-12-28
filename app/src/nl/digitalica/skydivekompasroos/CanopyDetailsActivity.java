@@ -2,6 +2,7 @@ package nl.digitalica.skydivekompasroos;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import android.accounts.NetworkErrorException;
 import android.content.Context;
@@ -23,13 +24,13 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		setContentView(R.layout.activity_canopydetails);
 
 		Bundle extras = getIntent().getExtras();
-		String canopyKey = extras.getString(CANOPYKEYEXTRA);
-		List<Canopy> thisCanopy = Canopy.getCanopiesInList(canopyKey, this);
+		UUID canopyId = UUID.fromString(extras.getString(CANOPYIDEXTRA));
+		List<Canopy> thisCanopy = Canopy.getCanopiesInList(canopyId, this);
 		HashMap<String, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(CanopyDetailsActivity.this);
 
 		if (thisCanopy.size() != 1)
-			Log.e(LOG_TAG, "Onjuist aantal op basis van key " + canopyKey);
+			Log.e(LOG_TAG, "Onjuist aantal op basis van key " + canopyId);
 
 		currentCanopy = thisCanopy.get(0);
 		Manufacturer manufacturer = manufacturers

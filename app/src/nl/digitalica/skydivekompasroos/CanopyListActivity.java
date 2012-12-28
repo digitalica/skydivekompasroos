@@ -304,7 +304,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		String canopyKey = v.getTag().toString();
 		Intent i = new Intent(getBaseContext(), CanopyDetailsActivity.class);
 		// TODO: remove extras as they will be in global vars...
-		i.putExtra(CANOPYKEYEXTRA, canopyKey);
+		i.putExtra(CANOPYIDEXTRA, canopyKey);
 		startActivity(i);
 	}
 
@@ -338,7 +338,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		Drawable box = getResources().getDrawable(R.drawable.box);
 		LinearLayout hLayout = (LinearLayout) canopyListRow
 				.findViewById(R.id.linearLayoutCanopyListRow);
-		hLayout.setTag(theCanopy.key());
+		hLayout.setTag(theCanopy.id.toString());
 		if (!theCanopy.isSpecialCatchAllCanopy)
 			hLayout.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {

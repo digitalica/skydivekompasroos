@@ -20,7 +20,7 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 		// assert we actually do have manufacturers in this list
 		assertTrue(manufacturesNotSeen.size() > 0);
 		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
-		HashMap<String, String> canopyKeys = new HashMap<String, String>();
+		HashMap<String, String> canopyUniqueNames = new HashMap<String, String>();
 		HashMap<UUID, String> canopyIds = new HashMap<UUID, String>();
 		for (Canopy c : canopies) {
 			// check Id is unique
@@ -34,7 +34,7 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 				if (c.maxSize != null && !c.maxSize.equals("")) {
 					int minSize = Integer.parseInt(c.minSize);
 					int maxSize = Integer.parseInt(c.maxSize);
-					assertTrue("min>max for " + c.key(), minSize <= maxSize);
+					assertTrue("min>max for " + c.uniqueName(), minSize <= maxSize);
 				}
 			// check last year is larger then first year of production
 			if (c.firstYearOfProduction != null
@@ -47,13 +47,13 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 							.parseInt(c.lastYearOfProduction);
 					assertTrue(
 							"firstYearOfProduction>lastYearOfProduction for "
-									+ c.key(),
+									+ c.uniqueName(),
 							firstYearOfProduction <= lastYearOfProduction);
 				}
-			// check key is not a duplicate
-			String key = c.key();
-			assertFalse("duplicate key: " + key, canopyKeys.containsKey(key));
-			canopyKeys.put(key, key);
+			// check manufacturerAndName is not a duplicate
+			String uniqueName = c.uniqueName();
+			assertFalse("duplicate manufacturerAndName: " + uniqueName, canopyUniqueNames.containsKey(uniqueName));
+			canopyUniqueNames.put(uniqueName, uniqueName);
 			// check manufacturer has entry in manufactures table
 			if (!c.isSpecialCatchAllCanopy)
 				assertTrue("manufacturer not in manufactures table: ["

@@ -137,7 +137,7 @@ public class Canopy {
 		return getCanopiesInList(null, context);
 	}
 
-	static public List<Canopy> getCanopiesInList(String key, Context context) {
+	static public List<Canopy> getCanopiesInList(UUID id, Context context) {
 		XmlResourceParser canopiesParser = context.getResources().getXml(
 				R.xml.canopies);
 		int eventType = -1;
@@ -200,9 +200,9 @@ public class Canopy {
 							canopyFirstyearOfProduction,
 							canopyLastyearOfProduction, canopyRemarks,
 							canopyRemarks_nl, isSpecialCatchAllCanopy);
-					if (key == null)
+					if (id == null)
 						canopyList.add(canopy);
-					else if (canopy.key().equals(key)) {
+					else if (canopy.id.equals(id)) {
 						canopyList.add(canopy);
 						return canopyList;
 					}
@@ -222,11 +222,12 @@ public class Canopy {
 	}
 
 	/***
-	 * Returns a unique key for this canopy
+	 * Returns the manufacturer and name of this canopy as a human-readable
+	 * unique key
 	 * 
 	 * @return
 	 */
-	public String key() {
+	public String uniqueName() {
 		return manufacturer + '|' + name;
 	}
 

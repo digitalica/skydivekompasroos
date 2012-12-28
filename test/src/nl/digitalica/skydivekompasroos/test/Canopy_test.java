@@ -12,19 +12,23 @@ public class Canopy_test extends TestCase {
 	final String CANOPYNAME1 = "testcanopy1";
 	final String CANOPYNAME2 = "testcanopy2";
 
-	public void testKey() {
-
+	/**
+	 * This test is a little more extensive then may be expected, the unique
+	 * name was used as a key in the past ;-)
+	 */
+	public void testUniqueName() {
 		Canopy testCanopy = new Canopy(1, CANOPYNAME1);
-		assertNotNull("Key should not be null", testCanopy.key());
-		assertNotSame("Key should not be empty", "", testCanopy.key());
-		assertNotSame("Key should not be equal to name", CANOPYNAME1,
-				testCanopy.key());
-		assertNotSame("Key should not be equal to manufacturer",
-				Canopy.DEFAULTMANUFACTURER, testCanopy.key());
+		assertNotNull("Unique name should not be null", testCanopy.uniqueName());
+		assertNotSame("Unique name should not be empty", "",
+				testCanopy.uniqueName());
+		assertNotSame("Unique name should not be equal to name", CANOPYNAME1,
+				testCanopy.uniqueName());
+		assertNotSame("Unique name should not be equal to manufacturer",
+				Canopy.DEFAULTMANUFACTURER, testCanopy.uniqueName());
 
 		Canopy testCanopy2 = new Canopy(1, CANOPYNAME2);
-		assertNotSame("Key should not be same on different canopy",
-				testCanopy.key(), testCanopy2.key());
+		assertNotSame("Unique name should not be same on different canopy",
+				testCanopy.uniqueName(), testCanopy2.uniqueName());
 	}
 
 	public void testComparatorByCategoryName() {

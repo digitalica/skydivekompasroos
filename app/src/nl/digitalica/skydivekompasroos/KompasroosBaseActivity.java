@@ -28,7 +28,7 @@ public class KompasroosBaseActivity extends Activity {
 	final static int MINAREAUNKOWN = 999;
 	final static int MINAREAUNLIMITED = 0;
 
-	final static String CANOPYKEYEXTRA = "CANOPYKEY";
+	final static String CANOPYIDEXTRA = "CANOPYKEY";
 
 	// class variables
 	SharedPreferences prefs;
