@@ -1,6 +1,8 @@
 package nl.digitalica.skydivekompasroos;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -10,7 +12,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -58,7 +59,8 @@ public class KompasroosBaseActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		prefs = getSharedPreferences(KOMPASROOSPREFS, Context.MODE_PRIVATE);
+		if (prefs == null)
+			prefs = getSharedPreferences(KOMPASROOSPREFS, Context.MODE_PRIVATE);
 	}
 
 	/***
@@ -112,6 +114,5 @@ public class KompasroosBaseActivity extends Activity {
 		e.putInt(preferenceName, value);
 		e.commit();
 	}
-
 
 }

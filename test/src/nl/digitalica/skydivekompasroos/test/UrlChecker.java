@@ -4,19 +4,17 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import nl.digitalica.skydivekompasroos.Canopy;
 import nl.digitalica.skydivekompasroos.Manufacturer;
 
-import org.apache.http.Header;
-import org.apache.http.HeaderIterator;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.test.AndroidTestCase;
-import android.test.UiThreadTest;
 
 /**
  * Checks URL's in the kompasroos app.
@@ -49,7 +47,7 @@ public class UrlChecker extends AndroidTestCase {
 	 * not named test... to avoid automatic running
 	 */
 	public void xtestManufacturerUrls() {
-		HashMap<String, Manufacturer> manufacturers = Manufacturer
+		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
 		StringBuilder errors = new StringBuilder();
 		for (Manufacturer m : manufacturers.values()) {

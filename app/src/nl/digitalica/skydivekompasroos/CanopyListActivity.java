@@ -3,6 +3,7 @@ package nl.digitalica.skydivekompasroos;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -120,6 +121,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 */
 	private void fillCanopyTable(LinearLayout canopyTable,
 			SortingEnum sortingMethod, FilterEnum filterType) {
+
 		// sort the canopyList on type, name, manufacturer
 		Comparator<Canopy> canopyComparator = null;
 		switch (sortingMethod) {
@@ -146,7 +148,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
 		skydiveKompasroosResultNotAccepted = new StringBuilder();
 
-		String previousManufacturer = "";
+		UUID previousManufacturerId = UUID.randomUUID();
 		int previousCat = 9999;
 		int shownCount = 0;
 		int allCount = 0;
@@ -166,9 +168,11 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			if (showThisCanopy) {
 				shownCount++;
 				if (sortingMethod == SortingEnum.SORTBYMANUFACTURER
-						&& !previousManufacturer.equals(theCanopy.manufacturer)) {
-					insertCanopyHeaderRow(canopyTable, theCanopy.manufacturer);
-					previousManufacturer = theCanopy.manufacturer;
+						&& !previousManufacturerId
+								.equals(theCanopy.manufacturerId)) {
+					insertCanopyHeaderRow(canopyTable,
+							theCanopy.manufacturerName);
+					previousManufacturerId = theCanopy.manufacturerId;
 				}
 				if (sortingMethod == SortingEnum.SORTBYCATEGORY
 						&& previousCat != theCanopy.category) {
@@ -366,7 +370,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		TextView tvCanopyDetails = (TextView) canopyListRow
 				.findViewById(R.id.textViewCanopyListRowDetails);
 		if (this.currentSortingMethod != SortingEnum.SORTBYMANUFACTURER)
-			tvCanopyDetails.setText(theCanopy.manufacturer);
+			tvCanopyDetails.setText(theCanopy.manufacturerName);
 		else
 			tvCanopyDetails.setText(theCanopy
 					.alternativeDetailsText(CanopyListActivity.this));
@@ -390,7 +394,8 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		// add row to text for results sharing
 		// TODO: in case of current sorting by manufacturer, show that first.
 		String shareResultLine = theCanopy.name + " - "
-				+ theCanopy.manufacturer + System.getProperty("line.separator");
+				+ theCanopy.manufacturerName
+				+ System.getProperty("line.separator");
 
 		switch (theCanopy.acceptablility(currentMaxCategory, currentWeight)) {
 		case Canopy.ACCEPTABLE:

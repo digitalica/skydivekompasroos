@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import nl.digitalica.skydivekompasroos.Canopy;
 import nl.digitalica.skydivekompasroos.Manufacturer;
@@ -28,19 +29,19 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 	 */
 	public void testExportCanopies() throws IOException {
 		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
-		HashMap<String, Manufacturer> manufacturers = Manufacturer
+		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
 
 		Log.v(TAG,
 				",cat,name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks manufacturer,remarks canopy,url manufacturer, url canopy,remarks manufacturer nl, remarks canopy nl");
 
 		for (Canopy c : canopies) {
-			Manufacturer m = manufacturers.get(c.manufacturer);
+			Manufacturer m = manufacturers.get(c.manufacturerId);
 			StringBuilder line = new StringBuilder();
 			line.append(SEPARATOR); // convenient, to remove other logcat cols.
 			line.append(Integer.toString(c.category) + SEPARATOR);
 			line.append(c.name + SEPARATOR);
-			line.append(c.manufacturer + SEPARATOR);
+			line.append(c.manufacturerName + SEPARATOR);
 			if (m != null) // add with quotes for multiple countries
 				line.append(QUOTE + m.countryFullName() + QUOTE + SEPARATOR);
 			else

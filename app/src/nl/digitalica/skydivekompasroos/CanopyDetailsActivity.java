@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +17,7 @@ import android.widget.TextView;
 public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
 	static Canopy currentCanopy;
+	static Manufacturer currentManufacturer;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,17 +26,16 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		Bundle extras = getIntent().getExtras();
 		UUID canopyId = UUID.fromString(extras.getString(CANOPYIDEXTRA));
 		List<Canopy> thisCanopy = Canopy.getCanopiesInList(canopyId, this);
-		HashMap<String, Manufacturer> manufacturers = Manufacturer
+		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(CanopyDetailsActivity.this);
-
+		
 		if (thisCanopy.size() != 1)
 			Log.e(LOG_TAG, "Onjuist aantal op basis van key " + canopyId);
 
 		currentCanopy = thisCanopy.get(0);
-		Manufacturer manufacturer = manufacturers
-				.get(currentCanopy.manufacturer);
+		currentManufacturer = manufacturers.get(currentCanopy.manufacturerId);
 
-		String url = manufacturer.url;
+		String url = currentManufacturer.url;
 		if (currentCanopy.url != null && !currentCanopy.url.equals(""))
 			url = currentCanopy.url; // if we have a canopy url use that.
 
@@ -98,8 +97,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 			}
 		tvSizes.setText(sizes);
 		tvUrl.setText(url);
-		tvManufacturer.setText(currentCanopy.manufacturer);
-		tvManufacturerCountry.setText(manufacturer.countryFullName());
+		tvManufacturer.setText(currentManufacturer.name);
+		tvManufacturerCountry.setText(currentManufacturer.countryFullName());
 		tvDropzoneId.setText(currentCanopy.dropZoneUrl());
 		StringBuilder remarks = new StringBuilder();
 		if (currentCanopy.remarks() != null
@@ -107,9 +106,9 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 			remarks.append(currentCanopy.remarks());
 			remarks.append(System.getProperty("line.separator"));
 		}
-		if (manufacturer.remarks() != null
-				&& !manufacturer.remarks().equals("")) {
-			remarks.append(manufacturer.remarks());
+		if (currentManufacturer.remarks() != null
+				&& !currentManufacturer.remarks().equals("")) {
+			remarks.append(currentManufacturer.remarks());
 			remarks.append(System.getProperty("line.separator"));
 		}
 		if (currentCanopy.addtionalInformationNeeded()) {
@@ -189,7 +188,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		// first line: name (manufacturer, cat X)
 		details.append(currentCanopy.name);
 		details.append(" (");
-		details.append(currentCanopy.manufacturer + ", ");
+		details.append(currentManufacturer.name + ", ");
 		details.append("categorie: " + Integer.toString(currentCanopy.category)
 				+ ")");
 		details.append(nl);
@@ -202,11 +201,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		details.append(nl);
 
 		// last line, url if available
-		HashMap<String, Manufacturer> manufacturers = Manufacturer
-				.getManufacturerHash(context);
-		Manufacturer manufacturer = manufacturers
-				.get(currentCanopy.manufacturer);
-		String url = manufacturer.url;
+		// TODO: refactor. this code is in the details textview as well
+		String url = currentManufacturer.url;
 		if (currentCanopy.url != null && !currentCanopy.url.equals(""))
 			url = currentCanopy.url; // if we have a canopy url use that.
 		if (url != null && !url.equals("")) {

@@ -3,6 +3,7 @@ package nl.digitalica.skydivekompasroos;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,7 +14,8 @@ import android.content.res.XmlResourceParser;
 
 public class Canopy {
 
-	final public static String DEFAULTMANUFACTURER = "Some manufacturer";
+	final public static String EVERYOTHERCANOPYIDSTRING = "5E4D5563-2196-4EC2-8558-0491082D0626";
+
 	final public static String DEFAULTSIZE = "170";
 
 	// results
@@ -24,7 +26,8 @@ public class Canopy {
 	// properties
 	public UUID id;
 	public int category;
-	public String manufacturer;
+	public UUID manufacturerId;
+	public String manufacturerName;
 	public String name;
 	public String url;
 	public String cells;
@@ -39,7 +42,7 @@ public class Canopy {
 	// TODO: the below should be a boolean probably...
 	public boolean isSpecialCatchAllCanopy = false;
 
-	public Canopy(UUID canopyId, int canopyCategory, String canopyManufacturer,
+	public Canopy(UUID canopyId, int canopyCategory, UUID canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
 			boolean canopyCommonType, String canopyDropzoneId,
 			String canopyMinSize, String canopyMaxSize,
@@ -48,7 +51,7 @@ public class Canopy {
 			String canopyRemarks_nl, boolean isSpecialCatchAllCanopy) {
 		this.id = canopyId;
 		this.category = canopyCategory;
-		this.manufacturer = canopyManufacturer;
+		this.manufacturerId = canopyManufacturer;
 		this.name = canopyName;
 		this.url = canopyUrl;
 		this.cells = canopyCells;
@@ -67,12 +70,12 @@ public class Canopy {
 		// and not in the XML. Using strings doesn't work as
 		// we have no context here.
 		if (isSpecialCatchAllCanopy) {
+			this.manufacturerId = UUID
+					.fromString(Manufacturer.EVERYOTHERMANUFACTURERIDSTRING);
 			if (Calculation.isLanguageDutch()) {
 				this.name = "Elk ander type";
-				this.manufacturer = "Elke andere fabrikant";
 			} else {
 				this.name = "Every other type";
-				this.manufacturer = "Every other manufacturer";
 			}
 		}
 	}
@@ -85,9 +88,9 @@ public class Canopy {
 	 * @param size
 	 */
 	public Canopy(int canopyCategory, String canopyName, String size) {
-		this(UUID.randomUUID(), canopyCategory, DEFAULTMANUFACTURER,
-				canopyName, null, null, true, null, size, size, null, null,
-				null, null, false);
+		this(UUID.randomUUID(), canopyCategory, Manufacturer
+				.everyOtherManufactuerId(), canopyName, null, null, true, null,
+				size, size, null, null, null, null, false);
 	}
 
 	/***
@@ -98,9 +101,9 @@ public class Canopy {
 	 * @param size
 	 */
 	public Canopy(int canopyCategory, String canopyName) {
-		this(UUID.randomUUID(), canopyCategory, DEFAULTMANUFACTURER,
-				canopyName, null, null, true, null, DEFAULTSIZE, DEFAULTSIZE,
-				null, null, null, null, false);
+		this(UUID.randomUUID(), canopyCategory, Manufacturer
+				.everyOtherManufactuerId(), canopyName, null, null, true, null,
+				DEFAULTSIZE, DEFAULTSIZE, null, null, null, null, false);
 	}
 
 	/***
@@ -138,6 +141,10 @@ public class Canopy {
 	}
 
 	static public List<Canopy> getCanopiesInList(UUID id, Context context) {
+
+		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
+				.getManufacturerHash(context);
+
 		XmlResourceParser canopiesParser = context.getResources().getXml(
 				R.xml.canopies);
 		int eventType = -1;
@@ -159,8 +166,15 @@ public class Canopy {
 							null, "id");
 					UUID canopyId = UUID.fromString(canopyIdString);
 
-					String canopyManufacturer = canopiesParser
-							.getAttributeValue(null, "manufacturer");
+					String canopyManufacturerIdAndName = canopiesParser
+							.getAttributeValue(null, "manufacturerid");
+					String canopyManufacturerIdString = canopyManufacturerIdAndName
+							.split(" ")[0];
+					UUID canopyManufacturerId = UUID
+							.fromString(canopyManufacturerIdString);
+					String manufacturerName = manufacturers
+							.get(canopyManufacturerId).name;
+
 					String canopyName = canopiesParser.getAttributeValue(null,
 							"name");
 					String canopyUrl = canopiesParser.getAttributeValue(null,
@@ -194,12 +208,15 @@ public class Canopy {
 							&& Integer.parseInt(isSpecialCatchAllCanopyString) != 0)
 						isSpecialCatchAllCanopy = true;
 					Canopy canopy = new Canopy(canopyId, canopyCategory,
-							canopyManufacturer, canopyName, canopyUrl,
+							canopyManufacturerId, canopyName, canopyUrl,
 							canopyCells, canopyCommonType, canopyDropzoneId,
 							canopyMinSize, canopyMaxSize,
 							canopyFirstyearOfProduction,
 							canopyLastyearOfProduction, canopyRemarks,
 							canopyRemarks_nl, isSpecialCatchAllCanopy);
+					// TODO: maybe the assignment below should move to the
+					// contstuctor...
+					canopy.manufacturerName = manufacturerName;
 					if (id == null)
 						canopyList.add(canopy);
 					else if (canopy.id.equals(id)) {
@@ -218,6 +235,12 @@ public class Canopy {
 				e.printStackTrace();
 			}
 		}
+		
+		// add every other canopy
+		Canopy eoc = everyOtherCanopy();
+		canopyList.add(eoc);
+
+		// return the result
 		return canopyList;
 	}
 
@@ -228,7 +251,7 @@ public class Canopy {
 	 * @return
 	 */
 	public String uniqueName() {
-		return manufacturer + '|' + name;
+		return manufacturerName + '|' + name;
 	}
 
 	/***
@@ -250,7 +273,7 @@ public class Canopy {
 			int result = c1.name.compareTo(c2.name);
 			if (result != 0)
 				return result;
-			return c1.manufacturer.compareTo(c2.manufacturer);
+			return c1.manufacturerName.compareTo(c2.manufacturerName);
 		}
 
 	}
@@ -271,7 +294,7 @@ public class Canopy {
 				return -1;
 			if (c1.name != c2.name)
 				return c1.name.compareTo(c2.name);
-			return c1.manufacturer.compareTo(c2.manufacturer);
+			return c1.manufacturerName.compareTo(c2.manufacturerName);
 		}
 
 	}
@@ -293,8 +316,8 @@ public class Canopy {
 				return 1;
 			if (c2.isSpecialCatchAllCanopy)
 				return -1;
-			if (c1.manufacturer != c2.manufacturer)
-				return c1.manufacturer.compareTo(c2.manufacturer);
+			if (c1.manufacturerName != c2.manufacturerName)
+				return c1.manufacturerName.compareTo(c2.manufacturerName);
 			if (c1.category != c2.category)
 				return c1.category < c2.category ? -1 : 1;
 			return c1.name.compareTo(c2.name);
@@ -304,7 +327,7 @@ public class Canopy {
 	@Override
 	public String toString() {
 		return Integer.toString(this.category) + " " + this.name + " ("
-				+ this.manufacturer + ")";
+				+ this.manufacturerId + ")";
 	}
 
 	/***
@@ -380,6 +403,32 @@ public class Canopy {
 	 */
 	public String remarks(boolean inDutch) {
 		return inDutch ? this.remarks_nl : this.remarks;
+	}
+
+	/**
+	 * Returns the ID of the special 'catch all' canopy
+	 * 
+	 * @return
+	 */
+	public static UUID everyOtherCanopyId() {
+		return UUID.fromString(EVERYOTHERCANOPYIDSTRING);
+	}
+
+	/**
+	 * Returns the special 'catch all' canopy for 'every other canopy'
+	 * 
+	 * @return
+	 */
+	public static Canopy everyOtherCanopy() {
+		String name;
+		if (Calculation.isLanguageDutch()) {
+			name = "Elk ander type";
+		} else {
+			name = "Every other type";
+		}
+		return new Canopy(everyOtherCanopyId(), 6,
+				Manufacturer.everyOtherManufactuerId(), name, null, null,
+				false, null, null, null, null, null, null, null, true);
 	}
 
 }

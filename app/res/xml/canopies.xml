@@ -11,7 +11,7 @@
         dropzoneid="22"
         firstyearofproduction="1998"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="300"
         minsize="200"
         url="http://www.performancedesigns.com/products.asp?product=na" />
@@ -24,7 +24,7 @@
         dropzoneid="20"
         firstyearofproduction="1985"
         lastyearofproduction="2000"
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="253"
         minsize="143" />
     <canopy
@@ -36,7 +36,7 @@
         dropzoneid="21"
         firstyearofproduction="1984"
         lastyearofproduction="2000"
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="340"
         minsize="150" />
     <canopy
@@ -48,7 +48,7 @@
         dropzoneid="17"
         firstyearofproduction="1990"
         lastyearofproduction="2005"
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="230"
         minsize="97"
         url="http://www.performancedesigns.com/products.asp?product=ls" />
@@ -61,7 +61,7 @@
         dropzoneid="421"
         firstyearofproduction="2003"
         lastyearofproduction=""
-        manufacturer="Aerodyne Research"
+        manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="290"
         minsize="190"
         url="http://www.flyaerodyne.com/solo.html" />
@@ -72,7 +72,7 @@
         cells="9"
         commontype="1"
         dropzoneid="47"
-        manufacturer="Parachutes de France"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
         maxsize="290"
         minsize="230"
         url="http://www.parachutes-de-france.net/en/products/main-canopies/20/prima-zp.html" />
@@ -83,37 +83,37 @@
         cells="9"
         commontype="0"
         dropzoneid="52"
-        manufacturer="Parachutes de France" />
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
     <canopy
         id="54BB53BC-E33D-4FCF-8C7C-2211FF09F57C"
         name="Turbo Voyager student"
         category="1"
         commontype="0"
-        manufacturer="Parachutes de France" />
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
     <canopy
         id="3ECA0242-5B31-47C4-AC03-31FEC46BB777"
         name="Raven"
         category="1"
         commontype="0"
-        manufacturer="Precision Aerodynamics" />
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
     <canopy
         id="54596159-118E-40BC-B8F5-080F962C0D16"
         name="Super Raven"
         category="1"
         commontype="0"
-        manufacturer="Precision Aerodynamics" />
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
     <canopy
         id="1AFA9F7D-F7C2-4807-80EA-B394D15AAFE9"
         name="Falkon"
         category="1"
         commontype="0"
-        manufacturer="Precision Aerodynamics" />
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
     <canopy
         id="884274A6-948A-409C-AE6E-96BEA6373ACE"
         name="Skymaster"
         category="1"
         commontype="1"
-        manufacturer="PISA"
+        manufacturerid="E0E33BAB-7067-42EC-96E3-FD6B35926A11 PISA"
         maxsize="290"
         minsize="170"
         url="http://www.pisa.co.za/default.aspx?id=31" />
@@ -124,7 +124,7 @@
         cells="9"
         commontype="1"
         dropzoneid="448"
-        manufacturer="Paratec"
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec"
         maxsize="280"
         minsize="150"
         url="http://www.paratec.de/produkte-fallschirme/hauptschirme/balance/" />
@@ -134,7 +134,7 @@
         category="1"
         cells="7"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="200"
         minsize="200" />
     <canopy
@@ -143,7 +143,7 @@
         category="1"
         cells="7"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="220"
         minsize="200"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
@@ -153,7 +153,7 @@
         category="1"
         cells="7"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="175"
         minsize="175"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
@@ -163,7 +163,7 @@
         category="1"
         cells="7"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="145"
         minsize="145"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
@@ -173,7 +173,7 @@
         category="1"
         cells="7"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="320"
         minsize="265"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
@@ -183,7 +183,7 @@
         category="1"
         cells="7"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="245"
         minsize="245"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
@@ -193,7 +193,7 @@
         category="1"
         cells="9"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="220"
         minsize="220"
         url="http://flightconceptsint.com/classic/9-cell-classic" />
@@ -203,7 +203,7 @@
         category="1"
         cells="9"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="250"
         minsize="250"
         url="http://flightconceptsint.com/classic/9-cell-classic" />
@@ -213,7 +213,7 @@
         category="1"
         cells="9"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="195"
         minsize="195"
         url="http://flightconceptsint.com/classic/9-cell-classic" />
@@ -223,7 +223,7 @@
         category="1"
         cells="9"
         commontype="0"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="290"
         minsize="290" />
     <canopy
@@ -232,7 +232,7 @@
         category="1"
         commontype="0"
         dropzoneid="691"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="320"
         minsize="185"
         url="http://flightconceptsint.com/zp-main/zp-manta" />
@@ -241,7 +241,7 @@
         name="Cruiselite"
         category="1"
         commontype="0"
-        manufacturer="Flight Concepts" />
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts" />
     <canopy
         id="747B45F3-B12C-4743-A5F8-2D90C20F22F1"
         name="Eagle 7"
@@ -249,7 +249,7 @@
         cells="7"
         commontype="0"
         dropzoneid="70"
-        manufacturer="NAA" />
+        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA" />
     <canopy
         id="86A007AE-A9FE-404E-9BF6-AD880D4F8568"
         name="Student ZP7"
@@ -257,19 +257,19 @@
         cells="7"
         commontype="0"
         dropzoneid="6"
-        manufacturer="Icarus Canopies" />
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies" />
     <canopy
         id="B14481B6-5DE6-485F-9858-7011DE27884C"
         name="Zepo Student"
         category="1"
         commontype="0"
-        manufacturer="Chute Shop" />
+        manufacturerid="781D6203-9BF1-4D51-8CE0-21FFFB9D4D12 Chute Shop" />
     <canopy
         id="38A6C9BE-8929-4599-8C1C-77C10F93000C"
         name="Spark Student Hybride"
         category="1"
         commontype="0"
-        manufacturer="Firebird" />
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird" />
 
     <!-- CATEGORY 2 -->
 
@@ -280,7 +280,7 @@
         cells="9"
         commontype="1"
         dropzoneid="292"
-        manufacturer="Parachutes de France"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
         maxsize="210"
         minsize="130"
         planform="9.5"
@@ -293,7 +293,7 @@
         cells="9"
         commontype="1"
         dropzoneid="48"
-        manufacturer="Parachutes de France" />
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
     <canopy
         id="F32C85D5-615A-4CDA-A7AD-F2F27985E283"
         name="Pilot"
@@ -303,7 +303,7 @@
         dropzoneid="420"
         firstyearofproduction="2003"
         lastyearofproduction=""
-        manufacturer="Aerodyne Research"
+        manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="230"
         minsize="90"
         planform="6.7"
@@ -318,7 +318,7 @@
         dropzoneid="36"
         firstyearofproduction="2000"
         lastyearofproduction=""
-        manufacturer="Aerodyne Research"
+        manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="260"
         minsize="99"
         url="http://www.flyaerodyne.com/triathlon.html" />
@@ -329,7 +329,7 @@
         cells="9"
         commontype="0"
         dropzoneid="71"
-        manufacturer="NAA"
+        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA"
         maxsize="330"
         minsize="110"
         url="http://www.naaero.com/sport/Eagle%209-cell.htm" />
@@ -340,7 +340,7 @@
         cells="7"
         commontype="1"
         dropzoneid="68"
-        manufacturer="NAA"
+        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA"
         maxsize="302"
         minsize="220"
         url="http://www.naaero.com/sport/parafoil.htm" />
@@ -350,19 +350,19 @@
         category="2"
         cells="7"
         commontype="1"
-        manufacturer="Paratec" />
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec" />
     <canopy
         id="D1AEB195-55A5-4447-9578-47BD8431E13F"
         name="Quadra"
         category="2"
         commontype="0"
-        manufacturer="Paratec" />
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec" />
     <canopy
         id="5BE7947C-108A-465A-B22A-637C4D301CC2"
         name="V-Tec"
         category="2"
         commontype="1"
-        manufacturer="Paratec" />
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec" />
     <canopy
         id="AAC013BE-1485-46B3-9539-A4162D9C95AC"
         name="Spectre"
@@ -372,7 +372,7 @@
         dropzoneid="9"
         firstyearofproduction="1997"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="230"
         minsize="97"
         url="http://www.performancedesigns.com/products.asp?product=sp" />
@@ -385,7 +385,7 @@
         dropzoneid="19"
         firstyearofproduction="1997"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="260"
         minsize="135"
         url="http://www.performancedesigns.com/products.asp?product=si" />
@@ -398,7 +398,7 @@
         dropzoneid="778"
         firstyearofproduction="2010"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="305"
         minsize="205"
         url="http://www.performancedesigns.com/zero.asp" />
@@ -411,7 +411,7 @@
         dropzoneid="585"
         firstyearofproduction="2009"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="260"
         minsize="107"
         url="http://www.performancedesigns.com/products.asp?product=pl" />
@@ -422,7 +422,7 @@
         cells="7"
         commontype="0"
         dropzoneid="285"
-        manufacturer="Precision Aerodynamics"
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics"
         maxsize="230"
         minsize="98"
         url="http://www.precision.aero/synergy.htm" />
@@ -433,7 +433,7 @@
         cells="7"
         commontype="0"
         dropzoneid="300"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="229"
         minsize="99"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=1&amp;Itemid=11" />
@@ -444,7 +444,7 @@
         cells="7"
         commontype="1"
         dropzoneid="3"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="229"
         minsize="99"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=13&amp;Itemid=10" />
@@ -454,7 +454,7 @@
         category="2"
         commontype="1"
         dropzoneid="590"
-        manufacturer="Firebird"
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird"
         maxsize="190"
         minsize="130"
         url="http://cms.flyfirebird.com/skydive/index.php?option=com_content&amp;view=article&amp;id=56%3Acayenne-light&amp;catid=34%3Aprodukte&amp;Itemid=75&amp;lang=en" />
@@ -465,7 +465,7 @@
         cells="7"
         commontype="0"
         dropzoneid="706"
-        manufacturer="Atair Aerodynamics"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics"
         maxsize="210"
         minsize="135"
         url="http://www.basetroll.com/products_4.html" />
@@ -475,7 +475,7 @@
         category="2"
         cells="7"
         commontype="0"
-        manufacturer="Eiff Aerodynamics"
+        manufacturerid="B1F74487-55A3-4A0C-9A7E-463B508E3438 Eiff Aerodynamics"
         maxsize="328"
         minsize="198"
         url="http://www.basetroll.com/products_4.html" />
@@ -491,7 +491,7 @@
         dropzoneid="267"
         firstyearofproduction="2001"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="260"
         minsize="97"
         planform="5.4"
@@ -506,7 +506,7 @@
         dropzoneid="18"
         firstyearofproduction="1990"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="253"
         minsize="126"
         url="http://www.performancedesigns.com/products.asp?product=ps" />
@@ -519,7 +519,7 @@
         dropzoneid="579"
         firstyearofproduction="2008"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="230"
         minsize="97"
         url="http://www.performancedesigns.com/products.asp?product=tf" />
@@ -530,7 +530,7 @@
         cells="9"
         commontype="0"
         dropzoneid="467"
-        manufacturer="Precision Aerodynamics"
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics"
         maxsize="230"
         minsize="89"
         url="http://www.precision.aero/fusion.htm" />
@@ -541,7 +541,7 @@
         cells="9"
         commontype="0"
         dropzoneid="690"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="230"
         minsize="99"
         url="http://flightconceptsint.com/zp-main/sentry" />
@@ -552,7 +552,7 @@
         cells="9"
         commontype="0"
         dropzoneid="74"
-        manufacturer="Big-air sportz"
+        manufacturerid="5947BBA8-8DE6-4F61-AB89-B0B77A74B1EB Big-air sportz"
         maxsize="190"
         minsize="95"
         url="http://www.bigairsportz.com/lotus.php" />
@@ -563,7 +563,7 @@
         cells="9"
         commontype="1"
         dropzoneid="1"
-        manufacturer="Icarus Canopies" />
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies" />
     <canopy
         id="78C709A5-C1C8-4CAE-99F0-52D43B189D88"
         name="Safire 2"
@@ -571,7 +571,7 @@
         cells="9"
         commontype="1"
         dropzoneid="301"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="229"
         minsize="99"
         planform="16.4"
@@ -584,7 +584,7 @@
         cells="9"
         commontype="0"
         dropzoneid="60"
-        manufacturer="Strong Enterprises"
+        manufacturerid="ACD6855E-9F54-4E27-B498-14C9693FB7EF Strong Enterprises"
         maxsize="210"
         minsize="130"
         url="http://www.strongparachutes.com/pages/Sport/spmain.html" />
@@ -595,7 +595,7 @@
         cells="9"
         commontype="1"
         dropzoneid="451"
-        manufacturer="Paratec"
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec"
         maxsize="150"
         minsize="97"
         url="http://www.paratec.de/en/products-parachutes/main-canopies/50/" />
@@ -604,7 +604,7 @@
         name="Hornet"
         category="3"
         commontype="0"
-        manufacturer="PISA" />
+        manufacturerid="E0E33BAB-7067-42EC-96E3-FD6B35926A11 PISA" />
     <canopy
         id="26C05258-8F36-4A4B-A710-5B7A4D64810B"
         name="Zepo exe"
@@ -612,13 +612,13 @@
         cells="9"
         commontype="1"
         dropzoneid="433"
-        manufacturer="Chute Shop" />
+        manufacturerid="781D6203-9BF1-4D51-8CE0-21FFFB9D4D12 Chute Shop" />
     <canopy
         id="4CCBA3E8-89A4-4F25-BAEE-B2248E90415F"
         name="Spark"
         category="3"
         commontype="1"
-        manufacturer="Firebird" />
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird" />
 
     <!-- CATEGORY 4 -->
 
@@ -631,7 +631,7 @@
         dropzoneid="16"
         firstyearofproduction="1992"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="190"
         minsize="89"
         planform="13.3"
@@ -642,7 +642,7 @@
         name="BT"
         category="4"
         commontype="0"
-        manufacturer="Parachutes de France" />
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
     <canopy
         id="A088AE69-7D61-45A5-9919-BF2328F836BE"
         name="Springo"
@@ -650,7 +650,7 @@
         cells="9"
         commontype="0"
         dropzoneid="49"
-        manufacturer="Parachutes de France"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
         planform="28.0"
         planformcells="8" />
     <canopy
@@ -659,7 +659,7 @@
         category="4"
         cells="9"
         commontype="1"
-        manufacturer="Parachutes de France" />
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
     <canopy
         id="2A2D16C5-D208-44AB-AF97-1398405EC1A5"
         name="Batwing"
@@ -667,19 +667,19 @@
         cells="9"
         commontype="0"
         dropzoneid="25"
-        manufacturer="Precision Aerodynamics" />
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
     <canopy
         id="7428649F-5425-4F5A-A704-14DC383611C9"
         name="Jonathan"
         category="4"
         commontype="0"
-        manufacturer="Airtime" />
+        manufacturerid="97AD094C-A001-4928-8B4E-792EC76EFBCB Airtime" />
     <canopy
         id="F0C4AF1D-A9BE-4560-B8E4-4F38616B30D4"
         name="Ace"
         category="4"
         commontype="1"
-        manufacturer="Atair Aerodynamics" />
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
     <canopy
         id="9634AACA-2A16-42B6-A687-6536DE20D3F7"
         name="Cobalt"
@@ -687,13 +687,13 @@
         cells="9"
         commontype="1"
         dropzoneid="32"
-        manufacturer="Atair Aerodynamics" />
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
     <canopy
         id="772004AF-78F6-4E1E-ADAD-DC1E3187CC7E"
         name="Impulse"
         category="4"
         commontype="0"
-        manufacturer="Atair Aerodynamics" />
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
     <canopy
         id="38533C8E-BAA0-4BC5-B12F-FE0E0E88C471"
         name="Vision"
@@ -702,7 +702,7 @@
         dropzoneid="419"
         firstyearofproduction="2005"
         lastyearofproduction="2010"
-        manufacturer="Aerodyne Research"
+        manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="210"
         minsize="90"
         planform="15.5"
@@ -716,7 +716,7 @@
         dropzoneid="35"
         firstyearofproduction="2000"
         lastyearofproduction="2006"
-        manufacturer="Aerodyne Research"
+        manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="190"
         minsize="88"
         planform="10.7"
@@ -727,7 +727,7 @@
         category="4"
         commontype="0"
         dropzoneid="586"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="230"
         minsize="90"
         remarks="There is a &apos;Rage&apos; from Paratec too"
@@ -738,25 +738,25 @@
         name="Pro serie"
         category="4"
         commontype="0"
-        manufacturer="Flight Concepts" />
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts" />
     <canopy
         id="DD5B5953-DDC5-49E1-995D-1997794694D3"
         name="Fandango"
         category="4"
         commontype="0"
-        manufacturer="Paratec" />
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec" />
     <canopy
         id="8B779965-13DC-4836-825F-96360ADEA300"
         name="Contrail"
         category="4"
         commontype="0"
-        manufacturer="Firebird" />
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird" />
     <canopy
         id="5A77CCA4-6BCF-4A6D-87BA-091CE6397E24"
         name="Heatwave"
         category="4"
         commontype="0"
-        manufacturer="PISA" />
+        manufacturerid="E0E33BAB-7067-42EC-96E3-FD6B35926A11 PISA" />
     <canopy
         id="CBA0E65A-1984-436E-A35F-AD2C5DECB853"
         name="Hurricane"
@@ -764,7 +764,7 @@
         cells="9"
         commontype="0"
         dropzoneid="432"
-        manufacturer="Chute Shop"
+        manufacturerid="781D6203-9BF1-4D51-8CE0-21FFFB9D4D12 Chute Shop"
         maxsize="170"
         minsize="95"
         url="http://www.parachutesystems.co.za/hurricane_elliptical" />
@@ -775,7 +775,7 @@
         cells="9"
         commontype="0"
         dropzoneid="435"
-        manufacturer="Jump Shack"
+        manufacturerid="ACCD2816-15E8-4668-B217-3F345AA6854F Jump Shack"
         maxsize="396"
         minsize="84"
         url="http://www.jumpshack.com/firebolt.htm" />
@@ -791,7 +791,7 @@
         dropzoneid="465"
         firstyearofproduction="2003"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="170"
         minsize="83"
         url="http://www.performancedesigns.com/products.asp?product=ka" />
@@ -802,7 +802,7 @@
         cells="9"
         commontype="1"
         dropzoneid="4"
-        manufacturer="Icarus Canopies" />
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies" />
     <canopy
         id="3F35D12C-4BBA-400D-BA7F-BC13512B22EB"
         name="Mamba"
@@ -812,7 +812,7 @@
         dropzoneid="551"
         firstyearofproduction="2005"
         lastyearofproduction=""
-        manufacturer="Aerodyne Research"
+        manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="150"
         minsize="90"
         url="http://www.flyaerodyne.com/mamba.html" />
@@ -823,7 +823,7 @@
         cells="9"
         commontype="0"
         dropzoneid="705"
-        manufacturer="Atair Aerodynamics"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics"
         maxsize="170"
         minsize="85"
         url="http://www.basetroll.com/products_3.html" />
@@ -835,7 +835,7 @@
         category="6"
         commontype="0"
         dropzoneid="42"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="200"
         minsize="125"
         remarks="CATEGORY UNKNOWN"
@@ -847,7 +847,7 @@
         category="6"
         commontype="0"
         dropzoneid="43"
-        manufacturer="Flight Concepts"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
         maxsize="250"
         minsize="150"
         remarks="CATEGORY UNKNOWN"
@@ -862,7 +862,7 @@
         dropzoneid="761"
         firstyearofproduction="2010"
         lastyearofproduction=""
-        manufacturer="Aerodyne Research"
+        manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="121"
         minsize="71"
         remarks="CATEGORY UNKNOWN"
@@ -874,7 +874,7 @@
         category="6"
         cells="9"
         commontype="0"
-        manufacturer="Chute Shop"
+        manufacturerid="781D6203-9BF1-4D51-8CE0-21FFFB9D4D12 Chute Shop"
         maxsize="215"
         minsize="125"
         remarks="CATEGORY UNKNOWN"
@@ -887,7 +887,7 @@
         cells="27"
         commontype="0"
         dropzoneid="700"
-        manufacturer="Chute Shop"
+        manufacturerid="781D6203-9BF1-4D51-8CE0-21FFFB9D4D12 Chute Shop"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.parachutesystems.co.za/max_crossed" />
@@ -898,7 +898,7 @@
         cells="9"
         commontype="1"
         dropzoneid="302"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="169"
         minsize="89"
         planform="21.6"
@@ -913,7 +913,7 @@
         cells="9"
         commontype="0"
         dropzoneid="73"
-        manufacturer="Big-air sportz"
+        manufacturerid="5947BBA8-8DE6-4F61-AB89-B0B77A74B1EB Big-air sportz"
         maxsize="170"
         minsize="95"
         remarks="CATEGORY UNKNOWN"
@@ -925,7 +925,7 @@
         cells="27"
         commontype="1"
         dropzoneid="2"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
@@ -938,7 +938,7 @@
         cells="21"
         commontype="1"
         dropzoneid="5"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
@@ -950,7 +950,7 @@
         category="6"
         commontype="1"
         dropzoneid="571"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="119"
         minsize="59"
         remarks="CATEGORY UNKNOWN"
@@ -963,7 +963,7 @@
         cells="9"
         commontype="0"
         dropzoneid="692"
-        manufacturer="Icarus Canopies"
+        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
         maxsize="229"
         minsize="189"
         remarks="CATEGORY UNKNOWN"
@@ -975,7 +975,7 @@
         category="6"
         cells="9"
         commontype="0"
-        manufacturer="Parachutes de France"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
         maxsize="280"
         minsize="200"
         remarks="CATEGORY UNKNOWN"
@@ -987,7 +987,7 @@
         category="6"
         cells="9"
         commontype="0"
-        manufacturer="Parachutes de France"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
         maxsize="160"
         minsize="110"
         planform="28.0"
@@ -1001,7 +1001,7 @@
         category="6"
         cells="9"
         commontype="0"
-        manufacturer="Parachutes de France"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
         maxsize="110"
         minsize="80"
         remarks="CATEGORY UNKNOWN"
@@ -1013,7 +1013,7 @@
         category="6"
         cells="9"
         commontype="0"
-        manufacturer="Paratec"
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec"
         maxsize="260"
         minsize="220"
         remarks="CATEGORY UNKNOWN"
@@ -1025,7 +1025,7 @@
         category="6"
         cells="9"
         commontype="0"
-        manufacturer="Paratec"
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.paratec.de/produkte-fallschirme/hauptschirme/element/" />
@@ -1035,7 +1035,7 @@
         category="6"
         commontype="0"
         dropzoneid="567"
-        manufacturer="Paratec"
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec"
         maxsize="107"
         minsize="86"
         remarks="CATEGORY UNKNOWN, there is a Rage from Flight Concepts too"
@@ -1050,7 +1050,7 @@
         dropzoneid="8"
         firstyearofproduction="1998"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="120"
         minsize="75"
         remarks="CATEGORY UNKNOWN"
@@ -1065,7 +1065,7 @@
         dropzoneid="701"
         firstyearofproduction="2009"
         lastyearofproduction=""
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="111"
         minsize="71"
         remarks="CATEGORY UNKNOWN"
@@ -1078,7 +1078,7 @@
         cells="9"
         commontype="1"
         dropzoneid="23"
-        manufacturer="Performance Designs"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="170"
         minsize="89"
         remarks="CATEGORY UNKNOWN, airlocked"
@@ -1091,7 +1091,7 @@
         cells="27"
         commontype="1"
         dropzoneid="426"
-        manufacturer="Precision Aerodynamics"
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics"
         maxsize="118"
         minsize="58"
         remarks="CATEGORY UNKNOWN"
@@ -1104,7 +1104,7 @@
         cells="21"
         commontype="1"
         dropzoneid="276"
-        manufacturer="Precision Aerodynamics"
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics"
         maxsize="135"
         minsize="68"
         remarks="CATEGORY UNKNOWN"
@@ -1117,7 +1117,7 @@
         cells="9"
         commontype="0"
         dropzoneid="268"
-        manufacturer="Precision Aerodynamics"
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics"
         maxsize="170"
         minsize="78"
         remarks="CATEGORY UNKNOWN"
@@ -1130,7 +1130,7 @@
         cells="9"
         commontype="0"
         dropzoneid="34"
-        manufacturer="Atair Aerodynamics"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND" />
     <canopy
@@ -1140,7 +1140,7 @@
         cells="9"
         commontype="0"
         dropzoneid="33"
-        manufacturer="Atair Aerodynamics"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND" />
     <canopy
@@ -1148,7 +1148,7 @@
         name="Demon"
         category="6"
         commontype="0"
-        manufacturer="Firebird"
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird"
         maxsize="130"
         minsize="60"
         remarks="CATEGORY UNKNOWN"
@@ -1159,7 +1159,7 @@
         name="Chilli"
         category="6"
         commontype="0"
-        manufacturer="Firebird"
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird"
         maxsize="150"
         minsize="80"
         remarks="CATEGORY UNKNOWN"
@@ -1170,7 +1170,7 @@
         name="Exit One"
         category="6"
         commontype="0"
-        manufacturer="Firebird"
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird"
         maxsize="260"
         minsize="210"
         remarks="CATEGORY UNKNOWN"
@@ -1182,7 +1182,7 @@
         category="6"
         cells="27"
         commontype="0"
-        manufacturer="NZ Aerosports"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
@@ -1194,18 +1194,10 @@
         category="6"
         cells="21"
         commontype="0"
-        manufacturer="NZ Aerosports"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/daedalus-JFX" />
-    <canopy
-        id="5E4D5563-2196-4EC2-8558-0491082D0626"
-        name="SPECIAL_CATCH_ALL_NAME_WILL_BE_REPLACED"
-        category="6"
-        commontype="1"
-        isspecialcatchallcanopy="1"
-        manufacturer="SPECIAL_CATCH_ALL_MANUFACTURER_WILL_BE_REPLACED" />
-
 </canopies>

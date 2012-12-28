@@ -16,6 +16,8 @@ import android.util.Log;
 
 public class Manufacturer {
 
+	final public static String EVERYOTHERMANUFACTURERIDSTRING = "FC2ACF4C-3E94-4401-92B3-70D41C20546B";
+
 	public UUID id;
 	public String name;
 	public String countryCode;
@@ -42,13 +44,13 @@ public class Manufacturer {
 	 * 
 	 * @return
 	 */
-	static public HashMap<String, Manufacturer> getManufacturerHash(
+	static public HashMap<UUID, Manufacturer> getManufacturerHash(
 			Context context) {
 		XmlResourceParser manufacturersParser = context.getResources().getXml(
 				R.xml.manufacturers);
 		int eventType = -1;
 
-		HashMap<String, Manufacturer> manufacturerHashMap = new HashMap<String, Manufacturer>();
+		HashMap<UUID, Manufacturer> manufacturerHashMap = new HashMap<UUID, Manufacturer>();
 		while (eventType != XmlResourceParser.END_DOCUMENT) {
 			if (eventType == XmlResourceParser.START_TAG) {
 				String strName = manufacturersParser.getName();
@@ -70,7 +72,7 @@ public class Manufacturer {
 							manufacturerId, manufacturerName,
 							manufacturerCountryCode, manufacturerUrl,
 							manufacturerRemarks, manufacturerRemarks_nl);
-					manufacturerHashMap.put(manufacturer.name, manufacturer);
+					manufacturerHashMap.put(manufacturer.id, manufacturer);
 				}
 
 			}
@@ -84,8 +86,13 @@ public class Manufacturer {
 				e.printStackTrace();
 			}
 		}
-		return manufacturerHashMap;
 
+		// add every other manufacturer
+		Manufacturer eom = everyOtherManufacturer();
+		manufacturerHashMap.put(eom.id, eom);
+
+		// return the result
+		return manufacturerHashMap;
 	}
 
 	/***
@@ -155,6 +162,31 @@ public class Manufacturer {
 	 */
 	public String remarks(boolean inDutch) {
 		return inDutch ? this.remarks_nl : this.remarks;
+	}
+
+	/**
+	 * Returns the ID of the special 'catch all' manufacturer
+	 * 
+	 * @return
+	 */
+	public static UUID everyOtherManufactuerId() {
+		return UUID.fromString(EVERYOTHERMANUFACTURERIDSTRING);
+	}
+
+	/**
+	 * Returns the special 'catch all' manufacturer for 'every other
+	 * manufacturer'
+	 * 
+	 * @return
+	 */
+	public static Manufacturer everyOtherManufacturer() {
+		String name;
+		if (Calculation.isLanguageDutch())
+			name = "Elke andere fabrikant";
+		else
+			name = "Every other manufacturer";
+		return new Manufacturer(everyOtherManufactuerId(), name, null, null,
+				null, null);
 	}
 
 }

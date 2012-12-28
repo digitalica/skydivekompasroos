@@ -7,6 +7,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 import nl.digitalica.skydivekompasroos.Canopy;
+import nl.digitalica.skydivekompasroos.Manufacturer;
 
 public class Canopy_test extends TestCase {
 	final String CANOPYNAME1 = "testcanopy1";
@@ -23,8 +24,6 @@ public class Canopy_test extends TestCase {
 				testCanopy.uniqueName());
 		assertNotSame("Unique name should not be equal to name", CANOPYNAME1,
 				testCanopy.uniqueName());
-		assertNotSame("Unique name should not be equal to manufacturer",
-				Canopy.DEFAULTMANUFACTURER, testCanopy.uniqueName());
 
 		Canopy testCanopy2 = new Canopy(1, CANOPYNAME2);
 		assertNotSame("Unique name should not be same on different canopy",
@@ -77,11 +76,12 @@ public class Canopy_test extends TestCase {
 			if (c1.name.compareTo(c2.name) == 1)
 				fail("Names not sorted correctly: " + c1.name + "  / "
 						+ c2.name + " in " + runName);
-			if (c1.name.compareTo(c2.name) == 0)
-				if (c1.manufacturer.compareTo(c2.manufacturer) == 1)
+			if (c1.name.compareTo(c2.name) == 0) {
+				if (c1.manufacturerName.compareTo(c2.manufacturerName) == 1)
 					fail("Manufacturers not sorted correctly: "
-							+ c1.manufacturer + "  / " + c2.manufacturer
-							+ " in " + runName);
+							+ c1.manufacturerName + "  / "
+							+ c2.manufacturerName + " in " + runName);
+			}
 		}
 	}
 
@@ -101,15 +101,16 @@ public class Canopy_test extends TestCase {
 		for (int i = 0; i < max; i++) {
 			Canopy c1 = testList.get(i);
 			Canopy c2 = testList.get(i + 1);
-			if (c1.manufacturer.compareTo(c2.manufacturer) == 1)
-				fail("Manufacturers not sorted correctly: " + c1.manufacturer
-						+ "  / " + c2.manufacturer + " in " + runName);
-			if (c1.manufacturer.compareTo(c2.manufacturer) == 0)
+			if (c1.manufacturerName.compareTo(c2.manufacturerName) == 1)
+				fail("Manufacturers not sorted correctly: "
+						+ c1.manufacturerName + "  / " + c2.manufacturerName
+						+ " in " + runName);
+			if (c1.manufacturerName.compareTo(c2.manufacturerName) == 0)
 				if (c1.category > c2.category)
 					fail("Categories not sorted correctly: "
 							+ Integer.toString(c1.category) + " / "
 							+ Integer.toString(c2.category) + " in " + runName);
-			if (c1.manufacturer.compareTo(c2.manufacturer) == 0
+			if (c1.manufacturerName.compareTo(c2.manufacturerName) == 0
 					&& c1.category == c2.category)
 				if (c1.name.compareTo(c2.name) == 1)
 					fail("Names not sorted correctly: " + c1.name + "  / "
@@ -144,13 +145,13 @@ public class Canopy_test extends TestCase {
 	 */
 	private List<Canopy> canopyListForManufacturer(String manufacturer) {
 		Canopy testCanopy11 = new Canopy(1, CANOPYNAME1);
-		testCanopy11.manufacturer = manufacturer;
+		testCanopy11.manufacturerName = manufacturer;
 		Canopy testCanopy12 = new Canopy(1, CANOPYNAME2);
-		testCanopy12.manufacturer = manufacturer;
+		testCanopy12.manufacturerName = manufacturer;
 		Canopy testCanopy21 = new Canopy(3, CANOPYNAME1);
-		testCanopy21.manufacturer = manufacturer;
+		testCanopy21.manufacturerName = manufacturer;
 		Canopy testCanopy22 = new Canopy(3, CANOPYNAME2);
-		testCanopy22.manufacturer = manufacturer;
+		testCanopy22.manufacturerName = manufacturer;
 
 		List<Canopy> canopyList = new ArrayList<Canopy>();
 		canopyList.add(testCanopy11);
@@ -159,7 +160,6 @@ public class Canopy_test extends TestCase {
 		canopyList.add(testCanopy22);
 
 		return canopyList;
-
 	}
 
 	public void testAcceptablity() {

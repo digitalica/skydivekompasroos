@@ -11,11 +11,11 @@ import android.test.AndroidTestCase;
 public class Canopy_dbsanity_test extends AndroidTestCase {
 
 	public void testCanopiesDb() {
-		HashMap<String, Manufacturer> manufacturers = Manufacturer
+		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
-		HashMap<String, String> manufacturesNotSeen = new HashMap<String, String>();
-		for (String manufacturer : manufacturers.keySet()) {
-			manufacturesNotSeen.put(manufacturer, manufacturer);
+		HashMap<UUID, UUID> manufacturesNotSeen = new HashMap<UUID, UUID>();
+		for (UUID manufacturerId : manufacturers.keySet()) {
+			manufacturesNotSeen.put(manufacturerId, manufacturerId);
 		}
 		// assert we actually do have manufacturers in this list
 		assertTrue(manufacturesNotSeen.size() > 0);
@@ -24,7 +24,8 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 		HashMap<UUID, String> canopyIds = new HashMap<UUID, String>();
 		for (Canopy c : canopies) {
 			// check Id is unique
-			assertFalse("Id is alreay known: "+c.id.toString(), canopyIds.containsKey(c.id));
+			assertFalse("Id is alreay known: " + c.id.toString(),
+					canopyIds.containsKey(c.id));
 			canopyIds.put(c.id, "seen id");
 			// check category is within range (1-6)
 			assertTrue("category should be 1-6 for " + c.name, c.category >= 1
@@ -34,7 +35,8 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 				if (c.maxSize != null && !c.maxSize.equals("")) {
 					int minSize = Integer.parseInt(c.minSize);
 					int maxSize = Integer.parseInt(c.maxSize);
-					assertTrue("min>max for " + c.uniqueName(), minSize <= maxSize);
+					assertTrue("min>max for " + c.uniqueName(),
+							minSize <= maxSize);
 				}
 			// check last year is larger then first year of production
 			if (c.firstYearOfProduction != null
@@ -52,15 +54,15 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 				}
 			// check manufacturerAndName is not a duplicate
 			String uniqueName = c.uniqueName();
-			assertFalse("duplicate manufacturerAndName: " + uniqueName, canopyUniqueNames.containsKey(uniqueName));
+			assertFalse("duplicate manufacturerAndName: " + uniqueName,
+					canopyUniqueNames.containsKey(uniqueName));
 			canopyUniqueNames.put(uniqueName, uniqueName);
 			// check manufacturer has entry in manufactures table
-			if (!c.isSpecialCatchAllCanopy)
-				assertTrue("manufacturer not in manufactures table: ["
-						+ c.manufacturer + "]",
-						manufacturers.containsKey(c.manufacturer));
+			assertTrue("manufacturer not in manufactures table: ["
+					+ c.manufacturerId.toString() + "]",
+					manufacturers.containsKey(c.manufacturerId));
 			// check every manufacturer in manufacturers list is used
-			manufacturesNotSeen.remove(c.manufacturer);
+			manufacturesNotSeen.remove(c.manufacturerId);
 
 		}
 		// check every manufacturer in manufacturers list is used
@@ -70,21 +72,26 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 	}
 
 	public void testManufacturerDb() {
-		HashMap<String, Manufacturer> manufacturers = Manufacturer
+		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
 		HashMap<String, String> countryCodes = new HashMap<String, String>();
+		UUID everyOtherManufacturerId = UUID
+				.fromString(Manufacturer.EVERYOTHERMANUFACTURERIDSTRING);
 		for (Manufacturer m : manufacturers.values()) {
-			// make sure country (if set) can be translated to full name
-			String[] countryCodeList = m.countryCode.split(",");
-			for (String countryCode : countryCodeList) {
-				String trimmedCountryCode = countryCode.trim();
-				if (!countryCodes.containsKey(trimmedCountryCode)) {
-					Manufacturer testManufacturer = new Manufacturer("test",
-							trimmedCountryCode);
-					assertFalse("countrycode not translated "
-							+ testManufacturer.countryCode,
-							testManufacturer.countryCode
-									.equals(testManufacturer.countryFullName()));
+			if (!m.id.equals(everyOtherManufacturerId)) {
+				// make sure country (if set) can be translated to full name
+				String[] countryCodeList = m.countryCode.split(",");
+				for (String countryCode : countryCodeList) {
+					String trimmedCountryCode = countryCode.trim();
+					if (!countryCodes.containsKey(trimmedCountryCode)) {
+						Manufacturer testManufacturer = new Manufacturer(
+								"test", trimmedCountryCode);
+						assertFalse("countrycode not translated "
+								+ testManufacturer.countryCode,
+								testManufacturer.countryCode
+										.equals(testManufacturer
+												.countryFullName()));
+					}
 				}
 			}
 		}
