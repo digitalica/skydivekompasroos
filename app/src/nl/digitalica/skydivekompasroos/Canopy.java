@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -21,6 +22,7 @@ public class Canopy {
 	public final static int CATEGORYTOOHIGH = 2;
 
 	// properties
+	public UUID id;
 	public int category;
 	public String manufacturer;
 	public String name;
@@ -37,13 +39,14 @@ public class Canopy {
 	// TODO: the below should be a boolean probably...
 	public boolean isSpecialCatchAllCanopy = false;
 
-	public Canopy(int canopyCategory, String canopyManufacturer,
+	public Canopy(UUID canopyId, int canopyCategory, String canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
 			boolean canopyCommonType, String canopyDropzoneId,
 			String canopyMinSize, String canopyMaxSize,
 			String canopyFirstYearOfProduction,
 			String canopyLastYearOfProduction, String canopyRemarks,
 			String canopyRemarks_nl, boolean isSpecialCatchAllCanopy) {
+		this.id = canopyId;
 		this.category = canopyCategory;
 		this.manufacturer = canopyManufacturer;
 		this.name = canopyName;
@@ -82,8 +85,9 @@ public class Canopy {
 	 * @param size
 	 */
 	public Canopy(int canopyCategory, String canopyName, String size) {
-		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				null, size, size, null, null, null, null, false);
+		this(UUID.randomUUID(), canopyCategory, DEFAULTMANUFACTURER,
+				canopyName, null, null, true, null, size, size, null, null,
+				null, null, false);
 	}
 
 	/***
@@ -94,8 +98,9 @@ public class Canopy {
 	 * @param size
 	 */
 	public Canopy(int canopyCategory, String canopyName) {
-		this(canopyCategory, DEFAULTMANUFACTURER, canopyName, null, null, true,
-				null, DEFAULTSIZE, DEFAULTSIZE, null, null, null, null, false);
+		this(UUID.randomUUID(), canopyCategory, DEFAULTMANUFACTURER,
+				canopyName, null, null, true, null, DEFAULTSIZE, DEFAULTSIZE,
+				null, null, null, null, false);
 	}
 
 	/***
@@ -150,6 +155,10 @@ public class Canopy {
 					} catch (NumberFormatException e) {
 						throw new RuntimeException("Canopy category no Int", e);
 					}
+					String canopyIdString = canopiesParser.getAttributeValue(
+							null, "id");
+					UUID canopyId = UUID.fromString(canopyIdString);
+
 					String canopyManufacturer = canopiesParser
 							.getAttributeValue(null, "manufacturer");
 					String canopyName = canopiesParser.getAttributeValue(null,
@@ -184,7 +193,7 @@ public class Canopy {
 							&& isSpecialCatchAllCanopyString != null
 							&& Integer.parseInt(isSpecialCatchAllCanopyString) != 0)
 						isSpecialCatchAllCanopy = true;
-					Canopy canopy = new Canopy(canopyCategory,
+					Canopy canopy = new Canopy(canopyId, canopyCategory,
 							canopyManufacturer, canopyName, canopyUrl,
 							canopyCells, canopyCommonType, canopyDropzoneId,
 							canopyMinSize, canopyMaxSize,

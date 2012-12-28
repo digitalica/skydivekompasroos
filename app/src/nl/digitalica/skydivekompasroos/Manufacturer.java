@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -15,14 +16,16 @@ import android.util.Log;
 
 public class Manufacturer {
 
+	public UUID id;
 	public String name;
 	public String countryCode;
 	public String url;
 	private String remarks;
 	private String remarks_nl;
 
-	public Manufacturer(String mName, String mCountryCode, String mUrl,
-			String mRemarks, String mRemarks_nl) {
+	public Manufacturer(UUID mId, String mName, String mCountryCode,
+			String mUrl, String mRemarks, String mRemarks_nl) {
+		this.id = mId;
 		this.name = mName;
 		this.countryCode = mCountryCode;
 		this.url = mUrl;
@@ -31,7 +34,7 @@ public class Manufacturer {
 	}
 
 	public Manufacturer(String mName, String mCountryCode) {
-		this(mName, mCountryCode, null, null, null);
+		this(UUID.randomUUID(), mName, mCountryCode, null, null, null);
 	}
 
 	/***
@@ -50,6 +53,9 @@ public class Manufacturer {
 			if (eventType == XmlResourceParser.START_TAG) {
 				String strName = manufacturersParser.getName();
 				if (strName.equals("manufacturer")) {
+					String manufacturerIdString = manufacturersParser
+							.getAttributeValue(null, "id");
+					UUID manufacturerId = UUID.fromString(manufacturerIdString);
 					String manufacturerName = manufacturersParser
 							.getAttributeValue(null, "name");
 					String manufacturerUrl = manufacturersParser
@@ -61,9 +67,9 @@ public class Manufacturer {
 					String manufacturerCountryCode = manufacturersParser
 							.getAttributeValue(null, "countrycode");
 					Manufacturer manufacturer = new Manufacturer(
-							manufacturerName, manufacturerCountryCode,
-							manufacturerUrl, manufacturerRemarks,
-							manufacturerRemarks_nl);
+							manufacturerId, manufacturerName,
+							manufacturerCountryCode, manufacturerUrl,
+							manufacturerRemarks, manufacturerRemarks_nl);
 					manufacturerHashMap.put(manufacturer.name, manufacturer);
 				}
 

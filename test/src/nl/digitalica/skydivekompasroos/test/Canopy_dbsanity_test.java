@@ -2,6 +2,7 @@ package nl.digitalica.skydivekompasroos.test;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import nl.digitalica.skydivekompasroos.Canopy;
 import nl.digitalica.skydivekompasroos.Manufacturer;
@@ -20,7 +21,11 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 		assertTrue(manufacturesNotSeen.size() > 0);
 		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
 		HashMap<String, String> canopyKeys = new HashMap<String, String>();
+		HashMap<UUID, String> canopyIds = new HashMap<UUID, String>();
 		for (Canopy c : canopies) {
+			// check Id is unique
+			assertFalse("Id is alreay known: "+c.id.toString(), canopyIds.containsKey(c.id));
+			canopyIds.put(c.id, "seen id");
 			// check category is within range (1-6)
 			assertTrue("category should be 1-6 for " + c.name, c.category >= 1
 					&& c.category <= 6);
