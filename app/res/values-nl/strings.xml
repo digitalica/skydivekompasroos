@@ -103,8 +103,8 @@
         <item>25 tot 100 sprongen; minstens 10 sprongen in de afgelopen 12 maanden</item>
         <item>100 tot 400 sprongen; minstens 25 sprongen in de afgelopen 12 maanden</item>
         <item>400 tot 700 sprongen; minstens 50 sprongen in de afgelopen 12 maanden</item>
-        <item>700 tot 1000 sprongen; minstens 75 sprongen in de afgelopen 12 maanden</item>
-        <item>meer dan 1000 sprongen; minstens 100 sprongen in de afgelopen 12 maanden met een sport main canopy</item>
+        <item>700 tot 1000 sprongen; minstens 100 sprongen in de afgelopen 12 maanden</item>
+        <item>meer dan 1000 sprongen</item>
     </string-array>
     <!--
          below is the same array as jumperCategories, but worded differently to use in 
@@ -116,8 +116,8 @@
         <item>Minimaal 25 sprongen, waarvan minimaal 10 in de de laatste 12 maanden</item>
         <item>Minimaal 100 sprongen, waarvan minimaal 25 in de afgelopen 12 maanden</item>
         <item>Minimaal 400 sprongen, waarvan minimaal 50 in de afgelopen 12 maanden</item>
-        <item>Minimaal 700 sprongen, waarvan minimaal 75 in de afgelopen 12 maanden</item>
-        <item>Minimaal 1000 sprongen, waarvan minmaal 100 in de afgelopen 12 maanden met een sport main canopy</item>
+        <item>Minimaal 700 sprongen, waarvan minimaal 100 in de afgelopen 12 maanden</item>
+        <item>Minimaal 1000 sprongen</item>
     </string-array>
 
 </resources>

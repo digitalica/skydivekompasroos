@@ -20,12 +20,18 @@
     <manufacturer
         name="Chute Shop"
         countrycode="sa"
-        remarks="Parachute Systems heette voorheen Chute Shop."
-        remarks_nl="Parachute Systems was called Chute Shop originally."
+        remarks="Parachute Systems was called Chute Shop originally."
+        remarks_nl="Parachute Systems heette voorheen Chute Shop."
         url="http://www.parachutesystems.co.za/" />
+    <manufacturer
+        name="Eiff Aerodynamics"
+        countrycode="us"
+        url="http://eiff.com" />
     <manufacturer
         name="Firebird"
         countrycode="us, de"
+        remarks="Firebird was called Performance Variable originally."
+        remarks_nl="Firebird heette voorheen Performance Variable."
         url="http://cms.flyfirebird.com/" />
     <manufacturer
         name="Flight Concepts"
@@ -45,6 +51,12 @@
         remarks="NAA is North American Aerodynamics, Inc."
         remarks_nl="NAA is North American Aerodynamics, Inc."
         url="http://www.naaero.com/" />
+    <manufacturer
+        name="NZ Aerosports"
+        countrycode="nz"
+        remarks="NZ Aerosports is the manufacturer of the Icarus canopies too."
+        remarks_nl="NZ Aerosports is de fabrikant van de Icarus parachutes."
+        url="http://www.nzaerosports.com" />
     <manufacturer
         name="Parachutes de France"
         countrycode="fr"

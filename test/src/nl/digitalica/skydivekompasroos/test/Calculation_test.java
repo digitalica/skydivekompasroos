@@ -29,6 +29,8 @@ public class Calculation_test extends TestCase {
 	public void testJumperCategory() {
 		assertEquals(1, Calculation.jumperCategory(0, 0)); // absolute beginner
 		assertEquals(6, Calculation.jumperCategory(2000, 1000)); // sky god
+		assertEquals(6, Calculation.jumperCategory(2000, 0)); // jump vacation
+		assertEquals(1, Calculation.jumperCategory(999, 0)); // jump vacation
 	}
 
 	public void testMinAreaBasedOnCagetory() {
@@ -87,40 +89,46 @@ public class Calculation_test extends TestCase {
 				MAXWINGLOADCAT5, 5);
 	}
 
-
 	/***
-	 * We check the SkyGods separately, as they actually have no minimum area limit..
+	 * We check the SkyGods separately, as they actually have no minimum area
+	 * limit..
 	 */
 	public void testMinAreaForSkyGod() {
-		assertEquals("simple area based on Cat", 0, Calculation.minAreaBasedOnCategory(6));
-		assertEquals("area for light sky god ",0, Calculation.minArea(6, 50));
-		assertEquals("area for medium weight sky god ",0, Calculation.minArea(6, 90));
-		assertEquals("area for heavy sky god ",0, Calculation.minArea(6, 130));
+		assertEquals("simple area based on Cat", 0,
+				Calculation.minAreaBasedOnCategory(6));
+		assertEquals("area for light sky god ", 0, Calculation.minArea(6, 50));
+		assertEquals("area for medium weight sky god ", 0,
+				Calculation.minArea(6, 90));
+		assertEquals("area for heavy sky god ", 0, Calculation.minArea(6, 130));
 	}
-	
+
 	/***
 	 * Check the isLanguageDutch method
 	 */
 	public void testIsLanguageDutch() {
 		Locale locale;
 		// Netherlands, IS Dutch
-		locale= new Locale("nl"); 
+		locale = new Locale("nl");
 		Locale.setDefault(locale);
-		assertTrue("Netherlands should not be dutch",Calculation.isLanguageDutch());
+		assertTrue("Netherlands should not be dutch",
+				Calculation.isLanguageDutch());
 		// US, NOT Dutch
-		locale= new Locale("us"); 
+		locale = new Locale("us");
 		Locale.setDefault(locale);
-		assertFalse("United States should not be dutch",Calculation.isLanguageDutch());
+		assertFalse("United States should not be dutch",
+				Calculation.isLanguageDutch());
 		// UK, NOT Dutch
-		locale= new Locale("gb"); 
+		locale = new Locale("gb");
 		Locale.setDefault(locale);
-		assertFalse("United Kingdom should not be dutch",Calculation.isLanguageDutch());
+		assertFalse("United Kingdom should not be dutch",
+				Calculation.isLanguageDutch());
 		// Sri Lanka, NOT Dutch
-		locale= new Locale("si", "LK"); 
+		locale = new Locale("si", "LK");
 		Locale.setDefault(locale);
-		assertFalse("Sri Lanka should not be dutch",Calculation.isLanguageDutch());
+		assertFalse("Sri Lanka should not be dutch",
+				Calculation.isLanguageDutch());
 	}
-	
+
 	/***
 	 * Helper method to check the min area based on the wingload
 	 * 
@@ -137,8 +145,5 @@ public class Calculation_test extends TestCase {
 
 		assertEquals(message, minArea, Calculation.minArea(category, HEAVY));
 	}
-	
-	
-	
 
 }

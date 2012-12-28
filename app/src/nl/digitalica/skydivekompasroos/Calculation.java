@@ -11,7 +11,7 @@ public class Calculation {
 	public static final int[] MINIMUMTOTALJUMPS = new int[] { 0, 0, 25, 100,
 			400, 700, 1000 };
 	public static final int[] MINIMUMJUMPSLAST12MONTHS = new int[] { 0, 0, 10,
-			25, 50, 75, 100 };
+			25, 50, 100, 0 };
 
 	/***
 	 * Convert a weight in kg to pounds. The result is rounded.
@@ -61,8 +61,12 @@ public class Calculation {
 		else
 			categoryBasedOnJumpsLast12Months = 6;
 
-		int jumperCategory = Math.min(categoryBasedOnTotalJumps,
-				categoryBasedOnJumpsLast12Months);
+		int jumperCategory;
+		if (categoryBasedOnTotalJumps == 6)
+			jumperCategory = 6; // if 1000 jumps, no recent exp needed.
+		else
+			jumperCategory = Math.min(categoryBasedOnTotalJumps,
+					categoryBasedOnJumpsLast12Months);
 		return jumperCategory;
 	}
 

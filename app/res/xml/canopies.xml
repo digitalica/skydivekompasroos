@@ -160,7 +160,7 @@
         minsize="265"
         url="http://flightconceptsint.com/classic/7-cell-classic" />
     <canopy
-        name="Sharpshuter"
+        name="Sharpchuter"
         category="1"
         cells="7"
         commontype="0"
@@ -213,7 +213,7 @@
         minsize="185"
         url="http://flightconceptsint.com/zp-main/zp-manta" />
     <canopy
-        name="Cruislite"
+        name="Cruiselite"
         category="1"
         commontype="0"
         manufacturer="Flight Concepts" />
@@ -290,7 +290,7 @@
         minsize="99"
         url="http://www.flyaerodyne.com/triathlon.html" />
     <canopy
-        name="Eagle 9-cell ParaFoil"
+        name="Eagle 9-cell"
         category="2"
         cells="9"
         commontype="0"
@@ -299,6 +299,16 @@
         maxsize="330"
         minsize="110"
         url="http://www.naaero.com/sport/Eagle%209-cell.htm" />
+    <canopy
+        name="ParaFoil"
+        category="2"
+        cells="7"
+        commontype="1"
+        dropzoneid="68"
+        manufacturer="NAA"
+        maxsize="302"
+        minsize="220"
+        url="http://www.naaero.com/sport/parafoil.htm" />
     <canopy
         name="Super 7"
         category="2"
@@ -411,6 +421,15 @@
         manufacturer="Atair Aerodynamics"
         maxsize="210"
         minsize="135"
+        url="http://www.basetroll.com/products_4.html" />
+    <canopy
+        name="Eiff Classic"
+        category="2"
+        cells="7"
+        commontype="0"
+        manufacturer="Eiff Aerodynamics"
+        maxsize="328"
+        minsize="198"
         url="http://www.basetroll.com/products_4.html" />
 
     <!-- CATEGORY 3 -->
@@ -949,7 +968,19 @@
         minsize="71"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
-        url="http://www.performancedesigns.com/products.asp?product=ve" />
+        url="http://www.performancedesigns.com/products.asp?product=vc" />
+    <canopy
+        name="Vengeance"
+        category="6"
+        cells="9"
+        commontype="1"
+        dropzoneid="23"
+        manufacturer="Performance Designs"
+        maxsize="170"
+        minsize="89"
+        remarks="CATEGORY UNKNOWN, airlocked"
+        remarks_nl="CATEGORIE ONBEKEND, airlocked"
+        url="http://www.performancedesigns.com/products.asp?product=vn" />
     <canopy
         name="Xaos-27"
         category="6"
@@ -1004,6 +1035,58 @@
         manufacturer="Atair Aerodynamics"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND" />
+    <canopy
+        name="Demon"
+        category="6"
+        commontype="0"
+        manufacturer="Firebird"
+        maxsize="130"
+        minsize="60"
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
+        url="http://www.flyfirebird.com/catalog/product_info.php/products_id/61" />
+    <canopy
+        name="Chilli"
+        category="6"
+        commontype="0"
+        manufacturer="Firebird"
+        maxsize="150"
+        minsize="80"
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
+        url="http://www.flyfirebird.com/catalog/product_info.php/cPath/90_21_159/products_id/659" />
+    <canopy
+        name="Exit One"
+        category="6"
+        commontype="0"
+        manufacturer="Firebird"
+        maxsize="260"
+        minsize="210"
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
+        url="http://www.flyfirebird.com/catalog/product_info.php/cPath/90_21_159/products_id/670" />
+    <canopy
+        name="Daedalus JVX"
+        category="6"
+        cells="27"
+        commontype="0"
+        manufacturer="NZ Aerosports"
+        maxsize="119"
+        minsize="69"
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
+        url="http://www.nzaerosports.com/canopies/daedalus-JVX" />
+    <canopy
+        name="Daedalus JFVX"
+        category="6"
+        cells="21"
+        commontype="0"
+        manufacturer="NZ Aerosports"
+        maxsize="119"
+        minsize="69"
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
+        url="http://www.nzaerosports.com/canopies/daedalus-JFX" />
     <canopy
         name="SPECIAL_CATCH_ALL_NAME_WILL_BE_REPLACED"
         category="6"

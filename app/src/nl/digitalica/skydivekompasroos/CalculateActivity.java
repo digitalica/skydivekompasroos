@@ -454,7 +454,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	 */
 	private void fillWingloadTable(int weightInKg) {
 
-		final int[] WLTBL = new int[] { 125, 135, 150, 170, 190, 210, 230 };
+		final int[] WLTBL = new int[] { 120, 135, 150, 170, 190, 210, 230 };
 
 		// fill the wingload table
 		int column = 0;
