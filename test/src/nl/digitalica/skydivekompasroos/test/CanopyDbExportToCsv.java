@@ -33,7 +33,7 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 				.getManufacturerHash(getContext());
 
 		Log.v(TAG,
-				",cat,name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks manufacturer,remarks canopy,url manufacturer, url canopy,remarks manufacturer nl, remarks canopy nl");
+				",cat,name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks manufacturer,remarks canopy,url manufacturer,url canopy,dropzoneUrl,remarks manufacturer nl, remarks canopy nl");
 
 		for (Canopy c : canopies) {
 			Manufacturer m = manufacturers.get(c.manufacturerId);
@@ -68,6 +68,7 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 			else
 				line.append(SEPARATOR);
 			line.append((c.url == null ? "" : c.url) + SEPARATOR);
+			line.append(c.dropZoneUrl() + SEPARATOR);
 			if (m != null) // add with quotes for complicated remarks
 				line.append((m.remarks(true) == null ? "" : QUOTE
 						+ m.remarks(true) + QUOTE)
