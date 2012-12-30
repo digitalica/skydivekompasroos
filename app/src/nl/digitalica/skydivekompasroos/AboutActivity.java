@@ -9,10 +9,13 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class AboutActivity extends KompasroosBaseActivity {
@@ -24,6 +27,29 @@ public class AboutActivity extends KompasroosBaseActivity {
 
 		TextView aboutText = (TextView) findViewById(R.id.textViewAbout);
 
+		String aboutString = aboutText();
+
+		// put result in testview
+		aboutText.setText(aboutString);
+
+		// add on click handler to share button
+		ImageButton shareAboutButton = (ImageButton) findViewById(R.id.buttonShareAbout);
+		shareAboutButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				shareAbout();
+			}
+
+		});
+
+	}
+
+	/**
+	 * Return the about text from the raw resource, ammended with some version
+	 * information
+	 * 
+	 * @return
+	 */
+	private String aboutText() {
 		// read text file
 		InputStream iFile = getResources().openRawResource(R.raw.about);
 		String aboutString = "";
@@ -55,9 +81,7 @@ public class AboutActivity extends KompasroosBaseActivity {
 			compileDate = " (" + compileDate + ")";
 
 		aboutString += "\n\nVersion: " + mVersionNumber + compileDate;
-
-		// put result in testview
-		aboutText.setText(aboutString);
+		return aboutString;
 	}
 
 	private String inputStreamToString(InputStream iFile) throws IOException {
@@ -71,6 +95,18 @@ public class AboutActivity extends KompasroosBaseActivity {
 		}
 
 		return total.toString();
+	}
+
+	private void shareAbout() {
+		Intent sendIntent = new Intent();
+		sendIntent.setAction(Intent.ACTION_SEND);
+		sendIntent.putExtra(Intent.EXTRA_TEXT, aboutText());
+		sendIntent.putExtra(Intent.EXTRA_SUBJECT,
+				getString(R.string.shareaboutsubject));
+		sendIntent.putExtra(Intent.EXTRA_TITLE,
+				getString(R.string.shareaboutsubject));
+		sendIntent.setType("text/plain");
+		startActivity(sendIntent);
 	}
 
 }

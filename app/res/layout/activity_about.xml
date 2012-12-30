@@ -1,20 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/SuzanBackGroundBlue"
-    android:paddingBottom="@dimen/screen_padding_bottom"
-    android:paddingLeft="@dimen/screen_padding_left"
-    android:paddingRight="@dimen/screen_padding_right"
-    android:paddingTop="@dimen/screen_padding_top" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textViewAbout"
+    <LinearLayout
+        android:id="@+id/tablelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/screen_padding_bottom"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:paddingTop="@dimen/screen_padding_top" >
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/to_be_replaced"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/bodyText" >
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/buttonShareAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:contentDescription="@string/btnShareAbout"
+            android:src="@android:drawable/ic_menu_share" />
+    </LinearLayout>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:autoLink="web"
-        android:linksClickable="true"
-        android:text="TextView"
-        android:textSize="@dimen/bodyText" />
+        android:background="@color/SuzanBackGroundBlue"
+        android:paddingBottom="@dimen/screen_padding_bottom"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:paddingTop="@dimen/screen_padding_top" >
 
-</ScrollView>
+        <TextView
+            android:id="@+id/textViewAbout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:text="TextView"
+            android:textSize="@dimen/bodyText" />
+    </ScrollView>
+
+</LinearLayout>

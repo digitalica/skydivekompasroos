@@ -28,6 +28,7 @@
     <string name="btnPlus">" + "</string>
     <string name="btnShareResult">Share result</string>
     <string name="btnShareDetails">Share canopy details</string>
+    <string name="btnShareAbout">Share about text</string>
     <string name="calculationWeightLabel">\nExit weight</string>
     <string name="calculationWeightSetting">: %1$d kg (%2$d lbs)</string>
     <string name="calculationTotalJumpsLabel">\nTotal number of jumps</string>
@@ -49,6 +50,7 @@
     <string name="canopyManufacturer">manufacturer</string>
     <string name="canopyListCategoryHeader">Category: %1$d</string>
     <string name="wingloadtableheader">\nWingload in lbs/sqft</string>
+    <string name="shareaboutsubject">Skydive kompasroos app information</string>
     <string name="sharedetailssubject">Skydive kompasroos canopy data</string>
     <string name="shareresultsubject">Skydive kompasroos result</string>
     <string name="shareresultheaderformat">Your experience (%1$d jumps, of which %2$d in the last 12 months) and exit weight (%3$d kg) make canopies from category %4$d and a minimum area of %5$d sqft valid for you.\n\nSee the list below:\n\n</string>

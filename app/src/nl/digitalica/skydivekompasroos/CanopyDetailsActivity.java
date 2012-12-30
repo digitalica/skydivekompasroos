@@ -171,7 +171,6 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 				getString(R.string.sharedetailssubject));
 		sendIntent.setType("text/plain");
 		startActivity(sendIntent);
-
 	}
 
 	/***
