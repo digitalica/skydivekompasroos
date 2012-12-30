@@ -430,11 +430,26 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		View layout = inflater.inflate(R.layout.sort_dialog,
 				(ViewGroup) findViewById(R.id.root));
 
-		Button byName = (Button) layout.findViewById(R.id.buttonByName);
-		Button byManufacturer = (Button) layout
-				.findViewById(R.id.buttonByManufacturer);
-		Button byCategory = (Button) layout.findViewById(R.id.buttonByCategory);
-		// TODO: add on click handlers to buttons
+		// check the correct radio button in group
+		RadioButton radioToCheck = null;
+		switch (currentSortingMethod) {
+		case SORTBYNAME:
+			radioToCheck = (RadioButton) layout
+					.findViewById(R.id.radioButtonByName);
+			break;
+		case SORTBYCATEGORY:
+			radioToCheck = (RadioButton) layout
+					.findViewById(R.id.radioButtonByCategory);
+			break;
+		case SORTBYMANUFACTURER:
+			radioToCheck = (RadioButton) layout
+					.findViewById(R.id.radioButtonByManufacturer);
+			break;
+
+		}
+		if (radioToCheck != null)
+			radioToCheck.setChecked(true);
+		
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(layout);
 		builder.setNegativeButton(android.R.string.cancel,
@@ -445,27 +460,30 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 						CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 					}
 				});
-		byName.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				fillCanopyTable(canopyTable, SortingEnum.SORTBYNAME,
+
+		RadioGroup rg = (RadioGroup) layout
+				.findViewById(R.id.radioGroupFilterOptions);
+		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				int checkButtonId = group.getCheckedRadioButtonId();
+				switch (checkButtonId) {
+				case R.id.radioButtonByName:
+					currentSortingMethod = SortingEnum.SORTBYNAME;
+					break;
+				case R.id.radioButtonByCategory:
+					currentSortingMethod = SortingEnum.SORTBYCATEGORY;
+					break;
+				case R.id.radioButtonByManufacturer:
+					currentSortingMethod = SortingEnum.SORTBYMANUFACTURER;
+					break;
+				}
+				fillCanopyTable(canopyTable, currentSortingMethod,
 						currentFilterType);
 				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
-		byManufacturer.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				fillCanopyTable(canopyTable, SortingEnum.SORTBYMANUFACTURER,
-						currentFilterType);
-				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
-			}
-		});
-		byCategory.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				fillCanopyTable(canopyTable, SortingEnum.SORTBYCATEGORY,
-						currentFilterType);
-				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
-			}
-		});
+
 		return builder.create();
 	}
 

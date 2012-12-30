@@ -12,25 +12,31 @@
         android:text="@string/sortDialogHeader"
         android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/buttonByName"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_sortbyname"
-        android:textColor="@android:color/white" />
+    <RadioGroup
+        android:id="@+id/radioGroupFilterOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
-    <Button
-        android:id="@+id/buttonByManufacturer"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_sortbymanufacturer"
-        android:textColor="@android:color/white" />
+        <RadioButton
+            android:id="@+id/radioButtonByName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_sortbyname"
+            android:textColor="@android:color/white" />
 
-    <Button
-        android:id="@+id/buttonByCategory"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_sortbycategory"
-        android:textColor="@android:color/white" />
+        <RadioButton
+            android:id="@+id/radioButtonByManufacturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_sortbymanufacturer"
+            android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/radioButtonByCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_sortbycategory"
+            android:textColor="@android:color/white" />
+    </RadioGroup>
 
 </LinearLayout>
