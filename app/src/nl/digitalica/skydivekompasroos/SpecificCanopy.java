@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import android.content.Context;
 
-public class SpecificCanopy {
+public class SpecificCanopy extends CanopyBase {
 
 	final public int MAXSPECIFICCANOPIES = 10;
 
@@ -40,10 +40,10 @@ public class SpecificCanopy {
 	 */
 	public int acceptablility(int jumperCategory, int exitWeightInKg) {
 		if (jumperCategory < this.category)
-			return CanopyType.CATEGORYTOOHIGH; // not acceptable
+			return CATEGORYTOOHIGH; // not acceptable
 		if (this.size < Calculation.minArea(jumperCategory, exitWeightInKg))
-			return CanopyType.NEEDEDSIZENOTAVAILABLE;
-		return CanopyType.ACCEPTABLE;
+			return NEEDEDSIZENOTAVAILABLE;
+		return ACCEPTABLE;
 	}
 
 }

@@ -13,16 +13,11 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.util.Log;
 
-public class CanopyType {
+public class CanopyType extends CanopyBase {
 
 	final public static String EVERYOTHERCANOPYIDSTRING = "5E4D5563-2196-4EC2-8558-0491082D0626";
 
 	final public static String DEFAULTSIZE = "170";
-
-	// results
-	public final static int ACCEPTABLE = 0;
-	public final static int NEEDEDSIZENOTAVAILABLE = 1;
-	public final static int CATEGORYTOOHIGH = 2;
 
 	// properties
 	public UUID id;
