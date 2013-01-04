@@ -3,6 +3,8 @@ package nl.digitalica.skydivekompasroos;
 import java.util.Calendar;
 import java.util.List;
 
+import nl.digitalica.skydivekompasroos.CanopyBase.AcceptabilityEnum;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -118,15 +120,24 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				.getSpecificCanopiesInList(CalculateActivity.this);
 		for (SpecificCanopy theCanopy : scList) {
 			insertCanopyRow(scTable, theCanopy);
-
 		}
 	}
 
+	/**
+	 * Update the already drawn specific canopy table, based on the data in the
+	 * table itself.
+	 */
 	private void updateSpecificCanopyTable() {
 		// TODO Auto-generated method stub
 		TableLayout scTable = (TableLayout) findViewById(R.id.tableSpecificCanopies);
 		for (int i = 1; i < scTable.getChildCount(); i++) {
 			TableRow canopyListRow = (TableRow) scTable.getChildAt(i);
+			TextView tvSize = (TextView) canopyListRow
+					.findViewById(R.id.textViewSpecificSize);
+			TextView tvType = (TextView) canopyListRow
+					.findViewById(R.id.textViewSpecificType);
+			TextView tvRemarks = (TextView) canopyListRow
+					.findViewById(R.id.textViewSpecificRemarks);
 			TextView tvWingLoad = (TextView) canopyListRow
 					.findViewById(R.id.textViewSpecificWingload);
 
@@ -139,9 +150,19 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			SpecificCanopy tempCanopy = new SpecificCanopy(null, size, "",
 					category, "");
-			canopyListRow
-					.setBackgroundDrawable(backgroundDrawableForAcceptance(tempCanopy
-							.acceptablility(currentMaxCategory, currentWeight)));
+
+			AcceptabilityEnum acc = tempCanopy.acceptablility(
+					currentMaxCategory, currentWeight);
+			// We need different drawables for each column as the widths are different
+			Drawable backgroundCol1 = backgroundDrawableForAcceptance(acc);
+			Drawable backgroundCol2 = backgroundDrawableForAcceptance(acc);
+			Drawable backgroundCol3 = backgroundDrawableForAcceptance(acc);
+			Drawable backgroundCol4 = backgroundDrawableForAcceptance(acc);
+
+			tvSize.setBackgroundDrawable(backgroundCol1);
+			tvType.setBackgroundDrawable(backgroundCol2);
+			tvRemarks.setBackgroundDrawable(backgroundCol3);
+			tvWingLoad.setBackgroundDrawable(backgroundCol4);
 		}
 	}
 
@@ -151,19 +172,19 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		View canopyListRow = inflater.inflate(
 				R.layout.specific_canopy_row_layout, null);
 
-		TextView size = (TextView) canopyListRow
+		TextView tvSize = (TextView) canopyListRow
 				.findViewById(R.id.textViewSpecificSize);
-		TextView type = (TextView) canopyListRow
+		TextView tvType = (TextView) canopyListRow
 				.findViewById(R.id.textViewSpecificType);
-		TextView remarks = (TextView) canopyListRow
+		TextView tvRemarks = (TextView) canopyListRow
 				.findViewById(R.id.textViewSpecificRemarks);
-		TextView wingload = (TextView) canopyListRow
+		TextView tvWingload = (TextView) canopyListRow
 				.findViewById(R.id.textViewSpecificWingload);
 
-		size.setText(getString(R.string.specificCanopyHeaderSize));
-		type.setText(getString(R.string.specificCanopyHeaderType));
-		remarks.setText(getString(R.string.specificCanopyHeaderRemarks));
-		wingload.setText(getString(R.string.specificCanopyHeaderWingLoad));
+		tvSize.setText(getString(R.string.specificCanopyHeaderSize));
+		tvType.setText(getString(R.string.specificCanopyHeaderType));
+		tvRemarks.setText(getString(R.string.specificCanopyHeaderRemarks));
+		tvWingload.setText(getString(R.string.specificCanopyHeaderWingLoad));
 
 		scTable.addView(canopyListRow);
 	}

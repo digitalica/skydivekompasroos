@@ -480,13 +480,15 @@
                 android:id="@+id/tableSpecificCanopies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:shrinkColumns="1" >
+                android:layout_gravity="left" >
             </TableLayout>
 
             <Button
                 android:id="@+id/buttonAddSpecificCanopy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/table_padding_aftercolon"
+                android:layout_marginTop="@dimen/table_padding_aftercolon"
                 android:background="@drawable/btn_sb_updown"
                 android:text="@string/btnPlus"
                 android:textColor="@color/SuzanBrown"

@@ -7,27 +7,44 @@
         android:id="@+id/textViewSpecificSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="@dimen/table_padding_aftercolon"
-        android:text="@string/to_be_replaced" />
+        android:layout_marginTop="@dimen/screen_padding_top"
+        android:gravity="left"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:text="@string/to_be_replaced"
+        android:textSize="@dimen/bodyText" />
 
     <TextView
         android:id="@+id/textViewSpecificType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="@dimen/table_padding_aftercolon"
-        android:text="@string/to_be_replaced" />
+        android:layout_marginTop="@dimen/screen_padding_top"
+        android:gravity="left"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:text="@string/to_be_replaced"
+        android:textSize="@dimen/bodyText" />
 
     <TextView
         android:id="@+id/textViewSpecificRemarks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="@dimen/table_padding_aftercolon"
-        android:text="@string/to_be_replaced" />
+        android:layout_marginTop="@dimen/screen_padding_top"
+        android:gravity="left"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:text="@string/to_be_replaced"
+        android:textSize="@dimen/bodyText" />
 
     <TextView
         android:id="@+id/textViewSpecificWingload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/to_be_replaced" />
+        android:layout_marginTop="@dimen/screen_padding_top"
+        android:gravity="left"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:text="@string/to_be_replaced"
+        android:textSize="@dimen/bodyText" />
 
 </TableRow>

@@ -90,7 +90,7 @@
     <string name="canopyAdviseNeededSizeNotAvailable">Ongeschikt: categorie mag, maar benodigde maat (%1$d sqft) niet beschikbaar.</string>
     <string name="canopyAdviseCategoryTooHigh">Ongeschikt: nog minimaal %1$d sprongen extra ervaring nodig.</string>
     <string name="specificcanopiestableheader">\nParachutes:</string>
-    <string name="specificCanopyHeaderSize">Maat</string>
+    <string name="specificCanopyHeaderSize">Sqft</string>
     <string name="specificCanopyHeaderType">Type</string>
     <string name="specificCanopyHeaderRemarks">Opm.</string>
     <string name="specificCanopyHeaderWingLoad">Wingload</string>

@@ -29,10 +29,13 @@ public class SpecificCanopy extends CanopyBase {
 	static public List<SpecificCanopy> getSpecificCanopiesInList(Context c) {
 		List<SpecificCanopy> specificCanopies = new ArrayList<SpecificCanopy>();
 		// TODO: add List
-		
-		SpecificCanopy canopy1 = new SpecificCanopy(UUID.randomUUID(), 230, "PD", 1, "eigen");
-		SpecificCanopy canopy2 = new SpecificCanopy(UUID.randomUUID(), 170, "Stiletto", 4, "cool");
-		SpecificCanopy canopy3 = new SpecificCanopy(UUID.randomUUID(), 120, "Katana", 5, "cool");
+
+		SpecificCanopy canopy1 = new SpecificCanopy(UUID.randomUUID(), 230,
+				"PD", 1, "eigen");
+		SpecificCanopy canopy2 = new SpecificCanopy(UUID.randomUUID(), 170,
+				"Stiletto", 4, "cool");
+		SpecificCanopy canopy3 = new SpecificCanopy(UUID.randomUUID(), 120,
+				"Katana", 5, "cool");
 		specificCanopies.add(canopy1);
 		specificCanopies.add(canopy2);
 		specificCanopies.add(canopy3);
@@ -46,15 +49,13 @@ public class SpecificCanopy extends CanopyBase {
 	 * @param jumperCategory
 	 * @param exitWeightInKg
 	 * @return
-	 * 
-	 *         TODO: should return an enum, not an int!!!!!
 	 */
 	public AcceptabilityEnum acceptablility(int jumperCategory,
 			int exitWeightInKg) {
 		if (jumperCategory < this.typeCategory)
 			return AcceptabilityEnum.CATEGORYTOOHIGH; // not acceptable
 		if (this.size < Calculation.minArea(jumperCategory, exitWeightInKg))
-			return AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE;
+			return AcceptabilityEnum.CATEGORYTOOHIGH;
 		return AcceptabilityEnum.ACCEPTABLE;
 	}
 
