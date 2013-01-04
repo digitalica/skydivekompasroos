@@ -1,13 +1,13 @@
 package nl.digitalica.skydivekompasroos;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
+
+import nl.digitalica.skydivekompasroos.CanopyBase.AcceptabilityEnum;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +27,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		UUID canopyId = UUID.fromString(extras.getString(CANOPYIDEXTRA));
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(CanopyDetailsActivity.this);
-		
+
 		currentCanopy = CanopyType.getCanopy(canopyId, this);
 		currentManufacturer = manufacturers.get(currentCanopy.manufacturerId);
 
@@ -48,8 +48,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvDropzoneId = (TextView) findViewById(R.id.textViewDropzoneIdText);
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
-		int acceptability = currentCanopy.acceptablility(currentMaxCategory,
-				currentWeight);
+		AcceptabilityEnum acceptability = currentCanopy.acceptablility(
+				currentMaxCategory, currentWeight);
 
 		tvName.setText(currentCanopy.name);
 		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(acceptability));
@@ -57,16 +57,16 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvCategory.setText(Integer.toString(currentCanopy.category));
 		String advice = "";
 		switch (acceptability) {
-		case CanopyType.ACCEPTABLE:
+		case ACCEPTABLE:
 			advice = String.format(getString(R.string.canopyAdviseAcceptable),
 					currentMinArea);
 			break;
-		case CanopyType.NEEDEDSIZENOTAVAILABLE:
+		case NEEDEDSIZENOTAVAILABLE:
 			advice = String.format(
 					getString(R.string.canopyAdviseNeededSizeNotAvailable),
 					currentMinArea);
 			break;
-		case CanopyType.CATEGORYTOOHIGH:
+		case CATEGORYTOOHIGH:
 			int extraNeededJumsThis12Months = Calculation.MINIMUMJUMPSLAST12MONTHS[currentCanopy.category]
 					- currentJumpsLast12Months;
 			int extraNeededTotalJumps = Calculation.MINIMUMTOTALJUMPS[currentCanopy.category]

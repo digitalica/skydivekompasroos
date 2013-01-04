@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 
 import junit.framework.TestCase;
+import nl.digitalica.skydivekompasroos.CanopyBase.AcceptabilityEnum;
 import nl.digitalica.skydivekompasroos.CanopyType;
-import nl.digitalica.skydivekompasroos.Manufacturer;
 
 public class CanopyType_test extends TestCase {
 	final String CANOPYNAME1 = "testcanopy1";
@@ -164,82 +164,101 @@ public class CanopyType_test extends TestCase {
 
 	public void testAcceptablity() {
 		CanopyType beginnerCanopy = new CanopyType(1, "beginnercanopy", "230");
-		CanopyType intermediateCanopy120 = new CanopyType(3, "intermediatecanopy120",
-				"120");
-		CanopyType intermediateCanopy190 = new CanopyType(3, "intermediatecanopy190",
-				"190");
+		CanopyType intermediateCanopy120 = new CanopyType(3,
+				"intermediatecanopy120", "120");
+		CanopyType intermediateCanopy190 = new CanopyType(3,
+				"intermediatecanopy190", "190");
 		CanopyType expertCanopy = new CanopyType(6, "expertcanopy", "90");
 
 		// beginner can jump beginner canopy
-		assertAcceptability(CanopyType.ACCEPTABLE, 1, 50, beginnerCanopy);
-		assertAcceptability(CanopyType.ACCEPTABLE, 1, 100, beginnerCanopy);
-		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 1, 120,
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 1, 50, beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 1, 100,
+				beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, 1, 120,
 				beginnerCanopy);
 
 		// beginner can NOT EVER jump intermediate canopy
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 50,
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 50,
 				intermediateCanopy120);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 100,
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 100,
 				intermediateCanopy120);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 120,
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 120,
 				intermediateCanopy120);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 50,
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 50,
 				intermediateCanopy190);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 100,
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 100,
 				intermediateCanopy190);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 120,
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 120,
 				intermediateCanopy190);
 
 		// beginner can NOT EVER jump expert canopy
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 50, expertCanopy);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 100, expertCanopy);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 120, expertCanopy);
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 50,
+				expertCanopy);
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 100,
+				expertCanopy);
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 1, 120,
+				expertCanopy);
 
 		// intermediate can jump beginner canopy
-		assertAcceptability(CanopyType.ACCEPTABLE, 3, 50, beginnerCanopy);
-		assertAcceptability(CanopyType.ACCEPTABLE, 3, 100, beginnerCanopy);
-		assertAcceptability(CanopyType.ACCEPTABLE, 3, 120, beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 3, 50, beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 3, 100,
+				beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 3, 120,
+				beginnerCanopy);
 
 		// intermediate can jump intermediate canopy IF wingload is ok
-		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 50,
+		assertAcceptability(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, 3, 50,
 				intermediateCanopy120);
-		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 100,
+		assertAcceptability(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, 3, 100,
 				intermediateCanopy120);
-		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 120,
+		assertAcceptability(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, 3, 120,
 				intermediateCanopy120);
-		assertAcceptability(CanopyType.ACCEPTABLE, 3, 50, intermediateCanopy190);
-		assertAcceptability(CanopyType.ACCEPTABLE, 3, 100, intermediateCanopy190);
-		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 120,
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 3, 50,
+				intermediateCanopy190);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 3, 100,
+				intermediateCanopy190);
+		assertAcceptability(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, 3, 120,
 				intermediateCanopy190);
 
 		// intermediate can NOT jump expert canopy
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 3, 50, expertCanopy);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 3, 100, expertCanopy);
-		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 3, 120, expertCanopy);
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 3, 50,
+				expertCanopy);
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 3, 100,
+				expertCanopy);
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH, 3, 120,
+				expertCanopy);
 
 		// expert can always jump beginner canopy
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, beginnerCanopy);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, beginnerCanopy);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 50, beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 100,
+				beginnerCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 120,
+				beginnerCanopy);
 
 		// expert can always jump intermediate canopy
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, intermediateCanopy120);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, intermediateCanopy120);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, intermediateCanopy120);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, intermediateCanopy190);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, intermediateCanopy190);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, intermediateCanopy190);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 50,
+				intermediateCanopy120);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 100,
+				intermediateCanopy120);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 120,
+				intermediateCanopy120);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 50,
+				intermediateCanopy190);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 100,
+				intermediateCanopy190);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 120,
+				intermediateCanopy190);
 
 		// expert can always jump expert canopy
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, expertCanopy);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, expertCanopy);
-		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, expertCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 50, expertCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 100, expertCanopy);
+		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 120, expertCanopy);
 	}
 
-	private void assertAcceptability(int acceptability, int jumperCategory,
-			int exitWeightInKg, CanopyType canopy) {
-		int acceptablity = canopy
-				.acceptablility(jumperCategory, exitWeightInKg);
+	private void assertAcceptability(AcceptabilityEnum acceptability,
+			int jumperCategory, int exitWeightInKg, CanopyType canopy) {
+		AcceptabilityEnum canopyAcceptability = canopy.acceptablility(
+				jumperCategory, exitWeightInKg);
 		StringBuilder message = new StringBuilder();
 		message.append("Jumper Cat " + Integer.toString(jumperCategory));
 		message.append(", exit weight " + Integer.toString(exitWeightInKg)
@@ -247,7 +266,7 @@ public class CanopyType_test extends TestCase {
 		message.append(", " + canopy.name);
 		message.append(" cat " + Integer.toString(canopy.category));
 		message.append(", area " + canopy.minSize + "/" + canopy.maxSize);
-		assertEquals(message.toString(), acceptability, acceptablity);
+		assertEquals(message.toString(), acceptability, canopyAcceptability);
 	}
 
 	public void testAddionalInformation() {

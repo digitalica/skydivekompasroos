@@ -356,14 +356,14 @@ public class CanopyType extends CanopyBase {
 	 * 
 	 *         TODO: should return an enum, not an int!!!!!
 	 */
-	public int acceptablility(int jumperCategory, int exitWeightInKg) {
+	public AcceptabilityEnum acceptablility(int jumperCategory, int exitWeightInKg) {
 		if (jumperCategory < this.category)
-			return CATEGORYTOOHIGH; // not acceptable
+			return AcceptabilityEnum.CATEGORYTOOHIGH; // not acceptable
 		if (this.maxSize != "" && this.maxSize != null)
 			if (Integer.parseInt(this.maxSize) < Calculation.minArea(
 					jumperCategory, exitWeightInKg))
-				return NEEDEDSIZENOTAVAILABLE;
-		return ACCEPTABLE;
+				return AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE;
+		return AcceptabilityEnum.ACCEPTABLE;
 	}
 
 	/**

@@ -1,10 +1,10 @@
 package nl.digitalica.skydivekompasroos;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import nl.digitalica.skydivekompasroos.CanopyBase.AcceptabilityEnum;
 
 import android.app.Activity;
 import android.content.Context;
@@ -71,15 +71,15 @@ public class KompasroosBaseActivity extends Activity {
 	 * @param acceptability
 	 * @return
 	 */
-	Drawable backgroundDrawableForAcceptance(int acceptability) {
+	Drawable backgroundDrawableForAcceptance(AcceptabilityEnum acceptability) {
 		Drawable background = null;
-		if (acceptability == CanopyType.ACCEPTABLE)
+		if (acceptability == AcceptabilityEnum.ACCEPTABLE)
 			background = getResources()
 					.getDrawable(R.drawable.canopyacceptable);
-		else if (acceptability == CanopyType.NEEDEDSIZENOTAVAILABLE)
+		else if (acceptability == AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE)
 			background = getResources().getDrawable(
 					R.drawable.canopyneededsizenotavailable);
-		else if (acceptability == CanopyType.CATEGORYTOOHIGH)
+		else if (acceptability == AcceptabilityEnum.CATEGORYTOOHIGH)
 			background = getResources().getDrawable(
 					R.drawable.canopycategorytoohigh);
 		return background;
