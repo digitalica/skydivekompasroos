@@ -36,8 +36,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		COMMONAROUNDMAX, ONLYCOMMON, ALL
 	}
 
-	List<CanopyType> canopyList;
-	LinearLayout canopyTable;
+	List<CanopyType> canopyTypeList;
+	LinearLayout canopyTypeTable;
 
 	SortingEnum currentSortingMethod;
 	FilterEnum currentFilterType;
@@ -57,9 +57,9 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_canopytypelist);
 
-		canopyTable = (LinearLayout) findViewById(R.id.tablelayout_canopylist);
+		canopyTypeTable = (LinearLayout) findViewById(R.id.tablelayout_canopytypelist);
 
-		canopyList = CanopyType.getAllCanopyTypesInList(CanopyTypeListActivity.this);
+		canopyTypeList = CanopyType.getAllCanopyTypesInList(CanopyTypeListActivity.this);
 
 		// if sorting and filter were save over 1 day ago, clear them
 		int sortingFilterTime = prefs.getInt(SETTING_SORTING_FILTER_DAYNR, 0);
@@ -82,7 +82,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		this.currentFilterType = FilterEnum.values()[filterCatdOrdinal];
 
 		// TODO: store sorting so it is persistent (?)
-		fillCanopyTable(canopyTable, currentSortingMethod, currentFilterType);
+		fillCanopyTypeTable(canopyTypeTable, currentSortingMethod, currentFilterType);
 
 		// add on click handler to share button
 		ImageButton shareResultButton = (ImageButton) findViewById(R.id.buttonShareResult);
@@ -114,12 +114,12 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 	}
 
 	/***
-	 * Fills the canopy table on screen again based on the given sorting method
+	 * Fills the canopy type table on screen again based on the given sorting method
 	 * 
-	 * @param canopyTable
+	 * @param canopyTypeTable
 	 * @param sortingMethod
 	 */
-	private void fillCanopyTable(LinearLayout canopyTable,
+	private void fillCanopyTypeTable(LinearLayout canopyTypeTable,
 			SortingEnum sortingMethod, FilterEnum filterType) {
 
 		// sort the canopyList on type, name, manufacturer
@@ -135,7 +135,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 			canopyComparator = new CanopyType.ComparatorByManufacturerCategoryName();
 			break;
 		}
-		Collections.sort(canopyList, canopyComparator);
+		Collections.sort(canopyTypeList, canopyComparator);
 
 		this.currentSortingMethod = sortingMethod;
 		savePreference(SETTING_SORTING, sortingMethod.ordinal());
@@ -143,7 +143,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		savePreference(SETTING_FILTER_TYPE, filterType.ordinal());
 		savePreference(SETTING_SORTING_FILTER_DAYNR,
 				(int) (System.currentTimeMillis() / MILLISINDAY));
-		canopyTable.removeAllViewsInLayout();
+		canopyTypeTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
 		skydiveKompasroosResultNeededSizeNotAvailable = new StringBuilder();
 		skydiveKompasroosResultNotAccepted = new StringBuilder();
@@ -152,36 +152,36 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		int previousCat = 9999;
 		int shownCount = 0;
 		int allCount = 0;
-		for (CanopyType theCanopy : canopyList) {
+		for (CanopyType theCanopy : canopyTypeList) {
 			allCount++;
-			boolean showThisCanopy = true;
+			boolean showThisCanopyType = true;
 			// check cat filter
 			if (filterType == FilterEnum.ONLYCOMMON)
 				if (!theCanopy.commontype)
-					showThisCanopy = false;
+					showThisCanopyType = false;
 			if (filterType == FilterEnum.COMMONAROUNDMAX)
 				if (!theCanopy.commontype
 						|| theCanopy.category < currentMaxCategory - 1
 						|| theCanopy.category > currentMaxCategory + 1)
-					showThisCanopy = false;
-			// show the canopy (and maybe headerline) if needed
-			if (showThisCanopy) {
+					showThisCanopyType = false;
+			// show the canopy type (and maybe headerline) if needed
+			if (showThisCanopyType) {
 				shownCount++;
 				if (sortingMethod == SortingEnum.SORTBYMANUFACTURER
 						&& !previousManufacturerId
 								.equals(theCanopy.manufacturerId)) {
-					insertCanopyHeaderRow(canopyTable,
+					insertCanopyTypeHeaderRow(canopyTypeTable,
 							theCanopy.manufacturerName);
 					previousManufacturerId = theCanopy.manufacturerId;
 				}
 				if (sortingMethod == SortingEnum.SORTBYCATEGORY
 						&& previousCat != theCanopy.category) {
-					insertCanopyHeaderRow(canopyTable, String.format(
+					insertCanopyTypeHeaderRow(canopyTypeTable, String.format(
 							getString(R.string.canopyListCategoryHeader),
 							theCanopy.category));
 					previousCat = theCanopy.category;
 				}
-				insertCanopyRow(canopyTable, theCanopy, currentMaxCategory,
+				insertCanopyTypeRow(canopyTypeTable, theCanopy, currentMaxCategory,
 						currentWeight);
 			}
 		}
@@ -299,12 +299,12 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 	}
 
 	/***
-	 * Generic click handle to for clicks on a canopy row the tag is used to
+	 * Generic click handle to for clicks on a canopy type row the tag is used to
 	 * decide what canopy details to show.
 	 * 
 	 * @param v
 	 */
-	private void onCanopyRowClick(View v) {
+	private void onCanopyTypeRowClick(View v) {
 		String canopyKey = v.getTag().toString();
 		Intent i = new Intent(getBaseContext(), CanopyDetailsActivity.class);
 		// TODO: remove extras as they will be in global vars...
@@ -312,7 +312,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		startActivity(i);
 	}
 
-	private void insertCanopyHeaderRow(LinearLayout canopyTable, String header) {
+	private void insertCanopyTypeHeaderRow(LinearLayout canopyTable, String header) {
 		String nl = System.getProperty("line.separator");
 		TextView canopyListHeader = new TextView(CanopyTypeListActivity.this);
 		canopyListHeader.setText(nl + header);
@@ -328,76 +328,76 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 	/***
 	 * Add a canopy row to the canopy table
 	 * 
-	 * @param canopyTable
-	 * @param theCanopy
+	 * @param canopyTypeTable
+	 * @param theCanopyType
 	 * @param maxCategory
 	 */
-	private void insertCanopyRow(LinearLayout canopyTable, CanopyType theCanopy,
+	private void insertCanopyTypeRow(LinearLayout canopyTypeTable, CanopyType theCanopyType,
 			int maxCategory, int exitWeightInKg) {
 
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		View canopyListRow = inflater.inflate(R.layout.canopy_row_layout, null);
+		View canopyTypeListRow = inflater.inflate(R.layout.canopy_row_layout, null);
 
 		Drawable box = getResources().getDrawable(R.drawable.box);
-		LinearLayout hLayout = (LinearLayout) canopyListRow
+		LinearLayout hLayout = (LinearLayout) canopyTypeListRow
 				.findViewById(R.id.linearLayoutCanopyListRow);
-		hLayout.setTag(theCanopy.id.toString());
-		if (!theCanopy.isSpecialCatchAllCanopy)
+		hLayout.setTag(theCanopyType.id.toString());
+		if (!theCanopyType.isSpecialCatchAllCanopy)
 			hLayout.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
-					onCanopyRowClick(v);
+					onCanopyTypeRowClick(v);
 				}
 			});
 
-		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(theCanopy
+		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(theCanopyType
 				.acceptablility(maxCategory, exitWeightInKg)));
 
 		// hLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 		// LayoutParams.WRAP_CONTENT));
 
-		TextView tvCategory = (TextView) canopyListRow
+		TextView tvCategory = (TextView) canopyTypeListRow
 				.findViewById(R.id.textViewCanopyListRowCategory);
 		// tvCategory.setBackgroundDrawable(box);
-		tvCategory.setText(Integer.toString(theCanopy.category));
+		tvCategory.setText(Integer.toString(theCanopyType.category));
 
-		TextView tvCanopyName = (TextView) canopyListRow
+		TextView tvCanopyName = (TextView) canopyTypeListRow
 				.findViewById(R.id.textViewCanopyListRowName);
 		// tvCanopyName.setBackgroundDrawable(box);
-		tvCanopyName.setText(theCanopy.name);
+		tvCanopyName.setText(theCanopyType.name);
 
 		// TODO: add more details like cells and remarks here
-		TextView tvCanopyDetails = (TextView) canopyListRow
+		TextView tvCanopyDetails = (TextView) canopyTypeListRow
 				.findViewById(R.id.textViewCanopyListRowDetails);
 		if (this.currentSortingMethod != SortingEnum.SORTBYMANUFACTURER)
-			tvCanopyDetails.setText(theCanopy.manufacturerName);
+			tvCanopyDetails.setText(theCanopyType.manufacturerName);
 		else
-			tvCanopyDetails.setText(theCanopy
+			tvCanopyDetails.setText(theCanopyType
 					.alternativeDetailsText(CanopyTypeListActivity.this));
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
 		// if the link won't work, because this is the catch all,
 		// don't show the arrow.
-		if (theCanopy.isSpecialCatchAllCanopy) {
-			TextView tvArrowRight = (TextView) canopyListRow
+		if (theCanopyType.isSpecialCatchAllCanopy) {
+			TextView tvArrowRight = (TextView) canopyTypeListRow
 					.findViewById(R.id.textViewArrowRight);
 			tvArrowRight.setText("");
 		}
 
 		// create text view and row
 		TableRow row = new TableRow(this);
-		row.addView(canopyListRow);
+		row.addView(canopyTypeListRow);
 
 		// add row to table
-		canopyTable.addView(row);
+		canopyTypeTable.addView(row);
 
 		// add row to text for results sharing
 		// TODO: in case of current sorting by manufacturer, show that first.
-		String shareResultLine = theCanopy.name + " - "
-				+ theCanopy.manufacturerName
+		String shareResultLine = theCanopyType.name + " - "
+				+ theCanopyType.manufacturerName
 				+ System.getProperty("line.separator");
 
-		switch (theCanopy.acceptablility(currentMaxCategory, currentWeight)) {
+		switch (theCanopyType.acceptablility(currentMaxCategory, currentWeight)) {
 		case CanopyType.ACCEPTABLE:
 			skydiveKompasroosResultAccepted.append(shareResultLine);
 			break;
@@ -478,7 +478,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 					currentSortingMethod = SortingEnum.SORTBYMANUFACTURER;
 					break;
 				}
-				fillCanopyTable(canopyTable, currentSortingMethod,
+				fillCanopyTypeTable(canopyTypeTable, currentSortingMethod,
 						currentFilterType);
 				CanopyTypeListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
@@ -540,7 +540,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 					currentFilterType = FilterEnum.ALL;
 					break;
 				}
-				fillCanopyTable(canopyTable, currentSortingMethod,
+				fillCanopyTypeTable(canopyTypeTable, currentSortingMethod,
 						currentFilterType);
 				CanopyTypeListActivity.this.removeDialog(FILTER_DIALOG_ID);
 			}

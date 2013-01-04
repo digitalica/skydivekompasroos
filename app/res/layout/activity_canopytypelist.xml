@@ -53,7 +53,7 @@
         android:paddingTop="@dimen/screen_padding_top" >
 
         <LinearLayout
-            android:id="@+id/tablelayout_canopylist"
+            android:id="@+id/tablelayout_canopytypelist"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
