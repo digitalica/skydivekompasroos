@@ -94,8 +94,10 @@
     <string name="specificCanopyHeaderType">Type</string>
     <string name="specificCanopyHeaderRemarks">Remarks</string>
     <string name="specificCanopyHeaderWingLoad">Wingload</string>
-    
-    
+    <string name="specificeditsize">Size (sqft)</string>
+    <string name="specificedittype">Type</string>
+    <string name="specificeditremarks">Remarks</string>
+
     <string-array name="canopyCategories">
         <item>Unknown</item>
         <item>wingload maximum 1,1; minimal size 170 sqft</item>
@@ -127,5 +129,8 @@
         <item>Minimal 700 jumps, of which at least 100 in the last 12 months</item>
         <item>Minimal 1000 jumps</item>
     </string-array>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_specific_list_edit">SpecificListEdit</string>
 
 </resources>

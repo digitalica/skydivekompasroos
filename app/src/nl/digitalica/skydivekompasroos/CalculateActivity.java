@@ -107,6 +107,16 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			}
 		});
 
+		// set click listener for spei
+		Button addSpecificCanopy = (Button) findViewById(R.id.buttonAddSpecificCanopy);
+		addSpecificCanopy.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				startActivity(new Intent(getBaseContext(),
+						SpecificListEdit.class));
+			}
+		});
+
 		// Just for testing the canopy list
 		// canopyListButton.performClick();
 	}
@@ -153,7 +163,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			AcceptabilityEnum acc = tempCanopy.acceptablility(
 					currentMaxCategory, currentWeight);
-			// We need different drawables for each column as the widths are different
+			// We need different drawables for each column as the widths are
+			// different
 			Drawable backgroundCol1 = backgroundDrawableForAcceptance(acc);
 			Drawable backgroundCol2 = backgroundDrawableForAcceptance(acc);
 			Drawable backgroundCol3 = backgroundDrawableForAcceptance(acc);

@@ -34,6 +34,13 @@
             android:name="CanopyDetailsActivity"
             android:label="@string/title_activity_canopydetails" >
         </activity>
+        <activity
+            android:name=".SpecificListEdit"
+            android:label="@string/title_activity_specific_list_edit" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nl.digitalica.skydivekompasroos.KompasroosBaseActivity" />
+        </activity>
     </application>
 
 </manifest>

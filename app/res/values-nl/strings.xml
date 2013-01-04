@@ -94,7 +94,10 @@
     <string name="specificCanopyHeaderType">Type</string>
     <string name="specificCanopyHeaderRemarks">Opm.</string>
     <string name="specificCanopyHeaderWingLoad">Wingload</string>
-    
+    <string name="specificeditsize">Maat (sqft)</string>
+    <string name="specificedittype">Type</string>
+    <string name="specificeditremarks">Opmerking</string>
+
     <string-array name="canopyCategories">
         <item>Unknown</item>
         <item>wingload maximaal 1,1; oppervlakte minimaal 170 sqft</item>

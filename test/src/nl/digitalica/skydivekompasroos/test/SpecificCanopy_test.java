@@ -19,12 +19,12 @@ public class SpecificCanopy_test extends TestCase {
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(1, 80));
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(3, 80));
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(3, 110));
-		assertEquals(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, sc.acceptablility(3, 140));
+		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH, sc.acceptablility(3, 140));
 		// simulated Stiletto 170
 		sc = new SpecificCanopy(fakeTypeId, 170, TESTNAME, 4, TESTREMARK);
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH, sc.acceptablility(1, 80));
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH, sc.acceptablility(3, 80));
-		assertEquals(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, sc.acceptablility(4, 120));
+		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH, sc.acceptablility(4, 120));
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(4, 110));
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(6, 80));
 
