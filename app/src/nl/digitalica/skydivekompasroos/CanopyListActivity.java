@@ -220,15 +220,15 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * acceptable canopies, and one for the not acceptable, as colored
 	 * backgrounds are not an option here...
 	 * 
-	 * @param context
+	 * @param c
 	 * @return
 	 */
-	static String skydiveKompasroosResult(Context context) {
+	static String skydiveKompasroosResult(Context c) {
 		String nl = System.getProperty("line.separator");
 		String nlnl = nl + nl;
 		StringBuilder skydiveKompasroosResult = new StringBuilder();
 		// now fill table with the list
-		String resultHeaderFormat = context
+		String resultHeaderFormat = c
 				.getString(R.string.shareresultheaderformat);
 		String resultheader = String.format(resultHeaderFormat,
 				currentTotalJumps, currentJumpsLast12Months, currentWeight,
@@ -239,7 +239,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		skydiveKompasroosResult.append(skydiveKompasroosResultAccepted);
 		skydiveKompasroosResult.append(nlnl);
 		if (skydiveKompasroosResultNeededSizeNotAvailable.length() > 0) {
-			skydiveKompasroosResult.append(context
+			skydiveKompasroosResult.append(c
 					.getString(R.string.shareresultneededsizenotavailable));
 			skydiveKompasroosResult.append(nl);
 			skydiveKompasroosResult
@@ -247,13 +247,13 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			skydiveKompasroosResult.append(nlnl);
 		}
 		if (skydiveKompasroosResultNotAccepted.length() > 0) {
-			skydiveKompasroosResult.append(context
+			skydiveKompasroosResult.append(c
 					.getString(R.string.shareresultnotaccepted));
 			skydiveKompasroosResult.append(nl);
 			skydiveKompasroosResult.append(skydiveKompasroosResultNotAccepted);
 			skydiveKompasroosResult.append(nlnl);
 		}
-		skydiveKompasroosResult.append(context
+		skydiveKompasroosResult.append(c
 				.getString(R.string.shareresultfooter));
 
 		return skydiveKompasroosResult.toString();

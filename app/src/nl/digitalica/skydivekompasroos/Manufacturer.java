@@ -45,8 +45,8 @@ public class Manufacturer {
 	 * @return
 	 */
 	static public HashMap<UUID, Manufacturer> getManufacturerHash(
-			Context context) {
-		XmlResourceParser manufacturersParser = context.getResources().getXml(
+			Context c) {
+		XmlResourceParser manufacturersParser = c.getResources().getXml(
 				R.xml.manufacturers);
 		int eventType = -1;
 

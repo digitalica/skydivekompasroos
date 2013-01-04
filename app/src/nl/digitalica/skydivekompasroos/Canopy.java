@@ -135,12 +135,12 @@ public class Canopy {
 	 * Return a specific canopy based on its id
 	 * 
 	 * @param canopyId
-	 * @param context
+	 * @param c
 	 * @return
 	 */
-	static public Canopy getCanopy(UUID canopyId, Context context) {
+	static public Canopy getCanopy(UUID canopyId, Context c) {
 		Canopy canopy = null;
-		List<Canopy> canopyList = getCanopiesInList(canopyId, context);
+		List<Canopy> canopyList = getCanopiesInList(canopyId, c);
 		if (canopyList.size() == 1)
 			canopy = canopyList.get(0);
 		return canopy;
@@ -152,8 +152,8 @@ public class Canopy {
 	 * 
 	 * @return
 	 */
-	static public List<Canopy> getAllCanopiesInList(Context context) {
-		return getCanopiesInList(null, context);
+	static public List<Canopy> getAllCanopiesInList(Context c) {
+		return getCanopiesInList(null, c);
 	}
 
 	/***
@@ -162,12 +162,12 @@ public class Canopy {
 	 * 
 	 * @return
 	 */
-	static public List<Canopy> getCanopiesInList(UUID id, Context context) {
+	static public List<Canopy> getCanopiesInList(UUID id, Context c) {
 
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
-				.getManufacturerHash(context);
+				.getManufacturerHash(c);
 
-		XmlResourceParser canopiesParser = context.getResources().getXml(
+		XmlResourceParser canopiesParser = c.getResources().getXml(
 				R.xml.canopies);
 		int eventType = -1;
 

@@ -172,10 +172,10 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 	/***
 	 * Return the full string for the details to share.
 	 * 
-	 * @param context
+	 * @param c
 	 * @return
 	 */
-	static String skydiveKompasroosDetails(Context context) {
+	static String skydiveKompasroosDetails(Context c) {
 		String nl = System.getProperty("line.separator");
 
 		StringBuilder details = new StringBuilder();
@@ -189,8 +189,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		details.append(nl);
 
 		// second line: needed experience
-		details.append(context.getString(R.string.detailsExperience));
-		String[] neededExperience = context.getResources().getStringArray(
+		details.append(c.getString(R.string.detailsExperience));
+		String[] neededExperience = c.getResources().getStringArray(
 				R.array.neededExperience);
 		details.append(" " + neededExperience[currentCanopy.category]);
 		details.append(nl);
@@ -206,7 +206,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		}
 
 		details.append(nl);
-		details.append(context.getString(R.string.shareresultfooter));
+		details.append(c.getString(R.string.shareresultfooter));
 
 		// return the result
 		return details.toString();

@@ -23,7 +23,7 @@ public class SpecificCanopy {
 		this.remarks = sRemarks;
 	}
 
-	static public List<SpecificCanopy> getSpecificCanopiesInList(Context context) {
+	static public List<SpecificCanopy> getSpecificCanopiesInList(Context c) {
 		List<SpecificCanopy> specificCanopies = new ArrayList<SpecificCanopy>();
 		// TODO: add List
 		return specificCanopies;
