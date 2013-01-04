@@ -40,10 +40,10 @@ public class SpecificCanopy {
 	 */
 	public int acceptablility(int jumperCategory, int exitWeightInKg) {
 		if (jumperCategory < this.category)
-			return Canopy.CATEGORYTOOHIGH; // not acceptable
+			return CanopyType.CATEGORYTOOHIGH; // not acceptable
 		if (this.size < Calculation.minArea(jumperCategory, exitWeightInKg))
-			return Canopy.NEEDEDSIZENOTAVAILABLE;
-		return Canopy.ACCEPTABLE;
+			return CanopyType.NEEDEDSIZENOTAVAILABLE;
+		return CanopyType.ACCEPTABLE;
 	}
 
 }

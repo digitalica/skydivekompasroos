@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
-	static Canopy currentCanopy;
+	static CanopyType currentCanopy;
 	static Manufacturer currentManufacturer;
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(CanopyDetailsActivity.this);
 		
-		currentCanopy = Canopy.getCanopy(canopyId, this);
+		currentCanopy = CanopyType.getCanopy(canopyId, this);
 		currentManufacturer = manufacturers.get(currentCanopy.manufacturerId);
 
 		String url = currentManufacturer.url;
@@ -57,16 +57,16 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvCategory.setText(Integer.toString(currentCanopy.category));
 		String advice = "";
 		switch (acceptability) {
-		case Canopy.ACCEPTABLE:
+		case CanopyType.ACCEPTABLE:
 			advice = String.format(getString(R.string.canopyAdviseAcceptable),
 					currentMinArea);
 			break;
-		case Canopy.NEEDEDSIZENOTAVAILABLE:
+		case CanopyType.NEEDEDSIZENOTAVAILABLE:
 			advice = String.format(
 					getString(R.string.canopyAdviseNeededSizeNotAvailable),
 					currentMinArea);
 			break;
-		case Canopy.CATEGORYTOOHIGH:
+		case CanopyType.CATEGORYTOOHIGH:
 			int extraNeededJumsThis12Months = Calculation.MINIMUMJUMPSLAST12MONTHS[currentCanopy.category]
 					- currentJumpsLast12Months;
 			int extraNeededTotalJumps = Calculation.MINIMUMTOTALJUMPS[currentCanopy.category]

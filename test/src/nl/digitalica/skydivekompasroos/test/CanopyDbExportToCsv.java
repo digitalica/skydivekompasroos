@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import nl.digitalica.skydivekompasroos.Canopy;
+import nl.digitalica.skydivekompasroos.CanopyType;
 import nl.digitalica.skydivekompasroos.Manufacturer;
 import android.test.AndroidTestCase;
 import android.util.Log;
@@ -28,14 +28,14 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 	 * @throws IOException
 	 */
 	public void testExportCanopies() throws IOException {
-		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
+		List<CanopyType> canopies = CanopyType.getAllCanopyTypesInList(getContext());
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
 
 		Log.v(TAG,
 				",cat,name,manufacturer,country,cells,minsize,maxsize,firstYear,lastYear,isCommon,remarks manufacturer,remarks canopy,url manufacturer,url canopy,dropzoneUrl,remarks manufacturer nl, remarks canopy nl");
 
-		for (Canopy c : canopies) {
+		for (CanopyType c : canopies) {
 			Manufacturer m = manufacturers.get(c.manufacturerId);
 			StringBuilder line = new StringBuilder();
 			line.append(SEPARATOR); // convenient, to remove other logcat cols.

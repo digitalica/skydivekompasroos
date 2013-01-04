@@ -81,7 +81,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			public void onClick(View v) {
 				startActivity(new Intent(getBaseContext(),
-						CanopyListActivity.class));
+						CanopyTypeListActivity.class));
 			}
 		});
 
@@ -100,7 +100,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			public void onClick(View v) {
 				startActivity(new Intent(getBaseContext(),
-						CanopyListActivity.class));
+						CanopyTypeListActivity.class));
 			}
 		});
 

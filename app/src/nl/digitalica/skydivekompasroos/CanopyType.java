@@ -13,7 +13,7 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.util.Log;
 
-public class Canopy {
+public class CanopyType {
 
 	final public static String EVERYOTHERCANOPYIDSTRING = "5E4D5563-2196-4EC2-8558-0491082D0626";
 
@@ -43,7 +43,7 @@ public class Canopy {
 	// TODO: the below should be a boolean probably...
 	public boolean isSpecialCatchAllCanopy = false;
 
-	public Canopy(UUID canopyId, int canopyCategory, UUID canopyManufacturer,
+	public CanopyType(UUID canopyId, int canopyCategory, UUID canopyManufacturer,
 			String canopyName, String canopyUrl, String canopyCells,
 			boolean canopyCommonType, String canopyDropzoneId,
 			String canopyMinSize, String canopyMaxSize,
@@ -88,7 +88,7 @@ public class Canopy {
 	 * @param canopyName
 	 * @param size
 	 */
-	public Canopy(int canopyCategory, String canopyName, String size) {
+	public CanopyType(int canopyCategory, String canopyName, String size) {
 		this(UUID.randomUUID(), canopyCategory, Manufacturer
 				.everyOtherManufactuerId(), canopyName, null, null, true, null,
 				size, size, null, null, null, null, false);
@@ -101,7 +101,7 @@ public class Canopy {
 	 * @param canopyName
 	 * @param size
 	 */
-	public Canopy(int canopyCategory, String canopyName) {
+	public CanopyType(int canopyCategory, String canopyName) {
 		this(UUID.randomUUID(), canopyCategory, Manufacturer
 				.everyOtherManufactuerId(), canopyName, null, null, true, null,
 				DEFAULTSIZE, DEFAULTSIZE, null, null, null, null, false);
@@ -138,9 +138,9 @@ public class Canopy {
 	 * @param c
 	 * @return
 	 */
-	static public Canopy getCanopy(UUID canopyId, Context c) {
-		Canopy canopy = null;
-		List<Canopy> canopyList = getCanopiesInList(canopyId, c);
+	static public CanopyType getCanopy(UUID canopyId, Context c) {
+		CanopyType canopy = null;
+		List<CanopyType> canopyList = getCanopyTypesInList(canopyId, c);
 		if (canopyList.size() == 1)
 			canopy = canopyList.get(0);
 		return canopy;
@@ -152,8 +152,8 @@ public class Canopy {
 	 * 
 	 * @return
 	 */
-	static public List<Canopy> getAllCanopiesInList(Context c) {
-		return getCanopiesInList(null, c);
+	static public List<CanopyType> getAllCanopyTypesInList(Context c) {
+		return getCanopyTypesInList(null, c);
 	}
 
 	/***
@@ -162,7 +162,7 @@ public class Canopy {
 	 * 
 	 * @return
 	 */
-	static public List<Canopy> getCanopiesInList(UUID id, Context c) {
+	static public List<CanopyType> getCanopyTypesInList(UUID id, Context c) {
 
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(c);
@@ -171,7 +171,7 @@ public class Canopy {
 				R.xml.canopies);
 		int eventType = -1;
 
-		List<Canopy> canopyList = new ArrayList<Canopy>();
+		List<CanopyType> canopyList = new ArrayList<CanopyType>();
 		while (eventType != XmlResourceParser.END_DOCUMENT) {
 			if (eventType == XmlResourceParser.START_TAG) {
 				String strName = canopiesParser.getName();
@@ -229,7 +229,7 @@ public class Canopy {
 							&& isSpecialCatchAllCanopyString != null
 							&& Integer.parseInt(isSpecialCatchAllCanopyString) != 0)
 						isSpecialCatchAllCanopy = true;
-					Canopy canopy = new Canopy(canopyId, canopyCategory,
+					CanopyType canopy = new CanopyType(canopyId, canopyCategory,
 							canopyManufacturerId, canopyName, canopyUrl,
 							canopyCells, canopyCommonType, canopyDropzoneId,
 							canopyMinSize, canopyMaxSize,
@@ -259,7 +259,7 @@ public class Canopy {
 		}
 
 		// add every other canopy
-		Canopy eoc = everyOtherCanopy();
+		CanopyType eoc = everyOtherCanopyType();
 		canopyList.add(eoc);
 
 		// return the result
@@ -284,8 +284,8 @@ public class Canopy {
 	public static class ComparatorByCategoryName implements Comparator {
 
 		public int compare(Object o1, Object o2) {
-			Canopy c1 = (Canopy) o1;
-			Canopy c2 = (Canopy) o2;
+			CanopyType c1 = (CanopyType) o1;
+			CanopyType c2 = (CanopyType) o2;
 			if (c1.isSpecialCatchAllCanopy)
 				return 1;
 			if (c2.isSpecialCatchAllCanopy)
@@ -308,8 +308,8 @@ public class Canopy {
 	public static class ComparatorByNameManufacturer implements Comparator {
 
 		public int compare(Object o1, Object o2) {
-			Canopy c1 = (Canopy) o1;
-			Canopy c2 = (Canopy) o2;
+			CanopyType c1 = (CanopyType) o1;
+			CanopyType c2 = (CanopyType) o2;
 			if (c1.isSpecialCatchAllCanopy)
 				return 1;
 			if (c2.isSpecialCatchAllCanopy)
@@ -332,8 +332,8 @@ public class Canopy {
 			Comparator {
 
 		public int compare(Object o1, Object o2) {
-			Canopy c1 = (Canopy) o1;
-			Canopy c2 = (Canopy) o2;
+			CanopyType c1 = (CanopyType) o1;
+			CanopyType c2 = (CanopyType) o2;
 			if (c1.isSpecialCatchAllCanopy)
 				return 1;
 			if (c2.isSpecialCatchAllCanopy)
@@ -432,7 +432,7 @@ public class Canopy {
 	 * 
 	 * @return
 	 */
-	public static UUID everyOtherCanopyId() {
+	public static UUID everyOtherCanopyTypeId() {
 		return UUID.fromString(EVERYOTHERCANOPYIDSTRING);
 	}
 
@@ -441,14 +441,14 @@ public class Canopy {
 	 * 
 	 * @return
 	 */
-	public static Canopy everyOtherCanopy() {
+	public static CanopyType everyOtherCanopyType() {
 		String name;
 		if (Calculation.isLanguageDutch()) {
 			name = "Elk ander type";
 		} else {
 			name = "Every other type";
 		}
-		return new Canopy(everyOtherCanopyId(), 6,
+		return new CanopyType(everyOtherCanopyTypeId(), 6,
 				Manufacturer.everyOtherManufactuerId(), name, null, null,
 				false, null, null, null, null, null, null, null, true);
 	}

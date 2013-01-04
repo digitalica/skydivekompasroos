@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import nl.digitalica.skydivekompasroos.Canopy;
+import nl.digitalica.skydivekompasroos.CanopyType;
 import nl.digitalica.skydivekompasroos.Manufacturer;
 
 import org.apache.http.HttpResponse;
@@ -32,9 +32,9 @@ public class UrlChecker extends AndroidTestCase {
 	 * not named test... to avoid automatic running
 	 */
 	public void xtestCanopyUrls() {
-		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
+		List<CanopyType> canopies = CanopyType.getAllCanopyTypesInList(getContext());
 		StringBuilder errors = new StringBuilder();
-		for (Canopy c : canopies) {
+		for (CanopyType c : canopies) {
 			errors.append(checkValidUrl(c.name, c.url));
 			errors.append(checkValidUrl(c.name, c.dropZoneUrl()));
 		}

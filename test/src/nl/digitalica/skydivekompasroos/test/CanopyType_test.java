@@ -6,10 +6,10 @@ import java.util.Comparator;
 import java.util.List;
 
 import junit.framework.TestCase;
-import nl.digitalica.skydivekompasroos.Canopy;
+import nl.digitalica.skydivekompasroos.CanopyType;
 import nl.digitalica.skydivekompasroos.Manufacturer;
 
-public class Canopy_test extends TestCase {
+public class CanopyType_test extends TestCase {
 	final String CANOPYNAME1 = "testcanopy1";
 	final String CANOPYNAME2 = "testcanopy2";
 
@@ -18,34 +18,34 @@ public class Canopy_test extends TestCase {
 	 * name was used as a key in the past ;-)
 	 */
 	public void testUniqueName() {
-		Canopy testCanopy = new Canopy(1, CANOPYNAME1);
+		CanopyType testCanopy = new CanopyType(1, CANOPYNAME1);
 		assertNotNull("Unique name should not be null", testCanopy.uniqueName());
 		assertNotSame("Unique name should not be empty", "",
 				testCanopy.uniqueName());
 		assertNotSame("Unique name should not be equal to name", CANOPYNAME1,
 				testCanopy.uniqueName());
 
-		Canopy testCanopy2 = new Canopy(1, CANOPYNAME2);
+		CanopyType testCanopy2 = new CanopyType(1, CANOPYNAME2);
 		assertNotSame("Unique name should not be same on different canopy",
 				testCanopy.uniqueName(), testCanopy2.uniqueName());
 	}
 
 	public void testComparatorByCategoryName() {
-		List<Canopy> testList = canopyListForSortTest();
+		List<CanopyType> testList = canopyListForSortTest();
 		// compuComparator<Canopy> c = new Canopy.ComparatorByCategoryName();
-		Collections.sort(testList, new Canopy.ComparatorByCategoryName());
+		Collections.sort(testList, new CanopyType.ComparatorByCategoryName());
 		assertSortingByCategoryName("first run ", testList);
 		Collections.reverse(testList);
-		Collections.sort(testList, new Canopy.ComparatorByCategoryName());
+		Collections.sort(testList, new CanopyType.ComparatorByCategoryName());
 		assertSortingByCategoryName("after reverse ", testList);
 	}
 
 	public void assertSortingByCategoryName(String runName,
-			List<Canopy> testList) {
+			List<CanopyType> testList) {
 		int max = testList.size() - 2; // skip special, and last in list
 		for (int i = 0; i < max; i++) {
-			Canopy c1 = testList.get(i);
-			Canopy c2 = testList.get(i + 1);
+			CanopyType c1 = testList.get(i);
+			CanopyType c2 = testList.get(i + 1);
 			if (c1.category > c2.category)
 				fail("Categories not sorted correctly: "
 						+ Integer.toString(c1.category) + " / "
@@ -58,8 +58,8 @@ public class Canopy_test extends TestCase {
 	}
 
 	public void testComparatorByNameManufacturer() {
-		List<Canopy> testList = canopyListForSortTest();
-		Comparator<Canopy> c = new Canopy.ComparatorByNameManufacturer();
+		List<CanopyType> testList = canopyListForSortTest();
+		Comparator<CanopyType> c = new CanopyType.ComparatorByNameManufacturer();
 		Collections.sort(testList, c);
 		assertSortingByNameManufacturer("first run ", testList);
 		Collections.reverse(testList);
@@ -68,11 +68,11 @@ public class Canopy_test extends TestCase {
 	}
 
 	public void assertSortingByNameManufacturer(String runName,
-			List<Canopy> testList) {
+			List<CanopyType> testList) {
 		int max = testList.size() - 2;// skip special, and last in list
 		for (int i = 0; i < max; i++) {
-			Canopy c1 = testList.get(i);
-			Canopy c2 = testList.get(i + 1);
+			CanopyType c1 = testList.get(i);
+			CanopyType c2 = testList.get(i + 1);
 			if (c1.name.compareTo(c2.name) == 1)
 				fail("Names not sorted correctly: " + c1.name + "  / "
 						+ c2.name + " in " + runName);
@@ -86,8 +86,8 @@ public class Canopy_test extends TestCase {
 	}
 
 	public void testComparatorByManufacturerCategoryName() {
-		List<Canopy> testList = canopyListForSortTest();
-		Comparator<Canopy> c = new Canopy.ComparatorByManufacturerCategoryName();
+		List<CanopyType> testList = canopyListForSortTest();
+		Comparator<CanopyType> c = new CanopyType.ComparatorByManufacturerCategoryName();
 		Collections.sort(testList, c);
 		assertSortingByManufacturerCategoryName("first run ", testList);
 		Collections.reverse(testList);
@@ -96,11 +96,11 @@ public class Canopy_test extends TestCase {
 	}
 
 	public void assertSortingByManufacturerCategoryName(String runName,
-			List<Canopy> testList) {
+			List<CanopyType> testList) {
 		int max = testList.size() - 2;// skip special, and last in list
 		for (int i = 0; i < max; i++) {
-			Canopy c1 = testList.get(i);
-			Canopy c2 = testList.get(i + 1);
+			CanopyType c1 = testList.get(i);
+			CanopyType c2 = testList.get(i + 1);
 			if (c1.manufacturerName.compareTo(c2.manufacturerName) == 1)
 				fail("Manufacturers not sorted correctly: "
 						+ c1.manufacturerName + "  / " + c2.manufacturerName
@@ -125,12 +125,12 @@ public class Canopy_test extends TestCase {
 	 * @param manufacturer
 	 * @return
 	 */
-	private List<Canopy> canopyListForSortTest() {
+	private List<CanopyType> canopyListForSortTest() {
 
-		List<Canopy> canopyList = canopyListForManufacturer("Manufacturer 1");
+		List<CanopyType> canopyList = canopyListForManufacturer("Manufacturer 1");
 		// canopyList.addAll(canopyListForManufacturer("Manufacturer 2"));
 
-		Canopy testCanopyLast = new Canopy(2, CANOPYNAME2);
+		CanopyType testCanopyLast = new CanopyType(2, CANOPYNAME2);
 		testCanopyLast.isSpecialCatchAllCanopy = true;
 		canopyList.add(testCanopyLast);
 
@@ -143,17 +143,17 @@ public class Canopy_test extends TestCase {
 	 * @param manufacturer
 	 * @return
 	 */
-	private List<Canopy> canopyListForManufacturer(String manufacturer) {
-		Canopy testCanopy11 = new Canopy(1, CANOPYNAME1);
+	private List<CanopyType> canopyListForManufacturer(String manufacturer) {
+		CanopyType testCanopy11 = new CanopyType(1, CANOPYNAME1);
 		testCanopy11.manufacturerName = manufacturer;
-		Canopy testCanopy12 = new Canopy(1, CANOPYNAME2);
+		CanopyType testCanopy12 = new CanopyType(1, CANOPYNAME2);
 		testCanopy12.manufacturerName = manufacturer;
-		Canopy testCanopy21 = new Canopy(3, CANOPYNAME1);
+		CanopyType testCanopy21 = new CanopyType(3, CANOPYNAME1);
 		testCanopy21.manufacturerName = manufacturer;
-		Canopy testCanopy22 = new Canopy(3, CANOPYNAME2);
+		CanopyType testCanopy22 = new CanopyType(3, CANOPYNAME2);
 		testCanopy22.manufacturerName = manufacturer;
 
-		List<Canopy> canopyList = new ArrayList<Canopy>();
+		List<CanopyType> canopyList = new ArrayList<CanopyType>();
 		canopyList.add(testCanopy11);
 		canopyList.add(testCanopy12);
 		canopyList.add(testCanopy21);
@@ -163,81 +163,81 @@ public class Canopy_test extends TestCase {
 	}
 
 	public void testAcceptablity() {
-		Canopy beginnerCanopy = new Canopy(1, "beginnercanopy", "230");
-		Canopy intermediateCanopy120 = new Canopy(3, "intermediatecanopy120",
+		CanopyType beginnerCanopy = new CanopyType(1, "beginnercanopy", "230");
+		CanopyType intermediateCanopy120 = new CanopyType(3, "intermediatecanopy120",
 				"120");
-		Canopy intermediateCanopy190 = new Canopy(3, "intermediatecanopy190",
+		CanopyType intermediateCanopy190 = new CanopyType(3, "intermediatecanopy190",
 				"190");
-		Canopy expertCanopy = new Canopy(6, "expertcanopy", "90");
+		CanopyType expertCanopy = new CanopyType(6, "expertcanopy", "90");
 
 		// beginner can jump beginner canopy
-		assertAcceptability(Canopy.ACCEPTABLE, 1, 50, beginnerCanopy);
-		assertAcceptability(Canopy.ACCEPTABLE, 1, 100, beginnerCanopy);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 1, 120,
+		assertAcceptability(CanopyType.ACCEPTABLE, 1, 50, beginnerCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 1, 100, beginnerCanopy);
+		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 1, 120,
 				beginnerCanopy);
 
 		// beginner can NOT EVER jump intermediate canopy
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50,
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 50,
 				intermediateCanopy120);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100,
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 100,
 				intermediateCanopy120);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120,
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 120,
 				intermediateCanopy120);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50,
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 50,
 				intermediateCanopy190);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100,
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 100,
 				intermediateCanopy190);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120,
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 120,
 				intermediateCanopy190);
 
 		// beginner can NOT EVER jump expert canopy
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 50, expertCanopy);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 100, expertCanopy);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 1, 120, expertCanopy);
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 50, expertCanopy);
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 100, expertCanopy);
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 1, 120, expertCanopy);
 
 		// intermediate can jump beginner canopy
-		assertAcceptability(Canopy.ACCEPTABLE, 3, 50, beginnerCanopy);
-		assertAcceptability(Canopy.ACCEPTABLE, 3, 100, beginnerCanopy);
-		assertAcceptability(Canopy.ACCEPTABLE, 3, 120, beginnerCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 3, 50, beginnerCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 3, 100, beginnerCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 3, 120, beginnerCanopy);
 
 		// intermediate can jump intermediate canopy IF wingload is ok
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 50,
+		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 50,
 				intermediateCanopy120);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 100,
+		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 100,
 				intermediateCanopy120);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 120,
+		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 120,
 				intermediateCanopy120);
-		assertAcceptability(Canopy.ACCEPTABLE, 3, 50, intermediateCanopy190);
-		assertAcceptability(Canopy.ACCEPTABLE, 3, 100, intermediateCanopy190);
-		assertAcceptability(Canopy.NEEDEDSIZENOTAVAILABLE, 3, 120,
+		assertAcceptability(CanopyType.ACCEPTABLE, 3, 50, intermediateCanopy190);
+		assertAcceptability(CanopyType.ACCEPTABLE, 3, 100, intermediateCanopy190);
+		assertAcceptability(CanopyType.NEEDEDSIZENOTAVAILABLE, 3, 120,
 				intermediateCanopy190);
 
 		// intermediate can NOT jump expert canopy
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 3, 50, expertCanopy);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 3, 100, expertCanopy);
-		assertAcceptability(Canopy.CATEGORYTOOHIGH, 3, 120, expertCanopy);
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 3, 50, expertCanopy);
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 3, 100, expertCanopy);
+		assertAcceptability(CanopyType.CATEGORYTOOHIGH, 3, 120, expertCanopy);
 
 		// expert can always jump beginner canopy
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 50, beginnerCanopy);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 100, beginnerCanopy);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 120, beginnerCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, beginnerCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, beginnerCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, beginnerCanopy);
 
 		// expert can always jump intermediate canopy
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 50, intermediateCanopy120);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 100, intermediateCanopy120);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 120, intermediateCanopy120);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 50, intermediateCanopy190);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 100, intermediateCanopy190);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 120, intermediateCanopy190);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, intermediateCanopy120);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, intermediateCanopy120);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, intermediateCanopy120);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, intermediateCanopy190);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, intermediateCanopy190);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, intermediateCanopy190);
 
 		// expert can always jump expert canopy
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 50, expertCanopy);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 100, expertCanopy);
-		assertAcceptability(Canopy.ACCEPTABLE, 6, 120, expertCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 50, expertCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 100, expertCanopy);
+		assertAcceptability(CanopyType.ACCEPTABLE, 6, 120, expertCanopy);
 	}
 
 	private void assertAcceptability(int acceptability, int jumperCategory,
-			int exitWeightInKg, Canopy canopy) {
+			int exitWeightInKg, CanopyType canopy) {
 		int acceptablity = canopy
 				.acceptablility(jumperCategory, exitWeightInKg);
 		StringBuilder message = new StringBuilder();
@@ -251,7 +251,7 @@ public class Canopy_test extends TestCase {
 	}
 
 	public void testAddionalInformation() {
-		Canopy c = new Canopy(1, "testCanopy");
+		CanopyType c = new CanopyType(1, "testCanopy");
 		assertTrue("Empty canopy needs more info",
 				c.addtionalInformationNeeded());
 		c.cells = "9";

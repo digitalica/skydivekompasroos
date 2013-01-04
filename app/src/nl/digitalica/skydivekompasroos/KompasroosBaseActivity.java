@@ -73,13 +73,13 @@ public class KompasroosBaseActivity extends Activity {
 	 */
 	Drawable backgroundDrawableForAcceptance(int acceptability) {
 		Drawable background = null;
-		if (acceptability == Canopy.ACCEPTABLE)
+		if (acceptability == CanopyType.ACCEPTABLE)
 			background = getResources()
 					.getDrawable(R.drawable.canopyacceptable);
-		else if (acceptability == Canopy.NEEDEDSIZENOTAVAILABLE)
+		else if (acceptability == CanopyType.NEEDEDSIZENOTAVAILABLE)
 			background = getResources().getDrawable(
 					R.drawable.canopyneededsizenotavailable);
-		else if (acceptability == Canopy.CATEGORYTOOHIGH)
+		else if (acceptability == CanopyType.CATEGORYTOOHIGH)
 			background = getResources().getDrawable(
 					R.drawable.canopycategorytoohigh);
 		return background;

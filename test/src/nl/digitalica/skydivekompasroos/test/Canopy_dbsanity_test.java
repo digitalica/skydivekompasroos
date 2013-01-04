@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import nl.digitalica.skydivekompasroos.Canopy;
+import nl.digitalica.skydivekompasroos.CanopyType;
 import nl.digitalica.skydivekompasroos.Manufacturer;
 import android.test.AndroidTestCase;
 
@@ -19,10 +19,10 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 		}
 		// assert we actually do have manufacturers in this list
 		assertTrue(manufacturesNotSeen.size() > 0);
-		List<Canopy> canopies = Canopy.getAllCanopiesInList(getContext());
+		List<CanopyType> canopies = CanopyType.getAllCanopyTypesInList(getContext());
 		HashMap<String, String> canopyUniqueNames = new HashMap<String, String>();
 		HashMap<UUID, String> canopyIds = new HashMap<UUID, String>();
-		for (Canopy c : canopies) {
+		for (CanopyType c : canopies) {
 			// check Id is unique
 			assertFalse("Id is alreay known: " + c.id.toString(),
 					canopyIds.containsKey(c.id));

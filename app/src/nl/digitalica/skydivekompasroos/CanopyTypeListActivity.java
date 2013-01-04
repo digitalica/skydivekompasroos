@@ -26,7 +26,7 @@ import android.widget.RadioGroup;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class CanopyListActivity extends KompasroosBaseActivity {
+public class CanopyTypeListActivity extends KompasroosBaseActivity {
 
 	public enum SortingEnum {
 		SORTBYNAME, SORTBYMANUFACTURER, SORTBYCATEGORY
@@ -36,7 +36,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		COMMONAROUNDMAX, ONLYCOMMON, ALL
 	}
 
-	List<Canopy> canopyList;
+	List<CanopyType> canopyList;
 	LinearLayout canopyTable;
 
 	SortingEnum currentSortingMethod;
@@ -55,11 +55,11 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_canopylist);
+		setContentView(R.layout.activity_canopytypelist);
 
 		canopyTable = (LinearLayout) findViewById(R.id.tablelayout_canopylist);
 
-		canopyList = Canopy.getAllCanopiesInList(CanopyListActivity.this);
+		canopyList = CanopyType.getAllCanopyTypesInList(CanopyTypeListActivity.this);
 
 		// if sorting and filter were save over 1 day ago, clear them
 		int sortingFilterTime = prefs.getInt(SETTING_SORTING_FILTER_DAYNR, 0);
@@ -123,16 +123,16 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			SortingEnum sortingMethod, FilterEnum filterType) {
 
 		// sort the canopyList on type, name, manufacturer
-		Comparator<Canopy> canopyComparator = null;
+		Comparator<CanopyType> canopyComparator = null;
 		switch (sortingMethod) {
 		case SORTBYNAME:
-			canopyComparator = new Canopy.ComparatorByNameManufacturer();
+			canopyComparator = new CanopyType.ComparatorByNameManufacturer();
 			break;
 		case SORTBYCATEGORY:
-			canopyComparator = new Canopy.ComparatorByCategoryName();
+			canopyComparator = new CanopyType.ComparatorByCategoryName();
 			break;
 		case SORTBYMANUFACTURER:
-			canopyComparator = new Canopy.ComparatorByManufacturerCategoryName();
+			canopyComparator = new CanopyType.ComparatorByManufacturerCategoryName();
 			break;
 		}
 		Collections.sort(canopyList, canopyComparator);
@@ -152,7 +152,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		int previousCat = 9999;
 		int shownCount = 0;
 		int allCount = 0;
-		for (Canopy theCanopy : canopyList) {
+		for (CanopyType theCanopy : canopyList) {
 			allCount++;
 			boolean showThisCanopy = true;
 			// check cat filter
@@ -263,7 +263,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 		Intent sendIntent = new Intent();
 		sendIntent.setAction(Intent.ACTION_SEND);
 		sendIntent.putExtra(Intent.EXTRA_TEXT,
-				CanopyListActivity.skydiveKompasroosResult(this));
+				CanopyTypeListActivity.skydiveKompasroosResult(this));
 		sendIntent.putExtra(Intent.EXTRA_SUBJECT,
 				getString(R.string.shareresultsubject));
 		sendIntent.putExtra(Intent.EXTRA_TITLE,
@@ -314,7 +314,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 
 	private void insertCanopyHeaderRow(LinearLayout canopyTable, String header) {
 		String nl = System.getProperty("line.separator");
-		TextView canopyListHeader = new TextView(CanopyListActivity.this);
+		TextView canopyListHeader = new TextView(CanopyTypeListActivity.this);
 		canopyListHeader.setText(nl + header);
 		canopyListHeader.setTextSize(getResources().getDimension(
 				R.dimen.bodyText));
@@ -332,7 +332,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 	 * @param theCanopy
 	 * @param maxCategory
 	 */
-	private void insertCanopyRow(LinearLayout canopyTable, Canopy theCanopy,
+	private void insertCanopyRow(LinearLayout canopyTable, CanopyType theCanopy,
 			int maxCategory, int exitWeightInKg) {
 
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -373,7 +373,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 			tvCanopyDetails.setText(theCanopy.manufacturerName);
 		else
 			tvCanopyDetails.setText(theCanopy
-					.alternativeDetailsText(CanopyListActivity.this));
+					.alternativeDetailsText(CanopyTypeListActivity.this));
 		// tvCanopyDetails.setBackgroundDrawable(box);
 
 		// if the link won't work, because this is the catch all,
@@ -398,14 +398,14 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				+ System.getProperty("line.separator");
 
 		switch (theCanopy.acceptablility(currentMaxCategory, currentWeight)) {
-		case Canopy.ACCEPTABLE:
+		case CanopyType.ACCEPTABLE:
 			skydiveKompasroosResultAccepted.append(shareResultLine);
 			break;
-		case Canopy.NEEDEDSIZENOTAVAILABLE:
+		case CanopyType.NEEDEDSIZENOTAVAILABLE:
 			skydiveKompasroosResultNeededSizeNotAvailable
 					.append(shareResultLine);
 			break;
-		case Canopy.CATEGORYTOOHIGH:
+		case CanopyType.CATEGORYTOOHIGH:
 			skydiveKompasroosResultNotAccepted.append(shareResultLine);
 			break;
 		}
@@ -457,7 +457,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 					public void onClick(DialogInterface dialog, int whichButton) {
 						// We forcefully dismiss and remove the Dialog, so it
 						// cannot be used again (no cached info)
-						CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+						CanopyTypeListActivity.this.removeDialog(SORT_DIALOG_ID);
 					}
 				});
 
@@ -480,7 +480,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				}
 				fillCanopyTable(canopyTable, currentSortingMethod,
 						currentFilterType);
-				CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+				CanopyTypeListActivity.this.removeDialog(SORT_DIALOG_ID);
 			}
 		});
 
@@ -519,7 +519,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 					public void onClick(DialogInterface dialog, int whichButton) {
 						// We forcefully dismiss and remove the Dialog, so it
 						// cannot be used again (no cached info)
-						CanopyListActivity.this.removeDialog(SORT_DIALOG_ID);
+						CanopyTypeListActivity.this.removeDialog(SORT_DIALOG_ID);
 					}
 				});
 
@@ -542,7 +542,7 @@ public class CanopyListActivity extends KompasroosBaseActivity {
 				}
 				fillCanopyTable(canopyTable, currentSortingMethod,
 						currentFilterType);
-				CanopyListActivity.this.removeDialog(FILTER_DIALOG_ID);
+				CanopyTypeListActivity.this.removeDialog(FILTER_DIALOG_ID);
 			}
 		});
 
