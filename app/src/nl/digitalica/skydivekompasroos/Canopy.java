@@ -11,6 +11,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;
 import android.content.res.XmlResourceParser;
+import android.util.Log;
 
 public class Canopy {
 
@@ -130,9 +131,24 @@ public class Canopy {
 		return false;
 	}
 
+	/**
+	 * Return a specific canopy based on its id
+	 * 
+	 * @param canopyId
+	 * @param context
+	 * @return
+	 */
+	static public Canopy getCanopy(UUID canopyId, Context context) {
+		Canopy canopy = null;
+		List<Canopy> canopyList = getCanopiesInList(canopyId, context);
+		if (canopyList.size() == 1)
+			canopy = canopyList.get(0);
+		return canopy;
+	}
+
 	/***
-	 * Reads all canopies from the XML in a list. This is ok as the number will
-	 * always be limited anyway
+	 * Reads a specific canopies from the XML in a list. This is ok as the
+	 * number will always be limited anyway
 	 * 
 	 * @return
 	 */
@@ -140,6 +156,12 @@ public class Canopy {
 		return getCanopiesInList(null, context);
 	}
 
+	/***
+	 * Reads the canopy with a specif id (or all, if id is null) from the XML in
+	 * a list.
+	 * 
+	 * @return
+	 */
 	static public List<Canopy> getCanopiesInList(UUID id, Context context) {
 
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
@@ -235,7 +257,7 @@ public class Canopy {
 				e.printStackTrace();
 			}
 		}
-		
+
 		// add every other canopy
 		Canopy eoc = everyOtherCanopy();
 		canopyList.add(eoc);

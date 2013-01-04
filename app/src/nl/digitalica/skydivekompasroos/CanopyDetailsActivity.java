@@ -25,14 +25,10 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
 		Bundle extras = getIntent().getExtras();
 		UUID canopyId = UUID.fromString(extras.getString(CANOPYIDEXTRA));
-		List<Canopy> thisCanopy = Canopy.getCanopiesInList(canopyId, this);
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(CanopyDetailsActivity.this);
 		
-		if (thisCanopy.size() != 1)
-			Log.e(LOG_TAG, "Onjuist aantal op basis van key " + canopyId);
-
-		currentCanopy = thisCanopy.get(0);
+		currentCanopy = Canopy.getCanopy(canopyId, this);
 		currentManufacturer = manufacturers.get(currentCanopy.manufacturerId);
 
 		String url = currentManufacturer.url;
