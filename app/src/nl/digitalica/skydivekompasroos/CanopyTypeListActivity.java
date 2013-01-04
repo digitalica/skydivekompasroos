@@ -11,7 +11,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -154,36 +153,36 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		int previousCat = 9999;
 		int shownCount = 0;
 		int allCount = 0;
-		for (CanopyType theCanopy : canopyTypeList) {
+		for (CanopyType theCanopyType : canopyTypeList) {
 			allCount++;
 			boolean showThisCanopyType = true;
 			// check cat filter
 			if (filterType == FilterEnum.ONLYCOMMON)
-				if (!theCanopy.commontype)
+				if (!theCanopyType.commontype)
 					showThisCanopyType = false;
 			if (filterType == FilterEnum.COMMONAROUNDMAX)
-				if (!theCanopy.commontype
-						|| theCanopy.category < currentMaxCategory - 1
-						|| theCanopy.category > currentMaxCategory + 1)
+				if (!theCanopyType.commontype
+						|| theCanopyType.category < currentMaxCategory - 1
+						|| theCanopyType.category > currentMaxCategory + 1)
 					showThisCanopyType = false;
 			// show the canopy type (and maybe headerline) if needed
 			if (showThisCanopyType) {
 				shownCount++;
 				if (sortingMethod == SortingEnum.SORTBYMANUFACTURER
 						&& !previousManufacturerId
-								.equals(theCanopy.manufacturerId)) {
+								.equals(theCanopyType.manufacturerId)) {
 					insertCanopyTypeHeaderRow(canopyTypeTable,
-							theCanopy.manufacturerName);
-					previousManufacturerId = theCanopy.manufacturerId;
+							theCanopyType.manufacturerName);
+					previousManufacturerId = theCanopyType.manufacturerId;
 				}
 				if (sortingMethod == SortingEnum.SORTBYCATEGORY
-						&& previousCat != theCanopy.category) {
+						&& previousCat != theCanopyType.category) {
 					insertCanopyTypeHeaderRow(canopyTypeTable, String.format(
 							getString(R.string.canopyListCategoryHeader),
-							theCanopy.category));
-					previousCat = theCanopy.category;
+							theCanopyType.category));
+					previousCat = theCanopyType.category;
 				}
-				insertCanopyTypeRow(canopyTypeTable, theCanopy,
+				insertCanopyTypeRow(canopyTypeTable, theCanopyType,
 						currentMaxCategory, currentWeight);
 			}
 		}
@@ -339,10 +338,10 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		View canopyTypeListRow = inflater.inflate(R.layout.canopy_row_layout,
+		View canopyTypeListRow = inflater.inflate(R.layout.canopy_type_row_layout,
 				null);
 
-		Drawable box = getResources().getDrawable(R.drawable.box);
+		//Drawable box = getResources().getDrawable(R.drawable.box);
 		LinearLayout hLayout = (LinearLayout) canopyTypeListRow
 				.findViewById(R.id.linearLayoutCanopyListRow);
 		hLayout.setTag(theCanopyType.id.toString());

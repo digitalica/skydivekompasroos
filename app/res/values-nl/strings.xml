@@ -89,7 +89,12 @@
     <string name="canopyAdviseAcceptable">Dit type is geschikt, mits oppervlakte minimaal %1$d sqft</string>
     <string name="canopyAdviseNeededSizeNotAvailable">Ongeschikt: categorie mag, maar benodigde maat (%1$d sqft) niet beschikbaar.</string>
     <string name="canopyAdviseCategoryTooHigh">Ongeschikt: nog minimaal %1$d sprongen extra ervaring nodig.</string>
-
+    <string name="specificcanopiestableheader">\nParachutes:</string>
+    <string name="specificCanopyHeaderSize">Maat</string>
+    <string name="specificCanopyHeaderType">Type</string>
+    <string name="specificCanopyHeaderRemarks">Opm.</string>
+    <string name="specificCanopyHeaderWingLoad">Wingload</string>
+    
     <string-array name="canopyCategories">
         <item>Unknown</item>
         <item>wingload maximaal 1,1; oppervlakte minimaal 170 sqft</item>

@@ -23,6 +23,20 @@ public class Calculation {
 		return (int) Math.round((double) kg * WEIGHT_FACTOR_KG_TO_LBS);
 	}
 
+	
+	/** 
+	 * Return the winload base on area and kg
+	 * 
+	 * @param area
+	 * @param weightInKg
+	 * @return
+	 */
+	static public double wingLoad(int area, int weightInKg) {
+		int weightInLbs = Calculation.kgToLbs(weightInKg);
+		double wingload = (double) weightInLbs / (double) area;
+		return wingload;
+	}
+	
 	/***
 	 * Calculate the jumper category based on the total jumps and jumps in last
 	 * month

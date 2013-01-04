@@ -1,16 +1,13 @@
 package nl.digitalica.skydivekompasroos;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -23,7 +20,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.TableLayout;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 /**
@@ -73,7 +72,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		tvWarning.setText(warning);
 
 		// initialize seek bars and calculated texts
-		initSeekBarsAndTexts();
+		initSeekBars();
+
+		fillSpecificCanopyTable();
 
 		// set click listener for canopy list button
 		ImageButton canopyListButton = (ImageButton) findViewById(R.id.buttonShowCanopyList);
@@ -106,6 +107,94 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		// Just for testing the canopy list
 		// canopyListButton.performClick();
+	}
+
+	private void fillSpecificCanopyTable() {
+		// TODO Auto-generated method stub
+		TableLayout scTable = (TableLayout) findViewById(R.id.tableSpecificCanopies);
+		scTable.removeAllViews();
+		insertCanopyHeaderRow(scTable);
+		List<SpecificCanopy> scList = SpecificCanopy
+				.getSpecificCanopiesInList(CalculateActivity.this);
+		for (SpecificCanopy theCanopy : scList) {
+			insertCanopyRow(scTable, theCanopy);
+
+		}
+	}
+
+	private void updateSpecificCanopyTable() {
+		// TODO Auto-generated method stub
+		TableLayout scTable = (TableLayout) findViewById(R.id.tableSpecificCanopies);
+		for (int i = 1; i < scTable.getChildCount(); i++) {
+			TableRow canopyListRow = (TableRow) scTable.getChildAt(i);
+			TextView tvWingLoad = (TextView) canopyListRow
+					.findViewById(R.id.textViewSpecificWingload);
+
+			int tagAll = (Integer) tvWingLoad.getTag();
+			int category = tagAll % 10;
+			int size = (tagAll - category) / 10;
+
+			double wingload = Calculation.wingLoad(size, currentWeight);
+			tvWingLoad.setText(String.format("%.2f", wingload));
+
+			SpecificCanopy tempCanopy = new SpecificCanopy(null, size, "",
+					category, "");
+			canopyListRow
+					.setBackgroundDrawable(backgroundDrawableForAcceptance(tempCanopy
+							.acceptablility(currentMaxCategory, currentWeight)));
+		}
+	}
+
+	private void insertCanopyHeaderRow(TableLayout scTable) {
+		// TODO Auto-generated method stub
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View canopyListRow = inflater.inflate(
+				R.layout.specific_canopy_row_layout, null);
+
+		TextView size = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificSize);
+		TextView type = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificType);
+		TextView remarks = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificRemarks);
+		TextView wingload = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificWingload);
+
+		size.setText(getString(R.string.specificCanopyHeaderSize));
+		type.setText(getString(R.string.specificCanopyHeaderType));
+		remarks.setText(getString(R.string.specificCanopyHeaderRemarks));
+		wingload.setText(getString(R.string.specificCanopyHeaderWingLoad));
+
+		scTable.addView(canopyListRow);
+	}
+
+	private void insertCanopyRow(TableLayout scTable, SpecificCanopy theCanopy) {
+		// TODO Auto-generated method stub
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View canopyListRow = inflater.inflate(
+				R.layout.specific_canopy_row_layout, null);
+
+		TextView size = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificSize);
+		TextView type = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificType);
+		TextView remarks = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificRemarks);
+		TextView wingload = (TextView) canopyListRow
+				.findViewById(R.id.textViewSpecificWingload);
+
+		size.setText(Integer.toString(theCanopy.size));
+		type.setText(theCanopy.typeName);
+		remarks.setText(theCanopy.remarks);
+		wingload.setTag(theCanopy.size * 10 + theCanopy.typeCategory);
+
+		scTable.addView(canopyListRow);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		initSeekBarTextsAndCalculate();
 	}
 
 	@Override
@@ -287,37 +376,51 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	}
 
 	/***
-	 * Initialize the seekbars and texts
+	 * Initialize the seekbar listeners
 	 */
-	private void initSeekBarsAndTexts() {
+	private void initSeekBars() {
 		// weight seek bar
 		SeekBar sbWeight = (SeekBar) findViewById(R.id.seekBarWeight);
-		int weightInKg = prefs.getInt(SETTING_WEIGHT, WEIGHT_DEFAULT);
 		sbWeight.setMax(WEIGHT_MAX - WEIGHT_MIN);
 		sbWeight.setOnSeekBarChangeListener(seekBarChangeListenerWeight);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonWeightMin,
 				R.id.buttonWeightPlus);
-		sbWeight.setProgress(weightInKg - WEIGHT_MIN);
 
 		// total jumps seek bar
 		SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
-		int totalJumps = prefs.getInt(SETTING_TOTAL_JUMPS, TOTALJUMPS_DEFAULT);
 		sbTotalJumps.setMax(TOTALJUMPS_MAX);
 		sbTotalJumps
 				.setOnSeekBarChangeListener(seekBarChangeListenerTotalJumps);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonTotalJumpsMin,
 				R.id.buttonTotalJumpsPlus);
+
+		// jumps last 12 months seek bar
+		SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
+		sbJumpsLast12Months.setMax(JUMPS_LAST_12_MONTHS_MAX);
+		sbJumpsLast12Months
+				.setOnSeekBarChangeListener(seekBarChangeListenerJumpsLast12Months);
+		setPlusMinButtonListeners(sbWeight, R.id.buttonJumpLast12MonthsMin,
+				R.id.buttonJumpLast12MonthsPlus);
+	}
+
+	/***
+	 * Initialize the seekbars texts
+	 */
+	private void initSeekBarTextsAndCalculate() {
+		// weight seek bar
+		SeekBar sbWeight = (SeekBar) findViewById(R.id.seekBarWeight);
+		int weightInKg = prefs.getInt(SETTING_WEIGHT, WEIGHT_DEFAULT);
+		sbWeight.setProgress(weightInKg - WEIGHT_MIN);
+
+		// total jumps seek bar
+		SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
+		int totalJumps = prefs.getInt(SETTING_TOTAL_JUMPS, TOTALJUMPS_DEFAULT);
 		sbTotalJumps.setProgress(totalJumps);
 
 		// jumps last 12 months seek bar
 		SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
 		int jumpsLast12Months = prefs.getInt(SETTING_JUMPS_LAST_12_MONTHS,
 				JUMPS_LAST_12_MONTHS_DEFAULT);
-		sbJumpsLast12Months.setMax(JUMPS_LAST_12_MONTHS_MAX);
-		sbJumpsLast12Months
-				.setOnSeekBarChangeListener(seekBarChangeListenerJumpsLast12Months);
-		setPlusMinButtonListeners(sbWeight, R.id.buttonJumpLast12MonthsMin,
-				R.id.buttonJumpLast12MonthsPlus);
 		sbJumpsLast12Months.setProgress(jumpsLast12Months);
 
 		// now calculate to set all texts
@@ -451,6 +554,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	 * starting point depends on the current category and weight.
 	 * 
 	 * @param weightInKg
+	 *            TODO: split in fill (first row) & update (second row & colors)
 	 */
 	private void fillWingloadTable(int weightInKg) {
 
@@ -491,8 +595,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	 */
 	private void fillWingLoadTableColumn(int area, int weightInKg,
 			TextView tvArea, TextView tvWingLoad) {
-		int weightInLbs = Calculation.kgToLbs(weightInKg);
-		double wingload = (double) weightInLbs / (double) area;
+		double wingload = Calculation.wingLoad(area, weightInKg);
 
 		Drawable backgroundRed = getResources().getDrawable(
 				R.drawable.canopycategorytoohigh);
@@ -644,6 +747,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			KompasroosBaseActivity.currentMinArea = minArea;
 
 			fillWingloadTable(weightInKg);
+			updateSpecificCanopyTable();
 		}
 	}
 }

@@ -9,18 +9,19 @@ import nl.digitalica.skydivekompasroos.SpecificCanopy;
 public class SpecificCanopy_test extends TestCase {
 
 	public void testAcceptablity() {
-		final String TESTREMARK = "Test";
+		final String TESTNAME = "TestName";
+		final String TESTREMARK = "TestRemark";
 
 		UUID fakeTypeId = UUID.randomUUID();
 		SpecificCanopy sc;
 		// Simulated PD 230
-		sc = new SpecificCanopy(fakeTypeId, 230, 1, TESTREMARK);
+		sc = new SpecificCanopy(fakeTypeId, 230, TESTNAME, 1, TESTREMARK);
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(1, 80));
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(3, 80));
 		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(3, 110));
 		assertEquals(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, sc.acceptablility(3, 140));
 		// simulated Stiletto 170
-		sc = new SpecificCanopy(fakeTypeId, 170, 4, TESTREMARK);
+		sc = new SpecificCanopy(fakeTypeId, 170, TESTNAME, 4, TESTREMARK);
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH, sc.acceptablility(1, 80));
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH, sc.acceptablility(3, 80));
 		assertEquals(AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE, sc.acceptablility(4, 120));

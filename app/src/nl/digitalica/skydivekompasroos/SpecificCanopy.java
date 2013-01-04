@@ -12,20 +12,31 @@ public class SpecificCanopy extends CanopyBase {
 
 	public UUID typeId;
 	public int size;
-	// note: the value below is cached, from canopytype
-	public int category;
+	// note: the values below are cached, from canopytype
+	public String typeName;
+	public int typeCategory;
 	public String remarks;
 
-	public SpecificCanopy(UUID sTypeId, int sSize, int sCategory, String sRemarks) {
+	public SpecificCanopy(UUID sTypeId, int sSize, String sName, int sCategory,
+			String sRemarks) {
 		this.typeId = sTypeId;
 		this.size = sSize;
-		this.category = sCategory;
+		this.typeName = sName;
+		this.typeCategory = sCategory;
 		this.remarks = sRemarks;
 	}
 
 	static public List<SpecificCanopy> getSpecificCanopiesInList(Context c) {
 		List<SpecificCanopy> specificCanopies = new ArrayList<SpecificCanopy>();
 		// TODO: add List
+		
+		SpecificCanopy canopy1 = new SpecificCanopy(UUID.randomUUID(), 230, "PD", 1, "eigen");
+		SpecificCanopy canopy2 = new SpecificCanopy(UUID.randomUUID(), 170, "Stiletto", 4, "cool");
+		SpecificCanopy canopy3 = new SpecificCanopy(UUID.randomUUID(), 120, "Katana", 5, "cool");
+		specificCanopies.add(canopy1);
+		specificCanopies.add(canopy2);
+		specificCanopies.add(canopy3);
+
 		return specificCanopies;
 	}
 
@@ -38,8 +49,9 @@ public class SpecificCanopy extends CanopyBase {
 	 * 
 	 *         TODO: should return an enum, not an int!!!!!
 	 */
-	public AcceptabilityEnum acceptablility(int jumperCategory, int exitWeightInKg) {
-		if (jumperCategory < this.category)
+	public AcceptabilityEnum acceptablility(int jumperCategory,
+			int exitWeightInKg) {
+		if (jumperCategory < this.typeCategory)
 			return AcceptabilityEnum.CATEGORYTOOHIGH; // not acceptable
 		if (this.size < Calculation.minArea(jumperCategory, exitWeightInKg))
 			return AcceptabilityEnum.NEEDEDSIZENOTAVAILABLE;
