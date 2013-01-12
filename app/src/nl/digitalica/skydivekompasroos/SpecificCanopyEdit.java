@@ -37,13 +37,12 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 		typesSpinner = new String[canopyTypes.size()];
 		int i = 0;
 		for (CanopyType type : canopyTypes) {
-			typesSpinner[i++] = type.name;
-			//+ " (" + type.manufacturerName + ")";
+			typesSpinner[i++] = type.specificName();
 		}
 
 		Spinner types = (Spinner) findViewById(R.id.spinnerType);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item,typesSpinner);
+				android.R.layout.simple_spinner_item, typesSpinner);
 		types.setAdapter(adapter);
 
 		// get the id of the specific canopy we're working on, and tag it on
@@ -63,7 +62,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 			Spinner spType = (Spinner) findViewById(R.id.spinnerType);
 			EditText etRemarks = (EditText) findViewById(R.id.editTextRemarks);
 			SpecificCanopy spc = SpecificCanopy.getSpecificCanopy(
-					specificCanopyId, SpecificCanopyEdit.this);
+					SpecificCanopyEdit.this, specificCanopyId);
 			etSize.setText(Integer.toString(spc.size));
 			int position = adapter.getPosition(spc.typeName);
 			spType.setSelection(position);

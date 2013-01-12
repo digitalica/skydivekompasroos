@@ -38,11 +38,11 @@ public class CanopyType extends CanopyBase {
 	// TODO: the below should be a boolean probably...
 	public boolean isSpecialCatchAllCanopy = false;
 
-	public CanopyType(UUID canopyId, int canopyCategory, UUID canopyManufacturer,
-			String canopyName, String canopyUrl, String canopyCells,
-			boolean canopyCommonType, String canopyDropzoneId,
-			String canopyMinSize, String canopyMaxSize,
-			String canopyFirstYearOfProduction,
+	public CanopyType(UUID canopyId, int canopyCategory,
+			UUID canopyManufacturer, String canopyName, String canopyUrl,
+			String canopyCells, boolean canopyCommonType,
+			String canopyDropzoneId, String canopyMinSize,
+			String canopyMaxSize, String canopyFirstYearOfProduction,
 			String canopyLastYearOfProduction, String canopyRemarks,
 			String canopyRemarks_nl, boolean isSpecialCatchAllCanopy) {
 		this.id = canopyId;
@@ -224,10 +224,10 @@ public class CanopyType extends CanopyBase {
 							&& isSpecialCatchAllCanopyString != null
 							&& Integer.parseInt(isSpecialCatchAllCanopyString) != 0)
 						isSpecialCatchAllCanopy = true;
-					CanopyType canopy = new CanopyType(canopyId, canopyCategory,
-							canopyManufacturerId, canopyName, canopyUrl,
-							canopyCells, canopyCommonType, canopyDropzoneId,
-							canopyMinSize, canopyMaxSize,
+					CanopyType canopy = new CanopyType(canopyId,
+							canopyCategory, canopyManufacturerId, canopyName,
+							canopyUrl, canopyCells, canopyCommonType,
+							canopyDropzoneId, canopyMinSize, canopyMaxSize,
 							canopyFirstyearOfProduction,
 							canopyLastyearOfProduction, canopyRemarks,
 							canopyRemarks_nl, isSpecialCatchAllCanopy);
@@ -354,7 +354,8 @@ public class CanopyType extends CanopyBase {
 	 * @param exitWeightInKg
 	 * @return
 	 */
-	public AcceptabilityEnum acceptablility(int jumperCategory, int exitWeightInKg) {
+	public AcceptabilityEnum acceptablility(int jumperCategory,
+			int exitWeightInKg) {
 		if (jumperCategory < this.category)
 			return AcceptabilityEnum.CATEGORYTOOHIGH; // not acceptable
 		if (this.maxSize != "" && this.maxSize != null)
@@ -444,6 +445,16 @@ public class CanopyType extends CanopyBase {
 		return new CanopyType(everyOtherCanopyTypeId(), 6,
 				Manufacturer.everyOtherManufactuerId(), name, null, null,
 				false, null, null, null, null, null, null, null, true);
+	}
+
+	/**
+	 * Returns the name to use in the specific canopy list. This name must me
+	 * unique, and clearly identify a canopy type.
+	 * 
+	 * @return
+	 */
+	public String specificName() {
+		return this.name + " - " + this.manufacturerName;
 	}
 
 }
