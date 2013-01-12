@@ -20,15 +20,18 @@ public class Manufacturer {
 
 	public UUID id;
 	public String name;
+	public String shortName;
 	public String countryCode;
 	public String url;
 	private String remarks;
 	private String remarks_nl;
 
-	public Manufacturer(UUID mId, String mName, String mCountryCode,
-			String mUrl, String mRemarks, String mRemarks_nl) {
+	public Manufacturer(UUID mId, String mName, String mShortName,
+			String mCountryCode, String mUrl, String mRemarks,
+			String mRemarks_nl) {
 		this.id = mId;
 		this.name = mName;
+		this.shortName = mShortName;
 		this.countryCode = mCountryCode;
 		this.url = mUrl;
 		this.remarks = mRemarks;
@@ -36,7 +39,7 @@ public class Manufacturer {
 	}
 
 	public Manufacturer(String mName, String mCountryCode) {
-		this(UUID.randomUUID(), mName, mCountryCode, null, null, null);
+		this(UUID.randomUUID(), mName, mName, mCountryCode, null, null, null);
 	}
 
 	/***
@@ -44,8 +47,7 @@ public class Manufacturer {
 	 * 
 	 * @return
 	 */
-	static public HashMap<UUID, Manufacturer> getManufacturerHash(
-			Context c) {
+	static public HashMap<UUID, Manufacturer> getManufacturerHash(Context c) {
 		XmlResourceParser manufacturersParser = c.getResources().getXml(
 				R.xml.manufacturers);
 		int eventType = -1;
@@ -60,6 +62,8 @@ public class Manufacturer {
 					UUID manufacturerId = UUID.fromString(manufacturerIdString);
 					String manufacturerName = manufacturersParser
 							.getAttributeValue(null, "name");
+					String manufacturerShortName = manufacturersParser
+							.getAttributeValue(null, "shortname");
 					String manufacturerUrl = manufacturersParser
 							.getAttributeValue(null, "url");
 					String manufacturerRemarks = manufacturersParser
@@ -70,8 +74,9 @@ public class Manufacturer {
 							.getAttributeValue(null, "countrycode");
 					Manufacturer manufacturer = new Manufacturer(
 							manufacturerId, manufacturerName,
-							manufacturerCountryCode, manufacturerUrl,
-							manufacturerRemarks, manufacturerRemarks_nl);
+							manufacturerShortName, manufacturerCountryCode,
+							manufacturerUrl, manufacturerRemarks,
+							manufacturerRemarks_nl);
 					manufacturerHashMap.put(manufacturer.id, manufacturer);
 				}
 
@@ -185,8 +190,8 @@ public class Manufacturer {
 			name = "Elke andere fabrikant";
 		else
 			name = "Every other manufacturer";
-		return new Manufacturer(everyOtherManufactuerId(), name, null, null,
-				null, null);
+		return new Manufacturer(everyOtherManufactuerId(), name, name, null,
+				null, null, null);
 	}
 
 }

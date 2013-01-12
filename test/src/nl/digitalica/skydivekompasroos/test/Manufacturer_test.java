@@ -1,6 +1,8 @@
 package nl.digitalica.skydivekompasroos.test;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.UUID;
 
 import nl.digitalica.skydivekompasroos.Manufacturer;
 import android.test.AndroidTestCase;
@@ -48,6 +50,16 @@ public class Manufacturer_test extends AndroidTestCase {
 		Manufacturer testManufacturer = new Manufacturer("testManufacturer",
 				null);
 		assertNull(testManufacturer.countryFullName());
+	}
+
+	public void testShortNameNotLongerThenLongName() {
+		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
+				.getManufacturerHash(getContext());
+		for (Manufacturer m : manufacturers.values()) {
+			assertFalse(m.name.equals(""));
+			assertFalse(m.shortName.equals(""));
+			assertTrue(m.shortName.length() <= m.name.length());
+		}
 	}
 
 }

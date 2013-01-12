@@ -94,15 +94,15 @@ public class SpecificCanopy extends CanopyBase {
 	 * @param typeId
 	 * @param remarks
 	 */
-	public void save(Context c) {
-		String nr = Integer.toString(this.id);
+	public static void save(Context c, int id, int size, UUID typeId,
+			String remarks) {
+		String nr = Integer.toString(id);
 		SharedPreferences prefs = c.getSharedPreferences(
 				KompasroosBaseActivity.KOMPASROOSPREFS, Context.MODE_PRIVATE);
-		CanopyType ct = CanopyType.getCanopy(this.typeId, c);
 		Editor e = prefs.edit();
-		e.putInt(SETTING_SPECIFIC_CANOPY_SIZE + nr, this.size);
-		e.putString(SETTING_SPECIFIC_CANOPY_TYPEID + nr, this.typeId.toString());
-		e.putString(SETTING_SPECIFIC_CANOPY_REMARKS + nr, this.remarks);
+		e.putInt(SETTING_SPECIFIC_CANOPY_SIZE + nr, size);
+		e.putString(SETTING_SPECIFIC_CANOPY_TYPEID + nr, typeId.toString());
+		e.putString(SETTING_SPECIFIC_CANOPY_REMARKS + nr, remarks);
 		e.commit();
 	}
 
@@ -129,7 +129,7 @@ public class SpecificCanopy extends CanopyBase {
 				e.putString(SETTING_SPECIFIC_CANOPY_TYPEID + nr, type);
 				e.putString(SETTING_SPECIFIC_CANOPY_REMARKS + nr, remarks);
 				e.commit();
-				entryToRemove = index+1;
+				entryToRemove = index + 1;
 			}
 		}
 		Editor e = prefs.edit();

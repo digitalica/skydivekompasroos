@@ -24,6 +24,7 @@ public class CanopyType extends CanopyBase {
 	public int category;
 	public UUID manufacturerId;
 	public String manufacturerName;
+	public String manufacturerShortName;
 	public String name;
 	public String url;
 	public String cells;
@@ -147,10 +148,10 @@ public class CanopyType extends CanopyBase {
 	 * @param c
 	 * @return
 	 */
-	static public HashMap<UUID,CanopyType> getCanopyTypeHash(Context c) {
+	static public HashMap<UUID, CanopyType> getCanopyTypeHash(Context c) {
 		List<CanopyType> canopyTypesList = getAllCanopyTypesInList(c);
-				HashMap<UUID,CanopyType> 		canopyTypes = new HashMap<UUID,CanopyType> ();
-		for (CanopyType ct: canopyTypesList) {
+		HashMap<UUID, CanopyType> canopyTypes = new HashMap<UUID, CanopyType>();
+		for (CanopyType ct : canopyTypesList) {
 			canopyTypes.put(ct.id, ct);
 		}
 		return canopyTypes;
@@ -206,6 +207,8 @@ public class CanopyType extends CanopyBase {
 							.fromString(canopyManufacturerIdString);
 					String manufacturerName = manufacturers
 							.get(canopyManufacturerId).name;
+					String manufacturerShortName = manufacturers
+							.get(canopyManufacturerId).shortName;
 
 					String canopyName = canopiesParser.getAttributeValue(null,
 							"name");
@@ -249,6 +252,7 @@ public class CanopyType extends CanopyBase {
 					// TODO: maybe the assignment below should move to the
 					// contstuctor...
 					canopy.manufacturerName = manufacturerName;
+					canopy.manufacturerShortName = manufacturerShortName;
 					if (id == null)
 						canopyList.add(canopy);
 					else if (canopy.id.equals(id)) {
@@ -469,7 +473,7 @@ public class CanopyType extends CanopyBase {
 	 * @return
 	 */
 	public String specificName() {
-		return this.name + " - " + this.manufacturerName;
+		return this.name + " - " + this.manufacturerShortName;
 	}
 
 }

@@ -55,8 +55,7 @@ public class SpecificCanopy_test extends AndroidTestCase {
 		Context c = getContext();
 		SpecificCanopy.DeleteAll(c);
 		CanopyType testType = getCanopyTypeByName("Stiletto");
-		SpecificCanopy sc = new SpecificCanopy(1, testType.id, 170, TESTREMARK);
-		sc.save(c);
+		SpecificCanopy.save(c, 1, 170, testType.id, TESTREMARK);
 		SpecificCanopy scReloaded = SpecificCanopy.getSpecificCanopy(c, 1);
 
 		assertEquals(TESTREMARK, scReloaded.remarks);
@@ -74,26 +73,29 @@ public class SpecificCanopy_test extends AndroidTestCase {
 
 		Context c = getContext();
 		SpecificCanopy.DeleteAll(c);
-		SpecificCanopy sc;
 
 		CanopyType t1 = getCanopyTypeByName("Stiletto");
 		CanopyType t2 = getCanopyTypeByName("Katana");
 		CanopyType t3 = getCanopyTypeByName("Crossfire");
 
 		// save #1: Stiletto
-		sc = new SpecificCanopy(1, t1.id, TESTSIZE1, TESTREMARK1);
-		sc.save(c);
+		SpecificCanopy sc1 = new SpecificCanopy(1, t1.id, TESTSIZE1,
+				TESTREMARK1);
+		SpecificCanopy.save(c, sc1.id, sc1.size, sc1.typeId, sc1.remarks);
 		// save #2: Katana
-		sc = new SpecificCanopy(2, t2.id, TESTSIZE2, TESTREMARK2);
-		sc.save(c);
+		SpecificCanopy sc2 = new SpecificCanopy(2, t2.id, TESTSIZE2,
+				TESTREMARK2);
+		SpecificCanopy.save(c, sc2.id, sc2.size, sc2.typeId, sc2.remarks);
 		// save #3: CrossFire
-		sc = new SpecificCanopy(3, t3.id, TESTSIZE3, TESTREMARK3);
-		sc.save(c);
+		SpecificCanopy sc3 = new SpecificCanopy(3, t3.id, TESTSIZE3,
+				TESTREMARK3);
+		SpecificCanopy.save(c, sc3.id, sc3.size, sc3.typeId, sc3.remarks);
 
 		// check we have 3 now
-		assertEquals(3,SpecificCanopy.getSpecificCanopiesInList(c).size());
+		assertEquals(3, SpecificCanopy.getSpecificCanopiesInList(c).size());
 
 		// test #1: Stiletto
+		SpecificCanopy sc;
 		sc = SpecificCanopy.getSpecificCanopy(c, 1);
 		assertEquals(TESTSIZE1, sc.size);
 		assertEquals(TESTREMARK1, sc.remarks);
@@ -111,10 +113,10 @@ public class SpecificCanopy_test extends AndroidTestCase {
 
 		// Now delete second one
 		SpecificCanopy.delete(c, 2);
-		
+
 		// check we have 3 now
-		assertEquals(2,SpecificCanopy.getSpecificCanopiesInList(c).size());
-		
+		assertEquals(2, SpecificCanopy.getSpecificCanopiesInList(c).size());
+
 		// test old nr 3 is now nr 2.
 		sc = SpecificCanopy.getSpecificCanopy(c, 2);
 		assertEquals(TESTSIZE3, sc.size);
