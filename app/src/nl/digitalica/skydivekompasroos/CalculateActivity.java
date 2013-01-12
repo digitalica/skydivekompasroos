@@ -113,7 +113,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			public void onClick(View v) {
 				Intent intent = new Intent(getBaseContext(),
-						SpecificListEdit.class);
+						SpecificCanopyEdit.class);
 				Bundle bundle = new Bundle();
 				bundle.putInt(SPECIFICCANOPYID_KEY, 0);
 				intent.putExtras(bundle);
@@ -232,7 +232,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			public void onClick(View v) {
 				Intent intent = new Intent(getBaseContext(),
-						SpecificListEdit.class);
+						SpecificCanopyEdit.class);
 				Bundle bundle = new Bundle();
 				bundle.putInt(SPECIFICCANOPYID_KEY, (Integer) v.getTag());
 				intent.putExtras(bundle);

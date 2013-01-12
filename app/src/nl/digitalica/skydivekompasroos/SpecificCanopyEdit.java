@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.support.v4.app.NavUtils;
 
-public class SpecificListEdit extends KompasroosBaseActivity {
+public class SpecificCanopyEdit extends KompasroosBaseActivity {
 
 	private String typesSpinner[];
 
@@ -29,7 +29,7 @@ public class SpecificListEdit extends KompasroosBaseActivity {
 		setContentView(R.layout.activity_specific_list_edit);
 
 		List<CanopyType> canopyTypes = CanopyType
-				.getAllCanopyTypesInList(SpecificListEdit.this);
+				.getAllCanopyTypesInList(SpecificCanopyEdit.this);
 
 		Comparator<CanopyType> canopyComparator = new CanopyType.ComparatorByNameManufacturer();
 		Collections.sort(canopyTypes, canopyComparator);
@@ -63,7 +63,7 @@ public class SpecificListEdit extends KompasroosBaseActivity {
 			Spinner spType = (Spinner) findViewById(R.id.spinnerType);
 			EditText etRemarks = (EditText) findViewById(R.id.editTextRemarks);
 			SpecificCanopy spc = SpecificCanopy.getSpecificCanopy(
-					specificCanopyId, SpecificListEdit.this);
+					specificCanopyId, SpecificCanopyEdit.this);
 			etSize.setText(Integer.toString(spc.size));
 			int position = adapter.getPosition(spc.typeName);
 			spType.setSelection(position);

@@ -35,7 +35,7 @@
             android:label="@string/title_activity_canopydetails" >
         </activity>
         <activity
-            android:name=".SpecificListEdit"
+            android:name=".SpecificCanopyEdit"
             android:label="@string/title_activity_specific_list_edit" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
