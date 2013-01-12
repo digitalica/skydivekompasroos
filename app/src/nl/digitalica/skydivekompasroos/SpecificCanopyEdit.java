@@ -26,7 +26,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_specific_list_edit);
+		setContentView(R.layout.activity_specific_canopy_edit);
 
 		List<CanopyType> canopyTypes = CanopyType
 				.getAllCanopyTypesInList(SpecificCanopyEdit.this);

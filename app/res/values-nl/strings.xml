@@ -7,6 +7,7 @@
     <string name="title_activity_about">Over Skydive kompasroos</string>
     <string name="title_activity_canopylist">Skydive kompasroos parachutes</string>
     <string name="title_activity_canopydetails">Skydive kompasroos parachute gegevens</string>
+    <string name="title_activity_specific_canopy_edit">Skydive kompasroos parachute</string>
     <string name="to_be_replaced">to_be_replaced</string>
     <string name="categorySetting">\nJe valt in categorie <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
