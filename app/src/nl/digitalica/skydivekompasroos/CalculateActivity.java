@@ -63,12 +63,12 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		TextView tvWarning = (TextView) findViewById(R.id.textViewWarning);
 		String warning = "";
 		try {
-			long time = getCompileDateTime();
+			long compilationDateTime = getCompileDateTime();
 			Calendar cal = Calendar.getInstance();
 			long now = cal.getTime().getTime();
 			long maxDiff = 1000 * 60 * 60 * 24 * 365; // 1 year
 			// maxDiff = 1000 * 60 * 5; // 5 mins (for testing)
-			if (now - time > maxDiff)
+			if (now - compilationDateTime > maxDiff)
 				warning = getString(R.string.calculationOvertimeWarning);
 		} catch (Exception e) {
 			warning = getString(R.string.calculationOvertimeUnknownWarning);
