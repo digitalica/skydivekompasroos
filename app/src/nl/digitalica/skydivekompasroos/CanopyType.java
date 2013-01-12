@@ -141,6 +141,21 @@ public class CanopyType extends CanopyBase {
 		return canopy;
 	}
 
+	/**
+	 * Return all canopyTypes as a hashmap based on their id.
+	 * 
+	 * @param c
+	 * @return
+	 */
+	static public HashMap<UUID,CanopyType> getCanopyTypeHash(Context c) {
+		List<CanopyType> canopyTypesList = getAllCanopyTypesInList(c);
+				HashMap<UUID,CanopyType> 		canopyTypes = new HashMap<UUID,CanopyType> ();
+		for (CanopyType ct: canopyTypesList) {
+			canopyTypes.put(ct.id, ct);
+		}
+		return canopyTypes;
+	}
+
 	/***
 	 * Reads a specific canopies from the XML in a list. This is ok as the
 	 * number will always be limited anyway

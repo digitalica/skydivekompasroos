@@ -1,7 +1,9 @@
 package nl.digitalica.skydivekompasroos;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import nl.digitalica.skydivekompasroos.CanopyBase.AcceptabilityEnum;
 
@@ -132,8 +134,12 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		insertCanopyHeaderRow(scTable);
 		List<SpecificCanopy> scList = SpecificCanopy
 				.getSpecificCanopiesInList(CalculateActivity.this);
+		HashMap<UUID, CanopyType> canopyTypes = CanopyType
+				.getCanopyTypeHash(CalculateActivity.this);
 		for (SpecificCanopy theCanopy : scList) {
-			insertCanopyRow(scTable, theCanopy);
+			CanopyType ct = canopyTypes.get(theCanopy.typeId);
+			insertSpecificCanopyRow(scTable, theCanopy, ct.specificName(),
+					ct.category);
 		}
 	}
 
@@ -156,17 +162,14 @@ public class CalculateActivity extends KompasroosBaseActivity {
 					.findViewById(R.id.textViewSpecificWingload);
 
 			int tagAll = (Integer) tvWingLoad.getTag();
-			int category = tagAll % 10;
-			int size = (tagAll - category) / 10;
+			int typeCategory = tagAll % 10;
+			int size = (tagAll - typeCategory) / 10;
 
 			double wingload = Calculation.wingLoad(size, currentWeight);
 			tvWingLoad.setText(String.format("%.2f", wingload));
 
-			SpecificCanopy tempCanopy = new SpecificCanopy(0, null, size, "",
-					category, "");
-
-			AcceptabilityEnum acc = tempCanopy.acceptablility(
-					currentMaxCategory, currentWeight);
+			AcceptabilityEnum acc = SpecificCanopy.acceptablility(
+					currentMaxCategory, typeCategory, size, currentWeight);
 			// We need different drawables for each column as the widths are
 			// different
 			Drawable backgroundCol1 = backgroundDrawableForAcceptance(acc);
@@ -204,7 +207,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		scTable.addView(canopyListRow);
 	}
 
-	private void insertCanopyRow(TableLayout scTable, SpecificCanopy theCanopy) {
+	private void insertSpecificCanopyRow(TableLayout scTable,
+			SpecificCanopy theCanopy, String typeName, int typeCategory) {
 		// TODO Auto-generated method stub
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View canopyListRow = inflater.inflate(
@@ -220,9 +224,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				.findViewById(R.id.textViewSpecificWingload);
 
 		size.setText(Integer.toString(theCanopy.size));
-		type.setText(theCanopy.typeName);
+		type.setText(typeName);
 		remarks.setText(theCanopy.remarks);
-		wingload.setTag(theCanopy.size * 10 + theCanopy.typeCategory);
+		wingload.setTag(theCanopy.size * 10 + typeCategory);
 
 		// set click listener for specific canopy edit
 

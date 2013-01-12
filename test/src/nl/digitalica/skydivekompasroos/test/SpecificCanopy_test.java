@@ -3,12 +3,10 @@ package nl.digitalica.skydivekompasroos.test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 import android.content.Context;
 import android.test.AndroidTestCase;
 
-import junit.framework.TestCase;
 import nl.digitalica.skydivekompasroos.CanopyBase.AcceptabilityEnum;
 import nl.digitalica.skydivekompasroos.CanopyType;
 import nl.digitalica.skydivekompasroos.SpecificCanopy;
@@ -16,28 +14,26 @@ import nl.digitalica.skydivekompasroos.SpecificCanopy;
 public class SpecificCanopy_test extends AndroidTestCase {
 
 	public void testAcceptablityForSpecificCanopies() {
-		final String TESTNAME = "TestName";
-		final String TESTREMARK = "TestRemark";
-		UUID fakeTypeId = UUID.randomUUID();
-		SpecificCanopy sc;
 		// Simulated PD 230
-		sc = new SpecificCanopy(1, fakeTypeId, 230, TESTNAME, 1, TESTREMARK);
-		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(1, 80));
-		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(3, 80));
-		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(3, 110));
+		assertEquals(AcceptabilityEnum.ACCEPTABLE,
+				SpecificCanopy.acceptablility(1, 1, 230, 80));
+		assertEquals(AcceptabilityEnum.ACCEPTABLE,
+				SpecificCanopy.acceptablility(3, 1, 230, 80));
+		assertEquals(AcceptabilityEnum.ACCEPTABLE,
+				SpecificCanopy.acceptablility(3, 1, 230, 110));
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH,
-				sc.acceptablility(3, 140));
+				SpecificCanopy.acceptablility(3, 1, 230, 140));
 		// simulated Stiletto 170
-		sc = new SpecificCanopy(2, fakeTypeId, 170, TESTNAME, 4, TESTREMARK);
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH,
-				sc.acceptablility(1, 80));
+				SpecificCanopy.acceptablility(1, 4, 170, 80));
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH,
-				sc.acceptablility(3, 80));
+				SpecificCanopy.acceptablility(3, 4, 170, 80));
 		assertEquals(AcceptabilityEnum.CATEGORYTOOHIGH,
-				sc.acceptablility(4, 120));
-		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(4, 110));
-		assertEquals(AcceptabilityEnum.ACCEPTABLE, sc.acceptablility(6, 80));
-
+				SpecificCanopy.acceptablility(4, 4, 170, 120));
+		assertEquals(AcceptabilityEnum.ACCEPTABLE,
+				SpecificCanopy.acceptablility(4, 4, 170, 110));
+		assertEquals(AcceptabilityEnum.ACCEPTABLE,
+				SpecificCanopy.acceptablility(6, 4, 170, 80));
 	}
 
 	public void testUniqueTypeNames() {
@@ -59,15 +55,12 @@ public class SpecificCanopy_test extends AndroidTestCase {
 		Context c = getContext();
 		SpecificCanopy.DeleteAll(c);
 		CanopyType testType = getTestTypeByName("Stiletto");
-		SpecificCanopy sc = new SpecificCanopy(1, testType.id, 170,
-				testType.name, 4, TESTREMARK);
+		SpecificCanopy sc = new SpecificCanopy(1, testType.id, 170, TESTREMARK);
 		sc.save(c);
 		SpecificCanopy scReloaded = SpecificCanopy.getSpecificCanopy(c, 1);
 
 		assertEquals(TESTREMARK, scReloaded.remarks);
 		assertEquals(170, scReloaded.size);
-		assertEquals(testType.name, scReloaded.typeName);
-		assertEquals(testType.category, scReloaded.typeCategory);
 	}
 
 	private CanopyType getTestTypeByName(String name) {

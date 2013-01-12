@@ -63,8 +63,9 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 			EditText etRemarks = (EditText) findViewById(R.id.editTextRemarks);
 			SpecificCanopy spc = SpecificCanopy.getSpecificCanopy(
 					SpecificCanopyEdit.this, specificCanopyId);
+			CanopyType ct = CanopyType.getCanopy(spc.typeId, SpecificCanopyEdit.this);
 			etSize.setText(Integer.toString(spc.size));
-			int position = adapter.getPosition(spc.typeName);
+			int position = adapter.getPosition(ct.specificName());
 			spType.setSelection(position);
 			etRemarks.setText(spc.remarks);
 		}
