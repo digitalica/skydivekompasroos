@@ -29,6 +29,8 @@
     <string name="btnShareResult">Deel resultaat</string>
     <string name="btnShareDetails">Deel parachute gegevens</string>
     <string name="btnShareAbout">Deel about tekst</string>
+    <string name="btnSave">Opslaan</string>
+    <string name="btnDelete">Wissen</string>
     <string name="calculationWeightLabel">\nExitgewicht</string>
     <string name="calculationWeightSetting">: %1$d kg (%2$d lbs)</string>
     <string name="calculationTotalJumpsLabel">\nTotaal aantal sprongen</string>

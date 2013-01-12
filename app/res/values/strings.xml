@@ -29,6 +29,8 @@
     <string name="btnShareResult">Share result</string>
     <string name="btnShareDetails">Share canopy details</string>
     <string name="btnShareAbout">Share about text</string>
+    <string name="btnSave">Save</string>
+    <string name="btnDelete">Delete</string>
     <string name="calculationWeightLabel">\nExit weight</string>
     <string name="calculationWeightSetting">: %1$d kg (%2$d lbs)</string>
     <string name="calculationTotalJumpsLabel">\nTotal number of jumps</string>

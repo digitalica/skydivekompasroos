@@ -31,6 +31,8 @@ public class KompasroosBaseActivity extends Activity {
 
 	final static String CANOPYIDEXTRA = "CANOPYKEY";
 
+	final static String SPECIFICCANOPYID_KEY = "SpecificCanopyId";
+	
 	// class variables
 	SharedPreferences prefs;
 

@@ -107,13 +107,17 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			}
 		});
 
-		// set click listener for spei
+		// set click listener for specific canopy add
 		Button addSpecificCanopy = (Button) findViewById(R.id.buttonAddSpecificCanopy);
 		addSpecificCanopy.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				startActivity(new Intent(getBaseContext(),
-						SpecificListEdit.class));
+				Intent intent = new Intent(getBaseContext(),
+						SpecificListEdit.class);
+				Bundle bundle = new Bundle();
+				bundle.putInt(SPECIFICCANOPYID_KEY, 0);
+				intent.putExtras(bundle);
+				startActivity(intent);
 			}
 		});
 
@@ -158,7 +162,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			double wingload = Calculation.wingLoad(size, currentWeight);
 			tvWingLoad.setText(String.format("%.2f", wingload));
 
-			SpecificCanopy tempCanopy = new SpecificCanopy(null, size, "",
+			SpecificCanopy tempCanopy = new SpecificCanopy(0, null, size, "",
 					category, "");
 
 			AcceptabilityEnum acc = tempCanopy.acceptablility(
@@ -220,6 +224,23 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		remarks.setText(theCanopy.remarks);
 		wingload.setTag(theCanopy.size * 10 + theCanopy.typeCategory);
 
+		// set click listener for specific canopy edit
+
+		canopyListRow.setTag(theCanopy.id);
+		Button addSpecificCanopy = (Button) findViewById(R.id.buttonAddSpecificCanopy);
+		canopyListRow.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				Intent intent = new Intent(getBaseContext(),
+						SpecificListEdit.class);
+				Bundle bundle = new Bundle();
+				bundle.putInt(SPECIFICCANOPYID_KEY, (Integer) v.getTag());
+				intent.putExtras(bundle);
+				startActivity(intent);
+			}
+		});
+
+		// add it to the table
 		scTable.addView(canopyListRow);
 	}
 
