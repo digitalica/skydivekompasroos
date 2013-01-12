@@ -111,15 +111,16 @@ public class SpecificCanopy extends CanopyBase {
 	 * 
 	 * @param index
 	 */
-	public void Delete(Context c, int indexToDelete) {
+	public static void delete(Context c, int indexToDelete) {
 		SharedPreferences prefs = c.getSharedPreferences(
 				KompasroosBaseActivity.KOMPASROOSPREFS, Context.MODE_PRIVATE);
-		for (int index = 1; index < MAXSPECIFICCANOPIES - 1; index++) {
+		int entryToRemove = indexToDelete;
+		for (int index = indexToDelete; index < MAXSPECIFICCANOPIES - 1; index++) {
 			String nr = Integer.toString(index);
 			String next = Integer.toString(index + 1);
 			int size = prefs.getInt(SETTING_SPECIFIC_CANOPY_SIZE + next, 0);
-			String type = prefs.getString(SETTING_SPECIFIC_CANOPY_SIZE + next,
-					"");
+			String type = prefs.getString(
+					SETTING_SPECIFIC_CANOPY_TYPEID + next, "");
 			String remarks = prefs.getString(SETTING_SPECIFIC_CANOPY_REMARKS
 					+ next, "");
 			if (!type.equals("")) {
@@ -128,8 +129,14 @@ public class SpecificCanopy extends CanopyBase {
 				e.putString(SETTING_SPECIFIC_CANOPY_TYPEID + nr, type);
 				e.putString(SETTING_SPECIFIC_CANOPY_REMARKS + nr, remarks);
 				e.commit();
+				entryToRemove = index+1;
 			}
 		}
+		Editor e = prefs.edit();
+		e.remove(SETTING_SPECIFIC_CANOPY_SIZE + entryToRemove);
+		e.remove(SETTING_SPECIFIC_CANOPY_TYPEID + entryToRemove);
+		e.remove(SETTING_SPECIFIC_CANOPY_REMARKS + entryToRemove);
+		e.commit();
 	}
 
 	/**
