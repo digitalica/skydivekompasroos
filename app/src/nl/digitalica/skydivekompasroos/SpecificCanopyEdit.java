@@ -3,6 +3,7 @@ package nl.digitalica.skydivekompasroos;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 import nl.digitalica.skydivekompasroos.CanopyTypeListActivity.SortingEnum;
 
@@ -57,17 +58,34 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 		// check if we're adding new specific canopy or editing an existing one
 		if (specificCanopyId == 0) {
 			deleteButton.setEnabled(false); // we can't delete new addition
+			int newSpecificCanopyId = SpecificCanopy.getSpecificCanopiesInList(
+					SpecificCanopyEdit.this).size() + 1;
+			saveSpecificCanopyButton.setTag(newSpecificCanopyId);
 		} else {
+			saveSpecificCanopyButton.setTag(specificCanopyId);
 			EditText etSize = (EditText) findViewById(R.id.editTextSize);
 			Spinner spType = (Spinner) findViewById(R.id.spinnerType);
 			EditText etRemarks = (EditText) findViewById(R.id.editTextRemarks);
 			SpecificCanopy spc = SpecificCanopy.getSpecificCanopy(
 					SpecificCanopyEdit.this, specificCanopyId);
-			CanopyType ct = CanopyType.getCanopy(spc.typeId, SpecificCanopyEdit.this);
+			CanopyType ct = CanopyType.getCanopy(spc.typeId,
+					SpecificCanopyEdit.this);
 			etSize.setText(Integer.toString(spc.size));
 			int position = adapter.getPosition(ct.specificName());
 			spType.setSelection(position);
 			etRemarks.setText(spc.remarks);
+
+			// add click handler to delete button.
+			deleteButton.setOnClickListener(new View.OnClickListener() {
+
+				public void onClick(View v) {
+					int specificCanopyId = (Integer) v.getTag();
+					SpecificCanopy.delete(SpecificCanopyEdit.this,
+							specificCanopyId);
+					SpecificCanopyEdit.this.finish();
+				}
+			});
+
 		}
 
 		// add click handler to save button.
@@ -79,8 +97,18 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 				Spinner spType = (Spinner) findViewById(R.id.spinnerType);
 				EditText etRemarks = (EditText) findViewById(R.id.editTextRemarks);
 
-				// startActivity(new Intent(getBaseContext(),
-				// SpecificListEdit.class));
+				int size = Integer.parseInt(etSize.getText().toString());
+				String typeSpecificName = (String) spType.getSelectedItem();
+				List<CanopyType> canopyTypes = CanopyType
+						.getAllCanopyTypesInList(SpecificCanopyEdit.this);
+				UUID typeId = null;
+				for (CanopyType ct : canopyTypes)
+					if (typeSpecificName.equals(ct.specificName()))
+						typeId = ct.id;
+				String remarks = etRemarks.getText().toString();
+				SpecificCanopy.save(SpecificCanopyEdit.this, specificCanopyId,
+						size, typeId, remarks);
+				SpecificCanopyEdit.this.finish();
 			}
 		});
 

@@ -127,6 +127,19 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		// canopyListButton.performClick();
 	}
 
+	@Override
+	public void onStart() {
+		super.onStart();
+		fillSpecificCanopyTable();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		initSeekBarTextsAndCalculate();
+		updateSpecificCanopyTable();
+	}
+
 	private void fillSpecificCanopyTable() {
 		// TODO Auto-generated method stub
 		TableLayout scTable = (TableLayout) findViewById(R.id.tableSpecificCanopies);
@@ -141,6 +154,13 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			insertSpecificCanopyRow(scTable, theCanopy, ct.specificName(),
 					ct.category);
 		}
+
+		// enable or disable button if needed
+		Button addSpecificCanopy = (Button) findViewById(R.id.buttonAddSpecificCanopy);
+		if (scList.size() >= SpecificCanopy.MAXSPECIFICCANOPIES)
+			addSpecificCanopy.setEnabled(false);
+		else
+			addSpecificCanopy.setEnabled(true);
 	}
 
 	/**
@@ -246,12 +266,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		// add it to the table
 		scTable.addView(canopyListRow);
-	}
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		initSeekBarTextsAndCalculate();
 	}
 
 	@Override
