@@ -133,7 +133,4 @@
         <item>Minimal 1000 jumps</item>
     </string-array>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_specific_list_edit">SpecificListEdit</string>
-
 </resources>
