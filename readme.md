@@ -11,6 +11,13 @@ It is based on the dutch 'Kompasroos' system.
 Changelog and New Features
 **************************
 
+Version 0.6 (14 jan 2013)
+
+- fixes in canopy database
+- fix in logic for cat 6 jumpers
+- added option to show specific canopies
+- some internal cleanup and improvements
+
 Version 0.5 (24 dec 2012)
 
 - text improvements
