@@ -57,6 +57,8 @@
         id="29A49954-54B1-4F77-A399-CCEFCCC9B3B9"
         name="Icarus Canopies"
         countrycode="nz, es"
+        remarks="Most Icarus canopies are manufactured by NZ Aerosports."
+        remarks_nl="De meeste typen Icarus parachutes worden gefabriceerd door NZ Aerosports."
         shortname="Icarus"
         url="http://www.icaruscanopies.aero/" />
     <manufacturer
@@ -75,8 +77,8 @@
         id="4A42F850-E739-44D4-9A69-F66AD3247B1F"
         name="NZ Aerosports"
         countrycode="nz"
-        remarks="NZ Aerosports is the manufacturer of the Icarus canopies too."
-        remarks_nl="NZ Aerosports is de fabrikant van de Icarus parachutes."
+        remarks="NZ Aerosports is the manufacturer of most of the Icarus canopies."
+        remarks_nl="NZ Aerosports is de fabrikant van de meeste typen Icarus parachutes."
         shortname="NZ Aerosports"
         url="http://www.nzaerosports.com" />
     <manufacturer

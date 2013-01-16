@@ -257,7 +257,7 @@
         cells="7"
         commontype="0"
         dropzoneid="6"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies" />
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports" />
     <canopy
         id="B14481B6-5DE6-485F-9858-7011DE27884C"
         name="Zepo Student"
@@ -444,10 +444,10 @@
         cells="7"
         commontype="1"
         dropzoneid="3"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="229"
         minsize="99"
-        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=13&amp;Itemid=10" />
+        url="http://www.nzaerosports.com/canopies/icarus-omega" />
     <canopy
         id="F1269861-262D-4CCC-A8FA-4C190B59C0C6"
         name="Cayenne"
@@ -563,7 +563,7 @@
         cells="9"
         commontype="1"
         dropzoneid="1"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies" />
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports" />
     <canopy
         id="78C709A5-C1C8-4CAE-99F0-52D43B189D88"
         name="Safire 2"
@@ -571,12 +571,12 @@
         cells="9"
         commontype="1"
         dropzoneid="301"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="229"
         minsize="99"
         planform="16.4"
         planformcells="8"
-        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=3&amp;Itemid=9" />
+        url="http://www.nzaerosports.com/canopies/icarus-safire" />
     <canopy
         id="D78B4C18-1887-4D66-8FF6-6FFFEF93C6CB"
         name="Z-po"
@@ -802,7 +802,7 @@
         cells="9"
         commontype="1"
         dropzoneid="4"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies" />
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports" />
     <canopy
         id="3F35D12C-4BBA-400D-BA7F-BC13512B22EB"
         name="Mamba"
@@ -898,14 +898,14 @@
         cells="9"
         commontype="1"
         dropzoneid="302"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="169"
         minsize="89"
         planform="21.6"
         planformcells="8"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
-        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=9&amp;Itemid=8" />
+        url="http://www.nzaerosports.com/canopies/icarus-crossfire" />
     <canopy
         id="E761C654-5896-4903-8929-581C229EE0C3"
         name="Samurai"
@@ -925,12 +925,12 @@
         cells="27"
         commontype="1"
         dropzoneid="2"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
-        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=12&amp;Itemid=6" />
+        url="http://www.nzaerosports.com/canopies/icarus-VX" />
     <canopy
         id="65BE2372-98A5-4109-9D88-16550BD74A3D"
         name="Extreme FX"
@@ -938,12 +938,12 @@
         cells="21"
         commontype="1"
         dropzoneid="5"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="69"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
-        url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=11&amp;Itemid=7" />
+        url="http://www.nzaerosports.com/canopies/icarus-FX" />
     <canopy
         id="F996C3D1-5684-45BF-9B30-9B0ADEC987C2"
         name="Neos"
@@ -1184,7 +1184,7 @@
         commontype="0"
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
-        minsize="69"
+        minsize="59"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/daedalus-JVX" />
@@ -1196,8 +1196,9 @@
         commontype="0"
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
-        minsize="69"
+        minsize="59"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/daedalus-JFX" />
+
 </canopies>
