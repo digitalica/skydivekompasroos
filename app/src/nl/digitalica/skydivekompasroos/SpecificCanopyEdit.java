@@ -1,5 +1,6 @@
 package nl.digitalica.skydivekompasroos;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -29,17 +30,20 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_specific_canopy_edit);
 
-		List<CanopyType> canopyTypes = CanopyType
+		List<CanopyType> canopyTypesWithSpecialType = CanopyType
 				.getAllCanopyTypesInList(SpecificCanopyEdit.this);
+		List<CanopyType> canopyTypes = new ArrayList<CanopyType>();
+		for (CanopyType type : canopyTypesWithSpecialType)
+			if (!type.isSpecialCatchAllCanopy)
+				canopyTypes.add(type);
 
 		Comparator<CanopyType> canopyComparator = new CanopyType.ComparatorByNameManufacturer();
 		Collections.sort(canopyTypes, canopyComparator);
 
 		typesSpinner = new String[canopyTypes.size()];
 		int i = 0;
-		for (CanopyType type : canopyTypes) {
+		for (CanopyType type : canopyTypes)
 			typesSpinner[i++] = type.specificName();
-		}
 
 		Spinner types = (Spinner) findViewById(R.id.spinnerType);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
