@@ -433,7 +433,7 @@
         cells="7"
         commontype="0"
         dropzoneid="300"
-        manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="229"
         minsize="99"
         url="http://www.icaruscanopies.aero/index.php?option=com_content&amp;view=article&amp;id=1&amp;Itemid=11" />
@@ -927,7 +927,7 @@
         dropzoneid="2"
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
-        minsize="69"
+        minsize="59"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/icarus-VX" />
@@ -940,7 +940,7 @@
         dropzoneid="5"
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
-        minsize="69"
+        minsize="59"
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/icarus-FX" />
@@ -1200,5 +1200,15 @@
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/daedalus-JFX" />
+    <canopy
+        id="AD3229CE-7B38-4BC8-A1C6-73D6DF651198"
+        name="Matrix"
+        category="6"
+        cells="7"
+        commontype="0"
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND"
+        url="http://www.nzaerosports.com/canopies/icarus-matrix" />
 
 </canopies>
