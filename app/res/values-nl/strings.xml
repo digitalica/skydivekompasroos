@@ -100,6 +100,12 @@
     <string name="specificeditsize">Maat (sqft)</string>
     <string name="specificedittype">Type</string>
     <string name="specificeditremarks">Opmerking</string>
+    <string name="totalNumberOfJumpsDialogTitle">Total aantal sprongen</string>
+    <string name="enterTotalNumberOfJumpsFormat">Van 0 tot en met %d</string>
+    <string name="numberOfJumpsLast12MonthsDialogTitle">Sprongen in de afgelopen 12 maanden</string>
+    <string name="enterNumberOfJumpsLast12MonthsFormat">Van 0 tot en met %d</string>
+    <string name="weightDialogTitle">Exit gewicht</string>
+    <string name="enterWeightFormat">Van %1$d tot en met %2$d</string>
 
     <string-array name="canopyCategories">
         <item>Unknown</item>

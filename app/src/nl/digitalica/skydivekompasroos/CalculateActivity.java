@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TableLayout;
@@ -53,6 +55,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	// dialog ID's
 	final static int SAVE_DIALOG_ID = 1;
 	final static int RESET_DIALOG_ID = 2;
+	final static int TOTAL_JUMPS_DIALOG_ID = 3;
+	final static int JUMPS_LAST_12_MONTHS_DIALOG_ID = 4;
+	final static int WEIGHT_DIALOG_ID = 5;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -121,6 +126,33 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
+		});
+
+		TextView tvTotalJumps = (TextView) findViewById(R.id.textViewTotalJumpsLabel);
+		tvTotalJumps.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				showDialog(TOTAL_JUMPS_DIALOG_ID);
+			}
+
+		});
+
+		TextView tvJumpsLast12Months = (TextView) findViewById(R.id.textViewJumpsLast12MonthsLabel);
+		tvJumpsLast12Months.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				showDialog(JUMPS_LAST_12_MONTHS_DIALOG_ID);
+			}
+
+		});
+
+		TextView tvWeight = (TextView) findViewById(R.id.textViewWeightLabel);
+		tvWeight.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				showDialog(WEIGHT_DIALOG_ID);
+			}
+
 		});
 
 		// Just for testing the canopy list
@@ -251,7 +283,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		// set click listener for specific canopy edit
 
 		canopyListRow.setTag(theCanopy.id);
-		Button addSpecificCanopy = (Button) findViewById(R.id.buttonAddSpecificCanopy);
 		canopyListRow.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -275,8 +306,125 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			return saveDialog();
 		case RESET_DIALOG_ID:
 			return resetDialog();
+		case TOTAL_JUMPS_DIALOG_ID:
+			return totalJumpsDialog();
+		case JUMPS_LAST_12_MONTHS_DIALOG_ID:
+			return jumpsLast12MonthsDialog();
+		case WEIGHT_DIALOG_ID:
+			return weightDialog();
 		}
 		return null;
+	}
+
+	private Dialog totalJumpsDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setTitle(getString(R.string.totalNumberOfJumpsDialogTitle));
+		builder.setMessage(String.format(
+				getString(R.string.enterTotalNumberOfJumpsFormat),
+				TOTALJUMPS_MAX));
+
+		// Set an EditText view to get user input
+		final EditText input = new EditText(this);
+		input.setInputType(InputType.TYPE_CLASS_NUMBER);
+		builder.setView(input);
+
+		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				String valueText = input.getText().toString();
+				int value = Integer.parseInt(valueText);
+				if (value >= 0 && value <= TOTALJUMPS_MAX) {
+					SeekBar sb = (SeekBar) findViewById(R.id.seekBarTotalJumps);
+					sb.setProgress(value);
+				}
+				// make sure it will be initialized next time...
+				removeDialog(TOTAL_JUMPS_DIALOG_ID);
+			}
+		});
+
+		builder.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// make sure it will be initialized next time...
+						removeDialog(TOTAL_JUMPS_DIALOG_ID);
+					}
+				});
+
+		return builder.create();
+	}
+
+	private Dialog jumpsLast12MonthsDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setTitle(getString(R.string.numberOfJumpsLast12MonthsDialogTitle));
+		builder.setMessage(String.format(
+				getString(R.string.enterNumberOfJumpsLast12MonthsFormat),
+				JUMPS_LAST_12_MONTHS_MAX));
+
+		// Set an EditText view to get user input
+		final EditText input = new EditText(this);
+		input.setInputType(InputType.TYPE_CLASS_NUMBER);
+		builder.setView(input);
+
+		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				String valueText = input.getText().toString();
+				int value = Integer.parseInt(valueText);
+				if (value >= 0 && value <= JUMPS_LAST_12_MONTHS_MAX) {
+					SeekBar sb = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
+					sb.setProgress(value);
+				}
+				// make sure it will be initialized next time...
+				removeDialog(JUMPS_LAST_12_MONTHS_DIALOG_ID);
+			}
+		});
+
+		builder.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// make sure it will be initialized next time...
+						removeDialog(JUMPS_LAST_12_MONTHS_DIALOG_ID);
+					}
+				});
+
+		return builder.create();
+
+	}
+
+	private Dialog weightDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setTitle(getString(R.string.weightDialogTitle));
+		builder.setMessage(String.format(getString(R.string.enterWeightFormat),
+				WEIGHT_MIN, WEIGHT_MAX));
+
+		// Set an EditText view to get user input
+		final EditText input = new EditText(this);
+		input.setInputType(InputType.TYPE_CLASS_NUMBER);
+		builder.setView(input);
+
+		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				String valueText = input.getText().toString();
+				int value = Integer.parseInt(valueText);
+				if (value >= WEIGHT_MIN && value <= WEIGHT_MAX) {
+					SeekBar sb = (SeekBar) findViewById(R.id.seekBarWeight);
+					sb.setProgress(value - WEIGHT_MIN);
+				}
+				// make sure it will be initialized next time...
+				removeDialog(WEIGHT_DIALOG_ID);
+			}
+		});
+
+		builder.setNegativeButton("Cancel",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// make sure it will be initialized next time...
+						removeDialog(WEIGHT_DIALOG_ID);
+					}
+				});
+
+		return builder.create();
 	}
 
 	/***
