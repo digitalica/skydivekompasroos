@@ -444,6 +444,8 @@
         cells="7"
         commontype="1"
         dropzoneid="3"
+        firstyearofproduction="1998"
+        lastyearofproduction=""
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="229"
         minsize="99"
@@ -563,7 +565,11 @@
         cells="9"
         commontype="1"
         dropzoneid="1"
-        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports" />
+        firstyearofproduction="1998"
+        lastyearofproduction=""
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
+        remarks="Safire 2 was introduced in 2001"
+        remarks_nl="Safire 2 werd geintroduceerd in 2001" />
     <canopy
         id="78C709A5-C1C8-4CAE-99F0-52D43B189D88"
         name="Safire 2"
@@ -571,6 +577,8 @@
         cells="9"
         commontype="1"
         dropzoneid="301"
+        firstyearofproduction="2001"
+        lastyearofproduction=""
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="229"
         minsize="99"
@@ -802,7 +810,11 @@
         cells="9"
         commontype="1"
         dropzoneid="4"
-        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports" />
+        firstyearofproduction="1999"
+        lastyearofproduction=""
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
+        remarks="Crossfire 2 was introduced in 2001"
+        remarks_nl="Crossfire 2 werd geintroduceerd in 2001" />
     <canopy
         id="3F35D12C-4BBA-400D-BA7F-BC13512B22EB"
         name="Mamba"
@@ -925,11 +937,13 @@
         cells="27"
         commontype="1"
         dropzoneid="2"
+        firstyearofproduction="1999"
+        lastyearofproduction=""
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="59"
-        remarks="CATEGORY UNKNOWN"
-        remarks_nl="CATEGORIE ONBEKEND"
+        remarks="CATEGORY UNKNOWN, Daedalus JVX was introduced in 2005"
+        remarks_nl="CATEGORIE ONBEKEND, Daedalus JVX werd geintroduceerd in 2005"
         url="http://www.nzaerosports.com/canopies/icarus-VX" />
     <canopy
         id="65BE2372-98A5-4109-9D88-16550BD74A3D"
@@ -938,11 +952,13 @@
         cells="21"
         commontype="1"
         dropzoneid="5"
+        firstyearofproduction="1997"
+        lastyearofproduction=""
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="59"
-        remarks="CATEGORY UNKNOWN"
-        remarks_nl="CATEGORIE ONBEKEND"
+        remarks="CATEGORY UNKNOWN, Daedalus JFX was introduced in 2010"
+        remarks_nl="CATEGORIE ONBEKEND, Daedalus JFX werd geintroduceerd in 2010"
         url="http://www.nzaerosports.com/canopies/icarus-FX" />
     <canopy
         id="F996C3D1-5684-45BF-9B30-9B0ADEC987C2"
@@ -1182,6 +1198,8 @@
         category="6"
         cells="27"
         commontype="0"
+        firstyearofproduction="2005"
+        lastyearofproduction=""
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="59"
@@ -1194,6 +1212,8 @@
         category="6"
         cells="21"
         commontype="0"
+        firstyearofproduction="2010"
+        lastyearofproduction=""
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         maxsize="119"
         minsize="59"
@@ -1201,7 +1221,19 @@
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/daedalus-JFX" />
     <canopy
-        id="AD3229CE-7B38-4BC8-A1C6-73D6DF651198"
+        id="0b8688c1-bb96-41d4-ac0f-8c9c71f54eda"
+        name="Petra"
+        category="6"
+        cells="27"
+        commontype="0"
+        firstyearofproduction="2013"
+        lastyearofproduction=""
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
+        remarks="CATEGORY UNKNOWN, will become available in 2013"
+        remarks_nl="CATEGORIE ONBEKEND, zal in 2013 beschikbaar komen"
+        url="http://www.nzaerosports.com/gallery/jpx-petra" />
+    <canopy
+        id="947b67ce-177f-4c70-8fa4-10ab3c171d29"
         name="Matrix"
         category="6"
         cells="7"
