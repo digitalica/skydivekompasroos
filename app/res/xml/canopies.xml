@@ -1101,6 +1101,16 @@
         remarks_nl="CATEGORIE ONBEKEND, airlocked"
         url="http://www.performancedesigns.com/products.asp?product=vn" />
     <canopy
+        id="1931C950-68C7-11E2-BCFD-0800200C9A66"
+        name="Peregrine"
+        category="6"
+        cells="27"
+        commontype="0"
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
+        remarks="CATEGORY UNKNOWN, not freely available"
+        remarks_nl="CATEGORIE ONBEKEND, niet vrij beschikbaar"
+        url="http://www.performancedesigns.com/peregrine.asp" />
+    <canopy
         id="B8B42051-2947-4461-A1A8-439BE861DB39"
         name="Xaos-27"
         category="6"
