@@ -1,7 +1,7 @@
 Skydive Kompasroos 
 
 
-is a Android app to help Dutch skydivers to choose the correct canopy, according to the rules set by the safety regulations of the skydive department of the KNVvL (Royal Dutch Aviation Accociation)
+is an Android app to help Dutch skydivers to choose the correct canopy, according to the rules set by the Basic Safety Regulations of the skydive department of the KNVvL (Royal Netherlands Aeronautical Association, the National Aviation Administration)
 
 The safety regulations and more information:
 http://www.parachute.nl/bevoegdhedenregl.html
@@ -9,13 +9,13 @@ http://www.parachute.nl/bevoegdhedenregl.html
 The 'kompasroos' itself:
 http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/Kompasroos.pdf
 
-Safety regulations addition A: Rules for choosing canopies, version 2011
+Safety regulations addition A, rules for choosing canopies, version 2011:
 http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_Bijlage_A_2011.pdf
 
-Safety regulstions addition B: Canopy categories, version 2011-07 (july)
+Safety regulations addition B, canopy categories, version 2011-07 (july):
 http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2011-07_juli.pdf
 
-We plan to publish this app under the GNU Public Licens. The source can be found at GitHub already:
+We plan to publish this app under the GNU Public License. The source can be found at GitHub already:
 https://github.com/digitalica/skydivekompasroos
 
 The app is in Google Play:
