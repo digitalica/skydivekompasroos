@@ -1252,5 +1252,16 @@
         remarks="CATEGORY UNKNOWN"
         remarks_nl="CATEGORIE ONBEKEND"
         url="http://www.nzaerosports.com/canopies/icarus-matrix" />
+    <canopy
+        id="9D021CA3-A103-4CB9-B053-A7ABCC4BBC96"
+        name="Matrix 2"
+        category="6"
+        cells="5"
+        commontype="0"
+        firstyearofproduction="2013"
+        lastyearofproduction=""
+        manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
+        remarks="CATEGORY UNKNOWN"
+        remarks_nl="CATEGORIE ONBEKEND" />
 
 </canopies>
