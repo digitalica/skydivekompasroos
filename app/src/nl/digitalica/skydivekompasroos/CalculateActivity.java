@@ -71,7 +71,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			long compilationDateTime = getCompileDateTime();
 			Calendar cal = Calendar.getInstance();
 			long now = cal.getTime().getTime();
-			long maxDiff = 1000 * 60 * 60 * 24 * 365; // 1 year
+			long maxDiff = 1000L * 60L * 60L * 24L * 365L; // 1 year
 			// maxDiff = 1000 * 60 * 5; // 5 mins (for testing)
 			if (now - compilationDateTime > maxDiff)
 				warning = getString(R.string.calculationOvertimeWarning);
