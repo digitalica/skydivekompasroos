@@ -58,8 +58,8 @@ public class SpecificCanopy extends CanopyBase {
 					Context.MODE_PRIVATE);
 			String nr = Integer.toString(index);
 			size = prefs.getInt(SETTING_SPECIFIC_CANOPY_SIZE + nr, 0);
-			typeId = prefs.getString(SETTING_SPECIFIC_CANOPY_TYPEID + nr, "");
-			remarks = prefs.getString(SETTING_SPECIFIC_CANOPY_REMARKS + nr, "");
+			typeId = prefs.getString(SETTING_SPECIFIC_CANOPY_TYPEID + nr, "").trim();
+			remarks = prefs.getString(SETTING_SPECIFIC_CANOPY_REMARKS + nr, "").trim();
 			if (!typeId.equals("")) {
 				SpecificCanopy spc = new SpecificCanopy(index,
 						UUID.fromString(typeId), size, remarks);

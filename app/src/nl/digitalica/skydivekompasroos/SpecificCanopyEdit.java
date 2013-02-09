@@ -109,7 +109,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 				for (CanopyType ct : canopyTypes)
 					if (typeSpecificName.equals(ct.specificName()))
 						typeId = ct.id;
-				String remarks = etRemarks.getText().toString();
+				String remarks = etRemarks.getText().toString().trim();
 				SpecificCanopy.save(SpecificCanopyEdit.this, specificCanopyId,
 						size, typeId, remarks);
 				SpecificCanopyEdit.this.finish();
