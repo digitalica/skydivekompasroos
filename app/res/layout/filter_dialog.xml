@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/filterDialogHeader"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/bodyText" />
 
     <RadioGroup
         android:id="@+id/radioGroupFilterOptions"
@@ -22,21 +23,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu_filterCommonAround"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/bodyText" />
 
         <RadioButton
             android:id="@+id/radioButtonCommon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu_filterCommon"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/bodyText" />
 
         <RadioButton
             android:id="@+id/radioButtonAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu_filterAll"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/bodyText" />
     </RadioGroup>
 
 </LinearLayout>

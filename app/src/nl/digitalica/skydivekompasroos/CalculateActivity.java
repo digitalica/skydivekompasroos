@@ -316,6 +316,26 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		return null;
 	}
 
+	@Override
+	protected void onPrepareDialog(final int id, final Dialog dialog) {
+		switch (id) {
+		case SAVE_DIALOG_ID:
+		case RESET_DIALOG_ID:
+		case TOTAL_JUMPS_DIALOG_ID:
+		case JUMPS_LAST_12_MONTHS_DIALOG_ID:
+		case WEIGHT_DIALOG_ID:
+			AlertDialog alert = (AlertDialog) dialog;
+			Button cancel = alert.getButton(AlertDialog.BUTTON_NEGATIVE);
+			if (cancel != null)
+				cancel.setTextSize(getResources()
+						.getDimension(R.dimen.bodyText));
+			Button ok = alert.getButton(AlertDialog.BUTTON_POSITIVE);
+			if (ok != null)
+				ok.setTextSize(getResources().getDimension(R.dimen.bodyText));
+
+		}
+	}
+
 	private Dialog totalJumpsDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
