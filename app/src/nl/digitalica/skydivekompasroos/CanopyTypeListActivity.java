@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -427,6 +428,23 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		return null;
 	}
 
+	@Override
+	protected void onPrepareDialog(final int id, final Dialog dialog) {
+		switch (id) {
+		case SORT_DIALOG_ID:
+		case FILTER_DIALOG_ID:
+			AlertDialog alert = (AlertDialog) dialog;
+			Button cancel = alert.getButton(AlertDialog.BUTTON_NEGATIVE);
+			if (cancel != null)
+				cancel.setTextSize(getResources()
+						.getDimension(R.dimen.bodyText));
+			Button ok = alert.getButton(AlertDialog.BUTTON_POSITIVE);
+			if (ok != null)
+				ok.setTextSize(getResources().getDimension(R.dimen.bodyText));
+
+		}
+	}
+	
 	private Dialog sortDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflater.inflate(R.layout.sort_dialog,
