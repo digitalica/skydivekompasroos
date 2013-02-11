@@ -17,6 +17,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -300,11 +301,11 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			AlertDialog alert = (AlertDialog) dialog;
 			Button cancel = alert.getButton(AlertDialog.BUTTON_NEGATIVE);
 			if (cancel != null)
-				cancel.setTextSize(getResources()
+				cancel.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources()
 						.getDimension(R.dimen.bodyText));
 			Button ok = alert.getButton(AlertDialog.BUTTON_POSITIVE);
 			if (ok != null)
-				ok.setTextSize(getResources().getDimension(R.dimen.bodyText));
+				ok.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimension(R.dimen.bodyText));
 
 		}
 	}

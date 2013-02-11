@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -339,10 +340,10 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-		View canopyTypeListRow = inflater.inflate(R.layout.canopy_type_row_layout,
-				null);
+		View canopyTypeListRow = inflater.inflate(
+				R.layout.canopy_type_row_layout, null);
 
-		//Drawable box = getResources().getDrawable(R.drawable.box);
+		// Drawable box = getResources().getDrawable(R.drawable.box);
 		LinearLayout hLayout = (LinearLayout) canopyTypeListRow
 				.findViewById(R.id.linearLayoutCanopyListRow);
 		hLayout.setTag(theCanopyType.id.toString());
@@ -436,15 +437,16 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 			AlertDialog alert = (AlertDialog) dialog;
 			Button cancel = alert.getButton(AlertDialog.BUTTON_NEGATIVE);
 			if (cancel != null)
-				cancel.setTextSize(getResources()
+				cancel.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources()
 						.getDimension(R.dimen.bodyText));
 			Button ok = alert.getButton(AlertDialog.BUTTON_POSITIVE);
 			if (ok != null)
-				ok.setTextSize(getResources().getDimension(R.dimen.bodyText));
+				ok.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources()
+						.getDimension(R.dimen.bodyText));
 
 		}
 	}
-	
+
 	private Dialog sortDialog() {
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View layout = inflater.inflate(R.layout.sort_dialog,
