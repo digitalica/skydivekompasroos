@@ -6,20 +6,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
-import nl.digitalica.skydivekompasroos.CanopyTypeListActivity.SortingEnum;
-
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.support.v4.app.NavUtils;
 
 public class SpecificCanopyEdit extends KompasroosBaseActivity {
 
