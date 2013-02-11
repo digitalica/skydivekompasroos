@@ -301,11 +301,17 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			AlertDialog alert = (AlertDialog) dialog;
 			Button cancel = alert.getButton(AlertDialog.BUTTON_NEGATIVE);
 			if (cancel != null)
-				cancel.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources()
+				cancel.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources()
 						.getDimension(R.dimen.bodyText));
 			Button ok = alert.getButton(AlertDialog.BUTTON_POSITIVE);
 			if (ok != null)
-				ok.setTextSize(TypedValue.COMPLEX_UNIT_PX,getResources().getDimension(R.dimen.bodyText));
+				ok.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources()
+						.getDimension(R.dimen.bodyText));
+			TextView message = (TextView) dialog
+					.findViewById(android.R.id.message);
+			if (message != null)
+				message.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources()
+						.getDimension(R.dimen.bodyText));
 
 		}
 	}
