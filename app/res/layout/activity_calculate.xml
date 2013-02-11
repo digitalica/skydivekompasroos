@@ -92,6 +92,7 @@
                     android:background="@drawable/btn_sb_updown"
                     android:text="@string/btnMin"
                     android:textColor="@color/SuzanBrown"
+                    android:textSize="@dimen/bodyText"
                     android:textStyle="bold" />
 
                 <SeekBar
@@ -112,6 +113,7 @@
                     android:background="@drawable/btn_sb_updown"
                     android:text="@string/btnPlus"
                     android:textColor="@color/SuzanBrown"
+                    android:textSize="@dimen/bodyText"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -135,6 +137,7 @@
                     android:background="@drawable/btn_sb_updown"
                     android:text="@string/btnMin"
                     android:textColor="@color/SuzanBrown"
+                    android:textSize="@dimen/bodyText"
                     android:textStyle="bold" />
 
                 <SeekBar
@@ -155,6 +158,7 @@
                     android:background="@drawable/btn_sb_updown"
                     android:text="@string/btnPlus"
                     android:textColor="@color/SuzanBrown"
+                    android:textSize="@dimen/bodyText"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -178,6 +182,7 @@
                     android:background="@drawable/btn_sb_updown"
                     android:text="@string/btnMin"
                     android:textColor="@color/SuzanBrown"
+                    android:textSize="@dimen/bodyText"
                     android:textStyle="bold" />
 
                 <SeekBar
@@ -198,6 +203,7 @@
                     android:background="@drawable/btn_sb_updown"
                     android:text="@string/btnPlus"
                     android:textColor="@color/SuzanBrown"
+                    android:textSize="@dimen/bodyText"
                     android:textStyle="bold" />
             </LinearLayout>
 
