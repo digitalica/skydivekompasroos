@@ -128,33 +128,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			}
 		});
 
-		TextView tvTotalJumps = (TextView) findViewById(R.id.textViewTotalJumpsLabel);
-		tvTotalJumps.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View v) {
-				showDialog(TOTAL_JUMPS_DIALOG_ID);
-			}
-
-		});
-
-		TextView tvJumpsLast12Months = (TextView) findViewById(R.id.textViewJumpsLast12MonthsLabel);
-		tvJumpsLast12Months.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View v) {
-				showDialog(JUMPS_LAST_12_MONTHS_DIALOG_ID);
-			}
-
-		});
-
-		TextView tvWeight = (TextView) findViewById(R.id.textViewWeightLabel);
-		tvWeight.setOnClickListener(new View.OnClickListener() {
-
-			public void onClick(View v) {
-				showDialog(WEIGHT_DIALOG_ID);
-			}
-
-		});
-
 		// Just for testing the canopy list
 		// canopyListButton.performClick();
 	}
@@ -623,7 +596,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		sbWeight.setMax(WEIGHT_MAX - WEIGHT_MIN);
 		sbWeight.setOnSeekBarChangeListener(seekBarChangeListenerWeight);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonWeightMin,
-				R.id.buttonWeightPlus);
+				R.id.buttonWeightPlus, WEIGHT_DIALOG_ID);
 
 		// total jumps seek bar
 		SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
@@ -631,7 +604,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		sbTotalJumps
 				.setOnSeekBarChangeListener(seekBarChangeListenerTotalJumps);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonTotalJumpsMin,
-				R.id.buttonTotalJumpsPlus);
+				R.id.buttonTotalJumpsPlus, TOTAL_JUMPS_DIALOG_ID);
 
 		// jumps last 12 months seek bar
 		SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
@@ -639,7 +612,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		sbJumpsLast12Months
 				.setOnSeekBarChangeListener(seekBarChangeListenerJumpsLast12Months);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonJumpLast12MonthsMin,
-				R.id.buttonJumpLast12MonthsPlus);
+				R.id.buttonJumpLast12MonthsPlus, JUMPS_LAST_12_MONTHS_DIALOG_ID);
 	}
 
 	/***
@@ -671,7 +644,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	 * a seekbar
 	 */
 	private void setPlusMinButtonListeners(SeekBar sb, int minButtonId,
-			int plusButtonId) {
+			int plusButtonId, final int longClickDialogId) {
 		// get the buttons based on the give id's
 		Button minButton = (Button) findViewById(minButtonId);
 		Button plusButton = (Button) findViewById(plusButtonId);
@@ -701,6 +674,21 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				int progress = sb.getProgress();
 				if (progress < sb.getMax())
 					sb.setProgress(progress + 1);
+			}
+		});
+		// add long click listeners
+		minButton.setOnLongClickListener(new View.OnLongClickListener() {
+
+			public boolean onLongClick(View v) {
+				showDialog(longClickDialogId);
+				return true;
+			}
+		});
+		plusButton.setOnLongClickListener(new View.OnLongClickListener() {
+
+			public boolean onLongClick(View v) {
+				showDialog(longClickDialogId);
+				return true;
 			}
 		});
 	}
