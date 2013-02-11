@@ -1,16 +1,12 @@
 package nl.digitalica.skydivekompasroos;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.util.Log;
 

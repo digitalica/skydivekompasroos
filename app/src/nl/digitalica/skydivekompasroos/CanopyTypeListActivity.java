@@ -319,8 +319,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		String nl = System.getProperty("line.separator");
 		TextView canopyListHeader = new TextView(CanopyTypeListActivity.this);
 		canopyListHeader.setText(nl + header);
-		canopyListHeader.setTextSize(getResources().getDimension(
-				R.dimen.bodyText));
+		canopyListHeader.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(
+				R.dimen.canopylistHeader));
 
 		// create row, and add row to table
 		TableRow row = new TableRow(this);

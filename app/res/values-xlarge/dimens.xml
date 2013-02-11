@@ -3,7 +3,7 @@
     <dimen name="bodyText">24sp</dimen>
     <dimen name="smallText">18sp</dimen>
     <dimen name="canopylistCategory">48sp</dimen>
-    <dimen name="canopylistCanopyName">18sp</dimen>
+    <dimen name="canopylistHeader">30sp</dimen>
     <dimen name="canopydetailsName">30sp</dimen>
     <dimen name="sb_thumb_width">22dip</dimen>
     <dimen name="sb_thumb_height">45dip</dimen>
