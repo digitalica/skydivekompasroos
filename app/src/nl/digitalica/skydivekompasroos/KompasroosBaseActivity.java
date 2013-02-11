@@ -14,6 +14,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Window;
 
 /***
  * Base class for kompasroos activities
@@ -61,12 +62,13 @@ public class KompasroosBaseActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		if (prefs == null)
 			prefs = getSharedPreferences(KOMPASROOSPREFS, Context.MODE_PRIVATE);
 	}
 
 	/***
-	 * Returns a suitable background based on the acceptablity of a canopy
+	 * Returns a suitable background based on the acceptability of a canopy
 	 * 
 	 * TODO: move to canopy class
 	 * 
