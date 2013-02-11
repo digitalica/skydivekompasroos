@@ -157,7 +157,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				.getCanopyTypeHash(CalculateActivity.this);
 		for (SpecificCanopy theCanopy : scList) {
 			CanopyType ct = canopyTypes.get(theCanopy.typeId);
-			insertSpecificCanopyRow(scTable, theCanopy, ct.specificName(),
+			insertSpecificCanopyRow(scTable, theCanopy, ct.name,
 					ct.category);
 		}
 
