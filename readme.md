@@ -11,6 +11,14 @@ It is based on the dutch 'Kompasroos' system.
 Changelog and New Features
 **************************
 
+Version 0.7 (11 feb 2013)
+
+- allow typing the numbers of jumps, after long click on button
+- wrap text in specific canopy list if needed
+- text size improvements, little larger on tablets
+- fix timeout for warning text
+- several canopy database improvements
+
 Version 0.6 (14 jan 2013)
 
 - fixes in canopy database
