@@ -10,7 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/saveDialogHeader"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
     <Button
@@ -18,7 +17,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/reset_name_own"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
     <Button
@@ -26,7 +24,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/reset_name_friend"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
 </LinearLayout>

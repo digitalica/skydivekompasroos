@@ -18,7 +18,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/reset_name_beginner"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
     <Button
@@ -26,7 +25,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/reset_name_intermediate"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
     <Button
@@ -34,7 +32,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/reset_name_skygod"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
     <Button
@@ -42,7 +39,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/reset_name_own"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
     <Button
@@ -50,7 +46,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/reset_name_friend"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/bodyText" />
 
 </LinearLayout>
