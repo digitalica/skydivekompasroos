@@ -73,7 +73,6 @@ public class UrlChecker extends AndroidTestCase {
 			try {
 				InetAddress.getByName(hostname);
 			} catch (UnknownHostException e1) {
-				// TODO Auto-generated catch block
 				error = "DNS error " + hostname + ": ";
 				e1.printStackTrace();
 			}

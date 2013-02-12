@@ -119,9 +119,6 @@ public class Manufacturer {
 	/***
 	 * Return the full name of a single country, in the current language
 	 * 
-	 * TODO: make sure we return different language if needed (use string
-	 * array?)
-	 * 
 	 * @param countryCode
 	 * @return
 	 */

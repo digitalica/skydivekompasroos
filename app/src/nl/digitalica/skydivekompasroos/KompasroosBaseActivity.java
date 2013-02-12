@@ -70,7 +70,7 @@ public class KompasroosBaseActivity extends Activity {
 	/***
 	 * Returns a suitable background based on the acceptability of a canopy
 	 * 
-	 * TODO: move to canopy class
+	 * TODO: move to canopytype class (?)
 	 * 
 	 * @param acceptability
 	 * @return

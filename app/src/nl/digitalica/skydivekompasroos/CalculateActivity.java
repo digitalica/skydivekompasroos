@@ -147,7 +147,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	}
 
 	private void fillSpecificCanopyTable() {
-		// TODO Auto-generated method stub
 		TableLayout scTable = (TableLayout) findViewById(R.id.tableSpecificCanopies);
 		scTable.removeAllViews();
 		insertCanopyHeaderRow(scTable);
@@ -174,7 +173,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	 * table itself.
 	 */
 	private void updateSpecificCanopyTable() {
-		// TODO Auto-generated method stub
 		TableLayout scTable = (TableLayout) findViewById(R.id.tableSpecificCanopies);
 		for (int i = 1; i < scTable.getChildCount(); i++) {
 			TableRow canopyListRow = (TableRow) scTable.getChildAt(i);
@@ -211,7 +209,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	}
 
 	private void insertCanopyHeaderRow(TableLayout scTable) {
-		// TODO Auto-generated method stub
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View canopyListRow = inflater.inflate(
 				R.layout.specific_canopy_row_layout, null);
@@ -235,7 +232,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 	private void insertSpecificCanopyRow(TableLayout scTable,
 			SpecificCanopy theCanopy, String typeName, int typeCategory) {
-		// TODO Auto-generated method stub
 		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View canopyListRow = inflater.inflate(
 				R.layout.specific_canopy_row_layout, null);
@@ -493,7 +489,6 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		Button asSkyGod = (Button) layout.findViewById(R.id.buttonSkyGod);
 		Button asFriend = (Button) layout.findViewById(R.id.buttonFriend);
 		Button asOwn = (Button) layout.findViewById(R.id.buttonOwn);
-		// TODO: add onclick handlers to buttons
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(layout);
 		builder.setNegativeButton(android.R.string.cancel,

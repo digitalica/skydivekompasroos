@@ -37,7 +37,6 @@ public class CanopyType extends CanopyBase {
 	public String lastYearOfProduction;
 	private String remarks;
 	private String remarks_nl;
-	// TODO: the below should be a boolean probably...
 	public boolean isSpecialCatchAllCanopy = false;
 
 	public CanopyType(UUID canopyId, int canopyCategory,
@@ -198,7 +197,7 @@ public class CanopyType extends CanopyBase {
 	}
 
 	/***
-	 * Reads the canopy with a specif id (or all, if id is null) from the XML in
+	 * Reads the canopy with a specific id (or all, if id is null) from the XML in
 	 * a list.
 	 * 
 	 * @return
@@ -284,7 +283,7 @@ public class CanopyType extends CanopyBase {
 							canopyLastyearOfProduction, canopyRemarks,
 							canopyRemarks_nl, isSpecialCatchAllCanopy);
 					// TODO: maybe the assignment below should move to the
-					// contstuctor...
+					// constructor...
 					canopy.manufacturerName = manufacturerName;
 					canopy.manufacturerShortName = manufacturerShortName;
 					if (id == null)

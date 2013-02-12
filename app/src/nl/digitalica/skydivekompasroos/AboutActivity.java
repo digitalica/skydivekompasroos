@@ -79,7 +79,6 @@ public class AboutActivity extends KompasroosBaseActivity {
 	}
 
 	private String inputStreamToString(InputStream iFile) throws IOException {
-		// TODO Auto-generated method stub
 		BufferedReader r = new BufferedReader(new InputStreamReader(iFile));
 		StringBuilder total = new StringBuilder();
 		String line;
