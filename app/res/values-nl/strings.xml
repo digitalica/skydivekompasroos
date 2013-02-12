@@ -11,6 +11,7 @@
     <string name="to_be_replaced">to_be_replaced</string>
     <string name="categorySetting">\nJe valt in categorie <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
+    <string name="categoryUnknown">Onbekend, dus cat %1$d</string>
     <string name="canopyAdvise">Geschikte parachutes:\nCategorie %1$d, min. %2$d sqft</string>
     <string name="ormore">" (of meer)"</string>
     <string name="menu_filter">Filter</string>

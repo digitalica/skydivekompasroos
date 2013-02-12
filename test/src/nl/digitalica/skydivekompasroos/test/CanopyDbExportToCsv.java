@@ -1,11 +1,6 @@
 package nl.digitalica.skydivekompasroos.test;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -18,7 +13,6 @@ import android.util.Log;
 public class CanopyDbExportToCsv extends AndroidTestCase {
 
 	private static final String SEPARATOR = ",";
-	private static final String CSVFILENAME = "KompasroosAppParachutes.csv";
 	private static final String QUOTE = "\"";
 	private static final String TAG = "CSV";
 
@@ -39,7 +33,7 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 			Manufacturer m = manufacturers.get(c.manufacturerId);
 			StringBuilder line = new StringBuilder();
 			line.append(SEPARATOR); // convenient, to remove other logcat cols.
-			line.append(Integer.toString(c.category) + SEPARATOR);
+			line.append(Integer.toString(c.category()) + SEPARATOR);
 			line.append(c.name + SEPARATOR);
 			line.append(c.manufacturerName + SEPARATOR);
 			if (m != null) // add with quotes for multiple countries

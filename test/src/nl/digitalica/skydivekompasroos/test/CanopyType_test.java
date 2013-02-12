@@ -46,11 +46,13 @@ public class CanopyType_test extends TestCase {
 		for (int i = 0; i < max; i++) {
 			CanopyType c1 = testList.get(i);
 			CanopyType c2 = testList.get(i + 1);
-			if (c1.category > c2.category)
+			int c1cat = c1.calculationCategory();
+			int c2cat = c2.calculationCategory();
+			if (c1cat > c2cat)
 				fail("Categories not sorted correctly: "
-						+ Integer.toString(c1.category) + " / "
-						+ Integer.toString(c2.category) + " in " + runName);
-			if (c1.category == c2.category)
+						+ Integer.toString(c1cat) + " / "
+						+ Integer.toString(c2cat) + " in " + runName);
+			if (c1cat == c2cat)
 				if (c1.name.compareTo(c2.name) == 1)
 					fail("Names not sorted correctly: " + c1.name + "  / "
 							+ c2.name + " in " + runName);
@@ -105,13 +107,15 @@ public class CanopyType_test extends TestCase {
 				fail("Manufacturers not sorted correctly: "
 						+ c1.manufacturerName + "  / " + c2.manufacturerName
 						+ " in " + runName);
+			int c1cat = c1.calculationCategory();
+			int c2cat = c2.calculationCategory();
 			if (c1.manufacturerName.compareTo(c2.manufacturerName) == 0)
-				if (c1.category > c2.category)
+				if (c1cat > c2cat)
 					fail("Categories not sorted correctly: "
-							+ Integer.toString(c1.category) + " / "
-							+ Integer.toString(c2.category) + " in " + runName);
+							+ Integer.toString(c1cat) + " / "
+							+ Integer.toString(c2cat) + " in " + runName);
 			if (c1.manufacturerName.compareTo(c2.manufacturerName) == 0
-					&& c1.category == c2.category)
+					&& c1cat == c2cat)
 				if (c1.name.compareTo(c2.name) == 1)
 					fail("Names not sorted correctly: " + c1.name + "  / "
 							+ c2.name + " in " + runName);
@@ -264,7 +268,7 @@ public class CanopyType_test extends TestCase {
 		message.append(", exit weight " + Integer.toString(exitWeightInKg)
 				+ " kg");
 		message.append(", " + canopy.name);
-		message.append(" cat " + Integer.toString(canopy.category));
+		message.append(" cat " + Integer.toString(canopy.calculationCategory()));
 		message.append(", area " + canopy.minSize + "/" + canopy.maxSize);
 		assertEquals(message.toString(), acceptability, canopyAcceptability);
 	}

@@ -27,9 +27,9 @@ public class Canopy_dbsanity_test extends AndroidTestCase {
 			assertFalse("Id is alreay known: " + c.id.toString(),
 					canopyIds.containsKey(c.id));
 			canopyIds.put(c.id, "seen id");
-			// check category is within range (1-6)
-			assertTrue("category should be 1-6 for " + c.name, c.category >= 1
-					&& c.category <= 6);
+			// check (calculation) category is within range (1-6)
+			assertTrue("category should be 1-6 for " + c.name, c.calculationCategory() >= 1
+					&& c.calculationCategory() <= 6);
 			// check maxSize is larger than minSize
 			if (c.minSize != null && !c.minSize.equals(""))
 				if (c.maxSize != null && !c.maxSize.equals("")) {

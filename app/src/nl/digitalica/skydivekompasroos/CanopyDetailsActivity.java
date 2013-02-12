@@ -54,8 +54,12 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvName.setText(currentCanopy.name);
 		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(acceptability));
 
-		tvCategory.setText(Integer.toString(currentCanopy.category));
+		String categoryText = Integer.toString(currentCanopy.calculationCategory());
+		if (currentCanopy.isCategoryUnknown())
+			categoryText = String.format(getString(R.string.categoryUnknown), currentCanopy.calculationCategory());
+		tvCategory.setText(categoryText);
 		String advice = "";
+		int category = currentCanopy.calculationCategory();
 		switch (acceptability) {
 		case ACCEPTABLE:
 			advice = String.format(getString(R.string.canopyAdviseAcceptable),
@@ -67,9 +71,9 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 					currentMinArea);
 			break;
 		case CATEGORYTOOHIGH:
-			int extraNeededJumsThis12Months = Calculation.MINIMUMJUMPSLAST12MONTHS[currentCanopy.category]
+			int extraNeededJumsThis12Months = Calculation.MINIMUMJUMPSLAST12MONTHS[category]
 					- currentJumpsLast12Months;
-			int extraNeededTotalJumps = Calculation.MINIMUMTOTALJUMPS[currentCanopy.category]
+			int extraNeededTotalJumps = Calculation.MINIMUMTOTALJUMPS[category]
 					- currentTotalJumps;
 			int minimalExtraNeededJumps = Math.max(extraNeededJumsThis12Months,
 					extraNeededTotalJumps);
@@ -81,7 +85,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvAdvise.setText(advice);
 		String[] neededExperience = getResources().getStringArray(
 				R.array.neededExperience);
-		tvExperience.setText(neededExperience[currentCanopy.category]);
+		tvExperience.setText(neededExperience[category]);
 		tvCells.setText(currentCanopy.cells);
 		String sizes = "";
 		if (currentCanopy.minSize != null && !currentCanopy.minSize.equals(""))
@@ -184,7 +188,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		details.append(currentCanopy.name);
 		details.append(" (");
 		details.append(currentManufacturer.name + ", ");
-		details.append("categorie: " + Integer.toString(currentCanopy.category)
+		details.append("categorie: " + Integer.toString(currentCanopy.calculationCategory())
 				+ ")");
 		details.append(nl);
 
@@ -192,7 +196,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		details.append(c.getString(R.string.detailsExperience));
 		String[] neededExperience = c.getResources().getStringArray(
 				R.array.neededExperience);
-		details.append(" " + neededExperience[currentCanopy.category]);
+		details.append(" " + neededExperience[currentCanopy.calculationCategory()]);
 		details.append(nl);
 
 		// last line, url if available

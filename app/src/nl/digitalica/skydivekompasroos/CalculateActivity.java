@@ -158,7 +158,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		for (SpecificCanopy theCanopy : scList) {
 			CanopyType ct = canopyTypes.get(theCanopy.typeId);
 			insertSpecificCanopyRow(scTable, theCanopy, ct.name,
-					ct.category);
+					ct.calculationCategory());
 		}
 
 		// enable or disable button if needed

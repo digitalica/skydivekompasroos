@@ -18,9 +18,11 @@ public class CanopyType extends CanopyBase {
 
 	final public static String DEFAULTSIZE = "170";
 
+	final private static int UNKNOWNCATEGORY = 0;
+
 	// properties
 	public UUID id;
-	public int category;
+	private int category;
 	public UUID manufacturerId;
 	public String manufacturerName;
 	public String manufacturerShortName;
@@ -100,6 +102,35 @@ public class CanopyType extends CanopyBase {
 		this(UUID.randomUUID(), canopyCategory, Manufacturer
 				.everyOtherManufactuerId(), canopyName, null, null, true, null,
 				DEFAULTSIZE, DEFAULTSIZE, null, null, null, null, false);
+	}
+
+	/**
+	 * Return true if the category is unknown
+	 * 
+	 * @return
+	 */
+	public boolean isCategoryUnknown() {
+		return this.category == UNKNOWNCATEGORY;
+	}
+
+	/**
+	 * Return the category
+	 */
+	public int category() {
+		return this.category;
+	}
+
+	/**
+	 * Return the category to be used for the calculations. This means for
+	 * unknown category (0) return 6.
+	 * 
+	 * @return
+	 */
+	public int calculationCategory() {
+		int calculationCategory = 6;
+		if (this.category != UNKNOWNCATEGORY)
+			calculationCategory = this.category;
+		return calculationCategory;
 	}
 
 	/***
@@ -190,7 +221,11 @@ public class CanopyType extends CanopyBase {
 							.getAttributeValue(null, "category");
 					int canopyCategory;
 					try {
-						canopyCategory = Integer.parseInt(canopyCategoryString);
+						if (canopyCategoryString.equals(""))
+							canopyCategory = UNKNOWNCATEGORY;
+						else
+							canopyCategory = Integer
+									.parseInt(canopyCategoryString);
 					} catch (NumberFormatException e) {
 						throw new RuntimeException("Canopy category no Int", e);
 					}

@@ -160,6 +160,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		int allCount = 0;
 		for (CanopyType theCanopyType : canopyTypeList) {
 			allCount++;
+			int category = theCanopyType.calculationCategory();
 			boolean showThisCanopyType = true;
 			// check cat filter
 			if (filterType == FilterEnum.ONLYCOMMON)
@@ -167,8 +168,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 					showThisCanopyType = false;
 			if (filterType == FilterEnum.COMMONAROUNDMAX)
 				if (!theCanopyType.commontype
-						|| theCanopyType.category < currentMaxCategory - 1
-						|| theCanopyType.category > currentMaxCategory + 1)
+						|| category < currentMaxCategory - 1
+						|| category > currentMaxCategory + 1)
 					showThisCanopyType = false;
 			// show the canopy type (and maybe headerline) if needed
 			if (showThisCanopyType) {
@@ -181,11 +182,11 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 					previousManufacturerId = theCanopyType.manufacturerId;
 				}
 				if (sortingMethod == SortingEnum.SORTBYCATEGORY
-						&& previousCat != theCanopyType.category) {
+						&& previousCat != category) {
 					insertCanopyTypeHeaderRow(canopyTypeTable, String.format(
 							getString(R.string.canopyListCategoryHeader),
-							theCanopyType.category));
-					previousCat = theCanopyType.category;
+							category));
+					previousCat = category;
 				}
 				insertCanopyTypeRow(canopyTypeTable, theCanopyType,
 						currentMaxCategory, currentWeight);
@@ -366,7 +367,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		TextView tvCategory = (TextView) canopyTypeListRow
 				.findViewById(R.id.textViewCanopyListRowCategory);
 		// tvCategory.setBackgroundDrawable(box);
-		tvCategory.setText(Integer.toString(theCanopyType.category));
+		tvCategory.setText(Integer.toString(theCanopyType.calculationCategory()));
 
 		TextView tvCanopyName = (TextView) canopyTypeListRow
 				.findViewById(R.id.textViewCanopyListRowName);
