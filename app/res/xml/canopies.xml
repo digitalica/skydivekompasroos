@@ -1262,6 +1262,7 @@
         lastyearofproduction=""
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
         remarks="CATEGORY UNKNOWN"
-        remarks_nl="CATEGORIE ONBEKEND" />
+        remarks_nl="CATEGORIE ONBEKEND"
+        url="http://www.nzaerosports.com/canopies/daedalus-matrix2" />
 
 </canopies>
