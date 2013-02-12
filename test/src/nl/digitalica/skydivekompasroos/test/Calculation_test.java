@@ -57,7 +57,6 @@ public class Calculation_test extends TestCase {
 
 	public void testMinArea() {
 		final int LIGHT = 60;
-		int minArea = 0;
 		// for low exit weight, the min area is given by the category
 		assertEquals("Min Area based on weight incorrect for cat 1",
 				MINAREACAT1, Calculation.minArea(1, LIGHT));

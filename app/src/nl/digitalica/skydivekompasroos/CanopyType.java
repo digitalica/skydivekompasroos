@@ -329,11 +329,9 @@ public class CanopyType extends CanopyBase {
 	 * 
 	 * @author robbert
 	 */
-	public static class ComparatorByCategoryName implements Comparator {
+	public static class ComparatorByCategoryName implements Comparator<CanopyType> {
 
-		public int compare(Object o1, Object o2) {
-			CanopyType c1 = (CanopyType) o1;
-			CanopyType c2 = (CanopyType) o2;
+		public int compare(CanopyType c1, CanopyType c2) {
 			if (c1.isSpecialCatchAllCanopy)
 				return 1;
 			if (c2.isSpecialCatchAllCanopy)
@@ -353,11 +351,9 @@ public class CanopyType extends CanopyBase {
 	 * 
 	 * @author robbert
 	 */
-	public static class ComparatorByNameManufacturer implements Comparator {
+	public static class ComparatorByNameManufacturer implements Comparator<CanopyType> {
 
-		public int compare(Object o1, Object o2) {
-			CanopyType c1 = (CanopyType) o1;
-			CanopyType c2 = (CanopyType) o2;
+		public int compare(CanopyType c1, CanopyType c2) {
 			if (c1.isSpecialCatchAllCanopy)
 				return 1;
 			if (c2.isSpecialCatchAllCanopy)
@@ -377,11 +373,9 @@ public class CanopyType extends CanopyBase {
 	 * @author robbert
 	 */
 	public static class ComparatorByManufacturerCategoryName implements
-			Comparator {
+			Comparator<CanopyType> {
 
-		public int compare(Object o1, Object o2) {
-			CanopyType c1 = (CanopyType) o1;
-			CanopyType c2 = (CanopyType) o2;
+		public int compare(CanopyType c1, CanopyType c2) {
 			if (c1.isSpecialCatchAllCanopy)
 				return 1;
 			if (c2.isSpecialCatchAllCanopy)
