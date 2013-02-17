@@ -12,7 +12,8 @@
     <string name="categorySetting">\nYou\'re in category <b>%1$d</b></string>
     <string name="categorySettingDescription">(%1$s)</string>
     <string name="categoryUnknown">Not set, so cat %1$d</string>
-    <string name="canopyAdvise">Valid canopies:\nCategory %1$d, min. %2$d sqft</string>
+    <string name="canopyAdvise">Valid canopies:\nCategory %1$d, all sizes</string>
+    <string name="canopyAdviseWithMinSize">Valid canopies:\nCategory %1$d, min. %2$d sqft</string>
     <string name="ormore">" (or more)"</string>
     <string name="menu_filter">Filter</string>
     <string name="menu_reset">Reset</string>
