@@ -54,16 +54,22 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvName.setText(currentCanopy.name);
 		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(acceptability));
 
-		String categoryText = Integer.toString(currentCanopy.calculationCategory());
+		String categoryText = Integer.toString(currentCanopy
+				.calculationCategory());
 		if (currentCanopy.isCategoryUnknown())
-			categoryText = String.format(getString(R.string.categoryUnknown), currentCanopy.calculationCategory());
+			categoryText = String.format(getString(R.string.categoryUnknown),
+					currentCanopy.calculationCategory());
 		tvCategory.setText(categoryText);
 		String advice = "";
 		int category = currentCanopy.calculationCategory();
 		switch (acceptability) {
 		case ACCEPTABLE:
-			advice = String.format(getString(R.string.canopyAdviseAcceptable),
-					currentMinArea);
+			if (currentMinArea == 0)
+				advice = getString(R.string.canopyAdviseAcceptable);
+			else
+				advice = String.format(
+						getString(R.string.canopyAdviseAcceptableWithMinSize),
+						currentMinArea);
 			break;
 		case NEEDEDSIZENOTAVAILABLE:
 			advice = String.format(
@@ -188,15 +194,16 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		details.append(currentCanopy.name);
 		details.append(" (");
 		details.append(currentManufacturer.name + ", ");
-		details.append("categorie: " + Integer.toString(currentCanopy.calculationCategory())
-				+ ")");
+		details.append("categorie: "
+				+ Integer.toString(currentCanopy.calculationCategory()) + ")");
 		details.append(nl);
 
 		// second line: needed experience
 		details.append(c.getString(R.string.detailsExperience));
 		String[] neededExperience = c.getResources().getStringArray(
 				R.array.neededExperience);
-		details.append(" " + neededExperience[currentCanopy.calculationCategory()]);
+		details.append(" "
+				+ neededExperience[currentCanopy.calculationCategory()]);
 		details.append(nl);
 
 		// last line, url if available
