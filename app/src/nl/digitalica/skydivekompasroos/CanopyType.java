@@ -132,6 +132,20 @@ public class CanopyType extends CanopyBase {
 		return calculationCategory;
 	}
 
+	/**
+	 * Return the category to display: a ? if unknown, the number otherwise
+	 * 
+	 * @return
+	 */
+	public String displayCategory() {
+		String displayCategory = "";
+		if (this.category == UNKNOWNCATEGORY)
+			displayCategory = "?";
+		else
+			displayCategory = Integer.toString(this.category);
+		return displayCategory;
+	}
+
 	/***
 	 * Determine if we would like to know more details about this canopy used to
 	 * decide if a text should be shown in Canopy Details screen
@@ -197,8 +211,8 @@ public class CanopyType extends CanopyBase {
 	}
 
 	/***
-	 * Reads the canopy with a specific id (or all, if id is null) from the XML in
-	 * a list.
+	 * Reads the canopy with a specific id (or all, if id is null) from the XML
+	 * in a list.
 	 * 
 	 * @return
 	 */
@@ -328,7 +342,8 @@ public class CanopyType extends CanopyBase {
 	 * 
 	 * @author robbert
 	 */
-	public static class ComparatorByCategoryName implements Comparator<CanopyType> {
+	public static class ComparatorByCategoryName implements
+			Comparator<CanopyType> {
 
 		public int compare(CanopyType c1, CanopyType c2) {
 			if (c1.isSpecialCatchAllCanopy)
@@ -350,7 +365,8 @@ public class CanopyType extends CanopyBase {
 	 * 
 	 * @author robbert
 	 */
-	public static class ComparatorByNameManufacturer implements Comparator<CanopyType> {
+	public static class ComparatorByNameManufacturer implements
+			Comparator<CanopyType> {
 
 		public int compare(CanopyType c1, CanopyType c2) {
 			if (c1.isSpecialCatchAllCanopy)
@@ -389,7 +405,7 @@ public class CanopyType extends CanopyBase {
 
 	@Override
 	public String toString() {
-		return Integer.toString(this.category) + " " + this.name + " ("
+		return this.displayCategory() + " " + this.name + " ("
 				+ this.manufacturerId + ")";
 	}
 
@@ -402,7 +418,7 @@ public class CanopyType extends CanopyBase {
 	 */
 	public AcceptabilityEnum acceptablility(int jumperCategory,
 			int exitWeightInKg) {
-		if (jumperCategory < this.category)
+		if (jumperCategory < this.calculationCategory())
 			return AcceptabilityEnum.CATEGORYTOOHIGH; // not acceptable
 		if (this.maxSize != "" && this.maxSize != null)
 			if (Integer.parseInt(this.maxSize) < Calculation.minArea(

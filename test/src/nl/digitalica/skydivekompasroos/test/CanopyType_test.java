@@ -173,6 +173,7 @@ public class CanopyType_test extends TestCase {
 		CanopyType intermediateCanopy190 = new CanopyType(3,
 				"intermediatecanopy190", "190");
 		CanopyType expertCanopy = new CanopyType(6, "expertcanopy", "90");
+		CanopyType unknownCatCanopy = new CanopyType(0, "unknownCatCanopy", "150");
 
 		// beginner can jump beginner canopy
 		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 1, 50, beginnerCanopy);
@@ -257,6 +258,10 @@ public class CanopyType_test extends TestCase {
 		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 50, expertCanopy);
 		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 100, expertCanopy);
 		assertAcceptability(AcceptabilityEnum.ACCEPTABLE, 6, 120, expertCanopy);
+		
+		// cat 5 jumper CANNOT jump canopy of unknown cat (!!)
+		// bug just came up; result of issue #31 not published in store yet.
+		assertAcceptability(AcceptabilityEnum.CATEGORYTOOHIGH,5, 170, unknownCatCanopy);
 	}
 
 	private void assertAcceptability(AcceptabilityEnum acceptability,

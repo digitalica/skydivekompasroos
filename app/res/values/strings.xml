@@ -78,6 +78,7 @@
     <string name="detailsSizes">Sizes:</string>
     <string name="detailsSizesRange">%1$s to %2$s sqft</string>
     <string name="detailsExperience">Needed experience:</string>
+    <string name="detailsExperienceUnknown">Unknown, as this canopy has no category assigned yet. So it will be handled as category 6: </string>
     <string name="detailsProduction">In production:</string>
     <string name="detailsAdditionalInformationWelcome">More information is welcome, see about page for contact details.</string>
     <string name="saveDialogHeader">Save data as:</string>

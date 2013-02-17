@@ -54,8 +54,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvName.setText(currentCanopy.name);
 		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(acceptability));
 
-		String categoryText = Integer.toString(currentCanopy
-				.calculationCategory());
+		String categoryText = currentCanopy.displayCategory();
 		if (currentCanopy.isCategoryUnknown())
 			categoryText = String.format(getString(R.string.categoryUnknown),
 					currentCanopy.calculationCategory());
@@ -91,7 +90,11 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		tvAdvise.setText(advice);
 		String[] neededExperience = getResources().getStringArray(
 				R.array.neededExperience);
-		tvExperience.setText(neededExperience[category]);
+		if (currentCanopy.isCategoryUnknown())
+			tvExperience.setText(getString(R.string.detailsExperienceUnknown)
+					+ " " + neededExperience[category]);
+		else
+			tvExperience.setText(neededExperience[category]);
 		tvCells.setText(currentCanopy.cells);
 		String sizes = "";
 		if (currentCanopy.minSize != null && !currentCanopy.minSize.equals(""))

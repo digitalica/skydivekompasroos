@@ -57,7 +57,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		
+
 		setContentView(R.layout.activity_canopytypelist);
 
 		canopyTypeTable = (LinearLayout) findViewById(R.id.tablelayout_canopytypelist);
@@ -323,8 +323,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		String nl = System.getProperty("line.separator");
 		TextView canopyListHeader = new TextView(CanopyTypeListActivity.this);
 		canopyListHeader.setText(nl + header);
-		canopyListHeader.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(
-				R.dimen.canopylistHeader));
+		canopyListHeader.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources()
+				.getDimension(R.dimen.canopylistHeader));
 
 		// create row, and add row to table
 		TableRow row = new TableRow(this);
@@ -367,7 +367,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		TextView tvCategory = (TextView) canopyTypeListRow
 				.findViewById(R.id.textViewCanopyListRowCategory);
 		// tvCategory.setBackgroundDrawable(box);
-		tvCategory.setText(Integer.toString(theCanopyType.calculationCategory()));
+		tvCategory.setText(theCanopyType.displayCategory());
 
 		TextView tvCanopyName = (TextView) canopyTypeListRow
 				.findViewById(R.id.textViewCanopyListRowName);
