@@ -40,7 +40,7 @@
     <string name="calculationTotalJumpsSetting">: %1$d%2$s</string>
     <string name="calculationJumpsLast12MonthsLabel">\nJumps in last 12 months</string>
     <string name="calculationJumpsLast12MonthsSetting">: %1$d%2$s</string>
-    <string name="calculationIntrotext">Configure the correct number of jumps and your exit weight below, to see which canopies are valid. The button at the top right will show the list.</string>
+    <string name="calculationIntrotext">Set the correct number of jumps and your exit weight below, to see which canopies are valid. The button at the top right will show the list.</string>
     <string name="calculationOvertimeWarning">\nBeware: this application is more than 1 year old, and probably not up to date any more!</string>
     <string name="calculationOvertimeUnknownWarning">\nCurrent date or date of this app could not be found. This app may not be up to date any more!</string>
     <string name="calculationCanopyCategoryLabel">Valid canopies:</string>
