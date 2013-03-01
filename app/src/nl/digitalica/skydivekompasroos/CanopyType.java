@@ -351,7 +351,7 @@ public class CanopyType extends CanopyBase {
 			if (c2.isSpecialCatchAllCanopy)
 				return -1;
 			if (c1.category != c2.category)
-				return c1.category < c2.category ? -1 : 1;
+				return c1.calculationCategory() < c2.calculationCategory() ? -1 : 1;
 			int result = c1.name.compareTo(c2.name);
 			if (result != 0)
 				return result;
@@ -398,7 +398,7 @@ public class CanopyType extends CanopyBase {
 			if (c1.manufacturerName != c2.manufacturerName)
 				return c1.manufacturerName.compareTo(c2.manufacturerName);
 			if (c1.category != c2.category)
-				return c1.category < c2.category ? -1 : 1;
+				return c1.calculationCategory() < c2.calculationCategory() ? -1 : 1;
 			return c1.name.compareTo(c2.name);
 		}
 	}
