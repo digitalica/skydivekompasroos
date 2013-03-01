@@ -22,7 +22,8 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 	 * @throws IOException
 	 */
 	public void testExportCanopies() throws IOException {
-		List<CanopyType> canopies = CanopyType.getAllCanopyTypesInList(getContext());
+		List<CanopyType> canopies = CanopyType
+				.getAllCanopyTypesInList(getContext());
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(getContext());
 
@@ -35,7 +36,7 @@ public class CanopyDbExportToCsv extends AndroidTestCase {
 			line.append(SEPARATOR); // convenient, to remove other logcat cols.
 			line.append(Integer.toString(c.category()) + SEPARATOR);
 			line.append(c.name + SEPARATOR);
-			line.append(c.manufacturerName + SEPARATOR);
+			line.append(QUOTE + c.manufacturerName + QUOTE + SEPARATOR);
 			if (m != null) // add with quotes for multiple countries
 				line.append(QUOTE + m.countryFullName() + QUOTE + SEPARATOR);
 			else
