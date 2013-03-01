@@ -104,7 +104,7 @@
         manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
     <canopy
         id="1AFA9F7D-F7C2-4807-80EA-B394D15AAFE9"
-        name="Falkon"
+        name="Falcon"
         category="1"
         commontype="0"
         manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
@@ -112,6 +112,7 @@
         id="884274A6-948A-409C-AE6E-96BEA6373ACE"
         name="Skymaster"
         category="1"
+        cells="9"
         commontype="1"
         manufacturerid="E0E33BAB-7067-42EC-96E3-FD6B35926A11 PISA"
         maxsize="290"
@@ -230,6 +231,7 @@
         id="08FC5722-0531-4D4C-97E4-61C2A123D784"
         name="Manta ZP"
         category="1"
+        cells="9"
         commontype="0"
         dropzoneid="691"
         manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
@@ -479,8 +481,7 @@
         commontype="0"
         manufacturerid="B1F74487-55A3-4A0C-9A7E-463B508E3438 Eiff Aerodynamics"
         maxsize="328"
-        minsize="198"
-        url="http://www.basetroll.com/products_4.html" />
+        minsize="198" />
 
     <!-- CATEGORY 3 -->
 
@@ -649,6 +650,14 @@
         id="F0B876B6-F2C6-4560-BF4D-A22DD3C070ED"
         name="BT"
         category="4"
+        cells="9"
+        commontype="0"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
+    <canopy
+        id="51970E29-3AFA-4668-9641-4F5281140168"
+        name="BT Pro"
+        category="0"
+        cells="9"
         commontype="0"
         manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
     <canopy
@@ -707,6 +716,7 @@
         id="38533C8E-BAA0-4BC5-B12F-FE0E0E88C471"
         name="Vision"
         category="4"
+        cells="9"
         commontype="1"
         dropzoneid="419"
         firstyearofproduction="2005"
@@ -764,6 +774,7 @@
         id="5A77CCA4-6BCF-4A6D-87BA-091CE6397E24"
         name="Heatwave"
         category="4"
+        cells="9"
         commontype="0"
         manufacturerid="E0E33BAB-7067-42EC-96E3-FD6B35926A11 PISA" />
     <canopy
@@ -965,6 +976,7 @@
         id="F996C3D1-5684-45BF-9B30-9B0ADEC987C2"
         name="Neos"
         category=""
+        cells="21"
         commontype="1"
         dropzoneid="571"
         manufacturerid="29A49954-54B1-4F77-A399-CCEFCCC9B3B9 Icarus Canopies"
