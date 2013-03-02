@@ -15,6 +15,13 @@ res/xml folder.
 Changelog and New Features
 **************************
 
+Version 0.8 (2 mar 2013)
+
+- show types without category clearly as ?, not 6.
+- minor fixes in canopy database
+- fixed text color in save / reset dialogs
+- improved english texts
+
 Version 0.7 (11 feb 2013)
 
 - allow typing the numbers of jumps, after long click on button
