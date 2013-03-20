@@ -1165,7 +1165,7 @@
     <canopy
         id="C5820EA7-FD28-48D5-9BEC-0D830639B02A"
         name="Alpha"
-        category=""
+        category="4"
         cells="9"
         commontype="0"
         dropzoneid="34"
@@ -1175,7 +1175,7 @@
     <canopy
         id="620114F1-70C7-474A-B996-318B49AA2D9F"
         name="Space"
-        category=""
+        category="4"
         cells="9"
         commontype="0"
         dropzoneid="33"
@@ -1196,7 +1196,7 @@
     <canopy
         id="D7165D47-1EAA-49C9-8B53-A47CA6F30572"
         name="Chilli"
-        category=""
+        category="5"
         commontype="0"
         manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird"
         maxsize="150"
@@ -1207,7 +1207,7 @@
     <canopy
         id="CCD4E177-0E52-4837-BCA8-0640570E41E6"
         name="Exit One"
-        category=""
+        category="1"
         commontype="0"
         manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird"
         maxsize="260"
@@ -1246,7 +1246,7 @@
     <canopy
         id="0b8688c1-bb96-41d4-ac0f-8c9c71f54eda"
         name="Petra"
-        category=""
+        category="6"
         cells="27"
         commontype="0"
         firstyearofproduction="2013"
@@ -1258,7 +1258,7 @@
     <canopy
         id="947b67ce-177f-4c70-8fa4-10ab3c171d29"
         name="Matrix"
-        category=""
+        category="3"
         cells="7"
         commontype="0"
         manufacturerid="4A42F850-E739-44D4-9A69-F66AD3247B1F NZ Aerosports"
@@ -1268,7 +1268,7 @@
     <canopy
         id="9D021CA3-A103-4CB9-B053-A7ABCC4BBC96"
         name="Matrix 2"
-        category=""
+        category="3"
         cells="15"
         commontype="0"
         firstyearofproduction="2013"
