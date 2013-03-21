@@ -939,6 +939,13 @@
         minsize="95"
         url="http://www.parachutesystems.co.za/hurricane_elliptical" />
     <canopy
+        id="6188C8D0-8CF4-4BE4-86FE-268862413701"
+        name="Vixen"
+        category="4"
+        cells=""
+        commontype="0"
+        manufacturerid="781D6203-9BF1-4D51-8CE0-21FFFB9D4D12 Chute Shop" />
+    <canopy
         id="8BF69609-7C2D-4EF6-97F8-8A0530893D02"
         name="Firebolt"
         category="4"
@@ -992,6 +999,13 @@
         remarks=""
         remarks_nl="" />
     <canopy
+        id="918A79DF-E421-4207-ADFD-C15C64194642"
+        name="Cobalt competition"
+        category="5"
+        cells="9"
+        commontype="0"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
+    <canopy
         id="772004AF-78F6-4E1E-ADAD-DC1E3187CC7E"
         name="Impulse"
         category="5"
@@ -1008,6 +1022,14 @@
         maxsize="170"
         minsize="85"
         url="http://www.basetroll.com/products_3.html" />
+    <canopy
+        id="9EE6B1E3-564D-4310-81FC-8BD152FD7B61"
+        name="Jedei"
+        category="5"
+        commontype="0"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics"
+        remarks=""
+        remarks_nl="" />
     <canopy
         id="CB0F9AD7-83BF-4555-B749-09A5BC0868B7"
         name="Demon"
@@ -1056,6 +1078,13 @@
         remarks="Airlocked"
         remarks_nl="Airlocked"
         url="http://www.performancedesigns.com/products.asp?product=vn" />
+    <canopy
+        id="3E43D7CE-DDFD-446F-B6D4-BB793ABB46A6"
+        name="X-Wing"
+        category="5"
+        commontype="0"
+        dropzoneid="453"
+        manufacturerid="E1DA167E-6512-401E-9033-8621884D2C67 Paratec" />
     <canopy
         id="BBF8B6D2-AD53-45AF-98E5-CBD30A00ED50"
         name="Rage"
@@ -1182,6 +1211,23 @@
         remarks_nl="Niet vrij beschikbaar"
         url="http://www.performancedesigns.com/peregrine.asp" />
     <canopy
+        id="F566B784-F61C-49A6-89A1-BEFF497487D2"
+        name="Ninja"
+        category="6"
+        commontype="0"
+        dropzoneid="265"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
+        remarks=""
+        remarks_nl="" />
+    <canopy
+        id="136EE958-6048-4129-B1B1-D0E4B11147EC"
+        name="Ninja 2"
+        category="6"
+        commontype="0"
+        manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France"
+        remarks=""
+        remarks_nl="" />
+    <canopy
         id="67E749A9-324E-4322-B0D2-015974DD31A7"
         name="Xaos-21"
         category="6"
@@ -1290,5 +1336,12 @@
         remarks="Will become available in 2013"
         remarks_nl="Zal in 2013 beschikbaar komen"
         url="http://www.nzaerosports.com/gallery/jpx-petra" />
+    <canopy
+        id="3193501C-9111-4782-B0EC-778CD6923E08"
+        name="Onyx"
+        category="6"
+        commontype="0"
+        dropzoneid="473"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
 
 </canopies>
