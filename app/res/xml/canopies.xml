@@ -77,6 +77,12 @@
         remarks_nl=""
         url="http://www.flyfirebird.com/catalog/product_info.php/cPath/90_21_159/products_id/670" />
     <canopy
+        id="38A6C9BE-8929-4599-8C1C-77C10F93000C"
+        name="Spark Student Hybride"
+        category="1"
+        commontype="0"
+        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird" />
+    <canopy
         id="D3678054-4391-45BD-9C32-0FD253EF2AAD"
         name="Prima"
         category="1"
@@ -97,7 +103,7 @@
         manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
     <canopy
         id="54BB53BC-E33D-4FCF-8C7C-2211FF09F57C"
-        name="Turbo Voyager student"
+        name="Turbo"
         category="1"
         commontype="0"
         manufacturerid="35AF72C6-F1D1-473D-99D0-804769E3E768 Parachutes de France" />
@@ -128,6 +134,12 @@
     <canopy
         id="1AFA9F7D-F7C2-4807-80EA-B394D15AAFE9"
         name="Falcon"
+        category="1"
+        commontype="0"
+        manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
+    <canopy
+        id="C728529C-B0FE-4726-9D1C-7438721117CA"
+        name="Voyager student"
         category="1"
         commontype="0"
         manufacturerid="7D4DAE42-062F-42A6-AD27-187B0AECDDA6 Precision Aerodynamics" />
@@ -280,25 +292,6 @@
         commontype="0"
         manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts" />
     <canopy
-        id="747B45F3-B12C-4743-A5F8-2D90C20F22F1"
-        name="Eagle 7-cell"
-        category="1"
-        cells="7"
-        commontype="0"
-        dropzoneid="70"
-        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA" />
-    <canopy
-        id="128B96F9-DAC3-4297-8329-FC24CCF9E781"
-        name="Eagle 9-cell"
-        category="1"
-        cells="9"
-        commontype="0"
-        dropzoneid="71"
-        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA"
-        maxsize="330"
-        minsize="110"
-        url="http://www.naaero.com/sport/Eagle%209-cell.htm" />
-    <canopy
         id="86A007AE-A9FE-404E-9BF6-AD880D4F8568"
         name="Student ZP7"
         category="1"
@@ -326,11 +319,24 @@
         commontype="0"
         manufacturerid="781D6203-9BF1-4D51-8CE0-21FFFB9D4D12 Chute Shop" />
     <canopy
-        id="38A6C9BE-8929-4599-8C1C-77C10F93000C"
-        name="Spark Student Hybride"
+        id="747B45F3-B12C-4743-A5F8-2D90C20F22F1"
+        name="Eagle 7-cell"
         category="1"
+        cells="7"
         commontype="0"
-        manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird" />
+        dropzoneid="70"
+        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA" />
+    <canopy
+        id="128B96F9-DAC3-4297-8329-FC24CCF9E781"
+        name="Eagle 9-cell"
+        category="1"
+        cells="9"
+        commontype="0"
+        dropzoneid="71"
+        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA"
+        maxsize="330"
+        minsize="110"
+        url="http://www.naaero.com/sport/Eagle%209-cell.htm" />
 
     <!-- CATEGORY 2 -->
 
@@ -455,6 +461,19 @@
         minsize="107"
         url="http://www.performancedesigns.com/products.asp?product=pl" />
     <canopy
+        id="8544A47F-DF6D-4B07-A0D9-FF85800E8BB1"
+        name="Zero"
+        category="2"
+        cells="7"
+        commontype="1"
+        dropzoneid="778"
+        firstyearofproduction="2010"
+        lastyearofproduction=""
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
+        maxsize="305"
+        minsize="205"
+        url="http://www.performancedesigns.com/zero.asp" />
+    <canopy
         id="8C4442DA-BBEF-4C3A-A95C-F45CE891F407"
         name="Synergy"
         category="2"
@@ -510,6 +529,26 @@
         maxsize="210"
         minsize="135"
         url="http://www.basetroll.com/products_4.html" />
+    <canopy
+        id="24924509-5EF2-473C-863C-6B43BF64FE09"
+        name="ParaFoil"
+        category="2"
+        cells="7"
+        commontype="1"
+        dropzoneid="68"
+        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA"
+        maxsize="302"
+        minsize="220"
+        url="http://www.naaero.com/sport/parafoil.htm" />
+    <canopy
+        id="7017A355-35E0-4578-A81D-89CE8F021AAA"
+        name="Eiff Classic"
+        category="2"
+        cells="7"
+        commontype="0"
+        manufacturerid="B1F74487-55A3-4A0C-9A7E-463B508E3438 Eiff Aerodynamics"
+        maxsize="328"
+        minsize="198" />
 
     <!-- CATEGORY 3 -->
 
@@ -541,6 +580,19 @@
         maxsize="253"
         minsize="126"
         url="http://www.performancedesigns.com/products.asp?product=ps" />
+    <canopy
+        id="A982E92C-85D9-480B-98CE-A2F2BF80380C"
+        name="Storm"
+        category="3"
+        cells="7"
+        commontype="1"
+        dropzoneid="579"
+        firstyearofproduction="2008"
+        lastyearofproduction=""
+        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
+        maxsize="230"
+        minsize="97"
+        url="http://www.performancedesigns.com/products.asp?product=tf" />
     <canopy
         id="8A64E433-8856-4329-9B5E-2BF6F2D37632"
         name="Fusion"
@@ -655,17 +707,6 @@
         commontype="1"
         manufacturerid="7AE2A118-7566-456B-9D73-2E6751BF7D7A Firebird" />
     <canopy
-        id="24924509-5EF2-473C-863C-6B43BF64FE09"
-        name="ParaFoil"
-        category="3"
-        cells="7"
-        commontype="1"
-        dropzoneid="68"
-        manufacturerid="2228CEB3-3246-47D8-A393-52FF9DFEBB45 NAA"
-        maxsize="302"
-        minsize="220"
-        url="http://www.naaero.com/sport/parafoil.htm" />
-    <canopy
         id="C6C59DF8-9127-4BCA-B320-2BFE21AAA1A8"
         name="Express"
         category="3"
@@ -690,6 +731,17 @@
         remarks_nl=""
         url="http://flightconceptsint.com/zp-main/prodigy" />
     <canopy
+        id="DD3686AE-6C9C-446F-A255-C41A5CEEBE46"
+        name="Sentry"
+        category="3"
+        cells="9"
+        commontype="0"
+        dropzoneid="690"
+        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
+        maxsize="230"
+        minsize="99"
+        url="http://flightconceptsint.com/zp-main/sentry" />
+    <canopy
         id="947b67ce-177f-4c70-8fa4-10ab3c171d29"
         name="Matrix"
         category="3"
@@ -711,41 +763,6 @@
         remarks=""
         remarks_nl=""
         url="http://www.nzaerosports.com/canopies/daedalus-matrix2" />
-    <canopy
-        id="A982E92C-85D9-480B-98CE-A2F2BF80380C"
-        name="Storm"
-        category="3"
-        cells="7"
-        commontype="1"
-        dropzoneid="579"
-        firstyearofproduction="2008"
-        lastyearofproduction=""
-        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
-        maxsize="230"
-        minsize="97"
-        url="http://www.performancedesigns.com/products.asp?product=tf" />
-    <canopy
-        id="7017A355-35E0-4578-A81D-89CE8F021AAA"
-        name="Eiff Classic"
-        category="3"
-        cells="7"
-        commontype="0"
-        manufacturerid="B1F74487-55A3-4A0C-9A7E-463B508E3438 Eiff Aerodynamics"
-        maxsize="328"
-        minsize="198" />
-    <canopy
-        id="8544A47F-DF6D-4B07-A0D9-FF85800E8BB1"
-        name="Zero"
-        category="2"
-        cells="7"
-        commontype="1"
-        dropzoneid="778"
-        firstyearofproduction="2010"
-        lastyearofproduction=""
-        manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
-        maxsize="305"
-        minsize="205"
-        url="http://www.performancedesigns.com/zero.asp" />
 
     <!-- CATEGORY 4 -->
 
@@ -852,6 +869,12 @@
         remarks=""
         remarks_nl="" />
     <canopy
+        id="772004AF-78F6-4E1E-ADAD-DC1E3187CC7E"
+        name="Impulse"
+        category="4"
+        commontype="0"
+        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
+    <canopy
         id="38533C8E-BAA0-4BC5-B12F-FE0E0E88C471"
         name="Vision"
         category="4"
@@ -885,17 +908,6 @@
         category="4"
         commontype="0"
         manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts" />
-    <canopy
-        id="DD3686AE-6C9C-446F-A255-C41A5CEEBE46"
-        name="Sentry"
-        category="4"
-        cells="9"
-        commontype="0"
-        dropzoneid="690"
-        manufacturerid="97C58924-5A47-4306-B8D4-E6A932E25A9F Flight Concepts"
-        maxsize="230"
-        minsize="99"
-        url="http://flightconceptsint.com/zp-main/sentry" />
     <canopy
         id="FF9B09BF-27F1-4072-B0FB-1801C0A9B89E"
         name="Rage"
@@ -1003,12 +1015,6 @@
         name="Cobalt competition"
         category="5"
         cells="9"
-        commontype="0"
-        manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
-    <canopy
-        id="772004AF-78F6-4E1E-ADAD-DC1E3187CC7E"
-        name="Impulse"
-        category="5"
         commontype="0"
         manufacturerid="6C76AE26-F763-4536-AA22-2C4C8326804D Atair Aerodynamics" />
     <canopy
@@ -1144,6 +1150,7 @@
         url="http://www.flyaerodyne.com/mamba.html" />
 
     <!-- CATEGORY 6 -->
+    
     <canopy
         id="0858835E-BC3A-43D9-A085-3DF96D70D3ED"
         name="Sensei"
