@@ -4,6 +4,8 @@
 #
 # NOTE: paths probably need to be checked/changed depending on local installation!!!!
 
+cd /home/robbert
+
 jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore digitalica.keystore SkydiveKompasroos.apk digitalica
 
 mv SkydiveKompasroos.apk SkydiveKompasroosUnaligned.apk
