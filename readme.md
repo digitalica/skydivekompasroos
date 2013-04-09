@@ -15,6 +15,11 @@ res/xml folder.
 Changelog and New Features
 **************************
 
+Version 0.9 (9 april 2013)
+
+- all canopies categorized based on the new 'bijlage B'
+  (the april 2013 version)
+
 Version 0.8 (2 mar 2013)
 
 - show types without category clearly as ?, not 6.

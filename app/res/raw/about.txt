@@ -13,8 +13,8 @@ http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/Kompasroos.pdf
 Safety regulations addition A, rules for choosing canopies, version 2011:
 http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_Bijlage_A_2011.pdf
 
-Safety regulations addition B, canopy categories, version maart 2013:
-http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2013_maart.pdf
+Safety regulations addition B, canopy categories, version april 2013:
+http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2013_april.pdf
 
 We plan to publish this app under the GNU Public License. The source can already be found at GitHub:
 https://github.com/digitalica/skydivekompasroos

@@ -11,8 +11,8 @@ http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/Kompasroos.pdf
 BVR Bijlage A, Regels voor Parachutekeuze, versie 2011:
 http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_Bijlage_A_2011.pdf
 
-BVR Bijlage B, Indeling hoofdparachutes, versie maart 2014:
-http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2013_maart.pdf
+BVR Bijlage B, Indeling hoofdparachutes, versie april 2013:
+http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2013_april.pdf
 
 Bedoeling is deze app onder GNU Public License te brengen. De source is al te vinden op GitHub:
 https://github.com/digitalica/skydivekompasroos
