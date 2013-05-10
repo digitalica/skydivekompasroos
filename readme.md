@@ -11,6 +11,41 @@ on input from users, riggers and manufacturers. It can be found in the
 res/xml folder.
 
 
+************
+Installation
+************
+
+The app can be installed from Google Play:
+
+https://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos
+
+Or use QR code:
+
+![QRCode](http://www.digitalica.nl/SkydiveKompasroos/skydiveappqr.png)
+
+
+*********
+Resources
+*********
+
+Based on the information from the KNVvL:
+
+http://www.parachute.nl/bevoegdhedenregl.html
+
+http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_Bijlage_A_2011.pdf
+
+http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2011-07_juli.pdf
+
+http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/Kompasroos.pdf
+
+
+*******
+License
+*******
+
+not decided yet. Probably will be GPL
+
+
 **************************
 Changelog and New Features
 **************************
@@ -74,37 +109,4 @@ Version 0.2 (19 Nov 2012)
 - added canopy details screen
 - added sorting options to canopy list screen
 
-
-************
-Installation
-************
-
-The app can be installed from Google Play:
-
-https://play.google.com/store/apps/details?id=nl.digitalica.skydivekompasroos
-
-Or use QR code:
-
-![QRCode](http://www.digitalica.nl/SkydiveKompasroos/skydiveappqr.png)
-
-
-*******
-License
-*******
-
-not decided yet. Probably will be GPL
-
-*********
-Resources
-*********
-
-Based on the information from the KNVvL:
-
-http://www.parachute.nl/bevoegdhedenregl.html
-
-http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_Bijlage_A_2011.pdf
-
-http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/BVR_bijlage_B_versie_2011-07_juli.pdf
-
-http://www.parachute.nl/fileadmin/knvvlpa_upload/pdf/Kompasroos.pdf
 
