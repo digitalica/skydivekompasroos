@@ -62,6 +62,25 @@ for canopyNode in canopiesxmltree.getElementsByTagName('canopy'):
             cells = cells / 3
         print name + " is a " + str(cells) + "-cell " + xb + "canopy."
     print
+    if (firstyearofproduction or lastyearofproduction):
+        text = "Years of production: "
+        if (firstyearofproduction):
+            text += str(firstyearofproduction)
+        text += " - "
+        if (lastyearofproduction):
+            text += lastyearofproduction
+        print text
+        print
+    if (minsize or maxsize):
+        text = "Sizes available: "
+        if (minsize):
+            text += str(minsize)
+        text += " - "
+        if (maxsize):
+            text += str(maxsize)
+        text += " sqft"
+        print text
+        print
     if (url):
         print "["+url + "| " + name + " page on " + manufacturer + " website]"
     print "\n\n\n"
