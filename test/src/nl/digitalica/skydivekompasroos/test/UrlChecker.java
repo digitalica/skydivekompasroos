@@ -9,10 +9,12 @@ import java.util.UUID;
 import nl.digitalica.skydivekompasroos.CanopyType;
 import nl.digitalica.skydivekompasroos.Manufacturer;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 
 import android.test.AndroidTestCase;
 
@@ -80,9 +82,23 @@ public class UrlChecker extends AndroidTestCase {
 				try {
 					httpResponse = httpClient.execute(httpGet);
 					int status = httpResponse.getStatusLine().getStatusCode();
-					if (status != 200)
+					if (status != 200) {
 						error = "Page not found or moved ("
 								+ Integer.toString(status) + ") ";
+					} else {
+						// now check the contents for indicators of 
+						// error pages or other non-intended pages
+						HttpEntity responseEntity = httpResponse.getEntity();
+						if (responseEntity!=null) {
+							String responseText = new String();
+							responseText = EntityUtils.toString(responseEntity);
+							if (responseText.contains("<ul id=\"listproducts\">")
+							 && responseText.contains("<title>Products</title>")
+							 && responseText.contains("<a href=\"http://store.performancedesigns.com/\">Gear Store</a>"))
+								error += "Looks like PD index page, not PD product page";
+							
+						}
+					}
 				} catch (Exception e) {
 					error = "Network error ";
 					e.printStackTrace();
