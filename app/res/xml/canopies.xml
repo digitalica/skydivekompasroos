@@ -14,7 +14,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="300"
         minsize="200"
-        url="http://www.performancedesigns.com/products.asp?product=na" />
+        url="http://www.performancedesigns.com/navigator.asp" />
     <canopy
         id="3231807B-22F3-4D6B-A490-403CC0018042"
         name="PD F111 serie (7 cell)"
@@ -51,7 +51,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="230"
         minsize="97"
-        url="http://www.performancedesigns.com/products.asp?product=ls" />
+        url="" />
     <canopy
         id="8360A137-A59C-4541-8B7A-6F596128A6AF"
         name="Solo"
@@ -64,7 +64,7 @@
         manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="290"
         minsize="190"
-        url="http://www.flyaerodyne.com/solo.html" />
+        url="http://www.flyaerodyne.com/solo.asp" />
     <canopy
         id="CCD4E177-0E52-4837-BCA8-0640570E41E6"
         name="Exit One"
@@ -375,7 +375,7 @@
         minsize="90"
         planform="6.7"
         planformcells="4"
-        url="http://www.flyaerodyne.com/pilot.html" />
+        url="http://www.flyaerodyne.com/pilot.asp" />
     <canopy
         id="02BFB95A-E433-4A02-A6A1-3F8593BFDC90"
         name="Triathlon"
@@ -388,7 +388,7 @@
         manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="260"
         minsize="99"
-        url="http://www.flyaerodyne.com/triathlon.html" />
+        url="http://www.flyaerodyne.com/triathlon.asp" />
     <canopy
         id="49B5D670-24BF-4392-B6D5-3426A88DC2AC"
         name="Super 7"
@@ -420,7 +420,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="230"
         minsize="97"
-        url="http://www.performancedesigns.com/products.asp?product=ls" />
+        url="" />
     <canopy
         id="AAC013BE-1485-46B3-9539-A4162D9C95AC"
         name="Spectre"
@@ -433,7 +433,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="230"
         minsize="97"
-        url="http://www.performancedesigns.com/products.asp?product=sp" />
+        url="http://www.performancedesigns.com/spectre.asp" />
     <canopy
         id="40734BBD-6781-45F7-9A90-C73C89C9ECF2"
         name="Silhouette"
@@ -446,7 +446,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="260"
         minsize="135"
-        url="http://www.performancedesigns.com/products.asp?product=si" />
+        url="http://www.performancedesigns.com/silhouette.asp" />
     <canopy
         id="86B73616-BABF-4D88-9184-ECD1C5657293"
         name="Pulse"
@@ -459,7 +459,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="260"
         minsize="107"
-        url="http://www.performancedesigns.com/products.asp?product=pl" />
+        url="http://www.performancedesigns.com/pulse.asp" />
     <canopy
         id="8544A47F-DF6D-4B07-A0D9-FF85800E8BB1"
         name="Zero"
@@ -566,7 +566,7 @@
         minsize="97"
         planform="5.4"
         planformcells="6"
-        url="http://www.performancedesigns.com/products.asp?product=sa" />
+        url="http://www.performancedesigns.com/sabre2.asp" />
     <canopy
         id="1EE39B10-69B0-4434-BCA1-5A26BADAFD27"
         name="Lightning"
@@ -579,7 +579,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="253"
         minsize="126"
-        url="http://www.performancedesigns.com/products.asp?product=ps" />
+        url="http://www.performancedesigns.com/lightning.asp" />
     <canopy
         id="A982E92C-85D9-480B-98CE-A2F2BF80380C"
         name="Storm"
@@ -592,7 +592,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="230"
         minsize="97"
-        url="http://www.performancedesigns.com/products.asp?product=tf" />
+        url="http://www.performancedesigns.com/storm.asp" />
     <canopy
         id="8A64E433-8856-4329-9B5E-2BF6F2D37632"
         name="Fusion"
@@ -780,7 +780,7 @@
         minsize="89"
         planform="13.3"
         planformcells="4"
-        url="http://www.performancedesigns.com/products.asp?product=st" />
+        url="http://www.performancedesigns.com/stiletto.asp" />
     <canopy
         id="F0B876B6-F2C6-4560-BF4D-A22DD3C070ED"
         name="BT"
@@ -1070,7 +1070,7 @@
         manufacturerid="541E8673-69E0-458A-8633-A3698311FD4B Performance Designs"
         maxsize="170"
         minsize="83"
-        url="http://www.performancedesigns.com/products.asp?product=ka" />
+        url="http://www.performancedesigns.com/katana.asp" />
     <canopy
         id="639CE7C8-8907-4F07-9AE6-C5D61B7E8341"
         name="Vengeance"
@@ -1083,7 +1083,7 @@
         minsize="89"
         remarks="Airlocked"
         remarks_nl="Airlocked"
-        url="http://www.performancedesigns.com/products.asp?product=vn" />
+        url="" />
     <canopy
         id="3E43D7CE-DDFD-446F-B6D4-BB793ABB46A6"
         name="X-Wing"
@@ -1147,7 +1147,7 @@
         manufacturerid="0BF35960-3F26-42FD-8C97-03263EC42E84 Aerodyne Research"
         maxsize="150"
         minsize="90"
-        url="http://www.flyaerodyne.com/mamba.html" />
+        url="http://www.flyaerodyne.com/mamba.asp" />
 
     <!-- CATEGORY 6 -->
     
@@ -1165,7 +1165,7 @@
         minsize="71"
         remarks=""
         remarks_nl=""
-        url="http://www.flyaerodyne.com/sensei.html" />
+        url="http://www.flyaerodyne.com/sensei.asp" />
     <canopy
         id="858EEBF3-169F-4AE7-99A2-A7CC8D025D4E"
         name="V-Max"
@@ -1191,7 +1191,7 @@
         minsize="75"
         remarks=""
         remarks_nl=""
-        url="http://www.performancedesigns.com/products.asp?product=ve" />
+        url="http://www.performancedesigns.com/velocity.asp" />
     <canopy
         id="EA08A05D-B79A-4687-AED8-AFB272287ADA"
         name="Comp Velocity"
@@ -1206,7 +1206,7 @@
         minsize="71"
         remarks=""
         remarks_nl=""
-        url="http://www.performancedesigns.com/products.asp?product=vc" />
+        url="http://www.performancedesigns.com/compvelocity.asp" />
     <canopy
         id="1931C950-68C7-11E2-BCFD-0800200C9A66"
         name="Peregrine"
