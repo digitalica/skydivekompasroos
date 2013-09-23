@@ -50,6 +50,10 @@ not decided yet. Probably will be GPL
 Changelog and New Features
 **************************
 
+Version 1.0 (23 september 2013)
+
+- corrected links to PD and Aerodyne canopies
+
 Version 0.9 (9 april 2013)
 
 - all canopies categorized based on the new 'bijlage B'
