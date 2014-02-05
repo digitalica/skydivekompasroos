@@ -316,6 +316,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		// TODO: remove extras as they will be in global vars...
 		i.putExtra(CANOPYIDEXTRA, canopyKey);
 		startActivity(i);
+		overridePendingTransition(R.anim.right_in, R.anim.left_out);
 	}
 
 	private void insertCanopyTypeHeaderRow(LinearLayout canopyTable,
@@ -577,4 +578,10 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		return builder.create();
 	}
 
+	@Override
+	public void onBackPressed() {
+	    super.onBackPressed();
+	    overridePendingTransition(R.anim.left_in, R.anim.right_out);   
+	}
+	
 }

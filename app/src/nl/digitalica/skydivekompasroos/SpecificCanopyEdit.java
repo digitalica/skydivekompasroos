@@ -80,6 +80,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 					SpecificCanopy.delete(SpecificCanopyEdit.this,
 							specificCanopyId);
 					SpecificCanopyEdit.this.finish();
+					overridePendingTransition(R.anim.none, R.anim.explode_out);
 				}
 			});
 
@@ -106,6 +107,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 				SpecificCanopy.save(SpecificCanopyEdit.this, specificCanopyId,
 						size, typeId, remarks);
 				SpecificCanopyEdit.this.finish();
+				overridePendingTransition(R.anim.none, R.anim.explode_out);
 			}
 		});
 
@@ -115,6 +117,12 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_specific_list_edit, menu);
 		return true;
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		overridePendingTransition(R.anim.none, R.anim.explode_out);
 	}
 
 }

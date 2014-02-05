@@ -93,6 +93,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			public void onClick(View v) {
 				startActivity(new Intent(getBaseContext(),
 						CanopyTypeListActivity.class));
+				overridePendingTransition(R.anim.right_in, R.anim.left_out);
 			}
 		});
 
@@ -102,6 +103,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 			public void onClick(View v) {
 				startActivity(new Intent(getBaseContext(), AboutActivity.class));
+				overridePendingTransition(R.anim.left_in, R.anim.right_out);
 			}
 		});
 
@@ -126,6 +128,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				bundle.putInt(SPECIFICCANOPYID_KEY, 0);
 				intent.putExtras(bundle);
 				startActivity(intent);
+				overridePendingTransition(R.anim.explode_in, R.anim.none);
 			}
 		});
 

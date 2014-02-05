@@ -102,4 +102,10 @@ public class AboutActivity extends KompasroosBaseActivity {
 		startActivity(sendIntent);
 	}
 
+	@Override
+	public void onBackPressed() {
+	    super.onBackPressed();
+	    overridePendingTransition(R.anim.right_in, R.anim.left_out);   
+	}
+	
 }
