@@ -102,6 +102,7 @@
     <string name="specificCanopyHeaderRemarks">Remarks</string>
     <string name="specificCanopyHeaderWingLoad">Wingload</string>
     <string name="specificeditsize">Size (sqft)</string>
+    <string name="specificeditsizeerror">Size is no number</string>
     <string name="specificedittype">Type</string>
     <string name="specificeditremarks">Remarks</string>
     <string name="totalNumberOfJumpsDialogTitle">Total number of jumps</string>

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class SpecificCanopyEdit extends KompasroosBaseActivity {
 
@@ -95,7 +96,14 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 				Spinner spType = (Spinner) findViewById(R.id.spinnerType);
 				EditText etRemarks = (EditText) findViewById(R.id.editTextRemarks);
 
-				int size = Integer.parseInt(etSize.getText().toString());
+				int size = 0;
+				try {
+					size = Integer.parseInt(etSize.getText().toString());
+				} catch (NumberFormatException e) {
+					Toast numberError = Toast.makeText(getApplicationContext(), "Area not correct", Toast.LENGTH_LONG);
+					numberError.show();
+					return;
+				}
 				String typeSpecificName = (String) spType.getSelectedItem();
 				List<CanopyType> canopyTypes = CanopyType
 						.getAllCanopyTypesInList(SpecificCanopyEdit.this);

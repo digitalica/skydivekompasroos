@@ -102,6 +102,7 @@
     <string name="specificCanopyHeaderRemarks">Opm.</string>
     <string name="specificCanopyHeaderWingLoad">Wingload</string>
     <string name="specificeditsize">Maat (sqft)</string>
+    <string name="specificeditsizeerror">Maat is geen getal</string>
     <string name="specificedittype">Type</string>
     <string name="specificeditremarks">Opmerking</string>
     <string name="totalNumberOfJumpsDialogTitle">Total aantal sprongen</string>
