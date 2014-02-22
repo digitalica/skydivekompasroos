@@ -24,7 +24,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		setContentView(R.layout.activity_canopydetails);
 
 		Bundle extras = getIntent().getExtras();
-		UUID canopyId = UUID.fromString(extras.getString(CANOPYIDEXTRA));
+		UUID canopyId = UUID.fromString(extras.getString(Skr.CANOPYIDEXTRA));
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash(CanopyDetailsActivity.this);
 
@@ -49,10 +49,11 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		TextView tvRemarks = (TextView) findViewById(R.id.textViewRemarksText);
 
 		AcceptabilityEnum acceptability = currentCanopy.acceptablility(
-				currentMaxCategory, currentWeight);
+				Skr.currentMaxCategory, Skr.currentWeight);
 
 		tvName.setText(currentCanopy.name);
-		tvName.setBackgroundDrawable(backgroundDrawableForAcceptance(acceptability));
+		tvName.setBackgroundDrawable(Skr.backgroundForAcceptance(
+				getApplicationContext(), acceptability));
 
 		String categoryText = currentCanopy.displayCategory();
 		if (currentCanopy.isCategoryUnknown())
@@ -63,23 +64,23 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		int category = currentCanopy.calculationCategory();
 		switch (acceptability) {
 		case ACCEPTABLE:
-			if (currentMinArea == 0)
+			if (Skr.currentMinArea == 0)
 				advice = getString(R.string.canopyAdviseAcceptable);
 			else
 				advice = String.format(
 						getString(R.string.canopyAdviseAcceptableWithMinSize),
-						currentMinArea);
+						Skr.currentMinArea);
 			break;
 		case NEEDEDSIZENOTAVAILABLE:
 			advice = String.format(
 					getString(R.string.canopyAdviseNeededSizeNotAvailable),
-					currentMinArea);
+					Skr.currentMinArea);
 			break;
 		case CATEGORYTOOHIGH:
 			int extraNeededJumsThis12Months = Calculation.MINIMUMJUMPSLAST12MONTHS[category]
-					- currentJumpsLast12Months;
+					- Skr.currentJumpsLast12Months;
 			int extraNeededTotalJumps = Calculation.MINIMUMTOTALJUMPS[category]
-					- currentTotalJumps;
+					- Skr.currentTotalJumps;
 			int minimalExtraNeededJumps = Math.max(extraNeededJumsThis12Months,
 					extraNeededTotalJumps);
 			advice = String.format(
@@ -228,8 +229,8 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 
 	@Override
 	public void onBackPressed() {
-	    super.onBackPressed();
-	    overridePendingTransition(R.anim.left_in, R.anim.right_out);   
+		super.onBackPressed();
+		overridePendingTransition(R.anim.left_in, R.anim.right_out);
 	}
 
 }

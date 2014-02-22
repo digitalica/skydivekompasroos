@@ -137,7 +137,7 @@ public class Manufacturer {
 			return dutch ? "Nieuw Zeeland" : "New Zealand";
 		if (trimmedCountryCode.equals("es"))
 			return dutch ? "Spanje" : "Spain";
-		Log.e(KompasroosBaseActivity.LOG_TAG, "Unknown country code: "
+		Log.e(Skr.LOG_TAG, "Unknown country code: "
 				+ countryCode);
 		return countryCode;
 	}

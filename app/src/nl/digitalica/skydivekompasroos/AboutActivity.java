@@ -64,7 +64,7 @@ public class AboutActivity extends KompasroosBaseActivity {
 
 		String compileDate = "";
 		try {
-			long time = getCompileDateTime();
+			long time = Skr.getCompileDateTime(getApplicationContext());
 			compileDate = SimpleDateFormat.getInstance().format(
 					new java.util.Date(time));
 

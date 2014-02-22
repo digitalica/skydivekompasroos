@@ -54,7 +54,7 @@ public class SpecificCanopy extends CanopyBase {
 		String remarks;
 		do {
 			SharedPreferences prefs = c.getSharedPreferences(
-					KompasroosBaseActivity.KOMPASROOSPREFS,
+					Skr.KOMPASROOSPREFS,
 					Context.MODE_PRIVATE);
 			String nr = Integer.toString(index);
 			size = prefs.getInt(SETTING_SPECIFIC_CANOPY_SIZE + nr, 0);
@@ -98,7 +98,7 @@ public class SpecificCanopy extends CanopyBase {
 			String remarks) {
 		String nr = Integer.toString(id);
 		SharedPreferences prefs = c.getSharedPreferences(
-				KompasroosBaseActivity.KOMPASROOSPREFS, Context.MODE_PRIVATE);
+				Skr.KOMPASROOSPREFS, Context.MODE_PRIVATE);
 		Editor e = prefs.edit();
 		e.putInt(SETTING_SPECIFIC_CANOPY_SIZE + nr, size);
 		e.putString(SETTING_SPECIFIC_CANOPY_TYPEID + nr, typeId.toString());
@@ -113,7 +113,7 @@ public class SpecificCanopy extends CanopyBase {
 	 */
 	public static void delete(Context c, int indexToDelete) {
 		SharedPreferences prefs = c.getSharedPreferences(
-				KompasroosBaseActivity.KOMPASROOSPREFS, Context.MODE_PRIVATE);
+				Skr.KOMPASROOSPREFS, Context.MODE_PRIVATE);
 		int entryToRemove = indexToDelete;
 		for (int index = indexToDelete; index < MAXSPECIFICCANOPIES - 1; index++) {
 			String nr = Integer.toString(index);
@@ -144,7 +144,7 @@ public class SpecificCanopy extends CanopyBase {
 	 */
 	public static void DeleteAll(Context c) {
 		SharedPreferences prefs = c.getSharedPreferences(
-				KompasroosBaseActivity.KOMPASROOSPREFS, Context.MODE_PRIVATE);
+				Skr.KOMPASROOSPREFS, Context.MODE_PRIVATE);
 		for (int index = 1; index < MAXSPECIFICCANOPIES; index++) {
 			String nr = Integer.toString(index);
 			Editor e = prefs.edit();

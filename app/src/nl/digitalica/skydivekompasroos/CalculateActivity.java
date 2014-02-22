@@ -12,6 +12,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -69,7 +70,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		TextView tvWarning = (TextView) findViewById(R.id.textViewWarning);
 		String warning = "";
 		try {
-			long compilationDateTime = getCompileDateTime();
+			long compilationDateTime = Skr
+					.getCompileDateTime(getApplicationContext());
 			Calendar cal = Calendar.getInstance();
 			long now = cal.getTime().getTime();
 			long maxDiff = 1000L * 60L * 60L * 24L * 365L; // 1 year
@@ -125,7 +127,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				Intent intent = new Intent(getBaseContext(),
 						SpecificCanopyEdit.class);
 				Bundle bundle = new Bundle();
-				bundle.putInt(SPECIFICCANOPYID_KEY, 0);
+				bundle.putInt(Skr.SPECIFICCANOPYID_KEY, 0);
 				intent.putExtras(bundle);
 				startActivity(intent);
 				overridePendingTransition(R.anim.explode_in, R.anim.none);
@@ -192,17 +194,19 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			int typeCategory = tagAll % 10;
 			int size = (tagAll - typeCategory) / 10;
 
-			double wingload = Calculation.wingLoad(size, currentWeight);
+			double wingload = Calculation.wingLoad(size, Skr.currentWeight);
 			tvWingLoad.setText(String.format("%.2f", wingload));
 
 			AcceptabilityEnum acc = SpecificCanopy.acceptablility(
-					currentMaxCategory, typeCategory, size, currentWeight);
+					Skr.currentMaxCategory, typeCategory, size,
+					Skr.currentWeight);
 			// We need different drawables for each column as the widths are
 			// different
-			Drawable backgroundCol1 = backgroundDrawableForAcceptance(acc);
-			Drawable backgroundCol2 = backgroundDrawableForAcceptance(acc);
-			Drawable backgroundCol3 = backgroundDrawableForAcceptance(acc);
-			Drawable backgroundCol4 = backgroundDrawableForAcceptance(acc);
+			Context ctx = getApplicationContext();
+			Drawable backgroundCol1 = Skr.backgroundForAcceptance(ctx, acc);
+			Drawable backgroundCol2 = Skr.backgroundForAcceptance(ctx, acc);
+			Drawable backgroundCol3 = Skr.backgroundForAcceptance(ctx, acc);
+			Drawable backgroundCol4 = Skr.backgroundForAcceptance(ctx, acc);
 
 			tvSize.setBackgroundDrawable(backgroundCol1);
 			tvType.setBackgroundDrawable(backgroundCol2);
@@ -262,7 +266,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				Intent intent = new Intent(getBaseContext(),
 						SpecificCanopyEdit.class);
 				Bundle bundle = new Bundle();
-				bundle.putInt(SPECIFICCANOPYID_KEY, (Integer) v.getTag());
+				bundle.putInt(Skr.SPECIFICCANOPYID_KEY, (Integer) v.getTag());
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
@@ -450,25 +454,26 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				});
 		asFriend.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				prefs = getSharedPreferences(KOMPASROOSPREFS,
-						Context.MODE_PRIVATE);
+				SharedPreferences prefs = getSharedPreferences(
+						Skr.KOMPASROOSPREFS, Context.MODE_PRIVATE);
 				Editor e = prefs.edit();
-				e.putInt(SETTING_FRIEND_TOTAL_JUMPS, currentTotalJumps);
-				e.putInt(SETTING_FRIEND_LAST_12_MONTHS,
-						currentJumpsLast12Months);
-				e.putInt(SETTING_FRIEND_WEIGHT, currentWeight);
+				e.putInt(Skr.SETTING_FRIEND_TOTAL_JUMPS, Skr.currentTotalJumps);
+				e.putInt(Skr.SETTING_FRIEND_LAST_12_MONTHS,
+						Skr.currentJumpsLast12Months);
+				e.putInt(Skr.SETTING_FRIEND_WEIGHT, Skr.currentWeight);
 				e.commit();
 				CalculateActivity.this.removeDialog(SAVE_DIALOG_ID);
 			}
 		});
 		asOwn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				prefs = getSharedPreferences(KOMPASROOSPREFS,
-						Context.MODE_PRIVATE);
+				SharedPreferences prefs = getSharedPreferences(
+						Skr.KOMPASROOSPREFS, Context.MODE_PRIVATE);
 				Editor e = prefs.edit();
-				e.putInt(SETTING_OWN_TOTAL_JUMPS, currentTotalJumps);
-				e.putInt(SETTING_OWN_LAST_12_MONTHS, currentJumpsLast12Months);
-				e.putInt(SETTING_OWN_WEIGHT, currentWeight);
+				e.putInt(Skr.SETTING_OWN_TOTAL_JUMPS, Skr.currentTotalJumps);
+				e.putInt(Skr.SETTING_OWN_LAST_12_MONTHS,
+						Skr.currentJumpsLast12Months);
+				e.putInt(Skr.SETTING_OWN_WEIGHT, Skr.currentWeight);
 				e.commit();
 				CalculateActivity.this.removeDialog(SAVE_DIALOG_ID);
 			}
@@ -524,14 +529,14 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		});
 		asFriend.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				prefs = getSharedPreferences(KOMPASROOSPREFS,
-						Context.MODE_PRIVATE);
-				int weight = prefs
-						.getInt(SETTING_FRIEND_WEIGHT, WEIGHT_DEFAULT);
-				int totalJumps = prefs.getInt(SETTING_FRIEND_TOTAL_JUMPS,
+				SharedPreferences prefs = getSharedPreferences(
+						Skr.KOMPASROOSPREFS, Context.MODE_PRIVATE);
+				int weight = prefs.getInt(Skr.SETTING_FRIEND_WEIGHT,
+						WEIGHT_DEFAULT);
+				int totalJumps = prefs.getInt(Skr.SETTING_FRIEND_TOTAL_JUMPS,
 						TOTALJUMPS_DEFAULT);
 				int jumpsLastMonth = prefs.getInt(
-						SETTING_FRIEND_LAST_12_MONTHS,
+						Skr.SETTING_FRIEND_LAST_12_MONTHS,
 						JUMPS_LAST_12_MONTHS_DEFAULT);
 				setSeekBars(weight - WEIGHT_MIN, totalJumps, jumpsLastMonth);
 				CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
@@ -539,12 +544,14 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		});
 		asOwn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				prefs = getSharedPreferences(KOMPASROOSPREFS,
-						Context.MODE_PRIVATE);
-				int weight = prefs.getInt(SETTING_OWN_WEIGHT, WEIGHT_DEFAULT);
-				int totalJumps = prefs.getInt(SETTING_OWN_TOTAL_JUMPS,
+				SharedPreferences prefs = getSharedPreferences(
+						Skr.KOMPASROOSPREFS, Context.MODE_PRIVATE);
+				int weight = prefs.getInt(Skr.SETTING_OWN_WEIGHT,
+						WEIGHT_DEFAULT);
+				int totalJumps = prefs.getInt(Skr.SETTING_OWN_TOTAL_JUMPS,
 						TOTALJUMPS_DEFAULT);
-				int jumpsLastMonth = prefs.getInt(SETTING_OWN_LAST_12_MONTHS,
+				int jumpsLastMonth = prefs.getInt(
+						Skr.SETTING_OWN_LAST_12_MONTHS,
 						JUMPS_LAST_12_MONTHS_DEFAULT);
 				setSeekBars(weight - WEIGHT_MIN, totalJumps, jumpsLastMonth);
 				CalculateActivity.this.removeDialog(RESET_DIALOG_ID);
@@ -624,19 +631,22 @@ public class CalculateActivity extends KompasroosBaseActivity {
 	 * Initialize the seekbars texts
 	 */
 	private void initSeekBarTextsAndCalculate() {
+		SharedPreferences prefs = getSharedPreferences(Skr.KOMPASROOSPREFS,
+				Context.MODE_PRIVATE);
 		// weight seek bar
 		SeekBar sbWeight = (SeekBar) findViewById(R.id.seekBarWeight);
-		int weightInKg = prefs.getInt(SETTING_WEIGHT, WEIGHT_DEFAULT);
+		int weightInKg = prefs.getInt(Skr.SETTING_WEIGHT, WEIGHT_DEFAULT);
 		sbWeight.setProgress(weightInKg - WEIGHT_MIN);
 
 		// total jumps seek bar
 		SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
-		int totalJumps = prefs.getInt(SETTING_TOTAL_JUMPS, TOTALJUMPS_DEFAULT);
+		int totalJumps = prefs.getInt(Skr.SETTING_TOTAL_JUMPS,
+				TOTALJUMPS_DEFAULT);
 		sbTotalJumps.setProgress(totalJumps);
 
 		// jumps last 12 months seek bar
 		SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
-		int jumpsLast12Months = prefs.getInt(SETTING_JUMPS_LAST_12_MONTHS,
+		int jumpsLast12Months = prefs.getInt(Skr.SETTING_JUMPS_LAST_12_MONTHS,
 				JUMPS_LAST_12_MONTHS_DEFAULT);
 		sbJumpsLast12Months.setProgress(jumpsLast12Months);
 
@@ -659,7 +669,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				// find matching seekbar
 				ViewGroup hList = (ViewGroup) v.getParent();
 				if (hList.getChildCount() != 3)
-					Log.e(LOG_TAG,
+					Log.e(Skr.LOG_TAG,
 							"Incorrect number of children in seekbargroup");
 				SeekBar sb = (SeekBar) hList.getChildAt(1);
 				int progress = sb.getProgress();
@@ -673,7 +683,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				// find matching seekbar
 				ViewGroup hList = (ViewGroup) v.getParent();
 				if (hList.getChildCount() != 3)
-					Log.e(LOG_TAG,
+					Log.e(Skr.LOG_TAG,
 							"Incorrect number of children in seekbargroup");
 				SeekBar sb = (SeekBar) hList.getChildAt(1);
 				int progress = sb.getProgress();
@@ -706,8 +716,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		public void onProgressChanged(SeekBar seekBar, int progress,
 				boolean fromUser) {
 			int weightInKg = progress + WEIGHT_MIN;
-			savePreference(SETTING_WEIGHT, weightInKg);
-			currentWeight = weightInKg;
+			Skr.savePreference(getApplicationContext(), Skr.SETTING_WEIGHT,
+					weightInKg);
+			Skr.currentWeight = weightInKg;
 			setWeightSettingText(weightInKg);
 			calculate();
 		}
@@ -729,8 +740,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		public void onProgressChanged(SeekBar seekBar, int progress,
 				boolean fromUser) {
-			savePreference(SETTING_TOTAL_JUMPS, progress);
-			currentTotalJumps = progress;
+			Skr.savePreference(getApplicationContext(),
+					Skr.SETTING_TOTAL_JUMPS, progress);
+			Skr.currentTotalJumps = progress;
 			setTotalJumpsSettingText(progress);
 			// check to see if jumps in last 12 months in not higher
 			SeekBar sbJumpsLast12Months = (SeekBar) findViewById(R.id.seekBarJumpsLast12Months);
@@ -759,8 +771,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		public void onProgressChanged(SeekBar seekBar, int progress,
 				boolean fromUser) {
-			savePreference(SETTING_JUMPS_LAST_12_MONTHS, progress);
-			currentJumpsLast12Months = progress;
+			Skr.savePreference(getApplicationContext(),
+					Skr.SETTING_JUMPS_LAST_12_MONTHS, progress);
+			Skr.currentJumpsLast12Months = progress;
 			setJumpsLast12MonthsSettingText(progress);
 			// check to see if jumps in last 12 months in not higher
 			SeekBar sbTotalJumps = (SeekBar) findViewById(R.id.seekBarTotalJumps);
@@ -837,9 +850,9 @@ public class CalculateActivity extends KompasroosBaseActivity {
 				R.drawable.canopyacceptable);
 
 		int areaAllowedOnCat = Calculation
-				.minAreaBasedOnCategory(currentMaxCategory);
+				.minAreaBasedOnCategory(Skr.currentMaxCategory);
 		boolean areaOrWingloadOutOfRange = area < Calculation.minArea(
-				currentMaxCategory, weightInKg);
+				Skr.currentMaxCategory, weightInKg);
 		tvArea.setText(String.format("%d", area));
 		if (area < areaAllowedOnCat)
 			tvArea.setBackgroundDrawable(backgroundRed);
@@ -849,7 +862,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 			tvArea.setBackgroundDrawable(backgroundGreen);
 
 		double maxWinloadAllowed = Calculation
-				.maxWingLoadBasedOnCategory(currentMaxCategory);
+				.maxWingLoadBasedOnCategory(Skr.currentMaxCategory);
 		tvWingLoad.setText(String.format("%.2f", wingload));
 		if (wingload > maxWinloadAllowed)
 			tvWingLoad.setBackgroundDrawable(backgroundRed);
@@ -914,8 +927,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 
 		// only update screen if there actually is a change, so seek bars
 		// respond quickly
-		if (KompasroosBaseActivity.currentMaxCategory != jumperCategory
-				|| KompasroosBaseActivity.currentMinArea != minArea) {
+		if (Skr.currentMaxCategory != jumperCategory
+				|| Skr.currentMinArea != minArea) {
 			TextView tvJumperCategory = (TextView) findViewById(R.id.textViewJumperCategory);
 			String jumperCatFormat = getString(R.string.categorySetting);
 			tvJumperCategory.setText(String.format(jumperCatFormat,
@@ -978,8 +991,8 @@ public class CalculateActivity extends KompasroosBaseActivity {
 						jumperCategory, minArea));
 
 			// save globally, to pass on in buttonClick
-			KompasroosBaseActivity.currentMaxCategory = jumperCategory;
-			KompasroosBaseActivity.currentMinArea = minArea;
+			Skr.currentMaxCategory = jumperCategory;
+			Skr.currentMinArea = minArea;
 
 			fillWingloadTable(weightInKg);
 			updateSpecificCanopyTable();

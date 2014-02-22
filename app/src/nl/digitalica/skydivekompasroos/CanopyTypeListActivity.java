@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -66,22 +67,25 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 				.getAllCanopyTypesInList(CanopyTypeListActivity.this);
 
 		// if sorting and filter were save over 1 day ago, clear them
-		int sortingFilterTime = prefs.getInt(SETTING_SORTING_FILTER_DAYNR, 0);
+		SharedPreferences prefs = getSharedPreferences(Skr.KOMPASROOSPREFS,
+				Context.MODE_PRIVATE);
+		int sortingFilterTime = prefs.getInt(Skr.SETTING_SORTING_FILTER_DAYNR,
+				0);
 		int currentTime = (int) (System.currentTimeMillis() / MILLISINDAY);
 		if (currentTime - sortingFilterTime > 7) {
 			Editor e = prefs.edit();
-			e.remove(SETTING_SORTING);
-			e.remove(SETTING_FILTER_TYPE);
+			e.remove(Skr.SETTING_SORTING);
+			e.remove(Skr.SETTING_FILTER_TYPE);
 			e.commit();
 		}
 
 		// get the saved sorting Method
-		int sortingMethodOrdinal = prefs.getInt(SETTING_SORTING,
+		int sortingMethodOrdinal = prefs.getInt(Skr.SETTING_SORTING,
 				SortingEnum.SORTBYNAME.ordinal());
 		this.currentSortingMethod = SortingEnum.values()[sortingMethodOrdinal];
 
 		// get the saved filter cat
-		int filterCatdOrdinal = prefs.getInt(SETTING_FILTER_TYPE,
+		int filterCatdOrdinal = prefs.getInt(Skr.SETTING_FILTER_TYPE,
 				FilterEnum.COMMONAROUNDMAX.ordinal());
 		this.currentFilterType = FilterEnum.values()[filterCatdOrdinal];
 
@@ -144,10 +148,13 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		Collections.sort(canopyTypeList, canopyComparator);
 
 		this.currentSortingMethod = sortingMethod;
-		savePreference(SETTING_SORTING, sortingMethod.ordinal());
+		Skr.savePreference(getApplicationContext(), Skr.SETTING_SORTING,
+				sortingMethod.ordinal());
 		this.currentFilterType = filterType;
-		savePreference(SETTING_FILTER_TYPE, filterType.ordinal());
-		savePreference(SETTING_SORTING_FILTER_DAYNR,
+		Skr.savePreference(getApplicationContext(), Skr.SETTING_FILTER_TYPE,
+				filterType.ordinal());
+		Skr.savePreference(getApplicationContext(),
+				Skr.SETTING_SORTING_FILTER_DAYNR,
 				(int) (System.currentTimeMillis() / MILLISINDAY));
 		canopyTypeTable.removeAllViewsInLayout();
 		skydiveKompasroosResultAccepted = new StringBuilder();
@@ -168,8 +175,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 					showThisCanopyType = false;
 			if (filterType == FilterEnum.COMMONAROUNDMAX)
 				if (!theCanopyType.commontype
-						|| category < currentMaxCategory - 1
-						|| category > currentMaxCategory + 1)
+						|| category < Skr.currentMaxCategory - 1
+						|| category > Skr.currentMaxCategory + 1)
 					showThisCanopyType = false;
 			// show the canopy type (and maybe headerline) if needed
 			if (showThisCanopyType) {
@@ -189,7 +196,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 					previousCat = category;
 				}
 				insertCanopyTypeRow(canopyTypeTable, theCanopyType,
-						currentMaxCategory, currentWeight);
+						Skr.currentMaxCategory, Skr.currentWeight);
 			}
 		}
 		String nl = System.getProperty("line.separator");
@@ -211,7 +218,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		case COMMONAROUNDMAX:
 			filterText.append(String.format(
 					getResources().getString(R.string.filterTypeAround),
-					currentMaxCategory) + nl);
+					Skr.currentMaxCategory) + nl);
 			break;
 		case ONLYCOMMON:
 			filterText.append(getResources().getString(
@@ -238,8 +245,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		String resultHeaderFormat = c
 				.getString(R.string.shareresultheaderformat);
 		String resultheader = String.format(resultHeaderFormat,
-				currentTotalJumps, currentJumpsLast12Months, currentWeight,
-				currentMaxCategory, currentMinArea);
+				Skr.currentTotalJumps, Skr.currentJumpsLast12Months,
+				Skr.currentWeight, Skr.currentMaxCategory, Skr.currentMinArea);
 
 		skydiveKompasroosResult.append(resultheader);
 		skydiveKompasroosResult.append(nl);
@@ -314,7 +321,7 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 		String canopyKey = v.getTag().toString();
 		Intent i = new Intent(getBaseContext(), CanopyDetailsActivity.class);
 		// TODO: remove extras as they will be in global vars...
-		i.putExtra(CANOPYIDEXTRA, canopyKey);
+		i.putExtra(Skr.CANOPYIDEXTRA, canopyKey);
 		startActivity(i);
 		overridePendingTransition(R.anim.right_in, R.anim.left_out);
 	}
@@ -359,8 +366,9 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 				}
 			});
 
-		hLayout.setBackgroundDrawable(backgroundDrawableForAcceptance(theCanopyType
-				.acceptablility(maxCategory, exitWeightInKg)));
+		hLayout.setBackgroundDrawable(Skr.backgroundForAcceptance(
+				getApplicationContext(),
+				theCanopyType.acceptablility(maxCategory, exitWeightInKg)));
 
 		// hLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 		// LayoutParams.WRAP_CONTENT));
@@ -406,7 +414,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 				+ theCanopyType.manufacturerName
 				+ System.getProperty("line.separator");
 
-		switch (theCanopyType.acceptablility(currentMaxCategory, currentWeight)) {
+		switch (theCanopyType.acceptablility(Skr.currentMaxCategory,
+				Skr.currentWeight)) {
 		case ACCEPTABLE:
 			skydiveKompasroosResultAccepted.append(shareResultLine);
 			break;
@@ -580,8 +589,8 @@ public class CanopyTypeListActivity extends KompasroosBaseActivity {
 
 	@Override
 	public void onBackPressed() {
-	    super.onBackPressed();
-	    overridePendingTransition(R.anim.left_in, R.anim.right_out);   
+		super.onBackPressed();
+		overridePendingTransition(R.anim.left_in, R.anim.right_out);
 	}
-	
+
 }

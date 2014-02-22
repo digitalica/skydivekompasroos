@@ -47,7 +47,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 		// get the id of the specific canopy we're working on, and tag it on
 		// delete and save buttons
 		Bundle b = getIntent().getExtras();
-		int specificCanopyId = b.getInt(SPECIFICCANOPYID_KEY);
+		int specificCanopyId = b.getInt(Skr.SPECIFICCANOPYID_KEY);
 		ImageButton saveSpecificCanopyButton = (ImageButton) findViewById(R.id.buttonSave);
 		ImageButton deleteButton = (ImageButton) findViewById(R.id.buttonDelete);
 		saveSpecificCanopyButton.setTag(specificCanopyId);
