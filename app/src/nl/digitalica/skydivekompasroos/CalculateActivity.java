@@ -15,7 +15,7 @@ public class CalculateActivity extends KompasroosBaseActivity {
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
 		CalculateFragment fragment = new CalculateFragment();
-		fragmentTransaction.add(R.id.fragment_container, fragment);
+		fragmentTransaction.add(R.id.fragment_container_calculate, fragment);
 		fragmentTransaction.commit();
 		
 	}

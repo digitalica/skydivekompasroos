@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/tablelayout_filterheader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/screen_padding_bottom"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:paddingTop="@dimen/screen_padding_top" >
+
+        <ImageButton
+            android:id="@+id/buttonEditFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/menu_filter"
+            android:src="@android:drawable/ic_menu_edit" />
+
+        <TextView
+            android:id="@+id/textview_filtersettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/empty"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/bodyText" >
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/buttonShareResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:contentDescription="@string/btnShareResult"
+            android:src="@android:drawable/ic_menu_share" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/SuzanBackGroundBlue"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/screen_padding_bottom"
+        android:paddingLeft="@dimen/screen_padding_left"
+        android:paddingRight="@dimen/screen_padding_right"
+        android:paddingTop="@dimen/screen_padding_top" >
+
+        <LinearLayout
+            android:id="@+id/tablelayout_canopytypelist"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+    <!--
+         Button
+        android:id="@+id/buttonShareResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:background="@drawable/btn_normal"
+        android:text="@string/btnShareResult"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/bodyText" /
+    -->
+
+</LinearLayout>
