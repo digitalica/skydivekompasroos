@@ -65,24 +65,16 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 	public CalculateFragment() {
 		// empty constructor
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_calculate, container, false);
-	}
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.activity_calculate);
-
-		setHasOptionsMenu(true);
+		View view = inflater.inflate(R.layout.fragment_calculate, container,
+				false);
 
 		// if compile date over 1 year ago, show warning text
-		TextView tvWarning = (TextView) getView().findViewById(
-				R.id.textViewWarning);
+		TextView tvWarning = (TextView) view.findViewById(R.id.textViewWarning);
 		String warning = "";
 		try {
 			long compilationDateTime = Skr.getCompileDateTime(getActivity()
@@ -98,14 +90,9 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 		}
 		tvWarning.setText(warning);
 
-		// initialize seek bars and calculated texts
-		initSeekBars();
-
-		fillSpecificCanopyTable();
-
 		// set click listener for canopy list button
-		ImageButton canopyListButton = (ImageButton) getView().findViewById(
-				R.id.buttonShowCanopyList);
+		ImageButton canopyListButton = (ImageButton) view
+				.findViewById(R.id.buttonShowCanopyList);
 		canopyListButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -117,8 +104,8 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 		});
 
 		// set click listener for about button
-		ImageButton aboutButton = (ImageButton) getView().findViewById(
-				R.id.buttonAbout);
+		ImageButton aboutButton = (ImageButton) view
+				.findViewById(R.id.buttonAbout);
 		aboutButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -130,8 +117,7 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 		});
 
 		// add click listener for allowed header
-		View filterHeader = getView().findViewById(
-				R.id.tablelayout_filterheader);
+		View filterHeader = view.findViewById(R.id.tablelayout_filterheader);
 		filterHeader.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -141,8 +127,8 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 		});
 
 		// set click listener for specific canopy add
-		Button addSpecificCanopy = (Button) getView().findViewById(
-				R.id.buttonAddSpecificCanopy);
+		Button addSpecificCanopy = (Button) view
+				.findViewById(R.id.buttonAddSpecificCanopy);
 		addSpecificCanopy.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
@@ -159,6 +145,25 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 
 		// Just for testing the canopy list
 		// canopyListButton.performClick();
+
+		return view;
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// initialize seek bars and calculated texts
+		initSeekBars();
+		fillSpecificCanopyTable();
+		super.onActivityCreated(savedInstanceState);
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+
+		super.onCreate(savedInstanceState);
+		// setContentView(R.layout.activity_calculate);
+
+		setHasOptionsMenu(true);
 	}
 
 	@Override
@@ -398,7 +403,9 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 	 */
 	private void initSeekBars() {
 		// weight seek bar
-		SeekBar sbWeight = (SeekBar) getView().findViewById(R.id.seekBarWeight);
+		View v1 = getView();
+		View v2 = v1.findViewById(R.id.seekBarWeight);
+		SeekBar sbWeight = (SeekBar) v2;
 		sbWeight.setMax(WEIGHT_MAX - WEIGHT_MIN);
 		sbWeight.setOnSeekBarChangeListener(seekBarChangeListenerWeight);
 		setPlusMinButtonListeners(sbWeight, R.id.buttonWeightMin,

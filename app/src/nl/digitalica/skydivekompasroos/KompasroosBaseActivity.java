@@ -22,7 +22,7 @@ import android.view.Window;
  * @author robbert
  * 
  */
-public class KompasroosBaseActivity extends Activity {
+public class KompasroosBaseActivity extends android.support.v4.app.FragmentActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
