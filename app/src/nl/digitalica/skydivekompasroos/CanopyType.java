@@ -43,7 +43,7 @@ public class CanopyType extends CanopyBase {
 	public boolean isSpecialCatchAllCanopy = false;
 
 	public CanopyType(UUID canopyId, int canopyCategory,
-			UUID canopyManufacturer, String canopyName, String canopyUrl,
+			UUID canopyManufacturerId, String canopyName, String canopyUrl,
 			String canopyCells, boolean canopyCommonType,
 			String canopyDropzoneId, String canopyMinSize,
 			String canopyMaxSize, String canopyFirstYearOfProduction,
@@ -51,7 +51,7 @@ public class CanopyType extends CanopyBase {
 			String canopyRemarks_nl, boolean isSpecialCatchAllCanopy) {
 		this.id = canopyId;
 		this.category = canopyCategory;
-		this.manufacturerId = canopyManufacturer;
+		this.manufacturerId = canopyManufacturerId;
 		this.name = canopyName;
 		this.url = canopyUrl;
 		this.cells = canopyCells;
@@ -65,19 +65,9 @@ public class CanopyType extends CanopyBase {
 		this.remarks_nl = canopyRemarks_nl;
 		this.isSpecialCatchAllCanopy = isSpecialCatchAllCanopy;
 
-		// to be able to have the special catch all canopy in
-		// both languages, we have the strings hard coded here,
-		// and not in the XML. Using strings doesn't work as
-		// we have no context here.
-		if (isSpecialCatchAllCanopy) {
-			this.manufacturerId = UUID
-					.fromString(Manufacturer.EVERYOTHERMANUFACTURERIDSTRING);
-			if (Calculation.isLanguageDutch()) {
-				this.name = "Elk ander type";
-			} else {
-				this.name = "Every other type";
-			}
-		}
+		HashMap<UUID, Manufacturer> m = Manufacturer.getManufacturerHash();
+		this.manufacturerName = m.get(canopyManufacturerId).name;;
+		this.manufacturerShortName = m.get(canopyManufacturerId).shortName;;
 	}
 
 	/***
@@ -197,9 +187,6 @@ public class CanopyType extends CanopyBase {
 
 	static public void init(Context c) {
 
-		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
-				.getManufacturerHash();
-
 		XmlResourceParser canopiesParser = c.getResources().getXml(
 				R.xml.canopies);
 		int eventType = -1;
@@ -231,11 +218,6 @@ public class CanopyType extends CanopyBase {
 							.split(" ")[0];
 					UUID canopyManufacturerId = UUID
 							.fromString(canopyManufacturerIdString);
-					String manufacturerName = manufacturers
-							.get(canopyManufacturerId).name;
-					String manufacturerShortName = manufacturers
-							.get(canopyManufacturerId).shortName;
-
 					String canopyName = canopiesParser.getAttributeValue(null,
 							"name");
 					String canopyUrl = canopiesParser.getAttributeValue(null,
@@ -275,10 +257,6 @@ public class CanopyType extends CanopyBase {
 							canopyFirstyearOfProduction,
 							canopyLastyearOfProduction, canopyRemarks,
 							canopyRemarks_nl, isSpecialCatchAllCanopy);
-					// TODO: maybe the assignment below should move to the
-					// constructor...
-					canopyType.manufacturerName = manufacturerName;
-					canopyType.manufacturerShortName = manufacturerShortName;
 					canopyList.add(canopyType);
 				}
 			}
