@@ -27,10 +27,11 @@ import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class CanopyTypeListFragment extends Fragment implements FilterDialogListener, SortDialogListener {
+public class CanopyTypeListFragment extends Fragment implements
+		FilterDialogListener, SortDialogListener {
 
 	public static String TAG = "canopyTypeList";
-	
+
 	public enum SortingEnum {
 		SORTBYNAME, SORTBYMANUFACTURER, SORTBYCATEGORY
 	}
@@ -92,7 +93,6 @@ public class CanopyTypeListFragment extends Fragment implements FilterDialogList
 				FilterEnum.COMMONAROUNDMAX.ordinal());
 		this.currentFilterType = FilterEnum.values()[filterCatdOrdinal];
 
-
 		// add on click handler to share button
 		ImageButton shareResultButton = (ImageButton) view
 				.findViewById(R.id.buttonShareResult);
@@ -142,7 +142,7 @@ public class CanopyTypeListFragment extends Fragment implements FilterDialogList
 		// TODO: store sorting so it is persistent (?)
 		fillCanopyTypeTable(canopyTypeTable, currentSortingMethod,
 				currentFilterType);
-		
+
 		super.onActivityCreated(savedInstanceState);
 	}
 
@@ -373,14 +373,13 @@ public class CanopyTypeListFragment extends Fragment implements FilterDialogList
 	private void insertCanopyTypeHeaderRow(LinearLayout canopyTable,
 			String header) {
 		String nl = System.getProperty("line.separator");
-		TextView canopyListHeader = new TextView(getActivity()
-				.getApplicationContext());
+		TextView canopyListHeader = new TextView(getActivity());
 		canopyListHeader.setText(nl + header);
 		canopyListHeader.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources()
 				.getDimension(R.dimen.canopylistHeader));
 
 		// create row, and add row to table
-		TableRow row = new TableRow(getActivity().getApplicationContext());
+		TableRow row = new TableRow(getActivity());
 		row.addView(canopyListHeader);
 		canopyTable.addView(row);
 	}
@@ -483,9 +482,7 @@ public class CanopyTypeListFragment extends Fragment implements FilterDialogList
 
 	public void setFilterType(FilterEnum filterType) {
 		currentFilterType = filterType;
-		fillCanopyTypeTable(
-				canopyTypeTable,
-				currentSortingMethod,
+		fillCanopyTypeTable(canopyTypeTable, currentSortingMethod,
 				currentFilterType);
 	}
 

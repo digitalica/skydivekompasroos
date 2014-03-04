@@ -14,7 +14,7 @@ public class CanopyTypeListActivity  extends KompasroosBaseActivity {
 			FragmentTransaction fragmentTransaction = fragmentManager
 					.beginTransaction();
 			CanopyTypeListFragment fragment = new CanopyTypeListFragment();
-			fragmentTransaction.add(R.id.fragment_container_canopytypelist, fragment);
+			fragmentTransaction.add(R.id.fragment_container_canopytypelist, fragment, CanopyTypeListFragment.TAG);
 			fragmentTransaction.commit();
 			
 		}
