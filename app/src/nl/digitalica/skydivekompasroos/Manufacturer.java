@@ -12,6 +12,8 @@ import android.util.Log;
 
 public class Manufacturer {
 
+	private static HashMap<UUID, Manufacturer> manufacturerHashMapCache = null;
+
 	final public static String EVERYOTHERMANUFACTURERIDSTRING = "FC2ACF4C-3E94-4401-92B3-70D41C20546B";
 
 	public UUID id;
@@ -43,7 +45,14 @@ public class Manufacturer {
 	 * 
 	 * @return
 	 */
-	static public HashMap<UUID, Manufacturer> getManufacturerHash(Context c) {
+	static public HashMap<UUID, Manufacturer> getManufacturerHash() {
+		if (manufacturerHashMapCache == null) {
+			throw new Error("manufacturers not initialized");
+		}
+		return manufacturerHashMapCache;
+	}
+
+	static public void init(Context c) {
 		XmlResourceParser manufacturersParser = c.getResources().getXml(
 				R.xml.manufacturers);
 		int eventType = -1;
@@ -92,8 +101,8 @@ public class Manufacturer {
 		Manufacturer eom = everyOtherManufacturer();
 		manufacturerHashMap.put(eom.id, eom);
 
-		// return the result
-		return manufacturerHashMap;
+		// save the result
+		manufacturerHashMapCache = manufacturerHashMap;
 	}
 
 	/***
@@ -137,8 +146,7 @@ public class Manufacturer {
 			return dutch ? "Nieuw Zeeland" : "New Zealand";
 		if (trimmedCountryCode.equals("es"))
 			return dutch ? "Spanje" : "Spain";
-		Log.e(Skr.LOG_TAG, "Unknown country code: "
-				+ countryCode);
+		Log.e(Skr.LOG_TAG, "Unknown country code: " + countryCode);
 		return countryCode;
 	}
 

@@ -177,7 +177,7 @@ public class CanopyType extends CanopyBase {
 	 * @param c
 	 * @return
 	 */
-	static public CanopyType getCanopy(UUID canopyId, Context c) {
+	static public CanopyType getCanopyType(UUID canopyId, Context c) {
 		CanopyType canopy = null;
 		List<CanopyType> canopyList = getCanopyTypesInList(canopyId, c);
 		if (canopyList.size() == 1)
@@ -219,7 +219,7 @@ public class CanopyType extends CanopyBase {
 	static public List<CanopyType> getCanopyTypesInList(UUID id, Context c) {
 
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
-				.getManufacturerHash(c);
+				.getManufacturerHash();
 
 		XmlResourceParser canopiesParser = c.getResources().getXml(
 				R.xml.canopies);
@@ -289,7 +289,7 @@ public class CanopyType extends CanopyBase {
 							&& isSpecialCatchAllCanopyString != null
 							&& Integer.parseInt(isSpecialCatchAllCanopyString) != 0)
 						isSpecialCatchAllCanopy = true;
-					CanopyType canopy = new CanopyType(canopyId,
+					CanopyType canopyType = new CanopyType(canopyId,
 							canopyCategory, canopyManufacturerId, canopyName,
 							canopyUrl, canopyCells, canopyCommonType,
 							canopyDropzoneId, canopyMinSize, canopyMaxSize,
@@ -298,12 +298,12 @@ public class CanopyType extends CanopyBase {
 							canopyRemarks_nl, isSpecialCatchAllCanopy);
 					// TODO: maybe the assignment below should move to the
 					// constructor...
-					canopy.manufacturerName = manufacturerName;
-					canopy.manufacturerShortName = manufacturerShortName;
+					canopyType.manufacturerName = manufacturerName;
+					canopyType.manufacturerShortName = manufacturerShortName;
 					if (id == null)
-						canopyList.add(canopy);
-					else if (canopy.id.equals(id)) {
-						canopyList.add(canopy);
+						canopyList.add(canopyType);
+					else if (canopyType.id.equals(id)) {
+						canopyList.add(canopyType);
 						return canopyList;
 					}
 				}

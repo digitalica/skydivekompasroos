@@ -28,6 +28,8 @@ public class KompasroosBaseActivity extends android.support.v4.app.FragmentActiv
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		Manufacturer.init(getApplicationContext());
 	}
 
 }
