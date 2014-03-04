@@ -30,6 +30,7 @@ public class KompasroosBaseActivity extends android.support.v4.app.FragmentActiv
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		Manufacturer.init(getApplicationContext());
+		CanopyType.init(getApplicationContext());
 	}
 
 }

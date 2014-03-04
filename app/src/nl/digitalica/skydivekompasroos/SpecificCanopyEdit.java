@@ -25,7 +25,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 		setContentView(R.layout.activity_specific_canopy_edit);
 
 		List<CanopyType> canopyTypesWithSpecialType = CanopyType
-				.getAllCanopyTypesInList(SpecificCanopyEdit.this);
+				.getCanopyTypesInList();
 		List<CanopyType> canopyTypes = new ArrayList<CanopyType>();
 		for (CanopyType type : canopyTypesWithSpecialType)
 			if (!type.isSpecialCatchAllCanopy)
@@ -66,8 +66,7 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 			EditText etRemarks = (EditText) findViewById(R.id.editTextRemarks);
 			SpecificCanopy spc = SpecificCanopy.getSpecificCanopy(
 					SpecificCanopyEdit.this, specificCanopyId);
-			CanopyType ct = CanopyType.getCanopyType(spc.typeId,
-					SpecificCanopyEdit.this);
+			CanopyType ct = CanopyType.getCanopyTypeHash().get(spc.typeId);
 			etSize.setText(Integer.toString(spc.size));
 			int position = adapter.getPosition(ct.specificName());
 			spType.setSelection(position);
@@ -100,13 +99,14 @@ public class SpecificCanopyEdit extends KompasroosBaseActivity {
 				try {
 					size = Integer.parseInt(etSize.getText().toString());
 				} catch (NumberFormatException e) {
-					Toast numberError = Toast.makeText(getApplicationContext(), "Area not correct", Toast.LENGTH_LONG);
+					Toast numberError = Toast.makeText(getApplicationContext(),
+							"Area not correct", Toast.LENGTH_LONG);
 					numberError.show();
 					return;
 				}
 				String typeSpecificName = (String) spType.getSelectedItem();
 				List<CanopyType> canopyTypes = CanopyType
-						.getAllCanopyTypesInList(SpecificCanopyEdit.this);
+						.getCanopyTypesInList();
 				UUID typeId = null;
 				for (CanopyType ct : canopyTypes)
 					if (typeSpecificName.equals(ct.specificName()))

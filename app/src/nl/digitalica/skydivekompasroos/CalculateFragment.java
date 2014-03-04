@@ -188,7 +188,7 @@ public class CalculateFragment extends Fragment implements ResetDialogListener
 				.getSpecificCanopiesInList(getActivity()
 						.getApplicationContext());
 		HashMap<UUID, CanopyType> canopyTypes = CanopyType
-				.getCanopyTypeHash(getActivity().getApplicationContext());
+				.getCanopyTypeHash();
 		for (SpecificCanopy theCanopy : scList) {
 			CanopyType ct = canopyTypes.get(theCanopy.typeId);
 			insertSpecificCanopyRow(scTable, theCanopy, ct.name,

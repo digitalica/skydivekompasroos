@@ -14,6 +14,9 @@ import android.content.res.XmlResourceParser;
 
 public class CanopyType extends CanopyBase {
 
+	private static List<CanopyType> canopyListCache = null;
+	private static HashMap<UUID, CanopyType> canopyTypesHashCache = null;
+
 	final public static String EVERYOTHERCANOPYIDSTRING = "5E4D5563-2196-4EC2-8558-0491082D0626";
 
 	final public static String DEFAULTSIZE = "170";
@@ -171,52 +174,28 @@ public class CanopyType extends CanopyBase {
 	}
 
 	/**
-	 * Return a specific canopy based on its id
-	 * 
-	 * @param canopyId
-	 * @param c
-	 * @return
-	 */
-	static public CanopyType getCanopyType(UUID canopyId, Context c) {
-		CanopyType canopy = null;
-		List<CanopyType> canopyList = getCanopyTypesInList(canopyId, c);
-		if (canopyList.size() == 1)
-			canopy = canopyList.get(0);
-		return canopy;
-	}
-
-	/**
 	 * Return all canopyTypes as a hashmap based on their id.
 	 * 
 	 * @param c
 	 * @return
 	 */
-	static public HashMap<UUID, CanopyType> getCanopyTypeHash(Context c) {
-		List<CanopyType> canopyTypesList = getAllCanopyTypesInList(c);
-		HashMap<UUID, CanopyType> canopyTypes = new HashMap<UUID, CanopyType>();
-		for (CanopyType ct : canopyTypesList) {
-			canopyTypes.put(ct.id, ct);
+	static public HashMap<UUID, CanopyType> getCanopyTypeHash() {
+		return canopyTypesHashCache;
+	}
+
+	/***
+	 * Reads the canopy with a specific id (or all, if id is null) in a list.
+	 * 
+	 * @return
+	 */
+	static public List<CanopyType> getCanopyTypesInList() {
+		if (canopyListCache == null) {
+			throw new Error("canopytypes not initialized");
 		}
-		return canopyTypes;
+		return canopyListCache;
 	}
 
-	/***
-	 * Reads a specific canopies from the XML in a list. This is ok as the
-	 * number will always be limited anyway
-	 * 
-	 * @return
-	 */
-	static public List<CanopyType> getAllCanopyTypesInList(Context c) {
-		return getCanopyTypesInList(null, c);
-	}
-
-	/***
-	 * Reads the canopy with a specific id (or all, if id is null) from the XML
-	 * in a list.
-	 * 
-	 * @return
-	 */
-	static public List<CanopyType> getCanopyTypesInList(UUID id, Context c) {
+	static public void init(Context c) {
 
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash();
@@ -300,12 +279,7 @@ public class CanopyType extends CanopyBase {
 					// constructor...
 					canopyType.manufacturerName = manufacturerName;
 					canopyType.manufacturerShortName = manufacturerShortName;
-					if (id == null)
-						canopyList.add(canopyType);
-					else if (canopyType.id.equals(id)) {
-						canopyList.add(canopyType);
-						return canopyList;
-					}
+					canopyList.add(canopyType);
 				}
 			}
 			try {
@@ -324,7 +298,15 @@ public class CanopyType extends CanopyBase {
 		canopyList.add(eoc);
 
 		// return the result
-		return canopyList;
+		canopyListCache = canopyList;
+
+		// now init hash too
+		HashMap<UUID, CanopyType> canopyTypesHash = new HashMap<UUID, CanopyType>();
+		for (CanopyType ct : canopyListCache) {
+			canopyTypesHash.put(ct.id, ct);
+		}
+		canopyTypesHashCache = canopyTypesHash;
+
 	}
 
 	/***
@@ -351,7 +333,8 @@ public class CanopyType extends CanopyBase {
 			if (c2.isSpecialCatchAllCanopy)
 				return -1;
 			if (c1.category != c2.category)
-				return c1.calculationCategory() < c2.calculationCategory() ? -1 : 1;
+				return c1.calculationCategory() < c2.calculationCategory() ? -1
+						: 1;
 			int result = c1.name.compareTo(c2.name);
 			if (result != 0)
 				return result;
@@ -398,7 +381,8 @@ public class CanopyType extends CanopyBase {
 			if (c1.manufacturerName != c2.manufacturerName)
 				return c1.manufacturerName.compareTo(c2.manufacturerName);
 			if (c1.category != c2.category)
-				return c1.calculationCategory() < c2.calculationCategory() ? -1 : 1;
+				return c1.calculationCategory() < c2.calculationCategory() ? -1
+						: 1;
 			return c1.name.compareTo(c2.name);
 		}
 	}

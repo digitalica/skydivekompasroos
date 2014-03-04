@@ -28,7 +28,7 @@ public class CanopyDetailsActivity extends KompasroosBaseActivity {
 		HashMap<UUID, Manufacturer> manufacturers = Manufacturer
 				.getManufacturerHash();
 
-		currentCanopy = CanopyType.getCanopyType(canopyId, this);
+		currentCanopy = CanopyType.getCanopyTypeHash().get(canopyId);
 		currentManufacturer = manufacturers.get(currentCanopy.manufacturerId);
 
 		String url = currentManufacturer.url;

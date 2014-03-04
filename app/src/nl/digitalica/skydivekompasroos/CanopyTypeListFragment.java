@@ -136,8 +136,7 @@ public class CanopyTypeListFragment extends Fragment implements
 		canopyTypeTable = (LinearLayout) getView().findViewById(
 				R.id.tablelayout_canopytypelist);
 
-		canopyTypeList = CanopyType.getAllCanopyTypesInList(getActivity()
-				.getApplicationContext());
+		canopyTypeList = CanopyType.getCanopyTypesInList();
 
 		// TODO: store sorting so it is persistent (?)
 		fillCanopyTypeTable(canopyTypeTable, currentSortingMethod,
