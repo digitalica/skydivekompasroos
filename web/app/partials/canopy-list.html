@@ -1,27 +1,22 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
+canopylist start
 
-      Search: <input ng-model="query">
       Sort by:
       <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
+        <option value="sort_category">Category</option>
+        <option value="sort_name">Alphabetical</option>
+        <option value="sort_manufacturer">manufacturer</option>
       </select>
+      <br>
 
-    </div>
-    <div class="col-md-10">
-      <!--Body content-->
-
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
-
-    </div>
-  </div>
-</div>
+<ul ng-repeat='canopy in data.canopies | orderBy:orderProp'>
+  <li>
+      <a href='#/canopy-detail/{{canopy.id}}'>
+        <div class='canopy-list-category'>{{canopy.category}}</div>
+        <div class='canopy-list-detail'>
+        {{canopy.name}}<br>
+        {{(canopy.manufacturer.name)}}<br>
+        </div>
+    </a>
+  </li>
+</ul>
+canopylist end

@@ -16,7 +16,7 @@ skydivekompasroosApp.config(['$routeProvider',
         templateUrl: 'partials/canopy-list.html',
         controller: 'CanopyListController'
       }).
-      when('/canopy-detail/:canopyId', {
+      when('/canopy-detail/:phoneId', {
         templateUrl: 'partials/canopy-detail.html',
         controller: 'CanopyDetailController'
       }).

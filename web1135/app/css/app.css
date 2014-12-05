@@ -1,0 +1,11 @@
+.canopy-list-category {
+	font-size: 32pt;
+	float: left;
+	display: inline-block;
+}
+}
+
+.canopy-list-detail {
+	font-size: 16pt;
+	display: inline-block;
+}

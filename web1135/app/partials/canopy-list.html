@@ -1,0 +1,13 @@
+canopylist start
+<ul ng-repeat='canopy in canopies'>
+  <li>
+      <a href='#/canopy-detail/{{canopy.id}}'>
+        <div class='canopy-list-category'>{{canopy.category}}</div>
+        <div class='canopy-list-detail'>
+        {{canopy.name}}<br>
+        {{canopy.manufacturer.name}}<br>
+        </div>
+    </a>
+  </li>
+</ul>
+canopylist end

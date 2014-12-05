@@ -5,22 +5,22 @@
 var skydivekompasroosApp = angular.module('skydivekompasroosApp', [
   'ngRoute',
   'kompasroosControllers',
-//  'kompasroosFilters',
+  'kompasroosFilters',
   'kompasroosServices'
 ]);
 
-skydivekompasroosApp.config(['$routeProvider',
+phonecatApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/canopy-list', {
+      when('/phones', {
         templateUrl: 'partials/canopy-list.html',
-        controller: 'CanopyListController'
+        controller: 'CanopyListCtrl'
       }).
-      when('/canopy-detail/:canopyId', {
+      when('/phones/:phoneId', {
         templateUrl: 'partials/canopy-detail.html',
-        controller: 'CanopyDetailController'
+        controller: 'CanopyDetailCtrl'
       }).
       otherwise({
-        redirectTo: '/canopy-list'
+        redirectTo: '/canopies'
       });
   }]);
