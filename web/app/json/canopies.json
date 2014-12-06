@@ -1,4 +1,5 @@
-[
+{ 
+    "canopies": [
       {
         "id": "CB50EA97-DACF-4CCB-9D09-BA89C6C4B967",
         "name": "Navigator",
@@ -1367,3 +1368,4 @@
         "manufacturerid": "6C76AE26-F763-4536-AA22-2C4C8326804D"
       }
     ]
+}

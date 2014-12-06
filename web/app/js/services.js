@@ -7,17 +7,17 @@ var kompasroosServices = angular.module('kompasroosServices', ['ngResource']);
 
 kompasroosServices.factory('KompasroosData', ['$resource', function($resource) {
     var kompasroosdata = {};
-    var manufacturers = $resource('json/manufacturers.json').query(
+    var manufacturersResource = $resource('json/manufacturers.json').get(
         function() {
-            kompasroosdata.manufacturers = manufacturers;
+            kompasroosdata.manufacturers = manufacturersResource.manufacturers;
             kompasroosdata.manufacturersById = [];
             for (var mid in kompasroosdata.manufacturers ) {
                 var manufacturer = kompasroosdata.manufacturers[mid];
                 kompasroosdata.manufacturersById[manufacturer.id] = manufacturer;
             }
-            var canopies = $resource('json/canopies.json').query(
+            var canopiesResource = $resource('json/canopies.json').get(
                 function() {
-                    kompasroosdata.canopiesFromFile = canopies;
+                    kompasroosdata.canopiesFromFile = canopiesResource.canopies;
                     kompasroosdata.canopies = [];
                     kompasroosdata.canopiesById = [];
                     for (var cid in kompasroosdata.canopiesFromFile ) {
