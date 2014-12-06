@@ -8,3 +8,7 @@
 	font-size: 16pt;
 	display: inline-block;
 }
+
+ul li {
+    list-style-type: none;
+}
