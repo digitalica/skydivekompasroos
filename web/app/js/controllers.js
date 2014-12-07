@@ -9,7 +9,27 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
 
     $scope.data = KompasroosData;
 
-    $scope.orderProp = 'sort_category';
+    $scope.category = 2;
+    $scope.order = 'sort_category';
+    $scope.filter = 'filt_close';
+    
+    $scope.sortkey = function(canopy) {
+        var $result = canopy.name;
+        switch ($scope.order) {
+            case 'sort_name':
+                $result = canopy.name;
+                break;
+            case 'sort_category':
+                $result = String(canopy.category) + canopy.manufacturer.name + canopy.name;
+                break;
+            case 'sort_manufacturer':
+                $result = canopy.manufacturer.name + canopy.name;
+                break;
+        }
+        return $result;
+    };
+    
+    
   }]);
 
 kompasroosControllers.controller('CanopyDetailController', ['$scope', '$routeParams', 'KompasroosData',

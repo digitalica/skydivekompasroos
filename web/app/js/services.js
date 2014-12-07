@@ -36,9 +36,6 @@ kompasroosServices.factory('KompasroosData', ['$resource', function($resource) {
         "minsize": org.minsize
                         }
                         canopy.manufacturer = kompasroosdata.manufacturersById[canopy.manufacturerid];
-                        canopy.sort_name = canopy.name;
-                        canopy.sort_category = String(canopy.category) + canopy.manufacturer.name + canopy.name;
-                        canopy.sort_manufacturer = canopy.manufacturer.name + canopy.name;
                         kompasroosdata.canopies.push(canopy);
                         kompasroosdata.canopiesById[canopy.id] = canopy;
                     }

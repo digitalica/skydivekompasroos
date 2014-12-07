@@ -1,20 +1,44 @@
 canopylist start
 
+      Category:
+      <select ng-model="category">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <br>
+
+      Filter by:
+      <select ng-model="filter">
+        <option value="filt_close">Gangbare parachutes rond hoogste cat</option>
+        <option value="filt_common">Gangbare parachutes</option>
+        <option value="filt_all">Alle parachutes</option>
+      </select>
+      <br>
+
+
       Sort by:
-      <select ng-model="orderProp">
+      <select ng-model="order">
         <option value="sort_category">Category</option>
         <option value="sort_name">Alphabetical</option>
         <option value="sort_manufacturer">manufacturer</option>
       </select>
       <br>
 
-<ul ng-repeat='canopy in data.canopies | orderBy:orderProp'>
+<ul ng-repeat='canopy in data.canopies | orderBy:sortkey'>
   <li>
       <a href='#/canopy-detail/{{canopy.id}}'>
         <div class='canopy-list-category'>{{canopy.category}}</div>
-        <div class='canopy-list-detail'>
-        {{canopy.name}}<br>
-        {{(canopy.manufacturer.name)}}<br>
+        <div class='canopy-list-detail' ng-switch="order">
+            <div>{{canopy.name}}</div>
+            <div ng-switch-when="sort_category">{{canopy.manufacturer.name}}</div>
+            <div ng-switch-when="sort_name">{{canopy.manufacturer.name}}</div>
+            <div ng-switch-when="sort_manufacturer">{{canopy.cells}} Cellen,
+            <span>{{canopy.minsize}} tot {{canopy.maxsize}} sqft.</span>
+            </div>
         </div>
     </a>
   </li>
