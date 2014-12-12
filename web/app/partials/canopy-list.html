@@ -28,12 +28,18 @@ canopylist start
       </select>
       <br>
 
-<ul ng-repeat='canopy in data.canopies | orderBy:sortkey'>
+<ul ng-repeat='canopy in data.canopies | filter: canopyFilter | orderBy:sortkey'>
+  <li ng-if="order=='sort_manufacturer' && canopy.manufacturer.name!=canopy_prev.manufacturer.name">
+      {{canopy.manufacturer.name}}
+  </li>
+  <li ng-if="order=='sort_category' && canopy.category!=canopy_prev.category">
+      Category: {{canopy.category}}
+  </li>
   <li>
       <a href='#/canopy-detail/{{canopy.id}}'>
-        <div class='canopy-list-category'>{{canopy.category}}</div>
+        <div ng-if="order!='sort_category'" class='canopy-list-category'>{{canopy.category}}</div>
         <div class='canopy-list-detail' ng-switch="order">
-            <div>{{canopy.name}}</div>
+            <div>{{canopy.name}} [ {{canopy_prev.name}} ]</div>
             <div ng-switch-when="sort_category">{{canopy.manufacturer.name}}</div>
             <div ng-switch-when="sort_name">{{canopy.manufacturer.name}}</div>
             <div ng-switch-when="sort_manufacturer">{{canopy.cells}} Cellen,

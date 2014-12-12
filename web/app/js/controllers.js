@@ -29,6 +29,29 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
         return $result;
     };
     
+    $scope.canopyFilter = function(canopy) {
+        switch($scope.filter) {
+            case 'filt_close':
+                if (canopy.commontype != 1) {
+                    return false;
+                }
+                if (canopy.category < $scope.category-1) {
+                    return false;
+                }
+                if (canopy.category > $scope.category+1) {
+                    return false;
+                }
+                return true;
+                break;
+            case 'filt_common':
+                return canopy.commontype == 1;
+                break;
+            case 'filt_all':
+                return true;
+                break;
+        }
+    };
+
     
   }]);
 
