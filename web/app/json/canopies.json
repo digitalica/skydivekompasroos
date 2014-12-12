@@ -286,7 +286,7 @@
         "name": "Manta",
         "category": "1",
         "cells": "9",
-        "commontype": "0",
+        "commontype": "1",
         "manufacturerid": "97C58924-5A47-4306-B8D4-E6A932E25A9F",
         "maxsize": "290",
         "minsize": "290"

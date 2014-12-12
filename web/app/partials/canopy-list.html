@@ -1,6 +1,9 @@
 canopylist start
-
-      Category:
+<div>
+<div class='table'>
+<div class='tabrow'>
+      Category:<br>
+    <div class='tabcell'>
       <select ng-model="category">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -9,24 +12,34 @@ canopylist start
         <option value="5">5</option>
         <option value="6">6</option>
       </select>
-      <br>
+    </div>
+    <div class='tabcell'>
+      <span ng-model="jumps">{{jumps}}</span><br>
+      <span ng-model="jumpstlastyear">{{jumpslastyear}}</span><br>
+      <span ng-model="weight">{{weight}}</span>
+    </div>
 
-      Filter by:
+<div class='tabcell'>
+      Filter by:<br>
       <select ng-model="filter">
         <option value="filt_close">Gangbare parachutes rond hoogste cat</option>
         <option value="filt_common">Gangbare parachutes</option>
         <option value="filt_all">Alle parachutes</option>
       </select>
       <br>
+</div>
 
-
-      Sort by:
+<div class='tabcell'>
+      Sort by:<br>
       <select ng-model="order">
         <option value="sort_category">Category</option>
         <option value="sort_name">Alphabetical</option>
         <option value="sort_manufacturer">manufacturer</option>
       </select>
       <br>
+</div>
+</div>
+</div>
 
 <ul ng-repeat='canopy in data.canopies | filter: canopyFilter | orderBy:sortkey'>
   <li ng-if="order=='sort_manufacturer' && canopy.manufacturer.name!=canopy_prev.manufacturer.name">
@@ -39,7 +52,7 @@ canopylist start
       <a href='#/canopy-detail/{{canopy.id}}'>
         <div ng-if="order!='sort_category'" class='canopy-list-category'>{{canopy.category}}</div>
         <div class='canopy-list-detail' ng-switch="order">
-            <div>{{canopy.name}} [ {{canopy_prev.name}} ]</div>
+            <div>{{canopy.name}}</div>
             <div ng-switch-when="sort_category">{{canopy.manufacturer.name}}</div>
             <div ng-switch-when="sort_name">{{canopy.manufacturer.name}}</div>
             <div ng-switch-when="sort_manufacturer">{{canopy.cells}} Cellen,

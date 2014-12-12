@@ -9,10 +9,14 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
 
     $scope.data = KompasroosData;
 
+    $scope.jumps = 300;
+    $scope.jumpslastyear = 25;
+    $scope.weight = 80;
     $scope.category = 2;
     $scope.order = 'sort_category';
     $scope.filter = 'filt_close';
     
+    // sortkey geeft de juiste sortering terug, afhankelijk van de gekozen volgorder
     $scope.sortkey = function(canopy) {
         var $result = canopy.name;
         switch ($scope.order) {
@@ -28,7 +32,8 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
         }
         return $result;
     };
-    
+
+    // canopyFilter geeft true of false, afhankelijk van of deze koepel getoond moet worden
     $scope.canopyFilter = function(canopy) {
         switch($scope.filter) {
             case 'filt_close':

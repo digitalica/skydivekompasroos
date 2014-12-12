@@ -12,3 +12,17 @@
 ul li {
     list-style-type: none;
 }
+
+.tab {
+    display: table;
+    width: 100%;
+}
+
+.tabcell {
+    display: table-cell;
+}
+
+.tabrow {
+    display: table-row;
+    width: 100%;
+}
