@@ -592,7 +592,18 @@
         "minsize": "97",
         "planform": "5.4",
         "planformcells": "6",
-        "url": "http://www.performancedesigns.com/sabre2.asp"
+        "url": "http://www.performancedesigns.com/sabre2.asp",
+        "youtube": [
+            {   "title": "PD Sabre 2 promo",
+                "id": "VKxMN8C3TtE" },
+            {   "title": "PD Sabre 2 pro pack door Nick Grillet 1/3",
+                "id": "vhEHdKemr1M" },
+            {   "title": "PD Sabre 2 pro pack door Nick Grillet 2/3",
+                "id": "jqNsFPbKIw8" },
+            {   "title": "PD Sabre 2 pro pack door Nick Grillet 3/3",
+                "id": "pHSpnXCShs0" }
+        ]
+        
       },
       {
         "id": "1EE39B10-69B0-4434-BCA1-5A26BADAFD27",
@@ -618,7 +629,11 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "230",
         "minsize": "97",
-        "url": "http://www.performancedesigns.com/storm.asp"
+        "url": "http://www.performancedesigns.com/storm.asp",
+        "youtube": [
+            {   "title": "PD Storm promo",
+                "id": "pO8dlRu24Kc" }
+        ]
       },
       {
         "id": "8A64E433-8856-4329-9B5E-2BF6F2D37632",

@@ -33,7 +33,8 @@ kompasroosServices.factory('KompasroosData', ['$resource', function($resource) {
         "lastyearofproduction": org.lastyearofproduction,
         "manufacturerid": org.manufacturerid,
         "maxsize": org.maxsize,
-        "minsize": org.minsize
+        "minsize": org.minsize,
+        "youtube": org.youtube
                         }
                         canopy.manufacturer = kompasroosdata.manufacturersById[canopy.manufacturerid];
                         kompasroosdata.canopies.push(canopy);

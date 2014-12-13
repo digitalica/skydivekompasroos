@@ -2,11 +2,18 @@
       <br>
         <div class='canopy-detail-category'>{{canopy.category}}</div>
         <div class='canopy-detail-detail'>
-        <div ng-show="canopy.name">Name: {{canopy.name}}</div>
-        <div ng-show="canopy.cells">Cells: {{canopy.cells}}</div>
-        <div ng-show="canopy.firstyearofproduction">First year of production: {{canopy.firstyearofproduction}}</div>
-        <div ng-show="canopy.lastyearofproduction">Last year of production: {{canopy.lastyearofproduction}}</div>
-        <div ng-show="canopy.maxsize">Maximum size: {{canopy.maxsize}}</div>
-        <div ng-show="canopy.minsize">Minimum size: {{canopy.minsize}}</div>
+            <div ng-show="canopy.name">Name: {{canopy.name}}</div>
+            <div ng-show="canopy.cells">Cells: {{canopy.cells}}</div>
+            <div ng-show="canopy.firstyearofproduction">First year of production: {{canopy.firstyearofproduction}}</div>
+            <div ng-show="canopy.lastyearofproduction">Last year of production: {{canopy.lastyearofproduction}}</div>
+            <div ng-show="canopy.maxsize">Maximum size: {{canopy.maxsize}}</div>
+            <div ng-show="canopy.minsize">Minimum size: {{canopy.minsize}}</div>
+        </div>
+        
+        <div ng-repeat="movie in canopy.youtube">
+        <h2>{{movie.title}}</h2>
+        <iframe id="ytplayer" type="text/html" width="640" height="390"
+  ng-src="http://www.youtube.com/embed/{{movie.id}}?autoplay=1&origin=http://example.com"
+  frameborder="0"/>
         </div>
 
