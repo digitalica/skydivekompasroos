@@ -9,6 +9,8 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
 
     $scope.data = KompasroosData;
 
+    $scope.angularversion = angular.version;
+
     $scope.jumps = 300;
     $scope.jumpslastyear = 25;
     $scope.weight = 80;

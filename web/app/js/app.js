@@ -5,7 +5,7 @@
 var skydivekompasroosApp = angular.module('skydivekompasroosApp', [
   'ngRoute',
   'kompasroosControllers',
-//  'kompasroosFilters',
+  'kompasroosFilters',
   'kompasroosServices'
 ]);
 
