@@ -41,7 +41,12 @@ canopylist start
 </div>
 </div>
 
-<ul ng-repeat='canopy in data.canopies | filter: canopyFilter | orderBy:sortkey'>
+Zoek: <input type="text" ng-model="search.name">
+
+<br>
+<br>
+
+<ul ng-repeat='canopy in data.canopies | filter:canopyFilter | filter:search | orderBy:sortkey'>
   <li ng-if="order=='sort_manufacturer' && canopy.manufacturer.name!=canopy_prev.manufacturer.name">
       {{canopy.manufacturer.name}}
   </li>
