@@ -15,6 +15,8 @@
         <div ng-bind-html="movie.id | iframeyoutube"></div>
         </div>
 
+
+<h2>Andere koepels van {{canopy.manufacturer.name}}</h2>
         <ul>
 <li ng-repeat="canopy in data.canopies | filter: canopyFilter | orderBy:sortkey">
       <a href='#/canopy-detail/{{canopy.id}}'>
