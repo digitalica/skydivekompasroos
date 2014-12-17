@@ -1381,6 +1381,24 @@
         "commontype": "0",
         "dropzoneid": "473",
         "manufacturerid": "6C76AE26-F763-4536-AA22-2C4C8326804D"
+      },
+      {
+        "id": "23498D9C-045C-4D99-AAD7-E01CFDBC717B",
+        "name": "Valkyrie",
+        "category": "6",
+        "cells": "9",
+        "commontype": "0",
+        "dropzoneid": "267",
+        "firstyearofproduction": "2014",
+        "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
+        "maxsize": "103",
+        "minsize": "67",
+        "url": "http://www.performancedesigns.com/valkyrie.aspx",
+        "youtube": [
+            {   "title": "PD Valkyrie promo",
+                "id": "LJr70PKbgOE" }
+        ]
+        
       }
     ]
 }
