@@ -1,13 +1,43 @@
       <a href='#/canopy-list'>back</a>
       <br>
-        <div class='canopy-detail-category'>{{canopy.category}}</div>
-        <div class='canopy-detail-detail'>
-            <div ng-show="canopy.name">Name: {{canopy.name}} <i ng-show='discontinued(canopy)' class="fa fa-chain-broken"></i></div>
-            <div ng-show="canopy.cells">Cells: {{canopy.cells}}</div>
-            <div ng-show="canopy.firstyearofproduction">First year of production: {{canopy.firstyearofproduction}}</div>
-            <div ng-show="canopy.lastyearofproduction">Last year of production: {{canopy.lastyearofproduction}}</div>
-            <div ng-show="canopy.maxsize">Maximum size: {{canopy.maxsize}}</div>
-            <div ng-show="canopy.minsize">Minimum size: {{canopy.minsize}}</div>
+        <div class='canopy-detail-category table'>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.category">Categorie:</div>
+            <div class='tabcell' ng-show="canopy.category">{{canopy.category}}</div>
+        </div>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.manufacturer.name">Fabrikant:</div>
+            <div class='tabcell' ng-show="canopy.manufacturer.name">
+                {{canopy.manufacturer.name}}
+                <span ng-show='canopy.manufacturer.url'><a ng-href='{{canopy.manufacturer.url}}' target='_blank'><i class='fa fa-external-link'>website</i></a></span>
+            </div>
+        </div>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.name">Name:</div>
+            <div class='tabcell' ng-show="canopy.name">{{canopy.name}}
+                <i ng-show='discontinued(canopy)' class="fa fa-chain-broken"></i>
+                <span ng-show='canopy.url'><a ng-href='{{canopy.url}}' target='_blank'><i class='fa fa-external-link'>website</i></a></span>
+            </div>
+        </div>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.cells">Cells:</div>
+            <div class='tabcell' ng-show="canopy.cells">{{canopy.cells}}</div>
+        </div>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.firstyearofproduction">First year of production:</div>
+            <div class='tabcell' ng-show="canopy.firstyearofproduction">{{canopy.firstyearofproduction}}</div>
+        </div>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.lastyearofproduction">Last year of production:</div>
+            <div class='tabcell' ng-show="canopy.lastyearofproduction">{{canopy.lastyearofproduction}}</div>
+        </div>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.maxsize">Maximum size:</div>
+            <div class='tabcell' ng-show="canopy.maxsize">{{canopy.maxsize}}</div>
+        </div>
+        <div class='canopy-detail-detail tabrow'>
+            <div class='tabcell' ng-show="canopy.minsize">Minimum size:</div>
+            <div class='tabcell' ng-show="canopy.minsize">{{canopy.minsize}}</div>
         </div>
         
         <div ng-repeat="movie in canopy.youtube">
@@ -16,7 +46,7 @@
         </div>
 
 
-<h2>Andere koepels van {{canopy.manufacturer.name}}</h2>
+<h1>Andere koepels van {{canopy.manufacturer.name}}</h1>
         <ul>
 <li ng-repeat="canopy in data.canopies | filter: canopyFilter | orderBy:sortkey">
       <a href='#/canopy-detail/{{canopy.id}}'>

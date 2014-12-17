@@ -63,6 +63,18 @@ table {
     color: #000000;
 }
 
+.canopy-list-showdetails {
+	font-family: Cabin;
+	font-size: 28px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 28px;
+    color: #000000;
+    float: right;
+}
+
+
 h1 {
 	font-family: Cabin;
 	font-size: 23px;

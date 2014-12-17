@@ -473,7 +473,7 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "260",
         "minsize": "135",
-        "url": "http://www.performancedesigns.com/silhouette.asp"
+        "url": "http://www.performancedesigns.com/silhouette.aspx"
       },
       {
         "id": "86B73616-BABF-4D88-9184-ECD1C5657293",
@@ -486,7 +486,7 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "260",
         "minsize": "107",
-        "url": "http://www.performancedesigns.com/pulse.asp",
+        "url": "http://www.performancedesigns.com/pulse.aspx",
         "youtube": [
             {   "title": "PD Pulse promo",
                 "id": "lWM-r67r-9Y" }
@@ -625,7 +625,7 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "253",
         "minsize": "126",
-        "url": "http://www.performancedesigns.com/lightning.asp"
+        "url": "http://www.performancedesigns.com/lightning.aspx"
       },
       {
         "id": "A982E92C-85D9-480B-98CE-A2F2BF80380C",
@@ -717,7 +717,7 @@
         "manufacturerid": "E1DA167E-6512-401E-9033-8621884D2C67",
         "maxsize": "150",
         "minsize": "97",
-        "url": "http://www.paratec.de/en/products-parachutes/main-canopies/50/"
+        "url": "http://www.paratec.de/en/products-parachutes/main-canopies/50-2/"
       },
       {
         "id": "FC044FAE-FD5C-45A2-8740-9CE8783C76FA",
@@ -726,7 +726,11 @@
         "cells": "9",
         "commontype": "0",
         "manufacturerid": "E1DA167E-6512-401E-9033-8621884D2C67",
-        "url": "http://www.paratec.de/produkte-fallschirme/hauptschirme/element/"
+        "url": "http://www.paratec.de/produkte-fallschirme/hauptschirme/nrg/",
+        "youtube": [
+            {   "title": "NRG Opening",
+                "id": "2S9Hwnk-qI4" }
+        ]
       },
       {
         "id": "86593DB8-9894-4866-A580-E7A35D53D600",
@@ -1240,7 +1244,7 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "120",
         "minsize": "75",
-        "url": "http://www.performancedesigns.com/velocity.asp",
+        "url": "http://www.performancedesigns.com/velocity.aspx",
         "youtube": [
             {   "title": "How to fly and and Velocity 103",
                 "id": "3E7EYnOOTL0" }
@@ -1268,10 +1272,14 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "remarks": "Not freely available",
         "remarks_nl": "Niet vrij beschikbaar",
-        "url": "http://www.performancedesigns.com/peregrine.asp",
+        "url": "http://www.performancedesigns.com/peregrine.aspx",
         "youtube": [
             {   "title": "PD Peregrine promo",
-                "id": "Tj3U5QJbaAc" }
+                "id": "Tj3U5QJbaAc" },
+            {   "title": "Distance swoop Peregrine 61",
+                "id": "ewQdizH4oaM" },
+            {   "title": "Peregrine XRW (met wingsuit)",
+                "id": "dPAcENXxtnw" }
         ]
       },
       {
