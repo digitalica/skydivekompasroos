@@ -456,7 +456,11 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "230",
         "minsize": "97",
-        "url": "http://www.performancedesigns.com/spectre.asp"
+        "url": "http://www.performancedesigns.com/spectre.asp",
+        "youtube": [
+            {   "title": "How to land Spectre 190",
+                "id": "nwALHH1Nhdk" }
+        ]
       },
       {
         "id": "40734BBD-6781-45F7-9A90-C73C89C9ECF2",
@@ -482,7 +486,12 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "260",
         "minsize": "107",
-        "url": "http://www.performancedesigns.com/pulse.asp"
+        "url": "http://www.performancedesigns.com/pulse.asp",
+        "youtube": [
+            {   "title": "PD Pulse promo",
+                "id": "lWM-r67r-9Y" }
+        ]
+
       },
       {
         "id": "8544A47F-DF6D-4B07-A0D9-FF85800E8BB1",
@@ -1231,7 +1240,11 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "maxsize": "120",
         "minsize": "75",
-        "url": "http://www.performancedesigns.com/velocity.asp"
+        "url": "http://www.performancedesigns.com/velocity.asp",
+        "youtube": [
+            {   "title": "How to fly and and Velocity 103",
+                "id": "3E7EYnOOTL0" }
+        ]
       },
       {
         "id": "EA08A05D-B79A-4687-AED8-AFB272287ADA",
@@ -1255,7 +1268,11 @@
         "manufacturerid": "541E8673-69E0-458A-8633-A3698311FD4B",
         "remarks": "Not freely available",
         "remarks_nl": "Niet vrij beschikbaar",
-        "url": "http://www.performancedesigns.com/peregrine.asp"
+        "url": "http://www.performancedesigns.com/peregrine.asp",
+        "youtube": [
+            {   "title": "PD Peregrine promo",
+                "id": "Tj3U5QJbaAc" }
+        ]
       },
       {
         "id": "F566B784-F61C-49A6-89A1-BEFF497487D2",
