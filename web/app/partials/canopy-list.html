@@ -58,7 +58,7 @@ Zoek: <input type="text" ng-model="search.name">
       <a href='#/canopy-detail/{{canopy.id}}'>
         <div ng-if="order!='sort_category'" class='canopy-list-category'>{{canopy.category}}</div>
         <div class='canopy-list-detail' ng-switch="order">
-            <div>{{canopy.name}}</div>
+            <div>{{canopy.name}} <i ng-show='discontinued(canopy)' class="fa fa-chain-broken"></i> </div>
             <div ng-switch-when="sort_category">{{canopy.manufacturer.name}}</div>
             <div ng-switch-when="sort_name">{{canopy.manufacturer.name}}</div>
             <div ng-switch-when="sort_manufacturer">{{canopy.cells}} Cellen,

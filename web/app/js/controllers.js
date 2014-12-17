@@ -21,6 +21,15 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
     $scope.order = 'sort_category';
     $scope.filter = 'filt_close';
     
+    
+    $scope.discontinued=function(canopy) {
+        if (!canopy.lastyearofproduction) {
+            return false; // we don't know...
+        } else {
+            return true; // set, so must be discontinued
+        }
+    }
+    
     // sortkey geeft de juiste sortering terug, afhankelijk van de gekozen volgorder
     $scope.sortkey = function(canopy) {
         var $result = canopy.name;
@@ -103,6 +112,12 @@ kompasroosControllers.controller('CanopyDetailController', ['$scope', '$routePar
     };
 
     
-
+    $scope.discontinued=function(canopy) {
+        if (!canopy.lastyearofproduction) {
+            return false; // we don't know...
+        } else {
+            return true; // set, so must be discontinued
+        }
+    }
     
   }]);

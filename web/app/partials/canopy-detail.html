@@ -2,7 +2,7 @@
       <br>
         <div class='canopy-detail-category'>{{canopy.category}}</div>
         <div class='canopy-detail-detail'>
-            <div ng-show="canopy.name">Name: {{canopy.name}}</div>
+            <div ng-show="canopy.name">Name: {{canopy.name}} <i ng-show='discontinued(canopy)' class="fa fa-chain-broken"></i></div>
             <div ng-show="canopy.cells">Cells: {{canopy.cells}}</div>
             <div ng-show="canopy.firstyearofproduction">First year of production: {{canopy.firstyearofproduction}}</div>
             <div ng-show="canopy.lastyearofproduction">Last year of production: {{canopy.lastyearofproduction}}</div>
@@ -22,7 +22,7 @@
       <a href='#/canopy-detail/{{canopy.id}}'>
         <div ng-if="order!='sort_category'" class='canopy-list-category'>{{canopy.category}}</div>
         <div class='canopy-list-detail' >
-            <div>{{canopy.name}}</div>
+            <div>{{canopy.name}} <i ng-show='discontinued(canopy)' class="fa fa-chain-broken"></i></div>
             <div >{{canopy.cells}} Cellen,
             <span>{{canopy.minsize}} tot {{canopy.maxsize}} sqft.</span>
             </div>
