@@ -15,3 +15,16 @@
         <div ng-bind-html="movie.id | iframeyoutube"></div>
         </div>
 
+        <ul>
+<li ng-repeat="canopy in data.canopies | filter: canopyFilter">
+      <a href='#/canopy-detail/{{canopy.id}}'>
+        <div ng-if="order!='sort_category'" class='canopy-list-category'>{{canopy.category}}</div>
+        <div class='canopy-list-detail' ng-switch="order">
+            <div>{{canopy.name}}</div>
+            <div >{{canopy.cells}} Cellen,
+            <span>{{canopy.minsize}} tot {{canopy.maxsize}} sqft.</span>
+            </div>
+        </div>
+    </a>
+  </li>
+        </ul>

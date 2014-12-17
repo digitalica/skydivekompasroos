@@ -85,5 +85,24 @@ kompasroosControllers.controller('CanopyDetailController', ['$scope', '$routePar
         
     }); 
 
+
+    // sortkey geeft de juiste sortering terug: op cat en dan naam
+    $scope.sortkey = function(canopy) {
+        return $result = String(canopy.category) + canopy.manufacturer.name + canopy.name;
+    };
+
+    // canopyFilter geeft true of false, afhankelijk van of deze koepel getoond moet worden
+    $scope.canopyFilter = function(canopy) {
+        if (canopy.manufacturer !== $scope.canopy.manufacturer) {
+            return false;
+        }
+        if (canopy.id === $scope.canopy.id) {
+            return false;
+        }
+        return true;
+    };
+
+    
+
     
   }]);
