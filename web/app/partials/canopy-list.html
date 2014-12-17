@@ -1,5 +1,6 @@
 canopylist start
-<div>
+<div class=''>
+<div class='darkblue'>
 <div class='table'>
 <div class='tabrow'>
       Category:<br>
@@ -45,13 +46,13 @@ Zoek: <input type="text" ng-model="search.name">
 
 <br>
 <br>
-
+</div>    
 <ul ng-repeat='canopy in data.canopies | filter:canopyFilter | filter:search | orderBy:sortkey'>
   <li ng-if="order=='sort_manufacturer' && canopy.manufacturer.name!=canopy_prev.manufacturer.name">
-      {{canopy.manufacturer.name}}
+      <h1>{{canopy.manufacturer.name}}</h1>
   </li>
   <li ng-if="order=='sort_category' && canopy.category!=canopy_prev.category">
-      Category: {{canopy.category}}
+      <h1>Category: {{canopy.category}}</h1>
   </li>
   <li>
       <a href='#/canopy-detail/{{canopy.id}}'>
