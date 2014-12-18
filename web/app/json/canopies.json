@@ -1059,7 +1059,11 @@
         "minsize": "89",
         "planform": "21.6",
         "planformcells": "8",
-        "url": "http://www.nzaerosports.com/canopies/icarus-crossfire"
+        "url": "http://www.nzaerosports.com/canopies/icarus-crossfire",
+        "youtube": [
+            {   "title": "7 minutes packing crossfire 2 99",
+                "id": "Yo5us-fTU34" }
+        ]
       },
       {
         "id": "E761C654-5896-4903-8929-581C229EE0C3",
@@ -1395,9 +1399,27 @@
         "commontype": "0",
         "firstyearofproduction": "2013",
         "manufacturerid": "4A42F850-E739-44D4-9A69-F66AD3247B1F",
-        "remarks": "Will become available in 2013",
-        "remarks_nl": "Zal in 2013 beschikbaar komen",
-        "url": "http://www.nzaerosports.com/gallery/jpx-petra"
+        "url": "http://www.nzaerosports.com/gallery/jpx-petra",
+        "youtube": [
+            {   "title": "Petra 69 Project: new canopy flown by Nick Batsch",
+                "id": "n_oMXHn427w" },
+            {   "title": "Tech Toys 360 preview: Petra Parachute",
+                "id": "BetKPFN_VUY" }
+        ]
+      },
+      {
+        "id": "de98ce5e-513e-454a-bfdb-fc8ff93ee92e",
+        "name": "Leia",
+        "category": "",
+        "cells": "21",
+        "commontype": "0",
+        "firstyearofproduction": "2014",
+        "manufacturerid": "4A42F850-E739-44D4-9A69-F66AD3247B1F",
+        "url": "http://www.nzaerosports.com/gallery/daedalus-leia",
+        "youtube": [
+            {   "title": "Petra Project Episode II: Leia",
+                "id": "zomcgbDLTPI" }
+        ]
       },
       {
         "id": "3193501C-9111-4782-B0EC-778CD6923E08",
