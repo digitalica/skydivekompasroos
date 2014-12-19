@@ -146,9 +146,25 @@ pre {
 }
 
 /*
- * Some colors
+ * canopy availability categories
  */
 
+.canopy-acceptable {
+    background-color: #77ff00;
+}
+
+
+.canopy-neededsizenotavailable {
+    background-color: #8800ff;
+}
+
+.canopy-category-too-high {
+    background-color: #ff0080;
+}
+
+/*
+ * other
+ */
 
 .canopy-list-category {
 	float: left;

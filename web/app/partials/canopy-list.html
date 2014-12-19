@@ -54,7 +54,7 @@ Zoek: <input type="text" ng-model="search.name">
   <li ng-if="order=='sort_category' && canopy.category!=canopy_prev.category">
       <h1>Category: {{canopy.categoryForDisplay}}</h1>
   </li>
-  <li>
+  <li ng-class="{1: 'canopy-acceptable', 2: 'canopy-neededsizenotavailable', 3: 'canopy-category-too-high'}[canopyAcceptability(canopy)]">
       <a href='#/canopy-detail/{{canopy.id}}'>
         <div class='canopy-list-showdetails'><i class='fa fa-arrow-right'></i></div>
     </a>

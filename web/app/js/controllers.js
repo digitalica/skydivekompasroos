@@ -4,9 +4,10 @@
 
 var kompasroosControllers = angular.module('kompasroosControllers', []);
 
-kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosData',
-  function($scope, KompasroosData) {
+kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosData', 'KompasroosCalculator',
+  function($scope, KompasroosData, KompasroosCalculator) {
 
+    $scope.calculator = KompasroosCalculator;
     $scope.api = KompasroosData;
     $scope.api.get(function(data) {
         $scope.data = data;
@@ -54,10 +55,10 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
                 if (canopy.commontype != 1) {
                     return false;
                 }
-                if (canopy.category < $scope.category-1) {
+                if (parseInt(canopy.category) < parseInt($scope.category-1)) {
                     return false;
                 }
-                if (canopy.category > $scope.category+1) {
+                if (parseInt(canopy.category) > parseInt($scope.category+1)) {
                     return false;
                 }
                 return true;
@@ -71,6 +72,11 @@ kompasroosControllers.controller('CanopyListController', ['$scope', 'KompasroosD
         }
     };
 
+
+    $scope.canopyAcceptability = function(canopy) {
+        var acceptability = $scope.calculator.acceptablility($scope.category, $scope.weight, canopy);
+        return acceptability;
+    }
     
   }]);
 

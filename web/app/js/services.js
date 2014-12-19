@@ -28,21 +28,21 @@ kompasroosServices.factory('KompasroosData', ['$resource', function($resource) {
                             var canopy = {
                       "id": org.id,
             "name": org.name,
-            "category": org.category,
-            "cells": org.cells,
+            "category": parseInt(org.category),
+            "cells": parseInt(org.cells),
             "commontype": org.commontype,
             "dropzoneid": org.dropzoneid,
             "firstyearofproduction": org.firstyearofproduction,
             "lastyearofproduction": org.lastyearofproduction,
             "manufacturerid": org.manufacturerid,
-            "maxsize": org.maxsize,
-            "minsize": org.minsize,
+            "maxsize": parseInt(org.maxsize),
+            "minsize": parseInt(org.minsize),
             "youtube": org.youtube,
             "url": org.url,
             
             // onbekende cat, wordt 6 in berekeningen
             "categoryForCalculations": org.category?org.category:6,
-            "categoryForDisplay": org.cagegory?org.category:"?",
+            "categoryForDisplay": org.category?org.category:"?",
             
             
             
@@ -76,11 +76,24 @@ kompasroosServices.factory('KompasroosData', ['$resource', function($resource) {
 kompasroosServices.factory('KompasroosCalculator',  function($resource) {
     var calculator = {};
     
+    /***
+     * real constants
+     */
     calculator.WEIGHT_FACTOR_KG_TO_LBS = 2.20462262185;
     
+    /***
+     * settings of categories 1-6
+     */
     calculator.MINIMUMTOTALJUMPS = [0, 0, 25, 100, 400, 700, 1000];
-    
     calculator.MINIMUMJUMPSLAST12MONTHS = [ 0, 0, 10, 25, 50, 100, 0];
+
+    /***
+     * kind of ENUM
+     */
+    calculator.ACCEPTABLE = 1;
+    calculator.NEEDEDSIZENOTAVAILABLE = 2;
+    calculator.CATEGORYTOOHIGH = 3;
+
 
 	/***
 	 * Convert a weight in kg to pounds. The result is rounded.
@@ -234,6 +247,27 @@ kompasroosServices.factory('KompasroosCalculator',  function($resource) {
 		var minArea = Math.max(minAreaBasedOnCategory, minAreaBasedOnExitWeight);
 		return minArea;
 	};
+    
+    
+    
+	/***
+	 * Determines if a canopy is acceptable for a given jumper
+	 * 
+	 * @param jumperCategory
+	 * @param exitWeightInKg
+	 * @return
+	 */
+	calculator.acceptablility = function(jumperCategory, exitWeightInKg, canopy) {
+		if (parseInt(jumperCategory) < parseInt(canopy.categoryForCalculations))
+			return this.CATEGORYTOOHIGH; // not acceptable
+		if (canopy.maxSize != "" && canopy.maxSize != null)
+			if (parseInt(canopy.maxSize) < parseInt(this.minArea) (jumperCategory, exitWeightInKg)) {
+				return this.NEEDEDSIZENOTAVAILABLE;
+            }
+		return this.ACCEPTABLE;
+	}
+
+    
     
     return calculator;
 });
