@@ -17,3 +17,5 @@ local.properties
 
 # temp files text editor
 *.*~
+
+node_modules
