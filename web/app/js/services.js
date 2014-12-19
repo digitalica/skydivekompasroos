@@ -82,7 +82,7 @@ kompasroosServices.factory('KompasroosCalculator',  function($resource) {
 	 * @return lbs
 	 */
     calculator.kgToLbs = function(kg) {
-        return Math.round(kg * WEIGHT_FACTOR_KG_TO_LBS);
+        return Math.round(kg * this.WEIGHT_FACTOR_KG_TO_LBS);
     };
 
 
@@ -220,10 +220,10 @@ kompasroosServices.factory('KompasroosCalculator',  function($resource) {
 	 */
 	calculator.minArea = function(jumperCategory, exitWeightInKg) {
 		var maxWingload = this.maxWingLoadBasedOnCategory(jumperCategory);
-		var minAreaBasedOnCategory = minAreaBasedOnCategory(jumperCategory);
+		var minAreaBasedOnCategory = this.minAreaBasedOnCategory(jumperCategory);
 		if (minAreaBasedOnCategory == 0) // means there is NO LIMIT
 			return minAreaBasedOnCategory;
-		var minAreaBasedOnExitWeight = Math.round(kgToLbs(exitWeightInKg) / maxWingload);
+		var minAreaBasedOnExitWeight = Math.round(this.kgToLbs(exitWeightInKg) / maxWingload);
 		var minArea = Math.max(minAreaBasedOnCategory, minAreaBasedOnExitWeight);
 		return minArea;
 	};
