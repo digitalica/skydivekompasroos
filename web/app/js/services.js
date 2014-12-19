@@ -38,7 +38,14 @@ kompasroosServices.factory('KompasroosData', ['$resource', function($resource) {
             "maxsize": org.maxsize,
             "minsize": org.minsize,
             "youtube": org.youtube,
-            "url": org.url
+            "url": org.url,
+            
+            // onbekende cat, wordt 6 in berekeningen
+            "categoryForCalculations": org.category?org.category:6,
+            "categoryForDisplay": org.cagegory?org.category:"?",
+            
+            
+            
                             }
                             canopy.manufacturer = kompasroosdata.manufacturersById[canopy.manufacturerid];
                             kompasroosdata.canopies.push(canopy);

@@ -52,14 +52,14 @@ Zoek: <input type="text" ng-model="search.name">
       <h1>{{canopy.manufacturer.name}}</h1>
   </li>
   <li ng-if="order=='sort_category' && canopy.category!=canopy_prev.category">
-      <h1>Category: {{canopy.category}}</h1>
+      <h1>Category: {{canopy.categoryForDisplay}}</h1>
   </li>
   <li>
       <a href='#/canopy-detail/{{canopy.id}}'>
         <div class='canopy-list-showdetails'><i class='fa fa-arrow-right'></i></div>
     </a>
 
-        <div ng-if="order!='sort_category'" class='canopy-list-category'>{{canopy.category}}</div>
+        <div ng-if="order!='sort_category'" class='canopy-list-category'>{{canopy.categoryForDisplay}}</div>
         <div class='canopy-list-detail' ng-switch="order">
             <div>{{canopy.name}} <i ng-show='discontinued(canopy)' class="fa fa-chain-broken"></i>
                 <span ng-show='canopy.url'><a ng-href='{{canopy.url}}' target='_blank'><i class='fa fa-external-link'>website</i></a></span>
