@@ -64,3 +64,169 @@ kompasroosServices.factory('KompasroosData', ['$resource', function($resource) {
     
     return api;
 }]);
+
+
+kompasroosServices.factory('KompasroosCalculator',  function($resource) {
+    var calculator = {};
+    
+    calculator.WEIGHT_FACTOR_KG_TO_LBS = 2.20462262185;
+    
+    calculator.MINIMUMTOTALJUMPS = [0, 0, 25, 100, 400, 700, 1000];
+    
+    calculator.MINIMUMJUMPSLAST12MONTHS = [ 0, 0, 10, 25, 50, 100, 0];
+
+	/***
+	 * Convert a weight in kg to pounds. The result is rounded.
+	 * 
+	 * @param kg
+	 * @return lbs
+	 */
+    calculator.kgToLbs = function(kg) {
+        return Math.round(kg * WEIGHT_FACTOR_KG_TO_LBS);
+    };
+
+
+	/** 
+	 * Return the winload based on area and kg
+	 * 
+	 * @param area
+	 * @param weightInKg
+	 * @return
+	 */
+	calculator.wingLoad = function(area, weightInKg) {
+		var weightInLbs = this.kgToLbs(weightInKg);
+		var wingload = weightInLbs / area;
+		return wingload;
+	};
+
+	/***
+	 * Calculate the jumper category based on the total jumps and jumps in last
+	 * month
+	 * 
+	 * @param totalJumps
+	 * @param jumpsLast12Months
+	 * @return
+	 */
+	calculator.jumperCategory = function(totalJumps, jumpsLast12Months) {
+		// TODO: below can be done in a simple loop
+		var categoryBasedOnTotalJumps = 0;
+		if (totalJumps < this.MINIMUMTOTALJUMPS[2])
+			categoryBasedOnTotalJumps = 1;
+		else if (totalJumps < this.MINIMUMTOTALJUMPS[3])
+			categoryBasedOnTotalJumps = 2;
+		else if (totalJumps < this.MINIMUMTOTALJUMPS[4])
+			categoryBasedOnTotalJumps = 3;
+		else if (totalJumps < this.MINIMUMTOTALJUMPS[5])
+			categoryBasedOnTotalJumps = 4;
+		else if (totalJumps < this.MINIMUMTOTALJUMPS[6])
+			categoryBasedOnTotalJumps = 5;
+		else
+			categoryBasedOnTotalJumps = 6;
+
+		var categoryBasedOnJumpsLast12Months = 0;
+		if (jumpsLast12Months < this.MINIMUMJUMPSLAST12MONTHS[2])
+			categoryBasedOnJumpsLast12Months = 1;
+		else if (jumpsLast12Months < this.MINIMUMJUMPSLAST12MONTHS[3])
+			categoryBasedOnJumpsLast12Months = 2;
+		else if (jumpsLast12Months < this.MINIMUMJUMPSLAST12MONTHS[4])
+			categoryBasedOnJumpsLast12Months = 3;
+		else if (jumpsLast12Months < this.MINIMUMJUMPSLAST12MONTHS[5])
+			categoryBasedOnJumpsLast12Months = 4;
+		else if (jumpsLast12Months < this.MINIMUMJUMPSLAST12MONTHS[6])
+			categoryBasedOnJumpsLast12Months = 5;
+		else
+			categoryBasedOnJumpsLast12Months = 6;
+
+		var jumperCategory;
+		if (categoryBasedOnTotalJumps == 6)
+			jumperCategory = 6; // if 1000 jumps, no recent exp needed.
+		else
+			jumperCategory = Math.min(categoryBasedOnTotalJumps,categoryBasedOnJumpsLast12Months);
+		return jumperCategory;
+	};
+
+	/***
+	 * Get the minimal area based on the category note: the special result 0
+	 * means there is NO limit
+	 * 
+	 * @param jumperCategory
+	 * @return
+	 */
+	calculator.minAreaBasedOnCategory = function(jumperCategory) {
+		var minAreaBasedOnCategory = 999; // SHOULD NEVER BE RETURNED
+
+		switch (jumperCategory) {
+		case 1:
+			minAreaBasedOnCategory = 170;
+			break;
+		case 2:
+			minAreaBasedOnCategory = 170;
+			break;
+		case 3:
+			minAreaBasedOnCategory = 150;
+			break;
+		case 4:
+			minAreaBasedOnCategory = 135;
+			break;
+		case 5:
+			minAreaBasedOnCategory = 120;
+			break;
+		case 6:
+			minAreaBasedOnCategory = 0; // NO LIMIT
+			break;
+		}
+		return minAreaBasedOnCategory;
+	}
+
+    /***
+	 * Get the max wing load based on the category
+	 * 
+	 * @param jumperCategory
+	 * @return
+	 */
+	calculator.maxWingLoadBasedOnCategory = function(jumperCategory) {
+		var maxWingload = 9999;
+
+		switch (jumperCategory) {
+		case 1:
+			maxWingload = 1.1;
+			break;
+		case 2:
+			maxWingload = 1.1;
+			break;
+		case 3:
+			maxWingload = 1.3;
+			break;
+		case 4:
+			maxWingload = 1.5;
+			break;
+		case 5:
+			maxWingload = 1.7;
+			break;
+		case 6:
+			// no limits
+			break;
+		}
+		return maxWingload;
+	};
+
+	/***
+	 * Get the minimal area of a canopy, from the category of the jumper and his
+	 * weight
+	 * 
+	 * @param jumperCategory
+	 * @param exitWeightInKg
+	 * @return
+	 */
+	calculator.minArea = function(jumperCategory, exitWeightInKg) {
+		var maxWingload = this.maxWingLoadBasedOnCategory(jumperCategory);
+		var minAreaBasedOnCategory = minAreaBasedOnCategory(jumperCategory);
+		if (minAreaBasedOnCategory == 0) // means there is NO LIMIT
+			return minAreaBasedOnCategory;
+		var minAreaBasedOnExitWeight = Math.round(kgToLbs(exitWeightInKg) / maxWingload);
+		var minArea = Math.max(minAreaBasedOnCategory, minAreaBasedOnExitWeight);
+		return minArea;
+	};
+    
+    return calculator;
+});
