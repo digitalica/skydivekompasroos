@@ -10,9 +10,9 @@ This Android app will no longer me maintainted, and be removed from
 the Play Store in the future.
 
 
-###################
+************
 What is Skydive Kompasroos
-###################
+************
 
 Skydive Kompasroos is an Android app to help you decide what canopies 
 you can jump, based on your experience as a skydiver and your weight.
