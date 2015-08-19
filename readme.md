@@ -1,4 +1,16 @@
 ###################
+This software is now obsolete
+###################
+
+In 2015, I replaced the android app by a website:
+
+http://www.skydivekompasroos.nl.
+
+This Android app will no longer me maintainted, and be removed from
+the Play Store in the future.
+
+
+###################
 What is Skydive Kompasroos
 ###################
 
